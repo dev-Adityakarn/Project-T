@@ -1,0 +1,297 @@
+[
+  {
+    "path": "/typing-test/numbers",
+    "key": "test-numbers",
+    "title": "Number Typing Test: Practice the Number Row and Keypad",
+    "description": "Test your number typing speed with random digits, prices, dates and codes. Ideal practice for data entry work, with your numeric WPM in 60 seconds.",
+    "h1": "Number typing test",
+    "lead": "Digits, prices, dates and reference codes for sixty seconds. The keys that quietly cost most typists ten words per minute.",
+    "tool": { "kind": "numbers", "durations": [30, 60], "duration": 60 },
+    "breadcrumbs": [{ "name": "Typing speed test", "path": "/typing-test" }, { "name": "Numbers" }],
+    "blocks": [
+      {
+        "h2": "Why numbers deserve their own test",
+        "p": [
+          "Ordinary typing tests use prose, and prose almost never contains digits. That means a typist can measure 80 WPM on words and still slow to a crawl when an invoice, a date or a product code appears. If your job involves spreadsheets, accounts, bookings or stock codes, numeric speed is the number that matters.",
+          "This test mixes bare digits with realistic patterns: amounts such as 1,250.75, dates such as 14/09/2026, phone-style groups and alphanumeric references. You get the number row workout plus the punctuation that always travels with it."
+        ]
+      },
+      {
+        "h2": "How your numeric WPM is calculated",
+        "p": [
+          "The formula is the same as every other test on KeyQuest: WPM = (correct characters / 5) / (seconds / 60), with five characters counted as one word. Digits, commas, dots and slashes all count as characters, so a run of long amounts scores just like long words.",
+          "Accuracy is ((keystrokes - errors) / keystrokes) x 100. Expect your accuracy to drop noticeably compared with word typing, especially on 4, 5, 7 and 0. That gap is exactly the thing worth training."
+        ]
+      },
+      {
+        "h2": "Five tips to type numbers faster",
+        "steps": [
+          { "h3": "Learn the number row by finger, not by eye", "p": "Left hand owns 1 to 5, right hand owns 6 to 0. Each digit belongs to the finger directly below it on the home row, so 4 is a left index reach and 7 is a right index reach." },
+          { "h3": "Use the numeric keypad for long data entry", "p": "If you type figures all day and your keyboard has a keypad, anchor your right middle finger on 5 and work outwards. It is far faster than the number row for pure digits." },
+          { "h3": "Group digits as you read them", "p": "Read 1250 as twelve-fifty rather than one-two-five-zero. Chunking numbers works exactly like chunking words." },
+          { "h3": "Drill the shift symbols too", "p": "Percentages, dollar and rupee signs, brackets and plus signs sit on the number row. Practise them with the same fingers that type the digit beneath." },
+          { "h3": "Never look down mid figure", "p": "Glancing at the keyboard loses your place in the data, which causes transposition errors — the most expensive mistake in any numeric work." }
+        ]
+      },
+      {
+        "h2": "Build number speed into your routine",
+        "p": [
+          "Two minutes of number drills at the start of a practice session is enough to see steady improvement within a fortnight. Follow it with the punctuation test, because real numeric data is full of commas, dots, slashes and brackets.",
+          "Data entry candidates should also take the five minute test, since employers normally assess sustained accuracy rather than short bursts."
+        ]
+      }
+    ],
+    "faqs": [
+      { "q": "What is a good number typing speed?", "a": "For pure digits, 25 to 35 WPM on the number row is solid, and experienced data entry typists reach 50 WPM or more using the numeric keypad. Accuracy above 98% matters far more than speed with numbers." },
+      { "q": "Should I use the number row or the keypad?", "a": "Use the keypad for continuous figures such as invoices and spreadsheets. Use the number row when digits are mixed into text, because moving your hand away from the home row costs more than the keypad saves." },
+      { "q": "Why do I keep transposing digits?", "a": "Transposition usually comes from typing faster than you are reading. Slow the reading pace, group digits in pairs, and keep your eyes on the source rather than the keyboard." },
+      { "q": "Does this test include symbols?", "a": "Yes. Amounts, dates and codes bring commas, dots, slashes and currency signs with them, which is how numbers appear in real documents." },
+      { "q": "Is numeric typing useful for exams?", "a": "Very. Many clerical and government typing exams include figures inside the passage, and candidates lose most of their accuracy marks on exactly those lines." }
+    ],
+    "related": [
+      { "to": "/typing-test/punctuation", "label": "Punctuation typing test" },
+      { "to": "/typing-test/5-minute", "label": "5 minute typing test" },
+      { "to": "/typing-lessons", "label": "Touch typing lessons" },
+      { "to": "/blog/how-to-improve-typing-accuracy", "label": "Read: how to improve typing accuracy" }
+    ]
+  },
+  {
+    "path": "/typing-test/punctuation",
+    "key": "test-punctuation",
+    "title": "Punctuation Typing Test: Commas, Quotes and Symbols",
+    "description": "Practise the keys most tests ignore: commas, colons, quotes, brackets, dashes and apostrophes. Take the punctuation typing test and fix your weak keys.",
+    "h1": "Punctuation typing test",
+    "lead": "Real sentences loaded with commas, semicolons, quotes, brackets and dashes — the keys that break an otherwise smooth rhythm.",
+    "tool": { "kind": "punctuation", "durations": [30, 60], "duration": 60 },
+    "breadcrumbs": [{ "name": "Typing speed test", "path": "/typing-test" }, { "name": "Punctuation" }],
+    "blocks": [
+      {
+        "h2": "The hidden cost of punctuation",
+        "p": [
+          "Most word lists used in typing tests contain nothing but lowercase letters. Real writing does not work that way: it is full of commas, full stops, apostrophes, quotation marks, colons, brackets and dashes, and almost all of them require the weakest fingers or a shift combination.",
+          "This test deliberately overloads those keys inside grammatical sentences, so you practise the transition into and out of a symbol rather than the symbol in isolation. If your speed falls apart when writing emails or reports despite a good test score, this is the drill you need."
+        ]
+      },
+      {
+        "h2": "How the score is worked out",
+        "p": [
+          "Scoring uses the standard method: WPM = (correct characters / 5) / (seconds / 60), where one word equals five characters including spaces and symbols. Accuracy = ((keystrokes - errors) / keystrokes) x 100, and a shift combination counts as the character it produces.",
+          "A five to ten word drop compared with your plain prose score is completely normal at first. Closing that gap is the fastest route to a higher real-world typing speed."
+        ]
+      },
+      {
+        "h2": "Five tips to type punctuation faster",
+        "steps": [
+          { "h3": "Use the opposite shift", "p": "For a capital or symbol on the right side of the keyboard, hold the left shift, and vice versa. Same-hand shifting is the most common cause of punctuation errors." },
+          { "h3": "Give the pinkies their job back", "p": "Apostrophe, quotation mark, colon, semicolon and enter all belong to the right pinky. Letting the ring finger take over twists the hand and slows everything down." },
+          { "h3": "Practise the pairs", "p": "Brackets, quotes and parentheses come in twos. Drill them as a unit — open, content, close — so the closing symbol becomes automatic." },
+          { "h3": "Do not pause before a symbol", "p": "Hesitating before punctuation becomes a habit that costs a tenth of a second hundreds of times a day. Keep the rhythm through the symbol." },
+          { "h3": "Finish with a code drill", "p": "The code typing test is punctuation on hard mode, with braces, angle brackets and semicolons everywhere. A few minutes there makes ordinary punctuation feel easy." }
+        ]
+      },
+      {
+        "h2": "Who should take this test",
+        "p": [
+          "Writers, students, support agents, lawyers and anyone who types prose for a living will see the most immediate benefit, because punctuation density in professional writing is far higher than in test passages.",
+          "Pair this page with the number test for a complete symbol workout, and then confirm progress on the standard typing speed test."
+        ]
+      }
+    ],
+    "faqs": [
+      { "q": "Why is my speed so much lower with punctuation?", "a": "Punctuation uses the weakest fingers and often needs a shift press, so each symbol is effectively two keystrokes. A drop of five to ten WPM is normal until the movements become automatic." },
+      { "q": "Which hand should press shift?", "a": "Always the hand opposite to the key you are shifting. Left shift for right-side characters, right shift for left-side characters. It keeps both hands balanced and avoids wrist twisting." },
+      { "q": "Do apostrophes and quotes use the same key?", "a": "On a standard layout, yes: the apostrophe key produces a double quote with shift, and both are handled by the right pinky." },
+      { "q": "Should beginners take this test?", "a": "Finish the home row and top row lessons first. Punctuation is lesson nine onwards for a reason, and drilling it too early reinforces awkward finger choices." },
+      { "q": "Does punctuation accuracy really matter?", "a": "Yes, more than most people think. In professional writing an incorrect symbol usually survives spellcheck, so punctuation errors are the ones that reach the reader." }
+    ],
+    "related": [
+      { "to": "/typing-test/code", "label": "Code typing test" },
+      { "to": "/typing-test/numbers", "label": "Number typing test" },
+      { "to": "/typing-practice", "label": "Untimed typing practice" },
+      { "to": "/games/code-typer", "label": "Play Code Typer" }
+    ]
+  },
+  {
+    "path": "/typing-test/code",
+    "key": "test-code",
+    "title": "Code Typing Test: Practice Typing Real JavaScript Code",
+    "description": "A typing test for developers using real JavaScript and Python snippets full of brackets, quotes and semicolons. Measure your true coding typing speed.",
+    "h1": "Code typing test for developers",
+    "lead": "Real snippets, real indentation, real symbol density. Find out how fast you actually type the characters you use at work.",
+    "tool": { "kind": "code", "duration": null },
+    "breadcrumbs": [{ "name": "Typing speed test", "path": "/typing-test" }, { "name": "Code" }],
+    "blocks": [
+      {
+        "h2": "Why developers need a different test",
+        "p": [
+          "Prose and code are different physical tasks. Code is around 20% to 30% symbols: braces, parentheses, angle brackets, quotes, semicolons, arrows, underscores and operators, plus constant use of shift and enter. A developer who types 90 WPM of English can easily drop under 50 WPM on a function body.",
+          "This test uses genuine JavaScript, JSX and Python snippets, with indentation handled for you after each newline so you practise the characters rather than fighting whitespace. The drill ends when the snippet is complete, so you can focus on clean, fluent typing."
+        ]
+      },
+      {
+        "h2": "How coding WPM is calculated",
+        "p": [
+          "KeyQuest uses the same universal formula so the number is comparable to your prose score: WPM = (correct characters / 5) / (seconds / 60). Every brace, bracket and space counts as a character, and auto-indentation characters are not charged to you.",
+          "Accuracy is ((keystrokes - errors) / keystrokes) x 100. In code, accuracy is worth more than speed: a missing bracket is a broken build, not a typo a reader can forgive."
+        ]
+      },
+      {
+        "h2": "Five tips to type code faster",
+        "steps": [
+          { "h3": "Memorise the symbol fingerings", "p": "Braces, brackets and the pipe all belong to the right pinky with shift. Underscore is a right pinky reach with the left shift held. Guessing these is what makes code typing feel clumsy." },
+          { "h3": "Type the closing pair immediately", "p": "Write the opening and closing symbol as one movement, then move the caret inside. It eliminates the most common class of syntax error." },
+          { "h3": "Drill your language's hot keys", "p": "In JavaScript that is arrow functions, template literals and backticks. In Python it is colons and consistent four-space indentation. Practise the characters you use hundreds of times a day." },
+          { "h3": "Keep your editor shortcuts separate", "p": "Autocomplete is a productivity tool, not a typing skill. Practise raw typing here so that you are never blocked when autocomplete is unavailable, such as in a terminal or an interview." },
+          { "h3": "Alternate code and prose practice", "p": "Code trains symbols and prose trains rhythm. Doing both keeps your overall speed balanced rather than lopsided." }
+        ]
+      },
+      {
+        "h2": "Use it as interview preparation",
+        "p": [
+          "Live coding interviews and pair programming sessions put your typing under observation. Fluent, quiet, accurate typing frees your attention for the problem instead of the keyboard, and it makes you look far more comfortable on a shared screen.",
+          "Combine this test with the Code Typer game, which scores longer snippets across three difficulty levels, and with the punctuation test for symbol conditioning."
+        ]
+      }
+    ],
+    "faqs": [
+      { "q": "What is a good typing speed for a programmer?", "a": "Around 50 to 60 WPM on code is comfortable and already faster than most developers. Raw speed matters less than accuracy and knowing symbol positions without looking." },
+      { "q": "Which languages are included?", "a": "JavaScript, JSX and Python snippets across easy, medium and hard levels, chosen to cover the symbols and structures that appear most in everyday work." },
+      { "q": "How is indentation handled?", "a": "Press Enter and the leading whitespace of the next line is filled in automatically, so you type the code rather than the spaces and your accuracy is not punished by indentation." },
+      { "q": "Does typing speed make me a better developer?", "a": "No, but slow or inaccurate typing is friction. Removing it keeps your attention on design and debugging rather than on finding the next bracket." },
+      { "q": "Can I practise with my own snippets?", "a": "Administrators can add custom passages, including code, through the KeyQuest admin panel, and those passages then appear in the practice pool." }
+    ],
+    "related": [
+      { "to": "/games/code-typer", "label": "Play the Code Typer game" },
+      { "to": "/typing-test/punctuation", "label": "Punctuation typing test" },
+      { "to": "/typing-test", "label": "Standard typing speed test" },
+      { "to": "/blog/what-is-a-good-wpm-score", "label": "Read: what is a good WPM score" }
+    ]
+  },
+  {
+    "path": "/hindi-typing-test",
+    "key": "hindi-typing-test",
+    "title": "Hindi Typing Test Online: Devanagari WPM Practice",
+    "description": "Free Hindi typing test in Devanagari script with real sentences. Check your Hindi typing speed and accuracy and prepare for CPCT and exam typing.",
+    "h1": "Hindi typing test in Devanagari",
+    "lead": "Type real Hindi sentences and get your WPM and accuracy instantly. Works with Mangal, Remington or any Devanagari input method.",
+    "lang": "hi",
+    "tool": {
+      "kind": "hindi",
+      "durations": [60, 300],
+      "duration": 60,
+      "texts": [
+        "भारत एक विशाल देश है जहाँ अनेक भाषाएँ बोली जाती हैं और हर भाषा की अपनी सुंदरता है।",
+        "कंप्यूटर पर तेज टाइपिंग सीखने के लिए रोज अभ्यास करना सबसे जरूरी बात है।",
+        "सुबह जल्दी उठकर पढ़ाई करने से मन शांत रहता है और याद भी अच्छा होता है।",
+        "परिश्रम ही सफलता की कुंजी है, इसलिए हमें कभी हार नहीं माननी चाहिए।",
+        "हिंदी टाइपिंग परीक्षा में शुद्धता और गति दोनों का समान महत्व होता है।",
+        "अच्छी पुस्तकें हमारी सबसे सच्ची मित्र होती हैं जो जीवन भर साथ देती हैं।",
+        "सरकारी नौकरी की तैयारी करते समय समय का सही प्रबंधन करना बहुत आवश्यक है।",
+        "गाँव का जीवन सरल होता है, वहाँ हवा स्वच्छ और लोग सहज होते हैं।"
+      ]
+    },
+    "breadcrumbs": [{ "name": "Hindi typing test" }],
+    "blocks": [
+      {
+        "h2": "What you need before you start",
+        "p": [
+          "Hindi typing requires a Devanagari input method on your computer. On Windows, add the Hindi language and choose either the Mangal Inscript keyboard, used by most government exams, or the Remington GAIL layout, still required by some state exams. On macOS and Linux, enable the Devanagari input source. Once your input method is switched on, click into the passage and type normally.",
+          "The sentences here are everyday Hindi, not technical text, so you practise the conjunct characters and matras that appear in real passages: क्ष, त्र, ज्ञ, श्र and the full set of vowel signs."
+        ]
+      },
+      {
+        "h2": "How Hindi WPM and accuracy are calculated",
+        "p": [
+          "KeyQuest counts characters, not keystrokes-per-glyph, so the formula stays the same as the English test: WPM = (correct characters / 5) / (seconds / 60). Because Devanagari combines consonants with matras into single display characters, your keystroke count is usually higher than the character count, and a Hindi WPM figure is therefore typically lower than an English one.",
+          "Accuracy is ((keystrokes - errors) / keystrokes) x 100. In Hindi exams accuracy is weighted heavily, and a matra in the wrong position is counted as a full mistake, so aim for control before speed."
+        ]
+      },
+      {
+        "h2": "Five tips to type Hindi faster",
+        "steps": [
+          { "h3": "Pick one layout and stay with it", "p": "Inscript and Remington place characters completely differently. Switching between them mid preparation is the most common reason candidates stall." },
+          { "h3": "Learn the matra positions as pairs", "p": "The i-matra is typed before the consonant on Inscript even though it appears after it. Drill those ordering rules until they stop surprising you." },
+          { "h3": "Drill conjuncts separately", "p": "क्ष, त्र, ज्ञ and श्र need the halant sequence. Ten minutes on conjuncts alone removes a large share of exam errors." },
+          { "h3": "Read the whole phrase first", "p": "Hindi words are longer on screen than in keystrokes. Reading a full phrase before typing keeps your rhythm even." },
+          { "h3": "Practise at exam length", "p": "If your exam is ten minutes, practise five to ten minute passages. One minute bursts will not prepare you for a CPCT style paper." }
+        ]
+      },
+      {
+        "h2": "Preparing for Hindi typing exams",
+        "p": [
+          "CPCT, several SSC posts and many state clerical exams include a Hindi typing section with a required speed, often around 30 words per minute in Devanagari, and a strict error limit. Practise with the longer five minute duration and check your accuracy against the limit in your official notification.",
+          "Keep an English session in your weekly routine as well, since most exams test both, and the government exam typing page explains the common scoring rules in detail."
+        ]
+      }
+    ],
+    "faqs": [
+      { "q": "Which Hindi keyboard layout should I use?", "a": "Use Mangal Inscript unless your exam notification specifically requires Remington GAIL. Inscript is the default on Windows and is accepted by most national exams, including CPCT." },
+      { "q": "What is a good Hindi typing speed?", "a": "Around 25 to 30 WPM in Devanagari is considered a good working speed, and most government exams set their requirement near 30 WPM with a low error limit." },
+      { "q": "Why is my Hindi speed lower than my English speed?", "a": "Devanagari needs more keystrokes per visible character because of matras and conjuncts. A Hindi WPM figure of 30 often represents the same physical effort as 50 WPM in English." },
+      { "q": "Do I need special software to practise here?", "a": "No software beyond your operating system's Hindi input method. Enable the Devanagari keyboard, switch to it, and the test records exactly what you type." },
+      { "q": "Can I take a longer Hindi test?", "a": "Yes. Choose the five minute duration to practise under exam conditions, where stamina and consistent accuracy matter more than a fast start." }
+    ],
+    "related": [
+      { "to": "/government-exam-typing-test", "label": "Government exam typing test" },
+      { "to": "/typing-test/5-minute", "label": "5 minute English typing test" },
+      { "to": "/typing-practice", "label": "Typing practice drills" },
+      { "to": "/blog/how-to-improve-typing-accuracy", "label": "Read: how to improve typing accuracy" }
+    ]
+  },
+  {
+    "path": "/government-exam-typing-test",
+    "key": "government-exam-typing-test",
+    "title": "Government Exam Typing Test: SSC, CPCT, RRB Practice",
+    "description": "Practise government exam typing with 5 and 10 minute passages, exam-style scoring and error limits for SSC CHSL, CPCT, RRB NTPC and state clerical posts.",
+    "h1": "Government exam typing test practice",
+    "lead": "Formal English passages at exam length, with the scoring rules and error limits used by SSC, CPCT, RRB and state clerical typing tests.",
+    "tool": { "kind": "paragraph", "durations": [300, 600], "duration": 300 },
+    "breadcrumbs": [{ "name": "Government exam typing test" }],
+    "blocks": [
+      {
+        "h2": "How exam typing tests are scored",
+        "p": [
+          "Most government typing tests follow the same structure: a fixed passage, a fixed duration of five or ten minutes, a minimum speed in words per minute and a maximum permitted error percentage. Speed alone does not pass you. A candidate at 45 WPM with 12% errors usually fails where a candidate at 32 WPM with 3% errors passes.",
+          "Typical requirements are 35 WPM in English or 30 WPM in Hindi for many SSC CHSL and CPCT posts, with errors capped between 5% and 8%. Always confirm the figures in your own official notification, because they differ by exam, post and year."
+        ]
+      },
+      {
+        "h2": "The formula examiners use",
+        "p": [
+          "Gross speed is calculated exactly as on this page: WPM = (correct characters / 5) / (seconds / 60), with five keystrokes counted as one word. Many exams then derive net speed by subtracting one full word for every uncorrected mistake, so net WPM = gross WPM - (errors / minutes).",
+          "Accuracy here is reported as ((keystrokes - errors) / keystrokes) x 100 together with the raw error count, which lets you check yourself against either an accuracy percentage rule or a net speed rule."
+        ]
+      },
+      {
+        "h2": "Five tips for exam day typing",
+        "steps": [
+          { "h3": "Practise at the exam duration", "p": "If the paper is ten minutes, train with ten minute passages. Candidates who only practise short tests lose accuracy badly in the final third." },
+          { "h3": "Respect the error limit, not the speed limit", "p": "Type at the fastest pace that keeps you inside the error cap. A pass at the minimum speed with clean text beats a fast disqualification." },
+          { "h3": "Do not double back", "p": "Correct the current word only. Hunting for an earlier mistake wastes time and frequently introduces a second error." },
+          { "h3": "Get used to a strange keyboard", "p": "Exam centre keyboards are often stiff and unfamiliar. Practise occasionally on a different keyboard so the feel does not shock you." },
+          { "h3": "Mind the formal vocabulary", "p": "Exam passages use official language: administration, committee, accordingly, notification. Practise those long formal words, because they are where most errors occur." }
+        ]
+      },
+      {
+        "h2": "A four week preparation plan",
+        "p": [
+          "Week one: fifteen minutes a day of untimed practice plus the touch typing lessons to remove bad fingering. Week two: daily one minute tests for pace and one three minute test for stamina. Week three: switch to five minute passages and track your error percentage, not your speed. Week four: full length mock runs at the exact exam duration, same time of day, no breaks.",
+          "If your exam includes Hindi typing, run the Devanagari test alongside this one and keep both layouts warm."
+        ]
+      }
+    ],
+    "faqs": [
+      { "q": "What typing speed is required for SSC CHSL?", "a": "SSC CHSL typing generally requires about 35 words per minute in English or 30 words per minute in Hindi, measured over a ten minute passage. Check the current notification, since the figures and error rules are revised periodically." },
+      { "q": "How many mistakes are allowed in a government typing test?", "a": "Error limits are usually between 5% and 8% of total keystrokes, and some exams instead deduct a word per uncorrected error. The safest target in practice is under 3%." },
+      { "q": "Is backspace allowed in exam typing tests?", "a": "In most computer based tests backspace is allowed but costs time, and some exams disable it. Practise correcting only the word you are typing so that either rule suits you." },
+      { "q": "How long should I prepare for a typing exam?", "a": "Four to six weeks of daily fifteen minute practice takes a typical candidate from 25 WPM to a comfortable pass at 35 WPM with good accuracy." },
+      { "q": "Which is better to practise, five or ten minutes?", "a": "Practise both. Five minute runs build speed and are easy to repeat, while occasional ten minute runs build the endurance and concentration the real paper demands." }
+    ],
+    "related": [
+      { "to": "/hindi-typing-test", "label": "Hindi typing test" },
+      { "to": "/typing-test/5-minute", "label": "5 minute typing test" },
+      { "to": "/typing-lessons", "label": "Touch typing lessons" },
+      { "to": "/blog/average-typing-speed-by-age", "label": "Read: average typing speed by age" }
+    ]
+  }
+]

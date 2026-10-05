@@ -1,0 +1,36 @@
+{
+  "summary": "Iteration 2 focused on the 4 new features: per-difficulty leaderboards, Daily Challenge, Web Audio sound toggle, and 13 server-side achievements. Backend: 16/16 pytest cases pass covering GET /api/daily (anon + auth, deterministic), POST /api/results (difficulty validation, daily match/mismatch, achievements), /api/achievements/me, /api/leaderboard filtering, /api/daily/leaderboard, and regression on /auth/me, /results/me, /stats/me. Frontend: verified home-daily-banner (shows today's game + 'Resets in Xh Ym'), Games cards '3 levels' badge for all 10 games (spot-checked speed-test/sudden-death/code-typer), /daily page (daily-card, daily-game-title=Space Shooter, daily-difficulty=Hard, daily-countdown ticking, daily-play-btn href=/games/space-shooter?daily=1, logged-in daily-my-stats/daily-my-best/daily-my-attempts correctly populated after daily POST), daily game page (daily-mode-tag + difficulty-locked shown, picker hidden, back link 'Daily', board header 'Today's top players'), game intro difficulty-picker + difficulty-desc + localStorage kq_diff persists across reload, playing-difficulty badge shown while playing, result screen (result-difficulty 'MEDIUM', result-save-status 'Saved to your profile.', first-game badge visible), /leaderboard tabs (difficulty-all/easy/medium/hard present, Hard tab refetches rows), Navbar sound-toggle-btn default data-muted='false' then click sets data-muted='true' and localStorage kq_muted='1', persists across reload; nav-daily link present, /dashboard badges-section with 13 badge-* cards and badges-count 'X / 13', recent games rows show difficulty badges (Hard) on desktop. No console errors other than expected 401s from anonymous /api/auth/me and /api/results/me polls.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "CORS", "issue": "CORS_ORIGINS='*' combined with allow_credentials=True still violates CORS spec (carried over from iter 1). Bearer-token auth works regardless."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_new_features.py",
+    "/app/test_reports/pytest/pytest_new_features.xml"
+  ],
+  "action_items": [
+    "No functional fixes required. All new-feature acceptance criteria passed."
+  ],
+  "critical_code_review_comments": [
+    "server.py: /api/leaderboard silently ignores invalid difficulty values (anything not in DIFFICULTIES falls back to no-filter). Consider returning 400 for an explicit unknown difficulty to match /results behavior; minor DX issue.",
+    "server.py: daily_for() uses UTC date — this environment reports 2026-10-05; make sure production hosts also use UTC or document the time-zone contract on the frontend countdown.",
+    "server.py: unlock_achievements recomputes total/distinct via two extra DB round-trips per POST; fine for current scale but can be inlined into a single $facet aggregation if traffic grows.",
+    "server.py: Admin seed and login lockout unchanged — still correct (bcrypt $2b$, 5 fails / 15 min)."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_new_features.py (created)"
+  ],
+  "success_rate": {"backend": "100% (16/16)", "frontend": "100% of sampled flows"},
+  "test_credentials": "Admin: admin@keyquest.com / admin123. Ad-hoc users created during test: test_nf_*@keyquest.com (pytest), test_fe*_*@keyquest.com (playwright), test_fe3_2c0e5e48@keyquest.com (daily UI verification).",
+  "seed_data_creation": "Backend tests created ~6 fresh users and ~15 Result docs (speed-test easy/medium/hard, sudden-death, code-typer, a daily space-shooter result). Non-destructive.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All 4 new features (difficulty, daily, sound, achievements) work end-to-end. Server date in this env is 2026-10-05 and today's daily resolves to space-shooter / hard. For UI tests of result screen, note that result-save-status briefly shows 'Saving...' and transitions to 'Saved to your profile.' only after the POST completes — poll for 2–3s. Game duration selector for speed-test does NOT use data-testid='duration-15'; the game just defaults to 30s and auto-ends — type for the full 30s to reach result screen. Dashboard recent games container is data-testid='recent-results' (singular container, not per-row). Daily POST unlocks 'daily' achievement on first daily; mismatched game/difficulty with daily:true -> 400 'Result does not match today's challenge'. invalid difficulty -> 400 'Unknown difficulty'."
+}

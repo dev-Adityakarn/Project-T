@@ -1,0 +1,111 @@
+import "@/App.css";
+import { Suspense, lazy, useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { AuthProvider } from "@/context/AuthContext";
+import { Navbar } from "@/components/Navbar";
+import { SiteFooter } from "@/components/SiteFooter";
+import { CookieConsent } from "@/components/CookieConsent";
+import { AppSeo } from "@/components/AppSeo";
+import { loadAnalytics, trackPageview } from "@/lib/analytics";
+import Home from "@/pages/Home";
+
+const Games = lazy(() => import("@/pages/Games"));
+const GamePlay = lazy(() => import("@/pages/GamePlay"));
+const Leaderboard = lazy(() => import("@/pages/Leaderboard"));
+const Dashboard = lazy(() => import("@/pages/Dashboard"));
+const Daily = lazy(() => import("@/pages/Daily"));
+const AuthPage = lazy(() => import("@/pages/AuthPage"));
+const ContentPage = lazy(() => import("@/pages/ContentPage"));
+const Lessons = lazy(() => import("@/pages/Lessons"));
+const Blog = lazy(() => import("@/pages/Blog"));
+const BlogPost = lazy(() => import("@/pages/BlogPost"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
+const Admin = lazy(() => import("@/pages/Admin"));
+
+const CONTENT_ROUTES = [
+  "/typing-test",
+  "/typing-test/1-minute",
+  "/typing-test/3-minute",
+  "/typing-test/5-minute",
+  "/typing-test/numbers",
+  "/typing-test/punctuation",
+  "/typing-test/code",
+  "/typing-practice",
+  "/typing-practice/beginners",
+  "/hindi-typing-test",
+  "/government-exam-typing-test",
+  "/about",
+  "/contact",
+  "/privacy-policy",
+  "/terms",
+];
+
+const REDIRECTS = {
+  "/typing-speed-test": "/typing-test",
+  "/test": "/typing-test",
+  "/practice": "/typing-practice",
+  "/lessons": "/typing-lessons",
+  "/typing-tutor": "/typing-lessons",
+  "/typing-test/60-seconds": "/typing-test/1-minute",
+  "/privacy": "/privacy-policy",
+  "/terms-of-service": "/terms",
+  "/hindi-typing": "/hindi-typing-test",
+  "/blog/index": "/blog",
+};
+
+const Fallback = () => <div className="p-24 text-center text-sm text-muted-foreground" data-testid="route-loading">Loading…</div>;
+
+const RouteEffects = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    trackPageview(pathname, document.title);
+  }, [pathname]);
+  return null;
+};
+
+function App() {
+  useEffect(() => { loadAnalytics(); }, []);
+
+  return (
+    <ThemeProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <RouteEffects />
+          <AppSeo />
+          <div className="min-h-screen">
+            <Navbar />
+            <main>
+              <Suspense fallback={<Fallback />}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  {CONTENT_ROUTES.map((p) => <Route key={p} path={p} element={<ContentPage path={p} />} />)}
+                  <Route path="/typing-lessons" element={<Lessons />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/games" element={<Games />} />
+                  <Route path="/games/:id" element={<GamePlay />} />
+                  <Route path="/leaderboard" element={<Leaderboard />} />
+                  <Route path="/daily" element={<Daily />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/login" element={<AuthPage mode="login" />} />
+                  <Route path="/register" element={<AuthPage mode="register" />} />
+                  <Route path="/admin/*" element={<Admin />} />
+                  {Object.entries(REDIRECTS).map(([from, to]) => (
+                    <Route key={from} path={from} element={<Navigate to={to} replace />} />
+                  ))}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Suspense>
+            </main>
+            <SiteFooter />
+            <CookieConsent />
+          </div>
+        </BrowserRouter>
+      </AuthProvider>
+    </ThemeProvider>
+  );
+}
+
+export default App;

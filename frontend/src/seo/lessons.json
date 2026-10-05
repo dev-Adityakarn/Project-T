@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title": "Home row anchor: a s d f j k l ;",
+    "keys": "a s d f j k l ;",
+    "goal": "Find the home row without looking",
+    "text": "as ask lad fall jak all sad fad lass salad flask dial glad hall jail task flask dad lads sail falls askk all sad"
+  },
+  {
+    "id": 2,
+    "title": "Home row reaches: g and h",
+    "keys": "g h",
+    "goal": "Index finger reaches inward",
+    "text": "gas high gash flag hall half slash fish gaff hajj shall glad sigh ghost high hash flash galls hags laugh slight"
+  },
+  {
+    "id": 3,
+    "title": "Home row words and spacing",
+    "keys": "home row + space",
+    "goal": "Even rhythm with the thumb on space",
+    "text": "a lad has a flask and a glass of gas a hall falls a flag shall sail all day sad lads ask dad for salad and hash"
+  },
+  {
+    "id": 4,
+    "title": "Top row: e i r u",
+    "keys": "e i r u",
+    "goal": "Reach up and return to the anchor",
+    "text": "fire hire rule true dear idea rise user ride lure rare dire user fuel fire dues rule quiet eerie hurried easier"
+  },
+  {
+    "id": 5,
+    "title": "Top row: t y o p",
+    "keys": "t y o p",
+    "goal": "Outer top row control",
+    "text": "type topic story opt pot toy your pity type poetry output typist trophy prototype portrait property typically"
+  },
+  {
+    "id": 6,
+    "title": "Top row: q w and full words",
+    "keys": "q w",
+    "goal": "Weak finger reaches",
+    "text": "quit wait quiz wow queue quote weary quirk wisdom quietly wrapper question keyword wallpaper quickly waterfall"
+  },
+  {
+    "id": 7,
+    "title": "Bottom row: v b n m",
+    "keys": "v b n m",
+    "goal": "Downward reaches without wrist twist",
+    "text": "move bank name numb bomb vine mend brave number member nimble vibrant bemuse nomad environment membrane vanish"
+  },
+  {
+    "id": 8,
+    "title": "Bottom row: z x c and commas",
+    "keys": "z x c , .",
+    "goal": "Left hand bottom row plus basic punctuation",
+    "text": "zinc, exact, cycle, zebra, excel. cozy, extra, cactus, vaccine. zoom, maximize, exercise, crazy, complex, zone."
+  },
+  {
+    "id": 9,
+    "title": "Capitals and the opposite shift",
+    "keys": "Shift",
+    "goal": "Shift with the opposite hand",
+    "text": "Anna Lives In Paris. Daniel Reads Every Friday. KeyQuest Builds Speed. The Quick Brown Fox Jumps Over Lazy Dogs."
+  },
+  {
+    "id": 10,
+    "title": "Punctuation: apostrophes, quotes, colons",
+    "keys": "' \" : ; ?",
+    "goal": "Right pinky precision",
+    "text": "She said, \"it isn't ready\"; he asked: \"why not?\" Don't guess; check. It's fine, isn't it? \"Later,\" she replied."
+  },
+  {
+    "id": 11,
+    "title": "Numbers and the number row",
+    "keys": "1 2 3 4 5 6 7 8 9 0",
+    "goal": "Digits by finger, not by eye",
+    "text": "1 2 3 4 5 6 7 8 9 0 invoice 1250 on 14/09/2026 for 3 units at 75.40 each, order 8821, phone 98765 43210, room 7"
+  },
+  {
+    "id": 12,
+    "title": "Mixed sentences and symbols",
+    "keys": "everything",
+    "goal": "Full keyboard at a natural pace",
+    "text": "Send the 3 files (invoice, report & notes) to admin@keyquest.app by 09:30; if it's late, call +91 98765 43210."
+  }
+]

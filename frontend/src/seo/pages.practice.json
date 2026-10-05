@@ -1,0 +1,169 @@
+[
+  {
+    "path": "/typing-practice",
+    "key": "typing-practice",
+    "title": "Typing Practice Online: Daily Drills to Build Speed",
+    "description": "Free typing practice with endless word drills, no timer pressure and live feedback on every key. Practise ten minutes a day and watch your WPM climb.",
+    "h1": "Typing practice without the clock",
+    "lead": "An untimed drill that ends when you finish the passage, not when a timer fires. Perfect for grooving clean technique before you chase a score.",
+    "tool": { "kind": "words", "duration": null, "words": 60 },
+    "breadcrumbs": [{ "name": "Typing practice" }],
+    "blocks": [
+      {
+        "h2": "What this practice drill trains",
+        "p": [
+          "A timer changes how you type. It pushes you to rush, skip corrections and tense up, which is useful for measuring speed but terrible for building technique. This drill removes the clock: you get a fixed passage, and it finishes when the last character is typed.",
+          "Your elapsed time, WPM and accuracy are still shown at the end, so the session remains measurable. The difference is the goal. Here you are practising even rhythm, correct fingering and clean keystrokes, rather than squeezing out a personal best."
+        ]
+      },
+      {
+        "h2": "How WPM and accuracy are calculated in practice mode",
+        "p": [
+          "Because the drill is untimed, your own elapsed time becomes the denominator: WPM = (correct characters / 5) / (seconds / 60). Five characters, including spaces, count as one word, which is the same standard used on the timed tests.",
+          "Accuracy is keystroke based: accuracy = ((keystrokes - errors) / keystrokes) x 100. In practice mode accuracy is the number to watch. If you can hold 98% or better through a whole passage, you are ready to push the pace; if not, slow down until you can."
+        ]
+      },
+      {
+        "h2": "Five tips to type faster",
+        "steps": [
+          { "h3": "Practise little and often", "p": "Two ten minute sessions a day beat one ninety minute marathon. Muscle memory is built by repetition spread over time, not by volume in a single sitting." },
+          { "h3": "Say the word, type the word", "p": "Reading a whole short word before typing it trains chunking. Letter-by-letter typing has a hard ceiling around 50 WPM for most people." },
+          { "h3": "Slow down on your worst keys", "p": "When a passage includes a reach you keep missing, deliberately type that word at half speed three times. Repairing the pattern is faster than repeating the mistake." },
+          { "h3": "Keep your fingers curved", "p": "Flat fingers slap keys and overshoot. A gentle curve, with the fingertip landing on the key, is both quieter and noticeably faster." },
+          { "h3": "End sessions on a clean run", "p": "Finishing with a slow, 100% accurate passage leaves the correct pattern fresh. Ending on a messy sprint teaches your hands the wrong habit." }
+        ]
+      },
+      {
+        "h2": "A simple ten minute practice routine",
+        "p": [
+          "Start with two untimed passages here at a comfortable pace, focusing only on accuracy. Then take one 60 second typing test to see where your speed sits today. Finish with five minutes of a game that targets your weakness: Key Reflex for single-key accuracy, Falling Words for reading ahead, or Code Typer for symbols.",
+          "Keep the routine identical for two weeks. Consistency produces far better results than constantly switching practice methods."
+        ]
+      }
+    ],
+    "faqs": [
+      { "q": "How long does it take to learn to type fast?", "a": "Most people reach a comfortable 50 to 60 WPM within four to six weeks of practising ten to fifteen minutes a day. Reaching 80 WPM or more usually takes a few months of consistent work." },
+      { "q": "Is untimed practice better than timed tests?", "a": "They do different jobs. Untimed practice builds technique and accuracy; timed tests measure progress and train you to perform under pressure. A good routine uses both." },
+      { "q": "Should I look at the keyboard while practising?", "a": "No. Looking down feels faster at first but caps your long-term speed. If you cannot find a key, glance at the on-screen keyboard hint instead of your hands." },
+      { "q": "How do I stop plateauing around 50 WPM?", "a": "Plateaus usually mean you are typing letter by letter or using the wrong fingers for reaches. Drop your speed by 20%, fix the technique for a week, then build back up." },
+      { "q": "Does the drill save my results?", "a": "Signed-in users have practice results stored in their WPM history alongside tests and games, so the chart on your dashboard reflects every session." }
+    ],
+    "related": [
+      { "to": "/typing-practice/beginners", "label": "Typing practice for beginners" },
+      { "to": "/typing-lessons", "label": "Step-by-step touch typing lessons" },
+      { "to": "/typing-test", "label": "Measure yourself with a typing test" },
+      { "to": "/blog/touch-typing-guide-for-beginners", "label": "Read: touch typing guide for beginners" }
+    ]
+  },
+  {
+    "path": "/typing-practice/beginners",
+    "key": "practice-beginners",
+    "title": "Typing Practice for Beginners: Start From Home Row",
+    "description": "Beginner typing practice that starts on the home row with short, easy words. Learn correct finger placement without looking down and begin free today.",
+    "h1": "Typing practice for beginners",
+    "lead": "Short home row words, no timer and plenty of repetition. This is the first drill to use if you still look at the keyboard while you type.",
+    "tool": { "kind": "homerow", "duration": null, "words": 40 },
+    "breadcrumbs": [{ "name": "Typing practice", "path": "/typing-practice" }, { "name": "Beginners" }],
+    "blocks": [
+      {
+        "h2": "Start with your hands in the right place",
+        "p": [
+          "Put your left index finger on F and your right index finger on J. Most keyboards have a small bump on both keys so you can find them without looking. Your remaining fingers fall naturally onto A, S, D and K, L, semicolon, and both thumbs rest on the space bar.",
+          "That position is the home row, and it is the anchor for everything else. Every reach to the top or bottom row should begin and end here. The words in this drill are built almost entirely from home row letters, so you can practise the anchor before you practise reaching."
+        ]
+      },
+      {
+        "h2": "How your speed and accuracy are measured",
+        "p": [
+          "Even though this drill is untimed, the result still uses the same standard formulas so your progress is comparable with every other page on the site: WPM = (correct characters / 5) / (seconds / 60), where five characters including spaces count as one word.",
+          "Accuracy is ((keystrokes - errors) / keystrokes) x 100. Beginners should ignore WPM almost completely for the first two weeks. Aim for 97% accuracy at any speed; the speed arrives on its own once your fingers stop guessing."
+        ]
+      },
+      {
+        "h2": "Five tips to type faster as a beginner",
+        "steps": [
+          { "h3": "Cover your hands", "p": "If you cannot stop peeking, drape a cloth over your hands or type in a dim room. Two uncomfortable days will save you two years of hunt-and-peck habits." },
+          { "h3": "Learn one row at a time", "p": "Master the home row, then the top row, then the bottom row, then numbers and symbols. Trying to learn the whole keyboard at once slows everyone down." },
+          { "h3": "Use the correct pinky", "p": "Left pinky handles A, shift and tab. Right pinky handles semicolon, enter and the right shift. Pinkies feel weak at first and become reliable within a week." },
+          { "h3": "Type real words, not random letters", "p": "Words teach your hands common letter pairs such as th, er, in and on, which is where real speed comes from." },
+          { "h3": "Celebrate accuracy streaks", "p": "Set a target of three perfect passages in a row rather than a WPM number. It keeps motivation tied to the thing that actually matters early on." }
+        ]
+      },
+      {
+        "h2": "What to do after this drill",
+        "p": [
+          "Once home row words feel automatic, work through the touch typing lessons, which add one new key group per lesson with a short drill for each. After that, Key Reflex is the gentlest game to try: a single key lights up and you press it, which builds location memory without any reading load.",
+          "Take a one minute typing test at the end of each week. Seeing the number move is the best motivation there is."
+        ]
+      }
+    ],
+    "faqs": [
+      { "q": "What is the home row?", "a": "The home row is the middle letter row: A, S, D, F for the left hand and J, K, L, semicolon for the right hand. Your fingers rest there and return there after every reach." },
+      { "q": "How long should a beginner practise each day?", "a": "Ten to fifteen minutes a day is ideal. Beginners lose accuracy quickly once they tire, and short sessions keep the practice clean and the habit easy to maintain." },
+      { "q": "Is it too late to learn touch typing as an adult?", "a": "Not at all. Adults often learn faster than children because they understand the method. Expect two to three weeks to feel natural and six weeks to pass your old hunt-and-peck speed." },
+      { "q": "Should I learn numbers and symbols early?", "a": "Learn them after the three letter rows feel comfortable. Numbers and punctuation matter a lot for real work, which is why there are dedicated tests for both." },
+      { "q": "Why am I slower now that I use all ten fingers?", "a": "That dip is normal and temporary. Hunt-and-peck typists usually drop for a week or two before passing their old speed, because muscle memory is being rebuilt rather than patched." }
+    ],
+    "related": [
+      { "to": "/typing-lessons", "label": "Continue with touch typing lessons" },
+      { "to": "/typing-test/1-minute", "label": "Check your speed in 1 minute" },
+      { "to": "/games/key-reflex", "label": "Play Key Reflex to learn key positions" },
+      { "to": "/blog/touch-typing-guide-for-beginners", "label": "Read: touch typing guide for beginners" }
+    ]
+  },
+  {
+    "path": "/typing-lessons",
+    "key": "typing-lessons",
+    "title": "Touch Typing Lessons: Learn the Keyboard Step by Step",
+    "description": "Twelve free touch typing lessons covering home row, top row, bottom row, capitals, numbers and symbols in order. Finish any lesson in five minutes.",
+    "h1": "Touch typing lessons",
+    "lead": "Twelve short lessons that add one key group at a time, from the home row anchor to numbers, symbols and full sentences.",
+    "breadcrumbs": [{ "name": "Typing lessons" }],
+    "blocks": [
+      {
+        "h2": "How the lesson sequence works",
+        "p": [
+          "Each lesson introduces a small group of keys and drills them inside real words, because isolated letters do not teach the finger transitions that create speed. Lessons one to three cover the home row and its reaches. Lessons four to six add the top row, lessons seven and eight the bottom row, and the rest layer on capitals, punctuation, numbers and mixed sentences.",
+          "Finish a lesson when you can type it with 97% accuracy or better. Speed is not the target here; the target is a correct, repeatable movement for every key."
+        ]
+      },
+      {
+        "h2": "How lesson results are scored",
+        "p": [
+          "Lessons use the same measurement as the rest of the site. WPM = (correct characters / 5) / (seconds / 60), counting five characters including spaces as one word, and accuracy = ((keystrokes - errors) / keystrokes) x 100.",
+          "Because lesson texts are short and deliberately repetitive, your WPM will look lower than on a normal typing test. That is expected: new keys are slow keys. Watch accuracy instead, and move on only when the lesson feels boring."
+        ]
+      },
+      {
+        "h2": "Five tips to get the most from each lesson",
+        "steps": [
+          { "h3": "Repeat a lesson three times", "p": "The first run teaches the keys, the second builds the pattern and the third makes it stick. One pass through a lesson rarely changes anything." },
+          { "h3": "Watch the on-screen keyboard, never your hands", "p": "The highlighted key tells you where to go without breaking the no-looking rule. It is the single fastest way to build location memory." },
+          { "h3": "Keep both wrists neutral", "p": "If a reach makes you twist your wrist, you are using the wrong finger. Check the fingering rather than forcing the stretch." },
+          { "h3": "Mix lessons with a game", "p": "Five minutes of lesson work and five minutes of a game keeps focus high and still trains the same keys under pressure." },
+          { "h3": "Do not skip the symbol lessons", "p": "Punctuation and brackets are where most typists silently lose speed. The later lessons feel tedious and pay off every day." }
+        ]
+      },
+      {
+        "h2": "After you finish the course",
+        "p": [
+          "When all twelve lessons are comfortable, switch to timed tests and games as your main practice, and use the punctuation and number tests to keep the awkward keys sharp. Developers should finish with the code typing test, which is essentially a symbol endurance drill.",
+          "Take a five minute test once a week to track real progress, and keep a daily one minute test as a warm-up."
+        ]
+      }
+    ],
+    "faqs": [
+      { "q": "How many typing lessons are there?", "a": "Twelve, each taking about five minutes. They run from home row basics through to capitals, punctuation, numbers and full mixed sentences." },
+      { "q": "Do I need to do the lessons in order?", "a": "Yes, for best results. Each lesson assumes the keys from the previous ones, and skipping ahead usually produces gaps that show up later as persistent errors." },
+      { "q": "How long does it take to finish all the lessons?", "a": "Working for fifteen minutes a day, most learners finish the course in two to three weeks, including repeat runs of the harder lessons." },
+      { "q": "What accuracy should I reach before moving on?", "a": "97% or better on a full lesson run, at whatever speed feels controlled. Moving on earlier means practising mistakes." },
+      { "q": "Are the lessons suitable for children?", "a": "Yes. The texts are short and clean, with no distracting sound effects required, and the arcade games give younger learners a reason to come back." }
+    ],
+    "related": [
+      { "to": "/typing-practice/beginners", "label": "Beginner typing practice drill" },
+      { "to": "/typing-test/numbers", "label": "Practise the number row" },
+      { "to": "/typing-test/punctuation", "label": "Practise punctuation keys" },
+      { "to": "/blog/how-to-type-faster", "label": "Read: how to type faster" }
+    ]
+  }
+]

@@ -1,0 +1,36 @@
+import { Gauge, CloudRain, Skull, Rocket, Flag, HeartCrack, Zap, Shuffle, PartyPopper, Code } from "lucide-react";
+
+export const GAMES = [
+  { id: "speed-test", title: "Speed Test", tagline: "Classic timed WPM test", category: "Classic", icon: Gauge, color: "#22C55E",
+    description: "Type as many words as you can before the clock runs out. Pick 15, 30 or 60 seconds.",
+    howTo: ["Timer starts on your first keystroke", "Backspace fixes mistakes", "Score = net WPM x accuracy"] },
+  { id: "falling-words", title: "Falling Words", tagline: "Stop the word rain", category: "Arcade", icon: CloudRain, color: "#38BDF8",
+    description: "Words drop from the sky. Type them before they hit the ground. It gets faster every level.",
+    howTo: ["Type a falling word to clear it", "3 words hitting the floor = game over", "Longer words score more"] },
+  { id: "zombie-typing", title: "Zombie Typing", tagline: "Hold the line", category: "Arcade", icon: Skull, color: "#A3E635",
+    description: "A zombie horde shambles toward your base. Each zombie carries a word — type it to stop them.",
+    howTo: ["Type the word above a zombie", "Don't let 3 zombies reach your wall", "Waves speed up over time"] },
+  { id: "space-shooter", title: "Space Shooter", tagline: "Type to fire lasers", category: "Arcade", icon: Rocket, color: "#C084FC",
+    description: "Asteroids tagged with words hurtle toward your ship. Typing a word fires a laser at it.",
+    howTo: ["Type an asteroid's word to blast it", "Hull survives 3 impacts", "Combos boost your score"] },
+  { id: "type-racer", title: "Type Racer", tagline: "Beat the bots to the finish", category: "Classic", icon: Flag, color: "#F59E0B",
+    description: "Race three bot drivers by typing a full paragraph. Your car moves with every correct key.",
+    howTo: ["Wait for the 3-2-1 countdown", "Wrong keys stop your car", "Placement gives bonus points"] },
+  { id: "sudden-death", title: "Sudden Death", tagline: "One mistake and you're out", category: "Classic", icon: HeartCrack, color: "#EF4444",
+    description: "The ultimate accuracy challenge. Type as far as you can — a single wrong key ends the run.",
+    howTo: ["Every word typed = 10 points", "One typo = game over", "Slow and steady wins"] },
+  { id: "key-reflex", title: "Key Reflex", tagline: "Find the key, fast", category: "Arcade", icon: Zap, color: "#FACC15",
+    description: "A key lights up on the keyboard. Press it before the timer bar empties. The window keeps shrinking.",
+    howTo: ["Press the highlighted key", "Faster hits = more points", "3 misses = game over"] },
+  { id: "word-scramble", title: "Word Scramble", tagline: "Unscramble and type", category: "Classic", icon: Shuffle, color: "#2DD4BF",
+    description: "Letters are jumbled. Figure out the word and type it correctly. 60 seconds on the clock.",
+    howTo: ["Type the unscrambled word", "Skip if you're stuck", "Points = word length x 10"] },
+  { id: "balloon-pop", title: "Balloon Pop", tagline: "Pop letters before they fly", category: "Arcade", icon: PartyPopper, color: "#F472B6",
+    description: "Balloons with letters float upward. Press the matching key to pop them before they escape.",
+    howTo: ["Press a letter to pop that balloon", "5 escaped balloons = game over", "Keep combos going for bonus"] },
+  { id: "code-typer", title: "Code Typer", tagline: "Type real code snippets", category: "Classic", icon: Code, color: "#60A5FA",
+    description: "Practice symbols, brackets and indentation by typing real JavaScript and Python snippets.",
+    howTo: ["Enter for new lines (indent is automatic)", "Wrong keys don't advance", "Score = WPM x accuracy"] },
+];
+
+export const getGame = (id) => GAMES.find((g) => g.id === id);
