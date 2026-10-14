@@ -19,7 +19,8 @@ const readEnv = () => {
 };
 
 const env = { ...readEnv(), ...process.env };
-const SITE_URL = (env.REACT_APP_SITE_URL || "").replace(/\/$/, "");
+const PRODUCTION_ORIGIN = "https://typinger.in";
+const SITE_URL = (env.REACT_APP_SITE_URL || PRODUCTION_ORIGIN).replace(/\/$/, "");
 const GSC = env.REACT_APP_GSC_VERIFICATION || "";
 
 const SITE = readJson("site.json");
@@ -31,9 +32,10 @@ const PAGES = [
 ];
 const POSTS = readJson("blog.json");
 const LESSONS = readJson("lessons.json");
+const GAMES = readJson("games.json");
 
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const abs = (p) => `${SITE_URL}${p === "/" ? "" : p}`;
+const abs = (p) => (p === "/" ? `${SITE_URL}/` : `${SITE_URL}${p.replace(/\/+$/, "")}`);
 
 const ld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
 
@@ -92,7 +94,7 @@ const crumbHtml = (crumbs = []) => (crumbs.length
   ? `<nav aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li>${crumbs.map((c) => `<li>${c.path ? `<a href="${esc(c.path)}">${esc(c.name)}</a>` : esc(c.name)}</li>`).join("")}</ol></nav>`
   : "");
 
-const FOOTER = `<footer><h2>KeyQuest typing tests</h2><ul>${
+const FOOTER = `<footer><h2>Typinger typing tests</h2><ul>${
   JSON.parse(fs.readFileSync(path.join(SEO, "routes.json"), "utf8"))
     .filter((r) => r.nav)
     .map((r) => `<li><a href="${esc(r.path)}">${esc(r.nav)}</a></li>`).join("")
@@ -135,12 +137,22 @@ const ALTERNATES = {
   ],
 };
 
+if (!fs.existsSync(path.join(BUILD, "index.html"))) {
+  console.error("prerender: build/index.html missing — run the build first");
+  process.exit(1);
+}
+
+// Read pristine SPA template once before any writes overwrite build/index.html
+const SPA_TEMPLATE = fs.readFileSync(path.join(BUILD, "index.html"), "utf8");
+
 const write = (route, headHtml, bodyHtml, lang = "en") => {
-  const template = fs.readFileSync(path.join(BUILD, "index.html"), "utf8");
-  let html = template
-    .replace(/<title>[\s\S]*?<\/title>/, "")
-    .replace(/<meta name="description"[^>]*>/, "")
-    .replace(/<link rel="canonical"[^>]*>/, "")
+  let html = SPA_TEMPLATE
+    .replace(/<title>[\s\S]*?<\/title>/gi, "")
+    .replace(/<meta\s+name="description"[^>]*>/gi, "")
+    .replace(/<link\s+rel="canonical"[^>]*>/gi, "")
+    .replace(/<meta\s+property="og:[^"]*"[^>]*>/gi, "")
+    .replace(/<meta\s+name="twitter:[^"]*"[^>]*>/gi, "")
+    .replace(/<meta\s+name="robots"[^>]*>/gi, "")
     .replace("</head>", `${headHtml}\n</head>`)
     .replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
   if (lang !== "en") html = html.replace('<html lang="en">', `<html lang="${lang}">`);
@@ -150,17 +162,9 @@ const write = (route, headHtml, bodyHtml, lang = "en") => {
   fs.writeFileSync(target, html);
 };
 
-if (!fs.existsSync(path.join(BUILD, "index.html"))) {
-  console.error("prerender: build/index.html missing — run the build first");
-  process.exit(1);
-}
-if (!SITE_URL) {
-  console.error("prerender: REACT_APP_SITE_URL is required");
-  process.exit(1);
-}
-
 let count = 0;
 
+// Marketing content pages
 PAGES.forEach((page) => {
   const schemas = [organization(), website()];
   if (page.tool) schemas.push(webApp(page));
@@ -174,7 +178,7 @@ PAGES.forEach((page) => {
   count += 1;
 });
 
-// typing lessons page (own React page, same content model)
+// Typing lessons page
 const lessonsPage = PAGES.find((p) => p.path === "/typing-lessons");
 if (!lessonsPage) {
   const lp = readJson("pages.practice.json").find((p) => p.path === "/typing-lessons");
@@ -185,6 +189,7 @@ if (!lessonsPage) {
   }
 }
 
+// Blog articles
 POSTS.forEach((post) => {
   const crumbs = [{ name: "Blog", path: "/blog" }, { name: post.title }];
   const schemas = [organization(), website(), article(post), breadcrumbs(crumbs)];
@@ -194,16 +199,81 @@ POSTS.forEach((post) => {
   count += 1;
 });
 
+// Blog index
 const blogIndex = PAGES.find((p) => p.path === "/blog");
 if (blogIndex) {
   const body = `<main>${crumbHtml(blogIndex.breadcrumbs)}<h1>${esc(blogIndex.h1)}</h1><p>${esc(blogIndex.lead)}</p><ul>${
     POSTS.map((p) => `<li><h2><a href="/blog/${p.slug}">${esc(p.title)}</a></h2><p>${esc(p.excerpt)}</p></li>`).join("")
   }</ul>${blocksHtml(blogIndex.blocks)}${linksHtml(blogIndex.related)}</main>${FOOTER}`;
   write("/blog", head({ path: "/blog", title: blogIndex.title, description: blogIndex.description, schemas: [organization(), website(), breadcrumbs(blogIndex.breadcrumbs)] }), body);
+  count += 1;
 }
 
+// Games index
+const gamesIndexCrumbs = [{ name: "Typing games" }];
+const gamesIndexBody = `<main>${crumbHtml(gamesIndexCrumbs)}<h1>Typing Games: 10 Free Games to Build Typing Speed</h1><p>Play ten free typing games, from a classic speed test to zombie defence and space shooting. Three difficulty levels and global leaderboards.</p><section><h2>Available Typing Games</h2><ul>${GAMES.map((g) => `<li><h3><a href="/games/${g.id}">${esc(g.title)}</a></h3><p>${esc(g.description)}</p></li>`).join("")}</ul></section></main>${FOOTER}`;
+write("/games", head({
+  path: "/games",
+  title: "Typing Games: 10 Free Games to Build Typing Speed",
+  description: "Play ten free typing games, from a classic speed test to zombie defence and space shooting. Three difficulty levels and global leaderboards.",
+  schemas: [organization(), website(), breadcrumbs(gamesIndexCrumbs)],
+}), gamesIndexBody);
+count += 1;
+
+// Individual game pages
+GAMES.forEach((game) => {
+  const gamePath = `/games/${game.id}`;
+  const gameCrumbs = [{ name: "Typing games", path: "/games" }, { name: game.title }];
+  const gameTitle = `${game.title} — Free Typing Game to Practise ${game.category === "Arcade" ? "Speed" : "Accuracy"}`.slice(0, 60);
+  const gameDesc = `${game.description} Play free on Typinger in easy, medium or hard mode and climb the leaderboard.`.slice(0, 155);
+  const gamePage = { path: gamePath, title: gameTitle, description: gameDesc };
+  const howToHtml = (game.howTo || []).map((h) => `<li>${esc(h)}</li>`).join("");
+  const gameBody = `<main>${crumbHtml(gameCrumbs)}<h1>${esc(game.title)}</h1><p>${esc(game.description)}</p><section><h2>How to play</h2><ol>${howToHtml}</ol></section><p><a href="/games">Back to all games</a></p></main>${FOOTER}`;
+
+  write(gamePath, head({
+    path: gamePath,
+    title: gameTitle,
+    description: gameDesc,
+    schemas: [organization(), website(), webApp(gamePage), breadcrumbs(gameCrumbs)],
+  }), gameBody);
+  count += 1;
+});
+
+// Daily challenge page
+const dailyCrumbs = [{ name: "Daily challenge" }];
+const dailyBody = `<main>${crumbHtml(dailyCrumbs)}<h1>Daily Typing Challenge: One Game, Everyone, Each Day</h1><p>Every day Typinger picks one game, one difficulty and one shared word seed. Compete against every other player on exactly the same challenge.</p><p><a href="/games">Explore all games</a></p></main>${FOOTER}`;
+write("/daily", head({
+  path: "/daily",
+  title: "Daily Typing Challenge: One Game, Everyone, Each Day",
+  description: "Every day Typinger picks one game, one difficulty and one shared word seed. Compete against every other player on exactly the same challenge.",
+  schemas: [organization(), website(), breadcrumbs(dailyCrumbs)],
+}), dailyBody);
+count += 1;
+
+// Leaderboard page
+const leaderboardCrumbs = [{ name: "Leaderboard" }];
+const leaderboardBody = `<main>${crumbHtml(leaderboardCrumbs)}<h1>Typing Leaderboard: Fastest Typists by Game and Level</h1><p>See the fastest Typinger typists for every game and difficulty level, with WPM, accuracy and best scores updated as results come in.</p><p><a href="/games">Play games to join leaderboard</a></p></main>${FOOTER}`;
+write("/leaderboard", head({
+  path: "/leaderboard",
+  title: "Typing Leaderboard: Fastest Typists by Game and Level",
+  description: "See the fastest Typinger typists for every game and difficulty level, with WPM, accuracy and best scores updated as results come in.",
+  schemas: [organization(), website(), breadcrumbs(leaderboardCrumbs)],
+}), leaderboardBody);
+count += 1;
+
+// Private app routes (unindexed app shells so direct refresh works cleanly in static hosting)
+const appRoutes = [
+  { path: "/login", title: "Sign In to Typinger", description: "Sign in to save your typing progress." },
+  { path: "/register", title: "Create a Free Typinger Account", description: "Create an account to save typing stats and join leaderboards." },
+  { path: "/dashboard", title: "Your Typing Dashboard", description: "Track your typing progress and badges." },
+];
+appRoutes.forEach((ar) => {
+  write(ar.path, head({ path: ar.path, title: ar.title, description: ar.description, noindex: true }), "");
+});
+
+// 404 page
 write("/404", head({
-  path: "/404", title: "Page not found (404) — KeyQuest typing tests",
+  path: "/404", title: "Page not found (404) — Typinger typing tests",
   description: "That page does not exist. Jump back to the typing speed test, the practice drills, the touch typing lessons or the arcade.",
   noindex: true, schemas: [organization(), website()],
 }), `<main><h1>Page not found</h1><p>The link is broken or the page has moved.</p>${linksHtml([
@@ -213,4 +283,4 @@ write("/404", head({
   { to: "/games", label: "Typing games" },
 ], "Popular pages")}</main>${FOOTER}`);
 
-console.log(`prerender: wrote ${count + 2} static HTML files (plus 404.html) into build/`);
+console.log(`prerender: wrote ${count + 1} static HTML files (plus 404.html) into build/`);

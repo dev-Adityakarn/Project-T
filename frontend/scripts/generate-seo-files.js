@@ -14,26 +14,31 @@ const readEnv = () => {
 };
 
 const env = { ...readEnv(), ...process.env };
-const SITE_URL = (env.REACT_APP_SITE_URL || "").replace(/\/$/, "");
-if (!SITE_URL) {
-  console.error("REACT_APP_SITE_URL is required to generate sitemap.xml");
-  process.exit(1);
-}
+const PRODUCTION_ORIGIN = "https://typinger.in";
+const SITE_URL = (env.REACT_APP_SITE_URL || PRODUCTION_ORIGIN).replace(/\/$/, "");
 
 const routes = JSON.parse(fs.readFileSync(path.join(ROOT, "src/seo/routes.json"), "utf8"));
 const blog = JSON.parse(fs.readFileSync(path.join(ROOT, "src/seo/blog.json"), "utf8"));
+
 const lastmodFor = (route) => {
   const post = blog.find((p) => `/blog/${p.slug}` === route.path);
-  return post ? post.dateModified || post.datePublished : new Date().toISOString().slice(0, 10);
+  if (post && (post.dateModified || post.datePublished)) {
+    return post.dateModified || post.datePublished;
+  }
+  return null;
 };
 
 const urls = routes
-  .map((r) => `  <url>
-    <loc>${SITE_URL}${r.path === "/" ? "/" : r.path}</loc>
-    <lastmod>${lastmodFor(r)}</lastmod>
+  .map((r) => {
+    const loc = `${SITE_URL}${r.path === "/" ? "/" : r.path}`;
+    const lastmod = lastmodFor(r);
+    const lastmodTag = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : "";
+    return `  <url>
+    <loc>${loc}</loc>${lastmodTag}
     <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority}</priority>
-  </url>`)
+  </url>`;
+  })
   .join("\n");
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -56,4 +61,11 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
 fs.writeFileSync(path.join(ROOT, "public/sitemap.xml"), sitemap);
 fs.writeFileSync(path.join(ROOT, "public/robots.txt"), robots);
-console.log(`seo: wrote public/sitemap.xml (${routes.length} urls) and public/robots.txt`);
+
+const buildDir = path.join(ROOT, "build");
+if (fs.existsSync(buildDir)) {
+  fs.writeFileSync(path.join(buildDir, "sitemap.xml"), sitemap);
+  fs.writeFileSync(path.join(buildDir, "robots.txt"), robots);
+}
+
+console.log(`seo: wrote sitemap.xml (${routes.length} urls) and robots.txt`);

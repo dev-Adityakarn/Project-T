@@ -15,6 +15,24 @@ const upsert = (selector, tag, attrs) => {
 const meta = (name, content) => upsert(`meta[name="${name}"]`, "meta", { name, content });
 const prop = (property, content) => upsert(`meta[property="${property}"]`, "meta", { property, content });
 
+const setCanonical = (href) => {
+  const existing = document.head.querySelectorAll('link[rel="canonical"]');
+  if (existing.length > 0) {
+    existing[0].setAttribute("href", href);
+    existing[0].setAttribute("data-seo", "managed");
+    for (let i = 1; i < existing.length; i++) {
+      existing[i].remove();
+    }
+    return existing[0];
+  }
+  const el = document.createElement("link");
+  el.setAttribute("rel", "canonical");
+  el.setAttribute("href", href);
+  el.setAttribute("data-seo", "managed");
+  document.head.appendChild(el);
+  return el;
+};
+
 /** Declarative head manager: title, description, canonical, robots, OG/Twitter, JSON-LD. */
 export const Seo = ({ path, title, description, image, type = "website", noindex = false, lang = "en", jsonLd = [], alternates = [] }) => {
   const json = JSON.stringify(jsonLd);
@@ -25,7 +43,7 @@ export const Seo = ({ path, title, description, image, type = "website", noindex
     document.title = title;
     meta("description", description);
     meta("robots", noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large");
-    upsert('link[rel="canonical"]', "link", { rel: "canonical", href: canonical });
+    setCanonical(canonical);
 
     prop("og:title", title);
     prop("og:description", description);

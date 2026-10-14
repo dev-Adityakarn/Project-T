@@ -1,0 +1,18 @@
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  X-Robots-Tag: noindex, follow
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+
+/dashboard
+  X-Robots-Tag: noindex, nofollow
+
+/login
+  X-Robots-Tag: noindex, nofollow
+
+/register
+  X-Robots-Tag: noindex, nofollow

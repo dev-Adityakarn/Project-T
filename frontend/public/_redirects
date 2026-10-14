@@ -1,0 +1,11 @@
+/typing-speed-test /typing-test 301
+/test /typing-test 301
+/practice /typing-practice 301
+/lessons /typing-lessons 301
+/typing-tutor /typing-lessons 301
+/typing-test/60-seconds /typing-test/1-minute 301
+/privacy /privacy-policy 301
+/terms-of-service /terms 301
+/hindi-typing /hindi-typing-test 301
+/blog/index /blog 301
+/admin/* /index.html 200

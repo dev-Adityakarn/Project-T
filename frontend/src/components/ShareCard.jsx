@@ -47,7 +47,7 @@ const draw = (canvas, { wpm, accuracy, duration, label }) => {
 
   ctx.fillStyle = "#22c55e";
   ctx.font = "500 28px 'JetBrains Mono', monospace";
-  ctx.fillText(SITE_URL.replace(/^https?:\/\//, "") || "typinger.app", 80, 580);
+  ctx.fillText(SITE_URL.replace(/^https?:\/\//, "") || "typinger.in", 80, 580);
 };
 
 export const ShareCard = ({ wpm, accuracy, duration, label }) => {
