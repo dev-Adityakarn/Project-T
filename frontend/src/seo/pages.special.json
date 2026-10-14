@@ -19,7 +19,7 @@
       {
         "h2": "How your numeric WPM is calculated",
         "p": [
-          "The formula is the same as every other test on KeyQuest: WPM = (correct characters / 5) / (seconds / 60), with five characters counted as one word. Digits, commas, dots and slashes all count as characters, so a run of long amounts scores just like long words.",
+          "The formula is the same as every other test on Typinger: WPM = (correct characters / 5) / (seconds / 60), with five characters counted as one word. Digits, commas, dots and slashes all count as characters, so a run of long amounts scores just like long words.",
           "Accuracy is ((keystrokes - errors) / keystrokes) x 100. Expect your accuracy to drop noticeably compared with word typing, especially on 4, 5, 7 and 0. That gap is exactly the thing worth training."
         ]
       },
@@ -131,7 +131,7 @@
       {
         "h2": "How coding WPM is calculated",
         "p": [
-          "KeyQuest uses the same universal formula so the number is comparable to your prose score: WPM = (correct characters / 5) / (seconds / 60). Every brace, bracket and space counts as a character, and auto-indentation characters are not charged to you.",
+          "Typinger uses the same universal formula so the number is comparable to your prose score: WPM = (correct characters / 5) / (seconds / 60). Every brace, bracket and space counts as a character, and auto-indentation characters are not charged to you.",
           "Accuracy is ((keystrokes - errors) / keystrokes) x 100. In code, accuracy is worth more than speed: a missing bracket is a broken build, not a typo a reader can forgive."
         ]
       },
@@ -158,7 +158,7 @@
       { "q": "Which languages are included?", "a": "JavaScript, JSX and Python snippets across easy, medium and hard levels, chosen to cover the symbols and structures that appear most in everyday work." },
       { "q": "How is indentation handled?", "a": "Press Enter and the leading whitespace of the next line is filled in automatically, so you type the code rather than the spaces and your accuracy is not punished by indentation." },
       { "q": "Does typing speed make me a better developer?", "a": "No, but slow or inaccurate typing is friction. Removing it keeps your attention on design and debugging rather than on finding the next bracket." },
-      { "q": "Can I practise with my own snippets?", "a": "Administrators can add custom passages, including code, through the KeyQuest admin panel, and those passages then appear in the practice pool." }
+      { "q": "Can I practise with my own snippets?", "a": "Administrators can add custom passages, including code, through the Typinger admin panel, and those passages then appear in the practice pool." }
     ],
     "related": [
       { "to": "/games/code-typer", "label": "Play the Code Typer game" },
@@ -202,7 +202,7 @@
       {
         "h2": "How Hindi WPM and accuracy are calculated",
         "p": [
-          "KeyQuest counts characters, not keystrokes-per-glyph, so the formula stays the same as the English test: WPM = (correct characters / 5) / (seconds / 60). Because Devanagari combines consonants with matras into single display characters, your keystroke count is usually higher than the character count, and a Hindi WPM figure is therefore typically lower than an English one.",
+          "Typinger counts characters, not keystrokes-per-glyph, so the formula stays the same as the English test: WPM = (correct characters / 5) / (seconds / 60). Because Devanagari combines consonants with matras into single display characters, your keystroke count is usually higher than the character count, and a Hindi WPM figure is therefore typically lower than an English one.",
           "Accuracy is ((keystrokes - errors) / keystrokes) x 100. In Hindi exams accuracy is weighted heavily, and a matra in the wrong position is counted as a full mistake, so aim for control before speed."
         ]
       },

@@ -14,7 +14,7 @@ const TABS = [
 ];
 
 const EMPTY_PASSAGE = { title: "", text: "", language: "en", difficulty: "medium" };
-const EMPTY_POST = { title: "", slug: "", content: "", excerpt: "", meta_title: "", meta_description: "", author: "KeyQuest Team", published: false };
+const EMPTY_POST = { title: "", slug: "", content: "", excerpt: "", meta_title: "", meta_description: "", author: "Typinger Team", published: false };
 
 const Field = ({ label, children }) => (
   <label className="block">
@@ -230,7 +230,7 @@ export default function Admin() {
   const { user, logout } = useAuth();
   const [tab, setTab] = useState("passages");
 
-  const head = <Seo path="/admin" title="KeyQuest admin" description="Restricted administration area for KeyQuest content and leaderboard moderation." noindex />;
+  const head = <Seo path="/admin" title="Typinger admin" description="Restricted administration area for Typinger content and leaderboard moderation." noindex />;
 
   if (user === null) return <>{head}<div className="p-24 text-center text-sm text-muted-foreground" data-testid="admin-loading">Checking session…</div></>;
   if (!user) return <>{head}<AdminLogin /></>;
@@ -243,7 +243,7 @@ export default function Admin() {
       {head}
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8" data-testid="admin-panel">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <h1 className="text-3xl font-bold">KeyQuest admin</h1>
+          <h1 className="text-3xl font-bold">Typinger admin</h1>
           <Button variant="outline" className="rounded-full" onClick={logout} data-testid="admin-logout-btn">Sign out</Button>
         </div>
         <div className="mt-6 flex gap-2">

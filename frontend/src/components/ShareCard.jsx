@@ -22,7 +22,7 @@ const draw = (canvas, { wpm, accuracy, duration, label }) => {
 
   ctx.fillStyle = "#22c55e";
   ctx.font = "600 28px 'JetBrains Mono', monospace";
-  ctx.fillText("KEYQUEST", 80, 110);
+  ctx.fillText("TYPINGER", 80, 110);
   ctx.fillStyle = "rgba(255,255,255,0.65)";
   ctx.font = "400 26px 'IBM Plex Sans', sans-serif";
   ctx.fillText(label, 80, 160);
@@ -47,7 +47,7 @@ const draw = (canvas, { wpm, accuracy, duration, label }) => {
 
   ctx.fillStyle = "#22c55e";
   ctx.font = "500 28px 'JetBrains Mono', monospace";
-  ctx.fillText(SITE_URL.replace(/^https?:\/\//, "") || "keyquest.app", 80, 580);
+  ctx.fillText(SITE_URL.replace(/^https?:\/\//, "") || "typinger.app", 80, 580);
 };
 
 export const ShareCard = ({ wpm, accuracy, duration, label }) => {
@@ -66,7 +66,7 @@ export const ShareCard = ({ wpm, accuracy, duration, label }) => {
     const canvas = render();
     const a = document.createElement("a");
     a.href = canvas.toDataURL("image/png");
-    a.download = `keyquest-${wpm}wpm.png`;
+    a.download = `typinger-${wpm}wpm.png`;
     a.click();
     trackEvent("share_card_download", { wpm, accuracy });
   };
@@ -76,7 +76,7 @@ export const ShareCard = ({ wpm, accuracy, duration, label }) => {
     const text = `I just typed ${wpm} WPM at ${accuracy}% accuracy on ${SITE.name}.`;
     try {
       const blob = await new Promise((res) => canvas.toBlob(res, "image/png"));
-      const file = new File([blob], `keyquest-${wpm}wpm.png`, { type: "image/png" });
+      const file = new File([blob], `typinger-${wpm}wpm.png`, { type: "image/png" });
       if (navigator.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], title: `${wpm} WPM on ${SITE.name}`, text, url: SITE_URL });
         trackEvent("share_card_share", { wpm });

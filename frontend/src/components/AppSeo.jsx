@@ -11,12 +11,12 @@ const MAP = {
   },
   "/daily": {
     title: "Daily Typing Challenge: One Game, Everyone, Each Day",
-    description: "Every day KeyQuest picks one game, one difficulty and one shared word seed. Compete against every other player on exactly the same challenge.",
+    description: "Every day Typinger picks one game, one difficulty and one shared word seed. Compete against every other player on exactly the same challenge.",
     crumbs: [{ name: "Daily challenge" }],
   },
   "/leaderboard": {
     title: "Typing Leaderboard: Fastest Typists by Game and Level",
-    description: "See the fastest KeyQuest typists for every game and difficulty level, with WPM, accuracy and best scores updated as results come in.",
+    description: "See the fastest Typinger typists for every game and difficulty level, with WPM, accuracy and best scores updated as results come in.",
     crumbs: [{ name: "Leaderboard" }],
   },
   "/dashboard": {
@@ -26,14 +26,14 @@ const MAP = {
     noindex: true,
   },
   "/login": {
-    title: "Sign In to KeyQuest: Save Your Typing Progress",
-    description: "Sign in to KeyQuest to save typing results, keep your WPM history, unlock achievement badges and appear on the global leaderboards.",
+    title: "Sign In to Typinger: Save Your Typing Progress",
+    description: "Sign in to Typinger to save typing results, keep your WPM history, unlock achievement badges and appear on the global leaderboards.",
     crumbs: [{ name: "Sign in" }],
     noindex: true,
   },
   "/register": {
-    title: "Create a Free KeyQuest Account to Track Typing",
-    description: "Create a free KeyQuest account in seconds to save every typing test, chart your WPM history, earn badges and join the daily challenge.",
+    title: "Create a Free Typinger Account to Track Typing",
+    description: "Create a free Typinger account in seconds to save every typing test, chart your WPM history, earn badges and join the daily challenge.",
     crumbs: [{ name: "Create account" }],
     noindex: true,
   },
@@ -59,7 +59,7 @@ export const AppSeo = () => {
   const page = {
     path,
     title: `${game.title} — Free Typing Game to Practise ${game.category === "Arcade" ? "Speed" : "Accuracy"}`.slice(0, 60),
-    description: `${game.description} Play free on KeyQuest in easy, medium or hard mode and climb the leaderboard.`.slice(0, 155),
+    description: `${game.description} Play free on Typinger in easy, medium or hard mode and climb the leaderboard.`.slice(0, 155),
   };
   return (
     <Seo path={path} title={page.title} description={page.description}

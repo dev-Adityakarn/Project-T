@@ -4,7 +4,7 @@
     "key": "blog",
     "title": "Typing Blog: Speed, Accuracy and Keyboard Guides",
     "description": "Practical guides on typing speed, accuracy, average WPM by age and touch typing technique, written for anyone who wants faster and calmer hands.",
-    "h1": "The KeyQuest typing blog",
+    "h1": "The Typinger typing blog",
     "lead": "Long-form guides on speed, accuracy, technique and what the numbers actually mean. No gimmicks, just what works.",
     "breadcrumbs": [{ "name": "Blog" }],
     "blocks": [
@@ -26,17 +26,17 @@
   {
     "path": "/about",
     "key": "about",
-    "title": "About KeyQuest: The Typing Test and Game Arcade",
-    "description": "Learn who builds KeyQuest, why the site mixes serious typing tests with arcade games, and how WPM, accuracy and leaderboards are calculated here.",
-    "h1": "About KeyQuest",
-    "lead": "KeyQuest is a free typing site built on one idea: practice only works if you come back tomorrow.",
+    "title": "About Typinger: The Typing Test and Game Arcade",
+    "description": "Learn who builds Typinger, why the site mixes serious typing tests with arcade games, and how WPM, accuracy and leaderboards are calculated here.",
+    "h1": "About Typinger",
+    "lead": "Typinger is a free typing site built on one idea: practice only works if you come back tomorrow.",
     "breadcrumbs": [{ "name": "About" }],
     "blocks": [
       {
-        "h2": "Why we built KeyQuest",
+        "h2": "Why we built Typinger",
         "p": [
           "Typing is the one computer skill almost everybody uses every day and almost nobody trains. Most people learn by accident, settle somewhere around 40 words per minute and stay there for twenty years. The tools that could fix that are usually either clinical drill software that nobody opens twice, or games with no real measurement behind them.",
-          "KeyQuest is the middle path. Underneath it is a strict measurement engine: standard five character words, keystroke level accuracy, honest timing that starts on your first key. On top of it sits an arcade — ten games, three difficulty levels, a daily challenge and achievement badges — so that the practice is something you actually want to do."
+          "Typinger is the middle path. Underneath it is a strict measurement engine: standard five character words, keystroke level accuracy, honest timing that starts on your first key. On top of it sits an arcade — ten games, three difficulty levels, a daily challenge and achievement badges — so that the practice is something you actually want to do."
         ]
       },
       {
@@ -57,19 +57,19 @@
       {
         "h2": "Who we are",
         "p": [
-          "KeyQuest is built and maintained by a small independent team of developers who got tired of their own typing plateaus. We read every message sent through the contact page, and a large share of the features on the site, including the daily challenge and the difficulty levels, came from user suggestions."
+          "Typinger is built and maintained by a small independent team of developers who got tired of their own typing plateaus. We read every message sent through the contact page, and a large share of the features on the site, including the daily challenge and the difficulty levels, came from user suggestions."
         ]
       }
     ],
     "faqs": [
-      { "q": "Is KeyQuest really free?", "a": "Yes. Every test, lesson and game is free and unlimited, and an account is optional. We do not charge for results or lock features behind a subscription." },
+      { "q": "Is Typinger really free?", "a": "Yes. Every test, lesson and game is free and unlimited, and an account is optional. We do not charge for results or lock features behind a subscription." },
       { "q": "Do you sell my typing data?", "a": "No. We store the minimum needed to show your history and leaderboards, and we never sell personal data. The privacy policy explains exactly what is kept." },
       { "q": "Can I suggest a new game or feature?", "a": "Please do. Use the contact page; feature requests from users are the main source of our roadmap, including difficulty levels and the daily challenge." },
       { "q": "Which keyboards and layouts are supported?", "a": "Any physical keyboard and any layout, including QWERTY, Dvorak, Colemak and Devanagari input methods for the Hindi test." },
       { "q": "Do you have a mobile app?", "a": "Not yet. The site works in any modern browser, and we recommend a physical keyboard for a fair measurement of speed." }
     ],
     "related": [
-      { "to": "/contact", "label": "Contact the KeyQuest team" },
+      { "to": "/contact", "label": "Contact the Typinger team" },
       { "to": "/privacy-policy", "label": "Read the privacy policy" },
       { "to": "/typing-test", "label": "Take a typing test" }
     ]
@@ -77,16 +77,16 @@
   {
     "path": "/contact",
     "key": "contact",
-    "title": "Contact KeyQuest: Support, Feedback and Bug Reports",
-    "description": "Get in touch with the KeyQuest team about bugs, leaderboard issues, feature ideas, account problems or partnership enquiries. We reply within two days.",
-    "h1": "Contact KeyQuest",
+    "title": "Contact Typinger: Support, Feedback and Bug Reports",
+    "description": "Get in touch with the Typinger team about bugs, leaderboard issues, feature ideas, account problems or partnership enquiries. We reply within two days.",
+    "h1": "Contact Typinger",
     "lead": "Questions, bugs, leaderboard disputes or a game idea you cannot stop thinking about — send it over.",
     "breadcrumbs": [{ "name": "Contact" }],
     "blocks": [
       {
         "h2": "How to reach us",
         "p": [
-          "Email hello@keyquest.app and you will normally get a reply within two working days. There is one inbox and a real person reads it, so a short, specific message gets the fastest answer."
+          "Email hello@typinger.app and you will normally get a reply within two working days. There is one inbox and a real person reads it, so a short, specific message gets the fastest answer."
         ],
         "ul": [
           "Bug reports: tell us the page, your browser and keyboard layout, and what you expected to happen.",
@@ -112,7 +112,7 @@
       { "q": "Do you accept guest posts?", "a": "Occasionally, if the author genuinely knows the subject and the article is original. Send a short outline rather than a finished draft." }
     ],
     "related": [
-      { "to": "/about", "label": "About KeyQuest" },
+      { "to": "/about", "label": "About Typinger" },
       { "to": "/terms", "label": "Terms of service" },
       { "to": "/blog", "label": "Typing guides and articles" }
     ]
@@ -120,8 +120,8 @@
   {
     "path": "/privacy-policy",
     "key": "privacy",
-    "title": "Privacy Policy: How KeyQuest Handles Your Data",
-    "description": "Read how KeyQuest collects, stores and protects your data, which cookies we set, how analytics consent works and how to delete your account for good.",
+    "title": "Privacy Policy: How Typinger Handles Your Data",
+    "description": "Read how Typinger collects, stores and protects your data, which cookies we set, how analytics consent works and how to delete your account for good.",
     "h1": "Privacy policy",
     "lead": "Last updated June 2026. The short version: we store what is needed to show your typing history, and nothing is sold.",
     "breadcrumbs": [{ "name": "Privacy policy" }],
@@ -138,7 +138,7 @@
       {
         "h2": "Cookies and local storage",
         "p": [
-          "KeyQuest sets an httpOnly authentication cookie and a refresh cookie when you sign in. These are strictly necessary for the site to keep you logged in and cannot be disabled while you are signed in.",
+          "Typinger sets an httpOnly authentication cookie and a refresh cookie when you sign in. These are strictly necessary for the site to keep you logged in and cannot be disabled while you are signed in.",
           "Your browser's local storage holds non-identifying preferences: your theme choice, the sound mute toggle, your preferred difficulty and your cookie consent decision. Analytics cookies are only set after you choose Accept in the consent banner, and you can withdraw consent at any time by clearing site data."
         ]
       },
@@ -152,8 +152,8 @@
       {
         "h2": "Your rights and deletion",
         "p": [
-          "You can request a copy of your data or ask us to delete your account at any time by emailing hello@keyquest.app from the address on the account. Deletion removes your profile, results and badges permanently, and leaderboard entries disappear with them.",
-          "Children under 13 should use KeyQuest with a parent or guardian and should not create an account with a personal email address."
+          "You can request a copy of your data or ask us to delete your account at any time by emailing hello@typinger.app from the address on the account. Deletion removes your profile, results and badges permanently, and leaderboard entries disappear with them.",
+          "Children under 13 should use Typinger with a parent or guardian and should not create an account with a personal email address."
         ]
       },
       {
@@ -166,22 +166,22 @@
     ],
     "faqs": [
       { "q": "Do you use tracking cookies?", "a": "Only analytics cookies, and only after you accept them in the consent banner. Authentication cookies are strictly necessary and are set only when you sign in." },
-      { "q": "Can I use KeyQuest without an account?", "a": "Yes. All tests, lessons and games work signed out, and nothing is stored about you beyond standard server logs." },
-      { "q": "Where is my data stored?", "a": "In a managed MongoDB database used only by KeyQuest. Access is restricted to the application and to site administrators." },
-      { "q": "How do I delete my data?", "a": "Email hello@keyquest.app from your account address and we will permanently delete the account, its results and its achievement records." },
+      { "q": "Can I use Typinger without an account?", "a": "Yes. All tests, lessons and games work signed out, and nothing is stored about you beyond standard server logs." },
+      { "q": "Where is my data stored?", "a": "In a managed MongoDB database used only by Typinger. Access is restricted to the application and to site administrators." },
+      { "q": "How do I delete my data?", "a": "Email hello@typinger.app from your account address and we will permanently delete the account, its results and its achievement records." },
       { "q": "Is my password readable by anyone?", "a": "No. Passwords are hashed with bcrypt before storage, so neither we nor an attacker with database access can read them." }
     ],
     "related": [
       { "to": "/terms", "label": "Terms of service" },
-      { "to": "/about", "label": "About KeyQuest" },
+      { "to": "/about", "label": "About Typinger" },
       { "to": "/contact", "label": "Contact us about your data" }
     ]
   },
   {
     "path": "/terms",
     "key": "terms",
-    "title": "Terms of Service: Rules for Using KeyQuest",
-    "description": "The terms for using KeyQuest, covering accounts, fair play on leaderboards, acceptable use, intellectual property, liability and how disputes are handled.",
+    "title": "Terms of Service: Rules for Using Typinger",
+    "description": "The terms for using Typinger, covering accounts, fair play on leaderboards, acceptable use, intellectual property, liability and how disputes are handled.",
     "h1": "Terms of service",
     "lead": "Last updated June 2026. Use the site, practise hard, do not cheat the leaderboard.",
     "breadcrumbs": [{ "name": "Terms" }],
@@ -189,7 +189,7 @@
       {
         "h2": "Accepting these terms",
         "p": [
-          "By using KeyQuest you agree to these terms. If you do not agree, please do not use the site. We may update the terms as the product changes, and the date above reflects the current version."
+          "By using Typinger you agree to these terms. If you do not agree, please do not use the site. We may update the terms as the product changes, and the date above reflects the current version."
         ]
       },
       {
@@ -210,7 +210,7 @@
         "h2": "Acceptable use",
         "ul": [
           "Do not attempt to break, overload, scrape at scale, or gain unauthorised access to the service.",
-          "Do not use KeyQuest to store or transmit unlawful content, including in display names.",
+          "Do not use Typinger to store or transmit unlawful content, including in display names.",
           "Do not resell access to the site or present it as your own product.",
           "Automated access is allowed only for well-behaved search engine crawlers following robots.txt."
         ]
@@ -218,28 +218,28 @@
       {
         "h2": "Content and intellectual property",
         "p": [
-          "The KeyQuest name, interface, games, lesson material and articles are our intellectual property and may not be copied wholesale. You are welcome to quote an article with a link back, and to share your own result cards anywhere you like.",
+          "The Typinger name, interface, games, lesson material and articles are our intellectual property and may not be copied wholesale. You are welcome to quote an article with a link back, and to share your own result cards anywhere you like.",
           "Typing passages include public domain and originally written text. If you believe something here infringes your rights, contact us and we will review it promptly."
         ]
       },
       {
         "h2": "Service availability and liability",
         "p": [
-          "KeyQuest is provided as is, without warranty. We aim for high availability but we cannot guarantee uninterrupted service, preserved scores in the event of a failure, or that measurements match any particular exam's official scoring. To the extent permitted by law, our liability is limited to the amount you paid us, which for a free service is zero.",
+          "Typinger is provided as is, without warranty. We aim for high availability but we cannot guarantee uninterrupted service, preserved scores in the event of a failure, or that measurements match any particular exam's official scoring. To the extent permitted by law, our liability is limited to the amount you paid us, which for a free service is zero.",
           "These terms are governed by the laws applicable at our principal place of business, and disputes will be handled in those courts."
         ]
       }
     ],
     "faqs": [
-      { "q": "Can I use KeyQuest results in a job application?", "a": "Yes, and we recommend quoting a three or five minute result. KeyQuest is not an accredited certification body, so some employers will still run their own assessment." },
+      { "q": "Can I use Typinger results in a job application?", "a": "Yes, and we recommend quoting a three or five minute result. Typinger is not an accredited certification body, so some employers will still run their own assessment." },
       { "q": "What counts as cheating?", "a": "Any result not produced by you typing on a keyboard in real time: scripts, macros, text expanders, autocomplete tools or modified clients. Moderators can flag or remove such results." },
       { "q": "Can my account be deleted without warning?", "a": "Only for serious abuse, such as attacking the service or repeated leaderboard manipulation. In other cases we contact you first using the email on the account." },
-      { "q": "May I embed KeyQuest tests on my site?", "a": "Not without written permission, but you are very welcome to link to any page, and links to specific tests are encouraged." },
+      { "q": "May I embed Typinger tests on my site?", "a": "Not without written permission, but you are very welcome to link to any page, and links to specific tests are encouraged." },
       { "q": "Do these terms change?", "a": "Occasionally, as features change. The updated date at the top of this page always reflects the current version, and significant changes are announced on the blog." }
     ],
     "related": [
       { "to": "/privacy-policy", "label": "Privacy policy" },
-      { "to": "/contact", "label": "Contact KeyQuest" },
+      { "to": "/contact", "label": "Contact Typinger" },
       { "to": "/leaderboard", "label": "See the leaderboards" }
     ]
   }

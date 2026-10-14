@@ -1,4 +1,4 @@
-"""Backend tests for new KeyQuest features: daily challenge, difficulty, achievements, leaderboard filtering."""
+"""Backend tests for new Typinger features: daily challenge, difficulty, achievements, leaderboard filtering."""
 import os
 import time
 import uuid
@@ -12,14 +12,14 @@ API = f"{BASE_URL}/api"
 # ---------- fixtures ----------
 @pytest.fixture(scope="module")
 def admin_token():
-    r = requests.post(f"{API}/auth/login", json={"email": "admin@keyquest.com", "password": "admin123"})
+    r = requests.post(f"{API}/auth/login", json={"email": "admin@typinger.com", "password": "admin123"})
     assert r.status_code == 200, r.text
     return r.json()["token"]
 
 
 @pytest.fixture
 def fresh_user():
-    email = f"test_nf_{uuid.uuid4().hex[:10]}@keyquest.com"
+    email = f"test_nf_{uuid.uuid4().hex[:10]}@typinger.com"
     r = requests.post(f"{API}/auth/register", json={"name": "NF Tester", "email": email, "password": "test1234"})
     assert r.status_code == 200, r.text
     data = r.json()
@@ -184,7 +184,7 @@ class TestRegression:
     def test_me(self, admin_token):
         r = requests.get(f"{API}/auth/me", headers=_h(admin_token))
         assert r.status_code == 200
-        assert r.json()["email"] == "admin@keyquest.com"
+        assert r.json()["email"] == "admin@typinger.com"
 
     def test_results_me_has_difficulty(self, fresh_user):
         requests.post(f"{API}/results", headers=_h(fresh_user["token"]),

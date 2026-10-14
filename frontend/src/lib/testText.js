@@ -6,7 +6,7 @@ half slash fish shall sigh hash flag gas high galls haggis alaska salsa.`.trim()
 export const PUNCT_SENTENCES = [
   "\"It isn't ready,\" she said; \"come back at 9:30.\"",
   "The report - all 42 pages of it - arrived late, again.",
-  "Send it to admin@keyquest.app, then call +91 98765 43210.",
+  "Send it to admin@typinger.app, then call +91 98765 43210.",
   "He asked: why now? Why not last week, when it mattered?",
   "Options include: (a) wait, (b) retry, or (c) escalate.",
   "We shipped v2.1 (finally!), and nobody's build broke.",

@@ -1,17 +1,17 @@
 {
-  "name": "KeyQuest",
-  "legalName": "KeyQuest",
+  "name": "Typinger",
+  "legalName": "Typinger",
   "tagline": "Typing tests, typing practice and typing games",
-  "description": "KeyQuest is a free typing website: take a typing speed test, run daily typing practice drills, follow touch typing lessons and train with ten typing games.",
+  "description": "Typinger is a free typing website: take a typing speed test, run daily typing practice drills, follow touch typing lessons and train with ten typing games.",
   "locale": "en_US",
   "lang": "en",
-  "twitter": "@keyquestapp",
-  "email": "hello@keyquest.app",
-  "ogImage": "/og/keyquest-default.png",
-  "logo": "/og/keyquest-logo.png",
+  "twitter": "@typingerapp",
+  "email": "hello@typinger.app",
+  "ogImage": "/og/typinger-default.png",
+  "logo": "/og/typinger-logo.png",
   "founded": "2026",
   "sameAs": [
-    "https://x.com/keyquestapp",
-    "https://github.com/keyquest"
+    "https://x.com/typingerapp",
+    "https://github.com/typinger"
   ]
 }

@@ -1,4 +1,4 @@
-"""Backend tests for KeyQuest typing site."""
+"""Backend tests for Typinger typing site."""
 import os
 import time
 import uuid
@@ -21,7 +21,7 @@ GAME_IDS = ["speed-test", "falling-words", "zombie-typing", "space-shooter",
 
 @pytest.fixture(scope="session")
 def test_user():
-    email = f"TEST_{uuid.uuid4().hex[:10]}@keyquest.com"
+    email = f"TEST_{uuid.uuid4().hex[:10]}@typinger.com"
     return {"name": "Test User", "email": email, "password": "test1234"}
 
 
@@ -46,7 +46,7 @@ def auth(session, test_user):
 def test_root():
     r = requests.get(f"{API}/")
     assert r.status_code == 200
-    assert r.json().get("message") == "KeyQuest API"
+    assert r.json().get("message") == "Typinger API"
 
 
 # ---------- Auth ----------
@@ -81,7 +81,7 @@ def test_me_unauthorized():
 
 def test_admin_login_seed(session):
     r = session.post(f"{API}/auth/login",
-                     json={"email": "admin@keyquest.com", "password": "admin123"})
+                     json={"email": "admin@typinger.com", "password": "admin123"})
     assert r.status_code == 200, f"Admin seed failed: {r.text}"
     assert r.json()["user"]["role"] == "admin"
 

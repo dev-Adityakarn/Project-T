@@ -9,7 +9,7 @@ export const TextDisplay = ({ text, typed, height = "h-44", className = "" }) =>
   }, [typed.length]);
 
   return (
-    <div ref={box} className={`relative overflow-hidden rounded-2xl border bg-card p-6 font-mono-type text-lg leading-relaxed sm:text-2xl whitespace-pre-wrap break-words ${height} ${className}`} data-testid="typing-text">
+    <div ref={box} className={`relative overflow-hidden rounded-2xl border bg-card p-6 font-mono-type text-lg leading-relaxed sm:text-2xl whitespace-pre-wrap break-words ${height} ${className}`} style={{ whiteSpace: "pre-wrap", wordBreak: "break-word", overflowWrap: "break-word" }} data-testid="typing-text">
       {text.split("").map((ch, i) => {
         let cls = "text-muted-foreground/60";
         if (i < typed.length) cls = typed[i] === ch ? "text-foreground" : "bg-destructive/25 text-destructive";

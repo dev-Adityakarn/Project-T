@@ -7,7 +7,7 @@
     "excerpt": "Speed is not about trying harder. It is about removing the small inefficiencies that cost you a tenth of a second, hundreds of times an hour.",
     "datePublished": "2026-02-10",
     "dateModified": "2026-06-01",
-    "author": "KeyQuest Team",
+    "author": "Typinger Team",
     "readingTime": "7 min read",
     "tags": ["speed", "technique"],
     "blocks": [
@@ -107,7 +107,7 @@
     "excerpt": "The average adult types around 40 words per minute. Here is how that number breaks down by age, occupation and years of practice — and what to aim for.",
     "datePublished": "2026-03-04",
     "dateModified": "2026-06-01",
-    "author": "KeyQuest Team",
+    "author": "Typinger Team",
     "readingTime": "6 min read",
     "tags": ["benchmarks", "wpm"],
     "blocks": [
@@ -194,7 +194,7 @@
     "excerpt": "Touch typing is not a talent, it is a map. Learn the map one row at a time and your hands stop needing your eyes.",
     "datePublished": "2026-03-22",
     "dateModified": "2026-06-01",
-    "author": "KeyQuest Team",
+    "author": "Typinger Team",
     "readingTime": "8 min read",
     "tags": ["beginners", "lessons"],
     "blocks": [
@@ -292,7 +292,7 @@
     "excerpt": "At 92% accuracy, one keystroke in twelve is wrong — and each one costs you three. Fixing accuracy is the fastest way to type faster.",
     "datePublished": "2026-04-15",
     "dateModified": "2026-06-01",
-    "author": "KeyQuest Team",
+    "author": "Typinger Team",
     "readingTime": "7 min read",
     "tags": ["accuracy", "technique"],
     "blocks": [
@@ -304,7 +304,7 @@
       {
         "h2": "How accuracy is measured",
         "p": [
-          "Accuracy on KeyQuest, and on any serious test, is counted per keystroke: accuracy = ((total keystrokes - incorrect keystrokes) / total keystrokes) x 100. Fixing a mistake with backspace does not remove the error, because the mistake still happened and still cost you time.",
+          "Accuracy on Typinger, and on any serious test, is counted per keystroke: accuracy = ((total keystrokes - incorrect keystrokes) / total keystrokes) x 100. Fixing a mistake with backspace does not remove the error, because the mistake still happened and still cost you time.",
           "That is why a result of 70 WPM at 90% accuracy is weaker than 62 WPM at 99%. The careful typist produces more usable text per minute and needs almost no proofreading. Game scores here multiply WPM by accuracy for exactly that reason."
         ]
       },
@@ -373,7 +373,7 @@
     "excerpt": "40 WPM is average, 60 is comfortable, 80 is fast and 100 is rare. But the number only means something alongside your accuracy and the test length.",
     "datePublished": "2026-05-06",
     "dateModified": "2026-06-01",
-    "author": "KeyQuest Team",
+    "author": "Typinger Team",
     "readingTime": "6 min read",
     "tags": ["wpm", "benchmarks"],
     "blocks": [
@@ -443,7 +443,7 @@
     "related": [
       { "to": "/typing-test", "label": "Take a typing speed test" },
       { "to": "/blog/average-typing-speed-by-age", "label": "Average typing speed by age" },
-      { "to": "/leaderboard", "label": "See the KeyQuest leaderboards" }
+      { "to": "/leaderboard", "label": "See the Typinger leaderboards" }
     ]
   }
 ]

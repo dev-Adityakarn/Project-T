@@ -10,7 +10,7 @@ export const SiteFooter = () => (
       <div>
         <Link to="/" className="flex items-center gap-2" data-testid="footer-logo">
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground"><Keyboard size={18} /></span>
-          <span className="font-pixel text-[11px]">KEYQUEST</span>
+          <span className="font-pixel text-[11px]">TYPINGER</span>
         </Link>
         <p className="mt-4 max-w-xs text-sm text-muted-foreground">{SITE.description}</p>
       </div>

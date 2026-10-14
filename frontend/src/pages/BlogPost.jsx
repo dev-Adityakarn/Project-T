@@ -35,7 +35,7 @@ export default function BlogPost() {
         <header className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl" data-testid="page-h1">{post.h1 || post.title}</h1>
           <div className="mt-5 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-            <span className="flex items-center gap-1"><User size={12} /> {post.author || "KeyQuest Team"}</span>
+            <span className="flex items-center gap-1"><User size={12} /> {post.author || "Typinger Team"}</span>
             <span className="flex items-center gap-1"><CalendarDays size={12} /> Published {post.datePublished}</span>
             {post.readingTime && <span className="flex items-center gap-1"><Clock size={12} /> {post.readingTime}</span>}
           </div>

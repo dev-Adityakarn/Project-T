@@ -128,7 +128,7 @@ class Post(BaseDocument):
     excerpt: str = ""
     meta_title: str = ""
     meta_description: str = ""
-    author: str = "KeyQuest Team"
+    author: str = "Typinger Team"
     published: bool = False
     date_published: str = Field(default_factory=lambda: datetime.now(timezone.utc).strftime("%Y-%m-%d"))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
@@ -141,7 +141,7 @@ class PostIn(BaseModel):
     excerpt: str = ""
     meta_title: str = ""
     meta_description: str = ""
-    author: str = "KeyQuest Team"
+    author: str = "Typinger Team"
     published: bool = False
 
 
@@ -304,7 +304,7 @@ async def get_admin_user(user: User = Depends(get_current_user)) -> User:
 
 @api.get("/")
 async def root():
-    return {"message": "KeyQuest API"}
+    return {"message": "Typinger API"}
 
 
 @api.post("/auth/register")

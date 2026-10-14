@@ -27,7 +27,7 @@ export const Navbar = () => {
           <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground shadow-[0_4px_0_hsl(var(--kb-key-side))]">
             <Keyboard size={18} />
           </span>
-          <span className="font-pixel text-[11px] tracking-tight sm:text-xs">KEYQUEST</span>
+          <span className="font-pixel text-[11px] tracking-tight sm:text-xs">TYPINGER</span>
         </Link>
         <nav className="ml-4 hidden items-center gap-1 md:flex">
           {links.map((l) => (

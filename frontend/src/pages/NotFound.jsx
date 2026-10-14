@@ -14,7 +14,7 @@ const LINKS = [
 export default function NotFound() {
   return (
     <>
-      <Seo path="/404" title="Page not found (404) — KeyQuest typing tests" description="That page does not exist. Jump back to the typing speed test, the practice drills, the touch typing lessons or the arcade." noindex />
+      <Seo path="/404" title="Page not found (404) — Typinger typing tests" description="That page does not exist. Jump back to the typing speed test, the practice drills, the touch typing lessons or the arcade." noindex />
       <div className="mx-auto max-w-3xl px-4 py-24 sm:px-8" data-testid="page-404">
         <div className="font-pixel text-5xl text-primary">404</div>
         <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">That page took a wrong turn</h1>

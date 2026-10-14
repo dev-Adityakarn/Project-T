@@ -18,7 +18,7 @@
       {
         "h2": "How WPM and accuracy are calculated",
         "p": [
-          "KeyQuest uses the standard definition of a word: five characters, including spaces. Your gross speed is the number of correctly typed characters divided by five, divided by the minutes elapsed. Written as a formula: WPM = (correct characters / 5) / (seconds / 60).",
+          "Typinger uses the standard definition of a word: five characters, including spaces. Your gross speed is the number of correctly typed characters divided by five, divided by the minutes elapsed. Written as a formula: WPM = (correct characters / 5) / (seconds / 60).",
           "Accuracy is counted on keystrokes, not on finished words: accuracy = ((total keystrokes - incorrect keystrokes) / total keystrokes) x 100. A single mistyped letter that you fix with backspace still counts as one error, which is why accuracy is the honest measure of control. Game scores combine the two, so a clean 60 WPM run beats a messy 75 WPM run."
         ]
       },
@@ -28,24 +28,24 @@
           { "h3": "Fix your home row anchor", "p": "Rest your left fingers on A, S, D, F and your right fingers on J, K, L and the semicolon. Every reach should return to that anchor so your hands stop hunting for position." },
           { "h3": "Chase accuracy before speed", "p": "Type at the fastest pace where you stay above 97% accuracy. Errors cost you the keystroke, the backspace and the lost rhythm, so clean typing is almost always quicker overall." },
           { "h3": "Stop looking at the keyboard", "p": "Keep your eyes two or three words ahead of the caret. Looking down breaks your flow and trains your brain to depend on sight instead of muscle memory." },
-          { "h3": "Practise in short daily blocks", "p": "Ten focused minutes a day beats a two hour session once a week. Speed comes from repetition spread across many days, which is why KeyQuest has a daily challenge." },
+          { "h3": "Practise in short daily blocks", "p": "Ten focused minutes a day beats a two hour session once a week. Speed comes from repetition spread across many days, which is why Typinger has a daily challenge." },
           { "h3": "Train your weak keys on purpose", "p": "Most people lose seconds on numbers, punctuation and the Q, Z and P reaches. Use the number and punctuation tests to attack those keys instead of avoiding them." }
         ]
       },
       {
         "h2": "Why games make typing practice stick",
         "p": [
-          "Plain drills work, but they are easy to quit. In KeyQuest each game adds a reason to keep going: asteroids closing in, a zombie wave reaching your wall, or a single typo that ends a sudden death run. The pressure forces you to type without looking down, which is exactly the habit that raises your ceiling.",
+          "Plain drills work, but they are easy to quit. In Typinger each game adds a reason to keep going: asteroids closing in, a zombie wave reaching your wall, or a single typo that ends a sudden death run. The pressure forces you to type without looking down, which is exactly the habit that raises your ceiling.",
           "Every game ships in three difficulty levels, shares a global leaderboard and feeds the same WPM history, so your arcade sessions still count as measurable practice."
         ]
       }
     ],
     "faqs": [
-      { "q": "Is the typing test really free?", "a": "Yes. Every typing test, practice drill, lesson and game on KeyQuest is free and unlimited. A free account is optional and only exists so your scores, badges and WPM history are saved." },
+      { "q": "Is the typing test really free?", "a": "Yes. Every typing test, practice drill, lesson and game on Typinger is free and unlimited. A free account is optional and only exists so your scores, badges and WPM history are saved." },
       { "q": "What is a good typing speed?", "a": "Around 40 WPM is average for an adult typing in English. 60 to 70 WPM is comfortably fast and enough for most office work, 80 to 100 WPM is advanced, and above 120 WPM is competitive territory." },
       { "q": "How often should I practise typing?", "a": "Ten to fifteen minutes a day is the sweet spot. Short daily sessions build muscle memory far better than one long weekly session, and most people see a 10 to 15 WPM gain within a month." },
       { "q": "Do mistakes lower my WPM score?", "a": "Yes. Only correctly typed characters count toward WPM, and every wrong keystroke also lowers your accuracy. The final game score multiplies WPM by accuracy, so clean runs score higher." },
-      { "q": "Can I use KeyQuest on a phone or tablet?", "a": "The tests and lessons work on a tablet with a keyboard, and the arcade games are playable on any device with a physical keyboard. For a fair WPM measurement we recommend a laptop or desktop keyboard." }
+      { "q": "Can I use Typinger on a phone or tablet?", "a": "The tests and lessons work on a tablet with a keyboard, and the arcade games are playable on any device with a physical keyboard. For a fair WPM measurement we recommend a laptop or desktop keyboard." }
     ],
     "related": [
       { "to": "/typing-test/1-minute", "label": "Try the 1 minute typing test" },
@@ -106,7 +106,7 @@
     "faqs": [
       { "q": "How long should a typing test be?", "a": "One minute is enough for a quick check of raw speed. Three to five minutes gives a far more reliable number because it includes fatigue, recovery from mistakes and your real sustained rhythm." },
       { "q": "Is 40 WPM a good typing speed?", "a": "40 WPM is about average for an adult and perfectly usable for everyday work. Most people reach 60 WPM within a few weeks of daily practice, which is where typing stops feeling like a bottleneck." },
-      { "q": "Why is my WPM lower here than on other sites?", "a": "KeyQuest counts only correctly typed characters and uses the five character word standard. Sites that count raw keystrokes, or that ignore errors, report flattering numbers that are not comparable." },
+      { "q": "Why is my WPM lower here than on other sites?", "a": "Typinger counts only correctly typed characters and uses the five character word standard. Sites that count raw keystrokes, or that ignore errors, report flattering numbers that are not comparable." },
       { "q": "Does the test work with any keyboard layout?", "a": "Yes. The test reads the characters your layout produces, so QWERTY, Dvorak, Colemak and international layouts all work. Only the Hindi test expects a Devanagari input method." },
       { "q": "Do I need an account to see my result?", "a": "No. Results appear immediately for everyone. An account only adds saved history, per game statistics, achievement badges and leaderboard placement." }
     ],
@@ -250,7 +250,7 @@
         "h2": "Scoring, errors and the formula",
         "p": [
           "WPM is calculated as (correct characters / 5) / (seconds / 60), with one word defined as five characters including spaces. Accuracy is ((keystrokes - errors) / keystrokes) x 100 across the whole run.",
-          "Many exams also apply an error limit, commonly 5% to 8% of total keystrokes, and some compute net WPM by subtracting a word for each uncorrected mistake. KeyQuest shows you raw WPM, accuracy and error count separately so you can check yourself against whatever rule your exam uses."
+          "Many exams also apply an error limit, commonly 5% to 8% of total keystrokes, and some compute net WPM by subtracting a word for each uncorrected mistake. Typinger shows you raw WPM, accuracy and error count separately so you can check yourself against whatever rule your exam uses."
         ]
       },
       {
@@ -273,7 +273,7 @@
     ],
     "faqs": [
       { "q": "What WPM do typing exams usually require?", "a": "Most English typing exams ask for 30 to 40 WPM with low error rates, and many clerical roles ask for 45 to 60 WPM. Always check the official notification for the exact speed and error limit." },
-      { "q": "How is net WPM different from gross WPM?", "a": "Gross WPM counts everything you typed; net WPM subtracts a penalty for uncorrected errors, often one word per mistake. KeyQuest reports correct-character WPM plus accuracy, which lets you compute either." },
+      { "q": "How is net WPM different from gross WPM?", "a": "Gross WPM counts everything you typed; net WPM subtracts a penalty for uncorrected errors, often one word per mistake. Typinger reports correct-character WPM plus accuracy, which lets you compute either." },
       { "q": "Should I correct every mistake in a five minute test?", "a": "Correct the word you are on, because uncorrected errors are penalised in most exams, but never go back more than one word. Momentum matters more over five minutes." },
       { "q": "How can I build typing stamina?", "a": "Add one longer passage to each practice session, keep your accuracy above 97%, and take short breaks between runs. Stamina improves within two or three weeks of consistent work." },
       { "q": "Is the passage the same every time?", "a": "No. Words are drawn fresh from the pool on every run so you cannot memorise them, which keeps the measurement honest." }
