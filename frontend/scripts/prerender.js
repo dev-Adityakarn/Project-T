@@ -266,6 +266,7 @@ const appRoutes = [
   { path: "/login", title: "Sign In to Typinger", description: "Sign in to save your typing progress." },
   { path: "/register", title: "Create a Free Typinger Account", description: "Create an account to save typing stats and join leaderboards." },
   { path: "/dashboard", title: "Your Typing Dashboard", description: "Track your typing progress and badges." },
+  { path: "/admin", title: "Typinger Admin", description: "Restricted administration area for Typinger content and leaderboard moderation." },
 ];
 appRoutes.forEach((ar) => {
   write(ar.path, head({ path: ar.path, title: ar.title, description: ar.description, noindex: true }), "");

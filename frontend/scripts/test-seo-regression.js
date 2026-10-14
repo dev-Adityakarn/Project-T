@@ -47,6 +47,7 @@ assert(fs.existsSync(redirectsPath), "build/_redirects exists");
 const redirects = fs.readFileSync(redirectsPath, "utf8");
 assert(redirects.includes("/test /typing-test 301"), "_redirects includes /test -> /typing-test 301");
 assert(redirects.includes("/typing-speed-test /typing-test 301"), "_redirects includes /typing-speed-test -> /typing-test 301");
+assert(!redirects.includes("/index.html"), "_redirects does not rewrite to /index.html (prevents Cloudflare loop 100324)");
 
 console.log("\n--- Validating Homepage HTML ---");
 const indexPath = path.join(BUILD, "index.html");
@@ -87,6 +88,11 @@ const loginPath = path.join(BUILD, "login/index.html");
 assert(fs.existsSync(loginPath), "build/login/index.html exists for static hosting refresh");
 const login = fs.readFileSync(loginPath, "utf8");
 assert(login.includes('content="noindex,nofollow"'), "login shell has noindex,nofollow");
+
+const adminPath = path.join(BUILD, "admin/index.html");
+assert(fs.existsSync(adminPath), "build/admin/index.html exists for static hosting refresh");
+const admin = fs.readFileSync(adminPath, "utf8");
+assert(admin.includes('content="noindex,nofollow"'), "admin shell has noindex,nofollow");
 
 if (failures.length > 0) {
   console.error(`\n❌ Regression testing failed with ${failures.length} errors.`);
