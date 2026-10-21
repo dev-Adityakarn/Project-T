@@ -21,7 +21,7 @@ export const CookieConsent = () => {
           <Cookie size={18} className="mt-0.5 shrink-0 text-primary" />
           <p className="text-sm text-muted-foreground">
             We use anonymous analytics cookies to understand which typing tests people use. Sign-in cookies are always required.{" "}
-            <Link to="/privacy-policy" className="text-primary underline" data-testid="cookie-policy-link">Privacy policy</Link>
+            <Link to="/privacy-policy/" className="text-primary underline" data-testid="cookie-policy-link">Privacy policy</Link>
           </p>
         </div>
         <div className="mt-4 flex gap-2">

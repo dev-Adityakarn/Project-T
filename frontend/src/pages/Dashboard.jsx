@@ -29,7 +29,7 @@ export default function Dashboard() {
   }, [user]);
 
   if (user === null) return <div className="p-20 text-center text-muted-foreground">Loading...</div>;
-  if (user === false) return <Navigate to="/login" replace />;
+  if (user === false) return <Navigate to="/login/" replace />;
 
   const chart = [...history].reverse().map((h, i) => ({ n: i + 1, wpm: h.wpm, accuracy: h.accuracy }));
   const perGame = Object.fromEntries((stats?.per_game || []).map((g) => [g.game_id, g]));
@@ -70,7 +70,7 @@ export default function Dashboard() {
               </LineChart>
             </ResponsiveContainer>
           </div>
-        ) : <p className="text-sm text-muted-foreground">Play a game to see your progress. <Link to="/games" className="text-primary">Browse games</Link></p>}
+        ) : <p className="text-sm text-muted-foreground">Play a game to see your progress. <Link to="/games/" className="text-primary">Browse games</Link></p>}
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">

@@ -1,6 +1,6 @@
 import "@/App.css";
 import { Suspense, lazy, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { Navbar } from "@/components/Navbar";
@@ -42,19 +42,42 @@ const CONTENT_ROUTES = [
 ];
 
 const REDIRECTS = {
-  "/typing-speed-test": "/typing-test",
-  "/test": "/typing-test",
-  "/practice": "/typing-practice",
-  "/lessons": "/typing-lessons",
-  "/typing-tutor": "/typing-lessons",
-  "/typing-test/60-seconds": "/typing-test/1-minute",
-  "/privacy": "/privacy-policy",
-  "/terms-of-service": "/terms",
-  "/hindi-typing": "/hindi-typing-test",
-  "/blog/index": "/blog",
+  "/typing-speed-test": "/typing-test/",
+  "/typing-speed-test/": "/typing-test/",
+  "/test": "/typing-test/",
+  "/test/": "/typing-test/",
+  "/practice": "/typing-practice/",
+  "/practice/": "/typing-practice/",
+  "/lessons": "/typing-lessons/",
+  "/lessons/": "/typing-lessons/",
+  "/typing-tutor": "/typing-lessons/",
+  "/typing-tutor/": "/typing-lessons/",
+  "/typing-test/60-seconds": "/typing-test/1-minute/",
+  "/typing-test/60-seconds/": "/typing-test/1-minute/",
+  "/privacy": "/privacy-policy/",
+  "/privacy/": "/privacy-policy/",
+  "/terms-of-service": "/terms/",
+  "/terms-of-service/": "/terms/",
+  "/hindi-typing": "/hindi-typing-test/",
+  "/hindi-typing/": "/hindi-typing-test/",
+  "/blog/index": "/blog/",
+  "/blog/index/": "/blog/",
 };
 
 const Fallback = () => <div className="p-24 text-center text-sm text-muted-foreground" data-testid="route-loading">Loading…</div>;
+
+const TrailingSlashHandler = () => {
+  const { pathname, search, hash } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (pathname.length > 1 && !pathname.endsWith("/") && !pathname.includes(".") && !pathname.startsWith("/api")) {
+      navigate(`${pathname}/${search}${hash}`, { replace: true });
+    }
+  }, [pathname, search, hash, navigate]);
+
+  return null;
+};
 
 const RouteEffects = () => {
   const { pathname } = useLocation();
@@ -72,6 +95,7 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <BrowserRouter>
+          <TrailingSlashHandler />
           <RouteEffects />
           <AppSeo />
           <div className="min-h-screen">
@@ -80,17 +104,30 @@ function App() {
               <Suspense fallback={<Fallback />}>
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  {CONTENT_ROUTES.map((p) => <Route key={p} path={p} element={<ContentPage path={p} />} />)}
+                  {CONTENT_ROUTES.flatMap((p) => [
+                    <Route key={p} path={p} element={<ContentPage path={p} />} />,
+                    <Route key={`${p}/`} path={`${p}/`} element={<ContentPage path={p} />} />,
+                  ])}
                   <Route path="/typing-lessons" element={<Lessons />} />
+                  <Route path="/typing-lessons/" element={<Lessons />} />
                   <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/blog/:slug/" element={<BlogPost />} />
                   <Route path="/games" element={<Games />} />
+                  <Route path="/games/" element={<Games />} />
                   <Route path="/games/:id" element={<GamePlay />} />
+                  <Route path="/games/:id/" element={<GamePlay />} />
                   <Route path="/leaderboard" element={<Leaderboard />} />
+                  <Route path="/leaderboard/" element={<Leaderboard />} />
                   <Route path="/daily" element={<Daily />} />
+                  <Route path="/daily/" element={<Daily />} />
                   <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/dashboard/" element={<Dashboard />} />
                   <Route path="/login" element={<AuthPage mode="login" />} />
+                  <Route path="/login/" element={<AuthPage mode="login" />} />
                   <Route path="/register" element={<AuthPage mode="register" />} />
+                  <Route path="/register/" element={<AuthPage mode="register" />} />
                   <Route path="/admin/*" element={<Admin />} />
                   {Object.entries(REDIRECTS).map(([from, to]) => (
                     <Route key={from} path={from} element={<Navigate to={to} replace />} />

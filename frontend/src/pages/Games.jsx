@@ -24,7 +24,7 @@ export default function Games() {
         {list.map((g, i) => {
           const I = g.icon;
           return (
-            <Link key={g.id} to={`/games/${g.id}`} data-testid={`game-card-${g.id}`} style={{ animationDelay: `${i * 50}ms` }}
+            <Link key={g.id} to={`/games/${g.id}/`} data-testid={`game-card-${g.id}`} style={{ animationDelay: `${i * 50}ms` }}
               className="rise-in group relative overflow-hidden rounded-2xl border bg-card p-6 transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-primary/60">
               <div className="flex items-start justify-between">
                 <span className="grid h-12 w-12 place-items-center rounded-xl" style={{ background: `${g.color}22`, color: g.color }}><I size={24} /></span>

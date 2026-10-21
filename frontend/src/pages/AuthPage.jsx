@@ -21,7 +21,7 @@ export default function AuthPage({ mode }) {
     try {
       if (isLogin) await login(form.email, form.password);
       else await register(form.name, form.email, form.password);
-      nav("/dashboard");
+      nav("/dashboard/");
     } catch (err) {
       setError(formatApiError(err));
     } finally {

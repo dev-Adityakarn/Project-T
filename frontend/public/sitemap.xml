@@ -2,187 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://typinger.in/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://typinger.in/typing-test</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://typinger.in/typing-test/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-test/1-minute</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://typinger.in/typing-test/1-minute/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-test/3-minute</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://typinger.in/typing-test/3-minute/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-test/5-minute</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://typinger.in/typing-test/5-minute/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-test/numbers</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://typinger.in/typing-test/numbers/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-test/punctuation</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://typinger.in/typing-test/punctuation/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-test/code</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://typinger.in/typing-test/code/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-practice</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://typinger.in/typing-practice/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-practice/beginners</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://typinger.in/typing-practice/beginners/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/typing-lessons</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://typinger.in/typing-lessons/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/hindi-typing-test</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://typinger.in/hindi-typing-test/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/government-exam-typing-test</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://typinger.in/government-exam-typing-test/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/games</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://typinger.in/games/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/games/speed-test</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://typinger.in/blog/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/games/falling-words</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/games/zombie-typing</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/games/space-shooter</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/games/type-racer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/games/sudden-death</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/games/key-reflex</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/games/word-scramble</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/games/balloon-pop</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/games/code-typer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/daily</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/leaderboard</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/blog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://typinger.in/blog/how-to-type-faster</loc>
+    <loc>https://typinger.in/blog/how-to-type-faster/</loc>
     <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://typinger.in/blog/average-typing-speed-by-age</loc>
+    <loc>https://typinger.in/blog/average-typing-speed-by-age/</loc>
     <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://typinger.in/blog/touch-typing-guide-for-beginners</loc>
+    <loc>https://typinger.in/blog/touch-typing-guide-for-beginners/</loc>
     <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://typinger.in/blog/how-to-improve-typing-accuracy</loc>
+    <loc>https://typinger.in/blog/how-to-improve-typing-accuracy/</loc>
     <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://typinger.in/blog/what-is-a-good-wpm-score</loc>
+    <loc>https://typinger.in/blog/what-is-a-good-wpm-score/</loc>
     <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://typinger.in/about</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://typinger.in/about/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/contact</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://typinger.in/contact/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/privacy-policy</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://typinger.in/privacy-policy/</loc>
   </url>
   <url>
-    <loc>https://typinger.in/terms</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://typinger.in/terms/</loc>
   </url>
 </urlset>

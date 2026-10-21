@@ -41,8 +41,13 @@ export const Seo = ({ path, title, description, image, type = "website", noindex
     const canonical = absUrl(path);
     document.documentElement.lang = lang;
     document.title = title;
-    meta("description", description);
-    meta("robots", noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large");
+    let robotsContent = "index,follow,max-image-preview:large";
+    if (noindex === true) {
+      robotsContent = "noindex,follow";
+    } else if (typeof noindex === "string") {
+      robotsContent = noindex;
+    }
+    meta("robots", robotsContent);
     setCanonical(canonical);
 
     prop("og:title", title);

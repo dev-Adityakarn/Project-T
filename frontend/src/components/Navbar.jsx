@@ -7,10 +7,10 @@ import { sfx } from "@/lib/sound";
 import { Button } from "@/components/ui/button";
 
 const links = [
-  { to: "/games", label: "Games" },
-  { to: "/daily", label: "Daily" },
-  { to: "/leaderboard", label: "Leaderboard" },
-  { to: "/dashboard", label: "Dashboard" },
+  { to: "/games/", label: "Games" },
+  { to: "/daily/", label: "Daily" },
+  { to: "/leaderboard/", label: "Leaderboard" },
+  { to: "/dashboard/", label: "Dashboard" },
 ];
 
 export const Navbar = () => {
@@ -46,7 +46,7 @@ export const Navbar = () => {
           </Button>
           {user ? (
             <>
-              <Link to="/dashboard" className="hidden items-center gap-2 rounded-full border px-3 py-1.5 text-sm sm:flex" data-testid="nav-user-name">
+              <Link to="/dashboard/" className="hidden items-center gap-2 rounded-full border px-3 py-1.5 text-sm sm:flex" data-testid="nav-user-name">
                 <User size={14} /> {user.name}
               </Link>
               <Button variant="ghost" size="icon" className="rounded-full" onClick={async () => { await logout(); nav("/"); }} data-testid="logout-btn" aria-label="Log out">
@@ -54,7 +54,7 @@ export const Navbar = () => {
               </Button>
             </>
           ) : (
-            <Button onClick={() => nav("/login")} className="rounded-full px-5 font-semibold" data-testid="nav-login-btn">Sign in</Button>
+            <Button onClick={() => nav("/login/")} className="rounded-full px-5 font-semibold" data-testid="nav-login-btn">Sign in</Button>
           )}
         </div>
       </div>

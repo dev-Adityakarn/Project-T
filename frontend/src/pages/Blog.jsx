@@ -9,7 +9,7 @@ import { SeoArticle } from "@/components/SeoArticle";
 import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/seo/schema";
 
 const Card = ({ p, i }) => (
-  <Link to={`/blog/${p.slug}`} data-testid={`blog-card-${p.slug}`} style={{ animationDelay: `${i * 60}ms` }}
+  <Link to={`/blog/${p.slug}/`} data-testid={`blog-card-${p.slug}`} style={{ animationDelay: `${i * 60}ms` }}
     className="rise-in group flex flex-col rounded-2xl border bg-card p-6 transition-transform duration-300 hover:-translate-y-1">
     <div className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-muted-foreground">
       <span className="flex items-center gap-1"><CalendarDays size={12} /> {p.datePublished}</span>

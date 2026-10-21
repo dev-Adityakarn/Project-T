@@ -51,13 +51,16 @@ export const RelatedLinks = ({ links, heading = "Keep practising" }) => {
     <section className="mt-14" data-testid="related-links">
       <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{heading}</h2>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        {links.map((l) => (
-          <Link key={l.to} to={l.to} data-testid={`related-${l.to}`}
-            className="group flex items-center justify-between gap-4 rounded-xl border bg-card px-5 py-4 text-sm font-medium transition-colors duration-200 hover:border-primary hover:text-primary">
-            {l.label}
-            <ArrowUpRight size={16} className="opacity-50 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:opacity-100" />
-          </Link>
-        ))}
+        {links.map((l) => {
+          const targetTo = l.to === "/" ? "/" : (l.to.endsWith("/") ? l.to : `${l.to}/`);
+          return (
+            <Link key={l.to} to={targetTo} data-testid={`related-${l.to}`}
+              className="group flex items-center justify-between gap-4 rounded-xl border bg-card px-5 py-4 text-sm font-medium transition-colors duration-200 hover:border-primary hover:text-primary">
+              {l.label}
+              <ArrowUpRight size={16} className="opacity-50 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:opacity-100" />
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

@@ -1,42 +1,33 @@
-/* Generates public/sitemap.xml and public/robots.txt from src/seo/routes.json. */
+/* Generates public/sitemap.xml and public/robots.txt for typinger.in. */
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const readEnv = () => {
-  const file = path.join(ROOT, ".env");
-  if (!fs.existsSync(file)) return {};
-  return fs.readFileSync(file, "utf8").split("\n").reduce((acc, line) => {
-    const m = line.match(/^([A-Z0-9_]+)=(.*)$/);
-    if (m) acc[m[1]] = m[2].trim();
-    return acc;
-  }, {});
-};
-
-const env = { ...readEnv(), ...process.env };
 const PRODUCTION_ORIGIN = "https://typinger.in";
-const SITE_URL = (env.REACT_APP_SITE_URL || PRODUCTION_ORIGIN).replace(/\/$/, "");
 
 const routes = JSON.parse(fs.readFileSync(path.join(ROOT, "src/seo/routes.json"), "utf8"));
 const blog = JSON.parse(fs.readFileSync(path.join(ROOT, "src/seo/blog.json"), "utf8"));
 
 const lastmodFor = (route) => {
-  const post = blog.find((p) => `/blog/${p.slug}` === route.path);
+  const clean = route.path.replace(/^\/+/, "").replace(/\/+$/, "");
+  const post = blog.find((p) => `blog/${p.slug}` === clean);
   if (post && (post.dateModified || post.datePublished)) {
     return post.dateModified || post.datePublished;
   }
   return null;
 };
 
-const urls = routes
+// Filter only canonical, indexable routes intended for sitemap (exclude thin utility/app pages)
+const sitemapRoutes = routes.filter((r) => r.sitemap !== false);
+
+const urls = sitemapRoutes
   .map((r) => {
-    const loc = `${SITE_URL}${r.path === "/" ? "/" : r.path}`;
+    const clean = r.path === "/" ? "" : r.path.replace(/^\/+/, "").replace(/\/+$/, "");
+    const loc = clean === "" ? `${PRODUCTION_ORIGIN}/` : `${PRODUCTION_ORIGIN}/${clean}/`;
     const lastmod = lastmodFor(r);
     const lastmodTag = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : "";
     return `  <url>
     <loc>${loc}</loc>${lastmodTag}
-    <changefreq>${r.changefreq}</changefreq>
-    <priority>${r.priority}</priority>
   </url>`;
   })
   .join("\n");
@@ -47,7 +38,7 @@ ${urls}
 </urlset>
 `;
 
-const robots = `# robots.txt for ${SITE_URL}
+const robots = `# robots.txt for ${PRODUCTION_ORIGIN}
 User-agent: *
 Allow: /
 Disallow: /admin
@@ -56,7 +47,7 @@ Disallow: /dashboard
 Disallow: /login
 Disallow: /register
 
-Sitemap: ${SITE_URL}/sitemap.xml
+Sitemap: ${PRODUCTION_ORIGIN}/sitemap.xml
 `;
 
 fs.writeFileSync(path.join(ROOT, "public/sitemap.xml"), sitemap);
@@ -68,4 +59,4 @@ if (fs.existsSync(buildDir)) {
   fs.writeFileSync(path.join(buildDir, "robots.txt"), robots);
 }
 
-console.log(`seo: wrote sitemap.xml (${routes.length} urls) and robots.txt`);
+console.log(`seo: wrote sitemap.xml (${sitemapRoutes.length} urls) and robots.txt`);

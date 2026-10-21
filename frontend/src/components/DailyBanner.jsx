@@ -15,7 +15,7 @@ export const DailyBanner = () => {
   const m = Math.floor((d.resets_in % 3600) / 60);
   return (
     <section className="mx-auto max-w-7xl px-4 pt-14 sm:px-8">
-      <Link to="/daily" data-testid="home-daily-banner"
+      <Link to="/daily/" data-testid="home-daily-banner"
         className="rise-in group flex flex-col gap-4 rounded-2xl border border-primary/40 bg-card p-5 transition-colors duration-200 hover:border-primary sm:flex-row sm:items-center">
         <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground shadow-[0_4px_0_hsl(var(--kb-key-side))]"><CalendarCheck size={22} /></span>
         <div className="min-w-0 flex-1">

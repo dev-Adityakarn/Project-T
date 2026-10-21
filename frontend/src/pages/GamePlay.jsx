@@ -80,14 +80,14 @@ const Result = ({ r, saved, user, onAgain, difficulty, daily, badges }) => (
     </div>
     {badges.length > 0 && <NewBadges badges={badges} />}
     <p className="mt-6 text-sm text-muted-foreground" data-testid="result-save-status">
-      {user ? (saved ? (daily ? "Saved to today's challenge board." : "Saved to your profile.") : "Saving...") : <><Link to="/login" className="text-primary underline">Sign in</Link> to save scores and join the leaderboard.</>}
+      {user ? (saved ? (daily ? "Saved to today's challenge board." : "Saved to your profile.") : "Saving...") : <><Link to="/login/" className="text-primary underline">Sign in</Link> to save scores and join the leaderboard.</>}
     </p>
     <div className="mt-6 flex flex-wrap gap-3">
       <Button onClick={onAgain} className="rounded-full px-6 font-semibold" data-testid="play-again-btn"><RotateCcw size={16} /> Play again</Button>
       {daily ? (
-        <Button asChild variant="outline" className="rounded-full px-6" data-testid="back-to-daily-btn"><Link to="/daily">Daily board</Link></Button>
+        <Button asChild variant="outline" className="rounded-full px-6" data-testid="back-to-daily-btn"><Link to="/daily/">Daily board</Link></Button>
       ) : (
-        <Button asChild variant="outline" className="rounded-full px-6" data-testid="back-to-games-btn"><Link to="/games">All games</Link></Button>
+        <Button asChild variant="outline" className="rounded-full px-6" data-testid="back-to-games-btn"><Link to="/games/">All games</Link></Button>
       )}
     </div>
   </div>
@@ -150,12 +150,12 @@ export default function GamePlay() {
     }).catch(() => {});
   }, [id, user, loadBoard, activeDiff, daily]);
 
-  if (!game) return <div className="p-20 text-center">Game not found. <Link to="/games" className="text-primary">Back</Link></div>;
+  if (!game) return <div className="p-20 text-center">Game not found. <Link to="/games/" className="text-primary">Back</Link></div>;
   const I = game.icon;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8">
-      <Link to={daily ? "/daily" : "/games"} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground" data-testid="game-back-link"><ArrowLeft size={14} /> {daily ? "Daily challenge" : "Games"}</Link>
+      <Link to={daily ? "/daily/" : "/games/"} className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground" data-testid="game-back-link"><ArrowLeft size={14} /> {daily ? "Daily challenge" : "Games"}</Link>
       <div className="mt-4 mb-6 flex items-center gap-4">
         <span className="grid h-12 w-12 place-items-center rounded-xl" style={{ background: `${game.color}22`, color: game.color }}><I size={24} /></span>
         <div>

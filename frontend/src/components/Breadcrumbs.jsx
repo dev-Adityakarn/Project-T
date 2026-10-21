@@ -8,7 +8,7 @@ export const Breadcrumbs = ({ crumbs = [] }) => (
       <span key={c.name} className="flex items-center gap-1">
         <ChevronRight size={12} className="opacity-60" />
         {c.path && i < crumbs.length - 1 ? (
-          <Link to={c.path} className="hover:text-foreground" data-testid={`breadcrumb-link-${i}`}>{c.name}</Link>
+          <Link to={c.path === "/" ? "/" : (c.path.endsWith("/") ? c.path : `${c.path}/`)} className="hover:text-foreground" data-testid={`breadcrumb-link-${i}`}>{c.name}</Link>
         ) : (
           <span className="text-foreground" aria-current="page" data-testid="breadcrumb-current">{c.name}</span>
         )}

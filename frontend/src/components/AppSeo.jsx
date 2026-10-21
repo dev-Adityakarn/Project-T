@@ -63,6 +63,6 @@ export const AppSeo = () => {
   };
   return (
     <Seo path={path} title={page.title} description={page.description}
-      jsonLd={[organizationSchema(), websiteSchema(), webAppSchema(page), breadcrumbSchema([{ name: "Typing games", path: "/games" }, { name: game.title }])]} />
+      jsonLd={[organizationSchema(), websiteSchema(), webAppSchema(page), breadcrumbSchema([{ name: "Typing games", path: "/games/" }, { name: game.title }])]} />
   );
 };

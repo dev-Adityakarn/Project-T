@@ -5,14 +5,26 @@
 /robots.txt
   Content-Type: text/plain; charset=utf-8
 
+/admin
+  X-Robots-Tag: noindex, nofollow
+
 /admin/*
   X-Robots-Tag: noindex, nofollow
 
 /dashboard
-  X-Robots-Tag: noindex, nofollow
+  X-Robots-Tag: noindex, follow
+
+/dashboard/*
+  X-Robots-Tag: noindex, follow
 
 /login
-  X-Robots-Tag: noindex, nofollow
+  X-Robots-Tag: noindex, follow
+
+/login/*
+  X-Robots-Tag: noindex, follow
 
 /register
-  X-Robots-Tag: noindex, nofollow
+  X-Robots-Tag: noindex, follow
+
+/register/*
+  X-Robots-Tag: noindex, follow

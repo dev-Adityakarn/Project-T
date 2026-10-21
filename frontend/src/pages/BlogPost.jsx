@@ -46,9 +46,9 @@ export default function BlogPost() {
           <h2 className="text-xl font-semibold">Put it into practice</h2>
           <p className="mt-2 text-sm text-muted-foreground">Reading about typing is step one. Take a test, see where you stand, then pick a drill.</p>
           <div className="mt-4 flex flex-wrap gap-3 text-sm font-medium">
-            <Link to="/typing-test" className="rounded-full bg-primary px-5 py-2 text-primary-foreground" data-testid="post-cta-test">Take a typing test</Link>
-            <Link to="/typing-lessons" className="rounded-full border px-5 py-2" data-testid="post-cta-lessons">Touch typing lessons</Link>
-            <Link to="/blog" className="rounded-full border px-5 py-2" data-testid="post-cta-blog">All articles</Link>
+            <Link to="/typing-test/" className="rounded-full bg-primary px-5 py-2 text-primary-foreground" data-testid="post-cta-test">Take a typing test</Link>
+            <Link to="/typing-lessons/" className="rounded-full border px-5 py-2" data-testid="post-cta-lessons">Touch typing lessons</Link>
+            <Link to="/blog/" className="rounded-full border px-5 py-2" data-testid="post-cta-blog">All articles</Link>
           </div>
         </div>
       </article>

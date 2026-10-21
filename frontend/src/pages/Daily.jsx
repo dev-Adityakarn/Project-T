@@ -52,14 +52,14 @@ export default function Daily() {
             <p className="mt-6 max-w-xl text-sm text-muted-foreground">{game.description}</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button asChild size="lg" className="rounded-full px-8 font-semibold" data-testid="daily-play-btn">
-                <Link to={`/games/${d.game_id}?daily=1`}><Play size={16} /> Play today's challenge</Link>
+                <Link to={`/games/${d.game_id}/?daily=1`}><Play size={16} /> Play today's challenge</Link>
               </Button>
               <div className="flex items-center gap-2 font-mono-type text-sm text-muted-foreground"><Timer size={14} /> Resets in <span className="text-foreground" data-testid="daily-countdown">{fmt(left)}</span></div>
             </div>
           </div>
           <div className="rounded-2xl border bg-card p-6" data-testid="daily-my-stats">
             <div className="mb-3 flex items-center gap-2 font-semibold"><Users size={16} className="text-primary" /> Your run today</div>
-            {!user && <p className="text-sm text-muted-foreground"><Link to="/login" className="text-primary underline">Sign in</Link> to post your score to today's board.</p>}
+            {!user && <p className="text-sm text-muted-foreground"><Link to="/login/" className="text-primary underline">Sign in</Link> to post your score to today's board.</p>}
             {user && !d.my_best && <p className="text-sm text-muted-foreground">No attempts yet. Go set the bar.</p>}
             {user && d.my_best && (
               <div className="grid grid-cols-3 gap-2">

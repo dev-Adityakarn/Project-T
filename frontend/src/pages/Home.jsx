@@ -61,10 +61,10 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full px-7 font-semibold" data-testid="hero-play-btn">
-                <Link to="/games">Start playing <ArrowRight size={18} /></Link>
+                <Link to="/games/">Start playing <ArrowRight size={18} /></Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="rounded-full px-7" data-testid="hero-speedtest-btn">
-                <Link to="/typing-test">Typing speed test</Link>
+                <Link to="/typing-test/">Typing speed test</Link>
               </Button>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold sm:text-4xl">Pick your arena</h2>
             <p className="mt-2 text-base text-muted-foreground md:text-lg">Every game trains a different typing muscle.</p>
           </div>
-          <Link to="/games" className="hidden text-sm font-medium text-primary hover:underline sm:block" data-testid="home-all-games-link">All games</Link>
+          <Link to="/games/" className="hidden text-sm font-medium text-primary hover:underline sm:block" data-testid="home-all-games-link">All games</Link>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
           {GAMES.map((g, i) => <GameTile key={g.id} g={g} i={i} big={i === 0 || i === 3} />)}
@@ -100,7 +100,7 @@ export default function Home() {
             <p className="mt-2 text-base text-muted-foreground md:text-lg">Create a free account to save scores, chart your progress and climb the leaderboard.</p>
           </div>
           <Button asChild size="lg" className="rounded-full px-7 font-semibold" data-testid="cta-register-btn">
-            <Link to="/register">Create free account</Link>
+            <Link to="/register/">Create free account</Link>
           </Button>
         </div>
       </section>
