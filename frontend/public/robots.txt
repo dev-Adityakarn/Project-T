@@ -1,10 +1,7 @@
-# robots.txt for https://typinger.in
 User-agent: *
 Allow: /
+
 Disallow: /admin
 Disallow: /api
-Disallow: /dashboard
-Disallow: /login
-Disallow: /register
 
 Sitemap: https://typinger.in/sitemap.xml

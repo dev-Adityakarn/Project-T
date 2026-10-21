@@ -38,14 +38,11 @@ ${urls}
 </urlset>
 `;
 
-const robots = `# robots.txt for ${PRODUCTION_ORIGIN}
-User-agent: *
+const robots = `User-agent: *
 Allow: /
+
 Disallow: /admin
 Disallow: /api
-Disallow: /dashboard
-Disallow: /login
-Disallow: /register
 
 Sitemap: ${PRODUCTION_ORIGIN}/sitemap.xml
 `;

@@ -48,10 +48,9 @@ const robotsPath = path.join(BUILD, "robots.txt");
 assert(fs.existsSync(robotsPath), "build/robots.txt exists");
 const robots = fs.readFileSync(robotsPath, "utf8");
 assert(robots.includes("Sitemap: https://typinger.in/sitemap.xml"), "robots.txt references production sitemap");
+assert(robots.includes("Allow: /"), "robots.txt allows /");
 assert(robots.includes("Disallow: /admin"), "robots.txt disallows /admin");
-assert(robots.includes("Disallow: /dashboard"), "robots.txt disallows /dashboard");
-assert(robots.includes("Disallow: /login"), "robots.txt disallows /login");
-assert(robots.includes("Disallow: /register"), "robots.txt disallows /register");
+assert(robots.includes("Disallow: /api"), "robots.txt disallows /api");
 assert(!robots.includes("Disallow: /typing-test"), "robots.txt does not block /typing-test");
 
 console.log("\n--- Validating Cloudflare Headers & Redirects ---");
