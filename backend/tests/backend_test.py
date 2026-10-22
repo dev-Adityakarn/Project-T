@@ -2,17 +2,18 @@
 import os
 import time
 import uuid
+from pathlib import Path
+
 import requests
 import pytest
+from dotenv import load_dotenv
 
-BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "").rstrip("/")
-if not BASE_URL:
-    # Fallback: read from frontend/.env
-    with open("/app/frontend/.env") as f:
-        for line in f:
-            if line.startswith("REACT_APP_BACKEND_URL="):
-                BASE_URL = line.split("=", 1)[1].strip().strip('"').rstrip("/")
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+
+BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "http://localhost:8000").rstrip("/")
 API = f"{BASE_URL}/api"
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "admin@typinger.com")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 
 GAME_IDS = ["speed-test", "falling-words", "zombie-typing", "space-shooter",
             "type-racer", "sudden-death", "key-reflex", "word-scramble",
@@ -80,10 +81,12 @@ def test_me_unauthorized():
 
 
 def test_admin_login_seed(session):
+    if not ADMIN_PASSWORD:
+        pytest.skip("ADMIN_PASSWORD not configured")
     r = session.post(f"{API}/auth/login",
-                     json={"email": "admin@typinger.com", "password": "admin123"})
+                     json={"email": ADMIN_EMAIL, "password": ADMIN_PASSWORD})
     assert r.status_code == 200, f"Admin seed failed: {r.text}"
-    assert r.json()["user"]["role"] == "admin"
+    assert r.json()["user"]["role"] in {"admin", "super_admin"}
 
 
 # ---------- Results ----------

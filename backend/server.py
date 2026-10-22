@@ -7,16 +7,29 @@ load_dotenv(ROOT_DIR / ".env")
 import os
 import hashlib
 import logging
+import time
+import uuid
 from datetime import datetime, timezone, timedelta
 from typing import Annotated, Optional, List
+from urllib.parse import urlsplit
 
 import bcrypt
 import jwt
 from bson import ObjectId
 from fastapi import FastAPI, APIRouter, HTTPException, Request, Response, Depends, Query
+from fastapi.responses import JSONResponse
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, BeforeValidator, ConfigDict, EmailStr, Field
 from starlette.middleware.cors import CORSMiddleware
+
+from admin import (
+    ADMIN_COOKIE,
+    ADMIN_ROLES,
+    AdminConfig,
+    create_admin_router,
+    record_audit,
+    validate_admin_session,
+)
 
 client = AsyncIOMotorClient(os.environ["MONGO_URL"])
 db = client[os.environ["DB_NAME"]]
@@ -45,7 +58,10 @@ ACHIEVEMENTS = [
 app = FastAPI()
 api = APIRouter(prefix="/api")
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s %(message)s",
+)
 
 PyObjectId = Annotated[str, BeforeValidator(lambda v: str(v) if isinstance(v, ObjectId) else v)]
 
@@ -69,7 +85,12 @@ class User(BaseDocument):
     name: str
     email: str
     role: str = "user"
+    status: str = "active"
+    last_login_at: Optional[datetime] = None
+    suspended_at: Optional[datetime] = None
+    suspended_reason: Optional[str] = None
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
 class Result(BaseDocument):
@@ -296,10 +317,62 @@ async def get_optional_user(request: Request) -> Optional[User]:
         return None
 
 
-async def get_admin_user(user: User = Depends(get_current_user)) -> User:
-    if user.role != "admin":
+async def get_admin_user(request: Request) -> User:
+    """Authenticate the legacy content-management endpoints.
+
+    The admin console uses the dedicated HttpOnly ``admin_session`` cookie.
+    A consumer bearer token is still accepted for backwards compatibility with
+    existing integrations and tests, but it must belong to an active admin.
+    """
+    token = request.cookies.get(ADMIN_COOKIE)
+    if token:
+        doc = await validate_admin_session(db, admin_config, token)
+        return User.from_mongo(doc)
+
+    auth = request.headers.get("Authorization", "")
+    if not auth.startswith("Bearer "):
+        raise HTTPException(401, "Not authenticated")
+
+    user = await get_current_user(request)
+    if user.role not in ADMIN_ROLES:
         raise HTTPException(403, "Admin access required")
+    if user.status == "suspended":
+        raise HTTPException(403, "Account suspended")
     return user
+
+
+def env_bool(name: str, default: bool = False) -> bool:
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    return raw.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def env_int(name: str, default: int) -> int:
+    try:
+        return int(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
+admin_config = AdminConfig(
+    jwt_secret=os.environ["JWT_SECRET"],
+    cookie_secure=env_bool("ADMIN_COOKIE_SECURE", False),
+    cookie_samesite=os.environ.get("ADMIN_COOKIE_SAMESITE", "lax").lower(),
+    session_minutes=env_int("ADMIN_SESSION_MINUTES", 480),
+    idle_minutes=env_int("ADMIN_SESSION_IDLE_MINUTES", 120),
+    max_attempts=env_int("ADMIN_LOGIN_MAX_ATTEMPTS", 5),
+    lock_minutes=env_int("ADMIN_LOGIN_LOCK_MINUTES", 15),
+)
+
+api.include_router(
+    create_admin_router(
+        db,
+        config=admin_config,
+        hash_password=hash_password,
+        verify_password=verify_password,
+    )
+)
 
 
 @api.get("/")
@@ -334,7 +407,15 @@ async def login(body: LoginIn, request: Request, response: Response):
     if not doc or not verify_password(body.password, doc["password_hash"]):
         await db.login_attempts.update_one({"identifier": ident}, {"$inc": {"count": 1}, "$set": {"last": now}}, upsert=True)
         raise HTTPException(401, "Invalid email or password")
+    if doc.get("status") == "suspended":
+        raise HTTPException(403, "This account is suspended")
     await db.login_attempts.delete_one({"identifier": ident})
+    await db.users.update_one(
+        {"_id": doc["_id"]},
+        {"$set": {"last_login_at": now, "updated_at": now}},
+    )
+    doc["last_login_at"] = now
+    doc["updated_at"] = now
     return auth_response(response, User.from_mongo(doc))
 
 
@@ -460,25 +541,28 @@ async def admin_list_passages(_: User = Depends(get_admin_user)):
 
 
 @api.post("/admin/passages")
-async def admin_create_passage(body: PassageIn, _: User = Depends(get_admin_user)):
+async def admin_create_passage(body: PassageIn, request: Request, admin: User = Depends(get_admin_user)):
     p = Passage(**body.model_dump())
     p.id = str((await db.passages.insert_one(p.to_mongo())).inserted_id)
+    await record_audit(db, admin, "PASSAGE_CREATED", "passage", p.id, {"title": p.title}, request)
     return p.model_dump()
 
 
 @api.put("/admin/passages/{passage_id}")
-async def admin_update_passage(passage_id: str, body: PassageIn, _: User = Depends(get_admin_user)):
+async def admin_update_passage(passage_id: str, body: PassageIn, request: Request, admin: User = Depends(get_admin_user)):
     res = await db.passages.update_one({"_id": ObjectId(passage_id)}, {"$set": body.model_dump()})
     if not res.matched_count:
         raise HTTPException(404, "Passage not found")
+    await record_audit(db, admin, "PASSAGE_UPDATED", "passage", passage_id, {"title": body.title}, request)
     return {"ok": True}
 
 
 @api.delete("/admin/passages/{passage_id}")
-async def admin_delete_passage(passage_id: str, _: User = Depends(get_admin_user)):
+async def admin_delete_passage(passage_id: str, request: Request, admin: User = Depends(get_admin_user)):
     res = await db.passages.delete_one({"_id": ObjectId(passage_id)})
     if not res.deleted_count:
         raise HTTPException(404, "Passage not found")
+    await record_audit(db, admin, "PASSAGE_DELETED", "passage", passage_id, None, request)
     return {"ok": True}
 
 
@@ -489,28 +573,31 @@ async def admin_list_posts(_: User = Depends(get_admin_user)):
 
 
 @api.post("/admin/posts")
-async def admin_create_post(body: PostIn, _: User = Depends(get_admin_user)):
+async def admin_create_post(body: PostIn, request: Request, admin: User = Depends(get_admin_user)):
     if await db.posts.find_one({"slug": body.slug}):
         raise HTTPException(400, "Slug already used")
     p = Post(**body.model_dump())
     p.id = str((await db.posts.insert_one(p.to_mongo())).inserted_id)
+    await record_audit(db, admin, "POST_CREATED", "post", p.id, {"slug": p.slug, "title": p.title}, request)
     return p.model_dump()
 
 
 @api.put("/admin/posts/{post_id}")
-async def admin_update_post(post_id: str, body: PostIn, _: User = Depends(get_admin_user)):
+async def admin_update_post(post_id: str, body: PostIn, request: Request, admin: User = Depends(get_admin_user)):
     data = {**body.model_dump(), "updated_at": datetime.now(timezone.utc)}
     res = await db.posts.update_one({"_id": ObjectId(post_id)}, {"$set": data})
     if not res.matched_count:
         raise HTTPException(404, "Post not found")
+    await record_audit(db, admin, "POST_UPDATED", "post", post_id, {"slug": body.slug, "title": body.title}, request)
     return {"ok": True}
 
 
 @api.delete("/admin/posts/{post_id}")
-async def admin_delete_post(post_id: str, _: User = Depends(get_admin_user)):
+async def admin_delete_post(post_id: str, request: Request, admin: User = Depends(get_admin_user)):
     res = await db.posts.delete_one({"_id": ObjectId(post_id)})
     if not res.deleted_count:
         raise HTTPException(404, "Post not found")
+    await record_audit(db, admin, "POST_DELETED", "post", post_id, None, request)
     return {"ok": True}
 
 
@@ -522,28 +609,104 @@ async def admin_results(game_id: Optional[str] = None, limit: int = Query(50, ge
 
 
 @api.post("/admin/results/{result_id}/flag")
-async def admin_flag_result(result_id: str, body: FlagIn, _: User = Depends(get_admin_user)):
+async def admin_flag_result(result_id: str, body: FlagIn, request: Request, admin: User = Depends(get_admin_user)):
     res = await db.results.update_one({"_id": ObjectId(result_id)}, {"$set": {"flagged": body.flagged}})
     if not res.matched_count:
         raise HTTPException(404, "Result not found")
+    await record_audit(db, admin, "RESULT_FLAGGED", "result", result_id, {"flagged": body.flagged}, request)
     return {"ok": True, "flagged": body.flagged}
 
 
 @api.delete("/admin/results/{result_id}")
-async def admin_delete_result(result_id: str, _: User = Depends(get_admin_user)):
-    res = await db.results.delete_one({"_id": ObjectId(result_id)})
-    if not res.deleted_count:
+async def admin_delete_result(result_id: str, request: Request, admin: User = Depends(get_admin_user)):
+    doc = await db.results.find_one({"_id": ObjectId(result_id)})
+    if not doc:
         raise HTTPException(404, "Result not found")
+    await db.results.delete_one({"_id": ObjectId(result_id)})
+    await record_audit(db, admin, "RESULT_DELETED", "result", result_id,
+                       {"user_id": doc.get("user_id"), "game_id": doc.get("game_id"), "score": doc.get("score")}, request)
     return {"ok": True}
 
 
 
 app.include_router(api)
 
+allowed_origins = [
+    origin.strip().rstrip("/")
+    for origin in os.environ.get("CORS_ORIGINS", "").split(",")
+    if origin.strip()
+]
+
+
+@app.exception_handler(Exception)
+async def unhandled_exception_handler(request: Request, exc: Exception):
+    logger.exception("unhandled_exception path=%s", request.url.path)
+    return JSONResponse(status_code=500, content={"detail": "Internal server error"})
+
+
+@app.middleware("http")
+async def admin_csrf_guard(request: Request, call_next):
+    """Reject cross-site state changes on the cookie-authenticated admin API.
+
+    The admin session cookie is SameSite=Lax by default, which already blocks
+    cross-site POSTs in modern browsers. This Origin/Referer check is defence
+    in depth and also protects deployments configured with SameSite=None.
+    Non-browser clients (curl, monitoring) that send neither header still work.
+    """
+    path = request.url.path
+    if path.startswith("/api/admin") and request.method in {"POST", "PUT", "PATCH", "DELETE"}:
+        source = request.headers.get("origin")
+        if not source:
+            referer = request.headers.get("referer")
+            if referer:
+                parts = urlsplit(referer)
+                source = f"{parts.scheme}://{parts.netloc}"
+        if source and source.rstrip("/") not in allowed_origins:
+            logger.warning(
+                "admin_csrf_rejected path=%s origin=%s ip=%s",
+                path,
+                source,
+                request.client.host if request.client else "unknown",
+            )
+            return JSONResponse(status_code=403, content={"detail": "Request origin not allowed"})
+    return await call_next(request)
+
+
+@app.middleware("http")
+async def request_context(request: Request, call_next):
+    request_id = request.headers.get("x-request-id") or uuid.uuid4().hex
+    started = time.perf_counter()
+    try:
+        response = await call_next(request)
+    except Exception:
+        logger.exception(
+            "unhandled_request_error path=%s request_id=%s", request.url.path, request_id
+        )
+        response = JSONResponse(status_code=500, content={"detail": "Internal server error"})
+    duration_ms = round((time.perf_counter() - started) * 1000, 1)
+    response.headers.setdefault("X-Request-ID", request_id)
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "DENY")
+    response.headers.setdefault("Referrer-Policy", "no-referrer")
+    if request.url.path.startswith("/api/admin"):
+        response.headers["Cache-Control"] = "no-store"
+        logger.info(
+            "admin_request method=%s path=%s status=%s duration_ms=%s request_id=%s",
+            request.method,
+            request.url.path,
+            response.status_code,
+            duration_ms,
+            request_id,
+        )
+    return response
+
+
+# Added last so CORS is the outermost middleware and headers are applied to
+# auth failures, CSRF rejections and error responses as well.
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=os.environ["CORS_ORIGINS"].split(","),
+    allow_origins=allowed_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -551,23 +714,68 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup():
+    # Auth / user indexes
     await db.users.create_index("email", unique=True)
+    await db.users.create_index([("role", 1), ("status", 1)])
+    await db.users.create_index([("created_at", -1)])
+    await db.users.create_index([("last_login_at", -1)])
     await db.login_attempts.create_index("identifier")
+    await db.admin_login_attempts.create_index("last", expireAfterSeconds=86400)
+
+    # Server-managed admin sessions
+    await db.admin_sessions.create_index("jti", unique=True)
+    await db.admin_sessions.create_index("user_id")
+    await db.admin_sessions.create_index("expires_at", expireAfterSeconds=0)
+
+    # Append-only audit trail
+    await db.audit_logs.create_index([("created_at", -1)])
+    await db.audit_logs.create_index([("admin_id", 1), ("created_at", -1)])
+    await db.audit_logs.create_index([("action", 1), ("created_at", -1)])
+    await db.audit_logs.create_index([("target_type", 1), ("target_id", 1)])
+
+    # Application data / dashboard reads
     await db.results.create_index([("game_id", 1), ("score", -1)])
     await db.results.create_index([("user_id", 1), ("created_at", -1)])
     await db.results.create_index([("daily_date", 1), ("score", -1)])
+    await db.results.create_index([("created_at", -1)])
+    await db.results.create_index([("game_id", 1), ("created_at", -1)])
     await db.achievements.create_index([("user_id", 1), ("achievement_id", 1)], unique=True)
     await db.posts.create_index("slug", unique=True)
     await db.passages.create_index([("language", 1), ("difficulty", 1)])
-    admin_email = os.environ["ADMIN_EMAIL"].lower()
-    admin_pw = os.environ["ADMIN_PASSWORD"]
-    existing = await db.users.find_one({"email": admin_email})
-    if not existing:
-        doc = User(name="Admin", email=admin_email, role="admin").to_mongo()
-        doc["password_hash"] = hash_password(admin_pw)
-        await db.users.insert_one(doc)
-    elif not verify_password(admin_pw, existing["password_hash"]):
-        await db.users.update_one({"email": admin_email}, {"$set": {"password_hash": hash_password(admin_pw)}})
+
+    # First-run bootstrap only. Existing accounts are never silently promoted
+    # and passwords are never reset at boot; use scripts/create_admin.py for
+    # secure provisioning and rotation.
+    bootstrap_email = (
+        os.environ.get("BOOTSTRAP_ADMIN_EMAIL") or os.environ.get("ADMIN_EMAIL") or ""
+    ).strip().lower()
+    bootstrap_password = (
+        os.environ.get("BOOTSTRAP_ADMIN_PASSWORD") or os.environ.get("ADMIN_PASSWORD") or ""
+    )
+    if bootstrap_email and bootstrap_password:
+        existing_admin = await db.users.find_one({"role": {"$in": list(ADMIN_ROLES)}})
+        if existing_admin:
+            logger.info("bootstrap_admin_not_needed")
+        else:
+            existing_user = await db.users.find_one({"email": bootstrap_email})
+            if existing_user:
+                logger.warning(
+                    "bootstrap_admin_skipped email=%s reason=existing_user_run_create_admin_script",
+                    bootstrap_email,
+                )
+            else:
+                now = datetime.now(timezone.utc)
+                doc = User(
+                    name=os.environ.get("BOOTSTRAP_ADMIN_NAME", "Administrator"),
+                    email=bootstrap_email,
+                    role="super_admin",
+                    status="active",
+                    created_at=now,
+                    updated_at=now,
+                ).to_mongo()
+                doc["password_hash"] = hash_password(bootstrap_password)
+                await db.users.insert_one(doc)
+                logger.info("bootstrap_super_admin_created email=%s", bootstrap_email)
 
 
 @app.on_event("shutdown")

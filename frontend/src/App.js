@@ -21,7 +21,7 @@ const Lessons = lazy(() => import("@/pages/Lessons"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
-const Admin = lazy(() => import("@/pages/Admin"));
+const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
 
 const CONTENT_ROUTES = [
   "/typing-test",
@@ -71,7 +71,13 @@ const TrailingSlashHandler = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (pathname.length > 1 && !pathname.endsWith("/") && !pathname.includes(".") && !pathname.startsWith("/api")) {
+    if (
+      pathname.length > 1 &&
+      !pathname.endsWith("/") &&
+      !pathname.includes(".") &&
+      !pathname.startsWith("/api") &&
+      !pathname.startsWith("/admin")
+    ) {
       navigate(`${pathname}/${search}${hash}`, { replace: true });
     }
   }, [pathname, search, hash, navigate]);
@@ -83,9 +89,23 @@ const RouteEffects = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-    trackPageview(pathname, document.title);
+    if (!pathname.startsWith("/admin")) trackPageview(pathname, document.title);
   }, [pathname]);
   return null;
+};
+
+const SiteChrome = ({ children }) => {
+  const { pathname } = useLocation();
+  if (pathname.startsWith("/admin")) return children;
+
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <main>{children}</main>
+      <SiteFooter />
+      <CookieConsent />
+    </div>
+  );
 };
 
 function App() {
@@ -93,54 +113,49 @@ function App() {
 
   return (
     <ThemeProvider>
-      <AuthProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
           <TrailingSlashHandler />
           <RouteEffects />
           <AppSeo />
-          <div className="min-h-screen">
-            <Navbar />
-            <main>
-              <Suspense fallback={<Fallback />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  {CONTENT_ROUTES.flatMap((p) => [
-                    <Route key={p} path={p} element={<ContentPage path={p} />} />,
-                    <Route key={`${p}/`} path={`${p}/`} element={<ContentPage path={p} />} />,
-                  ])}
-                  <Route path="/typing-lessons" element={<Lessons />} />
-                  <Route path="/typing-lessons/" element={<Lessons />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                  <Route path="/blog/:slug/" element={<BlogPost />} />
-                  <Route path="/games" element={<Games />} />
-                  <Route path="/games/" element={<Games />} />
-                  <Route path="/games/:id" element={<GamePlay />} />
-                  <Route path="/games/:id/" element={<GamePlay />} />
-                  <Route path="/leaderboard" element={<Leaderboard />} />
-                  <Route path="/leaderboard/" element={<Leaderboard />} />
-                  <Route path="/daily" element={<Daily />} />
-                  <Route path="/daily/" element={<Daily />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/dashboard/" element={<Dashboard />} />
-                  <Route path="/login" element={<AuthPage mode="login" />} />
-                  <Route path="/login/" element={<AuthPage mode="login" />} />
-                  <Route path="/register" element={<AuthPage mode="register" />} />
-                  <Route path="/register/" element={<AuthPage mode="register" />} />
-                  <Route path="/admin/*" element={<Admin />} />
-                  {Object.entries(REDIRECTS).map(([from, to]) => (
-                    <Route key={from} path={from} element={<Navigate to={to} replace />} />
-                  ))}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </main>
-            <SiteFooter />
-            <CookieConsent />
-          </div>
-        </BrowserRouter>
-      </AuthProvider>
+          <SiteChrome>
+            <Suspense fallback={<Fallback />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                {CONTENT_ROUTES.flatMap((p) => [
+                  <Route key={p} path={p} element={<ContentPage path={p} />} />,
+                  <Route key={`${p}/`} path={`${p}/`} element={<ContentPage path={p} />} />,
+                ])}
+                <Route path="/typing-lessons" element={<Lessons />} />
+                <Route path="/typing-lessons/" element={<Lessons />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/blog/:slug/" element={<BlogPost />} />
+                <Route path="/games" element={<Games />} />
+                <Route path="/games/" element={<Games />} />
+                <Route path="/games/:id" element={<GamePlay />} />
+                <Route path="/games/:id/" element={<GamePlay />} />
+                <Route path="/leaderboard" element={<Leaderboard />} />
+                <Route path="/leaderboard/" element={<Leaderboard />} />
+                <Route path="/daily" element={<Daily />} />
+                <Route path="/daily/" element={<Daily />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/dashboard/" element={<Dashboard />} />
+                <Route path="/login" element={<AuthPage mode="login" />} />
+                <Route path="/login/" element={<AuthPage mode="login" />} />
+                <Route path="/register" element={<AuthPage mode="register" />} />
+                <Route path="/register/" element={<AuthPage mode="register" />} />
+                <Route path="/admin/*" element={<AdminApp />} />
+                {Object.entries(REDIRECTS).map(([from, to]) => (
+                  <Route key={from} path={from} element={<Navigate to={to} replace />} />
+                ))}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </SiteChrome>
+        </AuthProvider>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

@@ -2,17 +2,25 @@
 import os
 import time
 import uuid
+from pathlib import Path
+
 import pytest
 import requests
+from dotenv import load_dotenv
 
-BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://typing-games-mern.preview.emergentagent.com").rstrip("/")
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "http://localhost:8000").rstrip("/")
 API = f"{BASE_URL}/api"
+ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "admin@typinger.com")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 
 
 # ---------- fixtures ----------
 @pytest.fixture(scope="module")
 def admin_token():
-    r = requests.post(f"{API}/auth/login", json={"email": "admin@typinger.com", "password": "admin123"})
+    if not ADMIN_PASSWORD:
+        pytest.skip("ADMIN_PASSWORD not configured")
+    r = requests.post(f"{API}/auth/login", json={"email": ADMIN_EMAIL, "password": ADMIN_PASSWORD})
     assert r.status_code == 200, r.text
     return r.json()["token"]
 
