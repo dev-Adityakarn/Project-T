@@ -4,6 +4,7 @@ import { Seo } from "@/components/Seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SeoArticle } from "@/components/SeoArticle";
 import { TypingTool } from "@/components/TypingTool";
+import { AD_SLOTS } from "@/config/adsense";
 import { organizationSchema, websiteSchema, webAppSchema, faqSchema, breadcrumbSchema } from "@/seo/schema";
 
 const CONFIG = { kind: "lesson", duration: null };
@@ -41,7 +42,14 @@ export default function Lessons() {
               <h2 className="text-lg font-semibold" data-testid="lesson-title">Lesson {active.id}: {active.title}</h2>
               <p className="mt-1 text-sm text-muted-foreground">Goal: {active.goal} · Keys: <span className="font-mono-type">{active.keys}</span></p>
             </div>
-            <TypingTool key={active.id} config={CONFIG} textOverride={active.text} label={`Lesson ${active.id}: ${active.title}`} testId="tool-lesson" />
+            <TypingTool
+              key={active.id}
+              config={CONFIG}
+              textOverride={active.text}
+              label={`Lesson ${active.id}: ${active.title}`}
+              testId="tool-lesson"
+              resultAdSlot={AD_SLOTS.lessonAfterCompletion}
+            />
           </div>
         </div>
 

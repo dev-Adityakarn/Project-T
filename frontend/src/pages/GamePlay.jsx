@@ -10,6 +10,8 @@ import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { DifficultyPicker, DifficultyBadge } from "@/components/DifficultyPicker";
 import { BadgeIcon } from "@/components/Badges";
+import { AdAfterResult } from "@/components/ads/AdAfterResult";
+import { AD_SLOTS } from "@/config/adsense";
 
 const MiniBoard = ({ rows, title }) => (
   <div className="rounded-2xl border bg-card p-5" data-testid="game-mini-leaderboard">
@@ -67,30 +69,33 @@ const NewBadges = ({ badges }) => (
   </div>
 );
 
-const Result = ({ r, saved, user, onAgain, difficulty, daily, badges }) => (
-  <div className="rise-in rounded-2xl border bg-card p-8 sm:p-12" data-testid="game-result">
-    {daily && <DailyTag daily={daily} />}
-    <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">Game over <DifficultyBadge d={difficulty} testId="result-difficulty" /></div>
-    <div className="mt-2 font-pixel text-4xl text-primary sm:text-5xl" data-testid="result-score">{r.score}</div>
-    {r.extra && <div className="mt-2 text-sm text-muted-foreground" data-testid="result-extra">{r.extra}</div>}
-    <div className="mt-8 grid grid-cols-3 gap-3">
-      {[["WPM", r.wpm, "result-wpm"], ["Accuracy", `${r.accuracy}%`, "result-accuracy"], ["Time", `${r.duration}s`, "result-time"]].map(([l, v, id]) => (
-        <div key={l} className="rounded-xl bg-muted p-4"><div className="text-[10px] uppercase tracking-widest text-muted-foreground">{l}</div><div className="font-pixel text-sm sm:text-lg" data-testid={id}>{v}</div></div>
-      ))}
+const Result = ({ r, saved, user, onAgain, difficulty, daily, badges, resultAdSlot }) => (
+  <>
+    <div className="rise-in rounded-2xl border bg-card p-8 sm:p-12" data-testid="game-result">
+      {daily && <DailyTag daily={daily} />}
+      <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">Game over <DifficultyBadge d={difficulty} testId="result-difficulty" /></div>
+      <div className="mt-2 font-pixel text-4xl text-primary sm:text-5xl" data-testid="result-score">{r.score}</div>
+      {r.extra && <div className="mt-2 text-sm text-muted-foreground" data-testid="result-extra">{r.extra}</div>}
+      <div className="mt-8 grid grid-cols-3 gap-3">
+        {[["WPM", r.wpm, "result-wpm"], ["Accuracy", `${r.accuracy}%`, "result-accuracy"], ["Time", `${r.duration}s`, "result-time"]].map(([l, v, id]) => (
+          <div key={l} className="rounded-xl bg-muted p-4"><div className="text-[10px] uppercase tracking-widest text-muted-foreground">{l}</div><div className="font-pixel text-sm sm:text-lg" data-testid={id}>{v}</div></div>
+        ))}
+      </div>
+      {badges.length > 0 && <NewBadges badges={badges} />}
+      <p className="mt-6 text-sm text-muted-foreground" data-testid="result-save-status">
+        {user ? (saved ? (daily ? "Saved to today's challenge board." : "Saved to your profile.") : "Saving...") : <><Link to="/login/" className="text-primary underline">Sign in</Link> to save scores and join the leaderboard.</>}
+      </p>
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Button onClick={onAgain} className="rounded-full px-6 font-semibold" data-testid="play-again-btn"><RotateCcw size={16} /> Play again</Button>
+        {daily ? (
+          <Button asChild variant="outline" className="rounded-full px-6" data-testid="back-to-daily-btn"><Link to="/daily/">Daily board</Link></Button>
+        ) : (
+          <Button asChild variant="outline" className="rounded-full px-6" data-testid="back-to-games-btn"><Link to="/games/">All games</Link></Button>
+        )}
+      </div>
     </div>
-    {badges.length > 0 && <NewBadges badges={badges} />}
-    <p className="mt-6 text-sm text-muted-foreground" data-testid="result-save-status">
-      {user ? (saved ? (daily ? "Saved to today's challenge board." : "Saved to your profile.") : "Saving...") : <><Link to="/login/" className="text-primary underline">Sign in</Link> to save scores and join the leaderboard.</>}
-    </p>
-    <div className="mt-6 flex flex-wrap gap-3">
-      <Button onClick={onAgain} className="rounded-full px-6 font-semibold" data-testid="play-again-btn"><RotateCcw size={16} /> Play again</Button>
-      {daily ? (
-        <Button asChild variant="outline" className="rounded-full px-6" data-testid="back-to-daily-btn"><Link to="/daily/">Daily board</Link></Button>
-      ) : (
-        <Button asChild variant="outline" className="rounded-full px-6" data-testid="back-to-games-btn"><Link to="/games/">All games</Link></Button>
-      )}
-    </div>
-  </div>
+    <AdAfterResult slot={resultAdSlot} />
+  </>
 );
 
 export default function GamePlay() {
@@ -152,6 +157,7 @@ export default function GamePlay() {
 
   if (!game) return <div className="p-20 text-center">Game not found. <Link to="/games/" className="text-primary">Back</Link></div>;
   const I = game.icon;
+  const resultAdSlot = daily ? AD_SLOTS.dailyAfterResult : AD_SLOTS.gameAfterResult;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8">
@@ -168,7 +174,7 @@ export default function GamePlay() {
         <div data-testid="game-stage">
           {phase === "ready" && <Intro game={game} difficulty={activeDiff} setDifficulty={pickDifficulty} daily={daily} loading={loading} onStart={start} />}
           {phase === "playing" && <Comp key={run} onFinish={onFinish} difficulty={activeDiff} seed={daily?.seed} />}
-          {phase === "over" && result && <Result r={result} saved={saved} user={user} onAgain={start} difficulty={activeDiff} daily={daily} badges={badges} />}
+          {phase === "over" && result && <Result r={result} saved={saved} user={user} onAgain={start} difficulty={activeDiff} daily={daily} badges={badges} resultAdSlot={resultAdSlot} />}
         </div>
         <aside className="space-y-4"><MiniBoard rows={board} title={daily ? "Today's top players" : `Top players · ${activeDiff}`} /></aside>
       </div>

@@ -123,7 +123,7 @@
     "title": "Privacy Policy: How Typinger Handles Your Data",
     "description": "Read how Typinger collects, stores and protects your data, which cookies we set, how analytics consent works and how to delete your account for good.",
     "h1": "Privacy policy",
-    "lead": "Last updated June 2026. The short version: we store what is needed to show your typing history, and nothing is sold.",
+    "lead": "Last updated October 2026. The short version: we store what is needed to show your typing history, and nothing is sold.",
     "breadcrumbs": [{ "name": "Privacy policy" }],
     "blocks": [
       {
@@ -132,21 +132,29 @@
           "Account data: your display name, email address, a securely hashed password and the date you registered. Passwords are hashed with bcrypt and are never stored or transmitted in readable form.",
           "Result data: for each completed run, the game, difficulty, score, WPM, accuracy, duration and timestamp, plus whether it was a daily challenge.",
           "Technical data: standard server logs, which include an IP address for abuse prevention and rate limiting on sign-in.",
-          "Analytics data: only if you accept analytics cookies. Analytics is loaded through Google Analytics 4 with anonymised page and event data."
+          "Analytics data: only if you accept analytics cookies. Analytics is loaded through Google Analytics 4 with anonymised page and event data.",
+          "Advertising data: Google AdSense may collect cookie and device data to serve and measure ads, as explained in the advertising section below."
         ]
       },
       {
         "h2": "Cookies and local storage",
         "p": [
           "Typinger sets an httpOnly authentication cookie and a refresh cookie when you sign in. These are strictly necessary for the site to keep you logged in and cannot be disabled while you are signed in.",
-          "Your browser's local storage holds non-identifying preferences: your theme choice, the sound mute toggle, your preferred difficulty and your cookie consent decision. Analytics cookies are only set after you choose Accept in the consent banner, and you can withdraw consent at any time by clearing site data."
+          "Your browser's local storage holds non-identifying preferences: your theme choice, the sound mute toggle, your preferred difficulty and your cookie consent decision. Analytics cookies are only set after you choose Accept in the consent banner, and you can withdraw consent at any time by clearing site data. Advertising cookies are set by Google AdSense and are subject to Google's consent message where required."
         ]
       },
       {
         "h2": "How we use your data",
         "p": [
           "Account and result data exists to run the features you asked for: your dashboard, your WPM chart, your achievement badges, the daily challenge board and the public leaderboards. Your display name is visible on leaderboards; your email address never is.",
-          "We do not sell personal data, we do not share it with advertisers, and we do not profile you for marketing. Aggregate, anonymised statistics may be used to write articles, for example average speeds across difficulty levels."
+          "We do not sell personal data and we do not profile you for marketing. We use Google AdSense to display advertising; Google and its partners may use cookies to serve ads based on your visits to this and other websites. Aggregate, anonymised statistics may be used to write articles, for example average speeds across difficulty levels."
+        ]
+      },
+      {
+        "h2": "Advertising and Google AdSense",
+        "p": [
+          "Typinger is free and supported by advertising delivered by Google AdSense. Google, as a third-party vendor, uses cookies to serve ads on this site. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to Typinger and/or other sites on the Internet.",
+          "You can opt out of personalised advertising by visiting Google Ads Settings at adssettings.google.com or aboutads.info. Where required by law, Google shows a consent message before using advertising cookies, and you can change your choice at any time. Advertising is never placed inside an active typing test, lesson, game, exam or Daily Challenge; ads appear only after a result or inside editorial content."
         ]
       },
       {
@@ -165,7 +173,7 @@
       }
     ],
     "faqs": [
-      { "q": "Do you use tracking cookies?", "a": "Only analytics cookies, and only after you accept them in the consent banner. Authentication cookies are strictly necessary and are set only when you sign in." },
+      { "q": "Do you use tracking cookies?", "a": "We use analytics cookies only after you accept them in the consent banner. Google AdSense may set advertising cookies to serve ads; where required, Google shows a separate consent message. Authentication cookies are strictly necessary and are set only when you sign in." },
       { "q": "Can I use Typinger without an account?", "a": "Yes. All tests, lessons and games work signed out, and nothing is stored about you beyond standard server logs." },
       { "q": "Where is my data stored?", "a": "In a managed MongoDB database used only by Typinger. Access is restricted to the application and to site administrators." },
       { "q": "How do I delete my data?", "a": "Email hello@typinger.app from your account address and we will permanently delete the account, its results and its achievement records." },

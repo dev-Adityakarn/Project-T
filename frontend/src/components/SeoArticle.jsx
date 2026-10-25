@@ -1,5 +1,8 @@
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { AdInArticle } from "@/components/ads/AdInArticle";
+import { isValidAdSlot } from "@/config/adsense";
 
 const Block = ({ b }) => (
   <section className="mt-10">
@@ -66,10 +69,61 @@ export const RelatedLinks = ({ links, heading = "Keep practising" }) => {
   );
 };
 
-export const SeoArticle = ({ blocks = [], faqs = [], related = [] }) => (
-  <div className="mx-auto max-w-3xl">
-    {blocks.map((b, i) => <Block key={b.h2 || i} b={b} />)}
-    <Faqs faqs={faqs} />
-    <RelatedLinks links={related} />
-  </div>
-);
+const contentLength = (blocks = []) =>
+  blocks.reduce((total, block) => {
+    const parts = [block.h2, ...(block.p || []), ...(block.ul || [])];
+    (block.steps || []).forEach((step) => parts.push(step.h3, step.p));
+    return total + parts.filter(Boolean).join(" ").length;
+  }, 0);
+
+/**
+ * In-content ads are inserted between whole sections, never inside a paragraph
+ * or list, and never as the last thing before the FAQ. The first unit lands
+ * after section two; a second unit needs a long article and leaves at least
+ * one more section below it.
+ */
+const articleAdPositions = (blocks = [], slots = []) => {
+  // Production only creates units for real slot IDs. Development keeps the
+  // unconfigured slots so AdSenseUnit can show its dashed placeholder.
+  const validSlots =
+    process.env.NODE_ENV === "production" ? slots.filter(isValidAdSlot) : slots;
+  if (!validSlots.length || blocks.length < 3 || contentLength(blocks) < 1200) {
+    return [];
+  }
+
+  const positions = [{ after: 2, slot: validSlots[0] }];
+  if (validSlots.length > 1 && blocks.length > 3) {
+    const second = Math.min(5, blocks.length - 1);
+    if (second > 2) positions.push({ after: second, slot: validSlots[1] });
+  }
+  return positions;
+};
+
+export const SeoArticle = ({
+  blocks = [],
+  faqs = [],
+  related = [],
+  inArticleAds = [],
+}) => {
+  const adPositions = articleAdPositions(blocks, inArticleAds);
+
+  return (
+    <div className="mx-auto max-w-3xl">
+      {blocks.map((b, i) => (
+        <Fragment key={b.h2 || i}>
+          <Block b={b} />
+          {adPositions
+            .filter((position) => position.after === i + 1)
+            .map((position) => (
+              <AdInArticle
+                key={`ad-${position.after}-${position.slot}`}
+                slot={position.slot}
+              />
+            ))}
+        </Fragment>
+      ))}
+      <Faqs faqs={faqs} />
+      <RelatedLinks links={related} />
+    </div>
+  );
+};

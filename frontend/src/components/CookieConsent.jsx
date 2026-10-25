@@ -20,8 +20,8 @@ export const CookieConsent = () => {
         <div className="flex items-start gap-3">
           <Cookie size={18} className="mt-0.5 shrink-0 text-primary" />
           <p className="text-sm text-muted-foreground">
-            We use anonymous analytics cookies to understand which typing tests people use. Sign-in cookies are always required.{" "}
-            <Link to="/privacy-policy/" className="text-primary underline" data-testid="cookie-policy-link">Privacy policy</Link>
+            We use anonymous analytics cookies to understand which typing tests people use. Sign-in cookies are always required. Advertising is served by Google AdSense; its cookies and consent options are explained in our{" "}
+            <Link to="/privacy-policy/" className="text-primary underline" data-testid="cookie-policy-link">Privacy policy</Link>.
           </p>
         </div>
         <div className="mt-4 flex gap-2">

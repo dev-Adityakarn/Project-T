@@ -3,6 +3,8 @@ import { Seo } from "@/components/Seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SeoArticle } from "@/components/SeoArticle";
 import { TypingTool } from "@/components/TypingTool";
+import { AdRailLayout } from "@/components/ads/AdSideRail";
+import { AD_SLOTS } from "@/config/adsense";
 import { organizationSchema, websiteSchema, webAppSchema, faqSchema, breadcrumbSchema } from "@/seo/schema";
 
 const ALTERNATES = {
@@ -20,6 +22,22 @@ const ALTERNATES = {
 
 export default function ContentPage({ path }) {
   const page = getPage(path);
+  const isExamPage =
+    page.path === "/hindi-typing-test" ||
+    page.path === "/government-exam-typing-test";
+  const isPracticePage = page.path.startsWith("/typing-practice");
+  const isTypingTestPage = page.path.startsWith("/typing-test");
+  const resultAdSlot = isExamPage
+    ? AD_SLOTS.examAfterResult
+    : isPracticePage
+      ? AD_SLOTS.practiceAfterResult
+      : isTypingTestPage
+        ? AD_SLOTS.typingAfterResult
+        : "";
+  const railSlot =
+    (isTypingTestPage || isPracticePage) && !isExamPage
+      ? AD_SLOTS.desktopRail
+      : "";
   const schemas = [organizationSchema(), websiteSchema()];
   if (page.tool) schemas.push(webAppSchema(page));
   if (page.faqs?.length) schemas.push(faqSchema(page.faqs));
@@ -37,10 +55,17 @@ export default function ContentPage({ path }) {
         </header>
         {page.tool && (
           <div className="mx-auto mt-10 max-w-4xl" lang={page.lang || "en"}>
-            <TypingTool config={page.tool} label={page.h1} testId={`tool-${page.key}`} />
+            <TypingTool
+              config={page.tool}
+              label={page.h1}
+              testId={`tool-${page.key}`}
+              resultAdSlot={resultAdSlot}
+            />
           </div>
         )}
-        <SeoArticle blocks={page.blocks} faqs={page.faqs} related={page.related} />
+        <AdRailLayout slot={railSlot} enabled={isTypingTestPage || isPracticePage}>
+          <SeoArticle blocks={page.blocks} faqs={page.faqs} related={page.related} />
+        </AdRailLayout>
       </div>
     </>
   );

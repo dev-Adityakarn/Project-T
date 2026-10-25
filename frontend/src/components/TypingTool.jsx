@@ -6,13 +6,14 @@ import { TextDisplay } from "@/components/TextDisplay";
 import { GameHUD } from "@/components/GameHUD";
 import { Keyboard3D, normalizeKey } from "@/components/Keyboard3D";
 import { ShareCard } from "@/components/ShareCard";
+import { AdAfterResult } from "@/components/ads/AdAfterResult";
 import { Button } from "@/components/ui/button";
 import { sfx } from "@/lib/sound";
 import { trackEvent } from "@/lib/analytics";
 
 const fmt = (s) => (s >= 60 ? `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}` : `${s}s`);
 
-export const TypingTool = ({ config, label = "Typing test", textOverride, testId = "typing-tool" }) => {
+export const TypingTool = ({ config, label = "Typing test", textOverride, testId = "typing-tool", resultAdSlot = "" }) => {
   const options = config.durations || (config.duration ? [config.duration] : []);
   const [dur, setDur] = useState(config.duration ?? null);
   const [run, setRun] = useState(0);
@@ -50,6 +51,7 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
 
   const restart = () => {
     done.current = false;
+    t.reset();
     setResult(null);
     setLeft(dur ?? 0);
     setRun((r) => r + 1);
@@ -57,6 +59,7 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
 
   const changeDuration = (d) => {
     done.current = false;
+    t.reset();
     setDur(d);
     setLeft(d);
     setResult(null);
@@ -68,27 +71,30 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
 
   if (result) {
     return (
-      <div className="rise-in rounded-2xl border bg-card p-6 sm:p-8" data-testid={`${testId}-result`}>
-        <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{label} · result</div>
-        <div className="mt-2 flex flex-wrap items-end gap-8">
-          <div>
-            <div className="font-pixel text-4xl text-primary sm:text-5xl" data-testid="tool-result-wpm">{result.wpm}</div>
-            <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">words per minute</div>
+      <>
+        <div className="rise-in rounded-2xl border bg-card p-6 sm:p-8" data-testid={`${testId}-result`}>
+          <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{label} · result</div>
+          <div className="mt-2 flex flex-wrap items-end gap-8">
+            <div>
+              <div className="font-pixel text-4xl text-primary sm:text-5xl" data-testid="tool-result-wpm">{result.wpm}</div>
+              <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">words per minute</div>
+            </div>
+            <div>
+              <div className="font-pixel text-2xl sm:text-3xl" data-testid="tool-result-accuracy">{result.accuracy}%</div>
+              <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">accuracy</div>
+            </div>
+            <div>
+              <div className="font-pixel text-2xl sm:text-3xl" data-testid="tool-result-duration">{result.duration}s</div>
+              <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">time typed</div>
+            </div>
           </div>
-          <div>
-            <div className="font-pixel text-2xl sm:text-3xl" data-testid="tool-result-accuracy">{result.accuracy}%</div>
-            <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">accuracy</div>
-          </div>
-          <div>
-            <div className="font-pixel text-2xl sm:text-3xl" data-testid="tool-result-duration">{result.duration}s</div>
-            <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">time typed</div>
-          </div>
+          <ShareCard wpm={result.wpm} accuracy={result.accuracy} duration={result.duration} label={label} />
+          <Button onClick={restart} className="mt-6 rounded-full px-6 font-semibold" data-testid="tool-restart-btn">
+            <RotateCcw size={16} /> Try again
+          </Button>
         </div>
-        <ShareCard wpm={result.wpm} accuracy={result.accuracy} duration={result.duration} label={label} />
-        <Button onClick={restart} className="mt-6 rounded-full px-6 font-semibold" data-testid="tool-restart-btn">
-          <RotateCcw size={16} /> Try again
-        </Button>
-      </div>
+        <AdAfterResult slot={resultAdSlot} />
+      </>
     );
   }
 

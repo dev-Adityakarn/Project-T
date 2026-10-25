@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { sfx } from "@/lib/sound";
 
 export const calcStats = (correct, keys, errors, seconds) => {
@@ -58,5 +58,10 @@ export function useCharTyper(text, { active = true, strict = false, autoIndent =
   const elapsed = () => (ref.current.start ? (performance.now() - ref.current.start) / 1000 : 0);
   const getStats = (seconds = elapsed()) => calcStats(correct, ref.current.keys, ref.current.errors, seconds);
 
-  return { typed, correct, started: !!ref.current.start, errors: ref.current.errors, elapsed, getStats };
+  const reset = useCallback(() => {
+    ref.current = { typed: "", keys: 0, errors: 0, start: null };
+    setTyped("");
+  }, []);
+
+  return { typed, correct, started: !!ref.current.start, errors: ref.current.errors, elapsed, getStats, reset };
 }

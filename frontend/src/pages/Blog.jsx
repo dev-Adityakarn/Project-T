@@ -6,6 +6,9 @@ import { api } from "@/lib/api";
 import { Seo } from "@/components/Seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SeoArticle } from "@/components/SeoArticle";
+import { AdInArticle } from "@/components/ads/AdInArticle";
+import { AdRailLayout } from "@/components/ads/AdSideRail";
+import { AD_SLOTS } from "@/config/adsense";
 import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/seo/schema";
 
 const Card = ({ p, i }) => (
@@ -30,21 +33,40 @@ export default function Blog() {
   }, []);
 
   const posts = [...POSTS, ...extra].sort((a, b) => (a.datePublished < b.datePublished ? 1 : -1));
+  const adAfter = posts.length >= 3 ? Math.min(3, posts.length - 1) : posts.length;
+  const items = [
+    ...posts.slice(0, adAfter).map((p, i) => ({ type: "post", p, i })),
+    ...(posts.length >= 3 ? [{ type: "ad" }] : []),
+    ...posts.slice(adAfter).map((p, i) => ({ type: "post", p, i: adAfter + i })),
+  ];
 
   return (
     <>
       <Seo path={page.path} title={page.title} description={page.description}
         jsonLd={[organizationSchema(), websiteSchema(), breadcrumbSchema(page.breadcrumbs)]} />
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8" data-testid="page-blog">
-        <Breadcrumbs crumbs={page.breadcrumbs} />
-        <header className="max-w-3xl">
-          <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl" data-testid="page-h1">{page.h1}</h1>
-          <p className="mt-5 text-base text-muted-foreground md:text-lg">{page.lead}</p>
-        </header>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-testid="blog-grid">
-          {posts.map((p, i) => <Card key={p.slug} p={p} i={i} />)}
-        </div>
-        <SeoArticle blocks={page.blocks} faqs={page.faqs} related={page.related} />
+        <AdRailLayout slot={AD_SLOTS.desktopRail}>
+          <Breadcrumbs crumbs={page.breadcrumbs} />
+          <header className="max-w-3xl">
+            <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl" data-testid="page-h1">{page.h1}</h1>
+            <p className="mt-5 text-base text-muted-foreground md:text-lg">{page.lead}</p>
+          </header>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-testid="blog-grid">
+            {items.map((item) => {
+              if (item.type === "ad") {
+                return (
+                  <AdInArticle
+                    key="blog-index-ad"
+                    slot={AD_SLOTS.blogIndexInline}
+                    className="sm:col-span-2 lg:col-span-3 xl:hidden"
+                  />
+                );
+              }
+              return <Card key={item.p.slug} p={item.p} i={item.i} />;
+            })}
+          </div>
+          <SeoArticle blocks={page.blocks} faqs={page.faqs} related={page.related} />
+        </AdRailLayout>
       </div>
     </>
   );
