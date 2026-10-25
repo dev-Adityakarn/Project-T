@@ -175,3 +175,176 @@
         border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
     }
 }
+
+/* ---------------------------------------------------------------------------
+   Prerendered SEO fallback
+   The static HTML in build/<route>/index.html is painted before React replaces
+   #root. These direct-child selectors only match that fallback, so they stop
+   applying as soon as the app mounts. Content stays visible to crawlers and
+   no-JS visitors instead of being hidden behind a loading overlay.
+--------------------------------------------------------------------------- */
+#root > main,
+#root > article {
+    box-sizing: border-box;
+    min-height: 100vh;
+    padding: 3.5rem max(1.25rem, calc(50vw - 24rem)) 4rem;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+#root > main::before,
+#root > article::before {
+    content: "Typinger";
+    display: block;
+    margin-bottom: 2.5rem;
+    color: hsl(var(--primary));
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+#root > main h1,
+#root > article h1 {
+    margin: 0 0 1.25rem;
+    color: hsl(var(--foreground));
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+}
+
+#root > main h2,
+#root > article h2 {
+    margin: 2.5rem 0 0.75rem;
+    color: hsl(var(--foreground));
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    line-height: 1.2;
+}
+
+#root > main h3,
+#root > article h3 {
+    margin: 1.75rem 0 0.5rem;
+    color: hsl(var(--foreground));
+    font-size: 1.1rem;
+    line-height: 1.35;
+}
+
+#root > main p,
+#root > article p,
+#root > main li,
+#root > article li,
+#root > main dd,
+#root > article dd {
+    color: hsl(var(--muted-foreground));
+}
+
+#root > main p,
+#root > article p {
+    margin: 0.85rem 0;
+}
+
+#root > main a,
+#root > article a,
+#root > footer a {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+#root > main ul,
+#root > article ul,
+#root > main ol,
+#root > article ol {
+    margin: 1rem 0;
+    padding-left: 1.25rem;
+}
+
+#root > main li,
+#root > article li {
+    margin: 0.35rem 0;
+}
+
+#root > main > nav[aria-label="Breadcrumb"],
+#root > article > nav[aria-label="Breadcrumb"] {
+    margin-bottom: 2rem;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.875rem;
+}
+
+#root > main > nav[aria-label="Breadcrumb"] ol,
+#root > article > nav[aria-label="Breadcrumb"] ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#root > main > nav[aria-label="Breadcrumb"] li,
+#root > article > nav[aria-label="Breadcrumb"] li {
+    margin: 0;
+}
+
+#root > main > nav[aria-label="Breadcrumb"] li + li::before,
+#root > article > nav[aria-label="Breadcrumb"] li + li::before {
+    content: "/";
+    margin-right: 0.5rem;
+    color: hsl(var(--border));
+}
+
+#root > main > nav[aria-label="Keep practising"],
+#root > article > nav[aria-label="Keep practising"] {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid hsl(var(--border));
+}
+
+#root > main dl,
+#root > article dl {
+    margin: 1.5rem 0 0;
+}
+
+#root > main dt,
+#root > article dt {
+    margin-top: 1.25rem;
+    color: hsl(var(--foreground));
+    font-weight: 600;
+}
+
+#root > main dd,
+#root > article dd {
+    margin: 0.35rem 0 0;
+}
+
+#root > footer {
+    box-sizing: border-box;
+    padding: 0 max(1.25rem, calc(50vw - 24rem)) 3rem;
+    background: hsl(var(--background));
+    color: hsl(var(--muted-foreground));
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+#root > footer h2 {
+    margin: 0 0 0.75rem;
+    color: hsl(var(--foreground));
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 1.1rem;
+}
+
+#root > footer ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+#root > footer li {
+    margin: 0.25rem 0;
+}
