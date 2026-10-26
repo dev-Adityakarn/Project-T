@@ -13,5 +13,10 @@
     // These two paths must always reach the Worker so they can be answered
     // with a real HTTP 404 instead of the static 404.html asset (HTTP 200).
     "run_worker_first": ["/404", "/404.html"]
-  }
+  },
+  // Cloudflare Workers Builds runs `npx wrangler preview` on non-production
+  // branches. That command requires a `previews` block even when every setting
+  // is shared with production. Assets and compatibility settings stay at the
+  // top level.
+  "previews": {}
 }
