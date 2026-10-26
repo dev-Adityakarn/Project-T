@@ -3,7 +3,7 @@ import { Seo } from "@/components/Seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SeoArticle } from "@/components/SeoArticle";
 import { TypingTool } from "@/components/TypingTool";
-import { AdRailLayout } from "@/components/ads/AdSideRail";
+import { ContactForm } from "@/components/ContactForm";
 import { AD_SLOTS } from "@/config/adsense";
 import { organizationSchema, websiteSchema, webAppSchema, faqSchema, breadcrumbSchema } from "@/seo/schema";
 
@@ -34,10 +34,6 @@ export default function ContentPage({ path }) {
       : isTypingTestPage
         ? AD_SLOTS.typingAfterResult
         : "";
-  const railSlot =
-    (isTypingTestPage || isPracticePage) && !isExamPage
-      ? AD_SLOTS.desktopRail
-      : "";
   const schemas = [organizationSchema(), websiteSchema()];
   if (page.tool) schemas.push(webAppSchema(page));
   if (page.faqs?.length) schemas.push(faqSchema(page.faqs));
@@ -63,9 +59,8 @@ export default function ContentPage({ path }) {
             />
           </div>
         )}
-        <AdRailLayout slot={railSlot} enabled={isTypingTestPage || isPracticePage}>
-          <SeoArticle blocks={page.blocks} faqs={page.faqs} related={page.related} />
-        </AdRailLayout>
+        {page.key === "contact" && <ContactForm />}
+        <SeoArticle blocks={page.blocks} faqs={page.faqs} related={page.related} />
       </div>
     </>
   );

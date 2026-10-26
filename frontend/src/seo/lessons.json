@@ -74,13 +74,13 @@
     "title": "Numbers and the number row",
     "keys": "1 2 3 4 5 6 7 8 9 0",
     "goal": "Digits by finger, not by eye",
-    "text": "1 2 3 4 5 6 7 8 9 0 invoice 1250 on 14/09/2026 for 3 units at 75.40 each, order 8821, phone 98765 43210, room 7"
+    "text": "1 2 3 4 5 6 7 8 9 0 invoice 1250 on 14/09/2026 for 3 units at 75.40 each, order 8821, phone 00000 00000, room 7"
   },
   {
     "id": 12,
     "title": "Mixed sentences and symbols",
     "keys": "everything",
     "goal": "Full keyboard at a natural pace",
-    "text": "Send the 3 files (invoice, report & notes) to admin@typinger.app by 09:30; if it's late, call +91 98765 43210."
+    "text": "Send the 3 files (invoice, report & notes) to admin@example.com by 09:30; if it's late, call +91 00000 00000."
   }
 ]

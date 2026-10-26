@@ -219,14 +219,18 @@
       {
         "h2": "Preparing for Hindi typing exams",
         "p": [
-          "CPCT, several SSC posts and many state clerical exams include a Hindi typing section with a required speed, often around 30 words per minute in Devanagari, and a strict error limit. Practise with the longer five minute duration and check your accuracy against the limit in your official notification.",
-          "Keep an English session in your weekly routine as well, since most exams test both, and the government exam typing page explains the common scoring rules in detail."
+          "Hindi typing requirements are not uniform. The CPCT score card sets a qualifying net speed of 25 words per minute in Hindi and 30 words per minute in English. The SSC CHSL 2025 notification for LDC/JSA sets 30 words per minute in Hindi and 35 words per minute in English over a 10-minute test. State and departmental exams can publish different figures, so check your own notification.",
+          "Practise at the longer five-minute duration and measure both speed and accuracy. Keep an English session in your weekly routine as well, and use the government exam typing page for the official links and the scoring method."
+        ],
+        "sources": [
+          { "label": "CPCT score card (qualifying net speed)", "url": "https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf" },
+          { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" }
         ]
       }
     ],
     "faqs": [
-      { "q": "Which Hindi keyboard layout should I use?", "a": "Use Mangal Inscript unless your exam notification specifically requires Remington GAIL. Inscript is the default on Windows and is accepted by most national exams, including CPCT." },
-      { "q": "What is a good Hindi typing speed?", "a": "Around 25 to 30 WPM in Devanagari is considered a good working speed, and most government exams set their requirement near 30 WPM with a low error limit." },
+      { "q": "Which Hindi keyboard layout should I use?", "a": "Check your exam notification for the required layout. Mangal Inscript is common on Windows and is a sensible default for practice, but do not assume it is accepted everywhere; some exams specify Remington GAIL or another layout." },
+      { "q": "What is a good Hindi typing speed?", "a": "Aim above the requirement for your exam rather than a generic target. CPCT's qualifying net speed is 25 WPM in Hindi; the SSC CHSL 2025 notification for LDC/JSA uses 30 WPM in Hindi. Both are measured differently from a casual one-minute test, so read the official rule." },
       { "q": "Why is my Hindi speed lower than my English speed?", "a": "Devanagari needs more keystrokes per visible character because of matras and conjuncts. A Hindi WPM figure of 30 often represents the same physical effort as 50 WPM in English." },
       { "q": "Do I need special software to practise here?", "a": "No software beyond your operating system's Hindi input method. Enable the Devanagari keyboard, switch to it, and the test records exactly what you type." },
       { "q": "Can I take a longer Hindi test?", "a": "Yes. Choose the five minute duration to practise under exam conditions, where stamina and consistent accuracy matter more than a fast start." }
@@ -251,8 +255,12 @@
       {
         "h2": "How exam typing tests are scored",
         "p": [
-          "Most government typing tests follow the same structure: a fixed passage, a fixed duration of five or ten minutes, a minimum speed in words per minute and a maximum permitted error percentage. Speed alone does not pass you. A candidate at 45 WPM with 12% errors usually fails where a candidate at 32 WPM with 3% errors passes.",
-          "Typical requirements are 35 WPM in English or 30 WPM in Hindi for many SSC CHSL and CPCT posts, with errors capped between 5% and 8%. Always confirm the figures in your own official notification, because they differ by exam, post and year."
+          "Most government typing tests use a fixed passage, a fixed duration and a minimum speed. Speed alone does not pass you: a candidate who types quickly but exceeds the permitted error limit can still fail. The exact rule differs by exam, post and year, so read your own notification before you train.",
+          "Two current examples show why the details matter. The SSC CHSL 2025 notification for LDC/JSA sets 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test. The CPCT score card sets a qualifying net speed of 30 words per minute in English or 25 words per minute in Hindi. Neither figure is a universal requirement for every government exam."
+        ],
+        "sources": [
+          { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" },
+          { "label": "CPCT score card (qualifying net speed)", "url": "https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf" }
         ]
       },
       {
@@ -281,10 +289,10 @@
       }
     ],
     "faqs": [
-      { "q": "What typing speed is required for SSC CHSL?", "a": "SSC CHSL typing generally requires about 35 words per minute in English or 30 words per minute in Hindi, measured over a ten minute passage. Check the current notification, since the figures and error rules are revised periodically." },
-      { "q": "How many mistakes are allowed in a government typing test?", "a": "Error limits are usually between 5% and 8% of total keystrokes, and some exams instead deduct a word per uncorrected error. The safest target in practice is under 3%." },
-      { "q": "Is backspace allowed in exam typing tests?", "a": "In most computer based tests backspace is allowed but costs time, and some exams disable it. Practise correcting only the word you are typing so that either rule suits you." },
-      { "q": "How long should I prepare for a typing exam?", "a": "Four to six weeks of daily fifteen minute practice takes a typical candidate from 25 WPM to a comfortable pass at 35 WPM with good accuracy." },
+      { "q": "What typing speed is required for SSC CHSL?", "a": "The SSC CHSL 2025 notification for LDC/JSA states 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test. Check the current notification for your post and year, because the figures and error rules can change." },
+      { "q": "How many mistakes are allowed in a government typing test?", "a": "The error rule is set by each exam, and SSC and CPCT do not use the same method. Check your official notification rather than assuming a universal percentage. A practical training target is under 3% while you build control, but that is not a substitute for the published rule." },
+      { "q": "Is backspace allowed in exam typing tests?", "a": "It depends on the exam software. Some tests allow backspace but charge you the time; others restrict corrections. Practise correcting only the word you are typing so that either rule feels manageable." },
+      { "q": "How long should I prepare for a typing exam?", "a": "There is no guaranteed timeline. Four to six weeks of daily practice is a common preparation window, but starting speed, accuracy and the exam's rules all affect the result. Track your own trend rather than relying on a promised gain." },
       { "q": "Which is better to practise, five or ten minutes?", "a": "Practise both. Five minute runs build speed and are easy to repeat, while occasional ten minute runs build the endurance and concentration the real paper demands." }
     ],
     "related": [

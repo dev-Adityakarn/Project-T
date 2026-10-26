@@ -36,6 +36,12 @@
     "@radix-ui/react-toggle-group": "1.1.7",
     "@radix-ui/react-tooltip": "1.2.4",
     "@tanstack/react-query": "5.56.2",
+    "@tiptap/core": "3.32.0",
+    "@tiptap/extension-link": "3.32.0",
+    "@tiptap/extension-placeholder": "3.32.0",
+    "@tiptap/pm": "3.32.0",
+    "@tiptap/react": "3.32.0",
+    "@tiptap/starter-kit": "3.32.0",
     "ajv": "^8.17.1",
     "axios": "1.18.0",
     "class-variance-authority": "0.7.1",
@@ -72,6 +78,15 @@
     "build": "node scripts/generate-seo-files.js && craco build && node scripts/prerender.js",
     "test": "craco test"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "^react-router/dom$": "<rootDir>/node_modules/react-router/dist/development/dom-export.js",
+      "^@tiptap/core/jsx-runtime$": "<rootDir>/node_modules/@tiptap/core/jsx-runtime/index.cjs",
+      "^@tiptap/core/jsx-dev-runtime$": "<rootDir>/node_modules/@tiptap/core/jsx-dev-runtime/index.cjs",
+      "^@tiptap/pm/(.*)$": "<rootDir>/node_modules/@tiptap/pm/dist/$1/index.cjs"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -90,6 +105,8 @@
     "@emergentbase/overlay": "https://assets.emergent.sh/npm/emergentbase-overlay-0.1.31.tgz",
     "@emergentbase/visual-edits": "https://assets.emergent.sh/npm/emergentbase-visual-edits-1.0.13.tgz",
     "@eslint/js": "9.23.0",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
     "@types/lodash": "4.17.24",
     "autoprefixer": "10.4.20",
     "dotenv": "16.4.5",

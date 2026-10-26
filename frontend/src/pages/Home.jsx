@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Seo } from "@/components/Seo";
 import { SeoArticle } from "@/components/SeoArticle";
 import { TypingTool } from "@/components/TypingTool";
-import { AdRailLayout } from "@/components/ads/AdSideRail";
 import { AD_SLOTS } from "@/config/adsense";
 import { getPage } from "@/seo";
 import { organizationSchema, websiteSchema, webAppSchema, faqSchema } from "@/seo/schema";
@@ -108,14 +107,12 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-10 sm:px-8">
-        <AdRailLayout slot={AD_SLOTS.desktopRail}>
-          <SeoArticle
-            blocks={page.blocks}
-            faqs={page.faqs}
-            related={page.related}
-            inArticleAds={[AD_SLOTS.homepageContent]}
-          />
-        </AdRailLayout>
+        <SeoArticle
+          blocks={page.blocks}
+          faqs={page.faqs}
+          related={page.related}
+          inArticleAds={[AD_SLOTS.homepageContent]}
+        />
       </section>
     </div>
   );

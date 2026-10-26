@@ -43,7 +43,7 @@
     "faqs": [
       { "q": "Is the typing test really free?", "a": "Yes. Every typing test, practice drill, lesson and game on Typinger is free and unlimited. A free account is optional and only exists so your scores, badges and WPM history are saved." },
       { "q": "What is a good typing speed?", "a": "Around 40 WPM is average for an adult typing in English. 60 to 70 WPM is comfortably fast and enough for most office work, 80 to 100 WPM is advanced, and above 120 WPM is competitive territory." },
-      { "q": "How often should I practise typing?", "a": "Ten to fifteen minutes a day is the sweet spot. Short daily sessions build muscle memory far better than one long weekly session, and most people see a 10 to 15 WPM gain within a month." },
+      { "q": "How often should I practise typing?", "a": "Ten to fifteen minutes a day is a practical routine. Short daily sessions are generally easier to sustain than one long weekly session. Improvement varies, so track your own trend over several weeks rather than expecting a fixed gain." },
       { "q": "Do mistakes lower my WPM score?", "a": "Yes. Only correctly typed characters count toward WPM, and every wrong keystroke also lowers your accuracy. The final game score multiplies WPM by accuracy, so clean runs score higher." },
       { "q": "Can I use Typinger on a phone or tablet?", "a": "The tests and lessons work on a tablet with a keyboard, and the arcade games are playable on any device with a physical keyboard. For a fair WPM measurement we recommend a laptop or desktop keyboard." }
     ],
@@ -105,7 +105,7 @@
     ],
     "faqs": [
       { "q": "How long should a typing test be?", "a": "One minute is enough for a quick check of raw speed. Three to five minutes gives a far more reliable number because it includes fatigue, recovery from mistakes and your real sustained rhythm." },
-      { "q": "Is 40 WPM a good typing speed?", "a": "40 WPM is about average for an adult and perfectly usable for everyday work. Most people reach 60 WPM within a few weeks of daily practice, which is where typing stops feeling like a bottleneck." },
+      { "q": "Is 40 WPM a good typing speed?", "a": "40 WPM is often cited as an average adult speed and is usable for everyday work. 60 WPM is a comfortable target for many office tasks. How quickly you get there depends on your starting point and practice; there is no fixed timeline." },
       { "q": "Why is my WPM lower here than on other sites?", "a": "Typinger counts only correctly typed characters and uses the five character word standard. Sites that count raw keystrokes, or that ignore errors, report flattering numbers that are not comparable." },
       { "q": "Does the test work with any keyboard layout?", "a": "Yes. The test reads the characters your layout produces, so QWERTY, Dvorak, Colemak and international layouts all work. Only the Hindi test expects a Devanagari input method." },
       { "q": "Do I need an account to see my result?", "a": "No. Results appear immediately for everyone. An account only adds saved history, per game statistics, achievement badges and leaderboard placement." }
@@ -160,7 +160,7 @@
       }
     ],
     "faqs": [
-      { "q": "How many words should I type in 1 minute?", "a": "About 40 words in a minute is average, 60 is good, and 80 or more is advanced. Beginners usually start between 20 and 30 words and climb quickly with daily practice." },
+      { "q": "How many words should I type in 1 minute?", "a": "These are rough bands, not a standard: around 40 WPM is often cited as average, 60 is comfortable, and 80 or more is advanced. Beginners often start lower and improve with practice; measure your own baseline." },
       { "q": "Is a 1 minute typing test accurate?", "a": "It is accurate for raw speed but not for stamina. Expect your one minute score to be roughly 5 to 10 percent higher than your five minute score, because fatigue has not kicked in yet." },
       { "q": "Should I use backspace during a short test?", "a": "Only for the word you are currently typing. Going back further burns time you cannot recover in sixty seconds, and the error is already counted in accuracy." },
       { "q": "Can I pick a different word list?", "a": "Yes. The test draws from a common English word pool, and you can change difficulty or switch to the numbers, punctuation or code tests to practise specific keys." },
@@ -272,7 +272,7 @@
       }
     ],
     "faqs": [
-      { "q": "What WPM do typing exams usually require?", "a": "Most English typing exams ask for 30 to 40 WPM with low error rates, and many clerical roles ask for 45 to 60 WPM. Always check the official notification for the exact speed and error limit." },
+      { "q": "What WPM do typing exams usually require?", "a": "Requirements vary by exam and post. For example, the SSC CHSL 2025 notification for LDC/JSA sets 35 WPM English or 30 WPM Hindi over 10 minutes, while CPCT uses a qualifying net speed of 30 WPM English or 25 WPM Hindi. Always check your own notification for the exact speed and error rule." },
       { "q": "How is net WPM different from gross WPM?", "a": "Gross WPM counts everything you typed; net WPM subtracts a penalty for uncorrected errors, often one word per mistake. Typinger reports correct-character WPM plus accuracy, which lets you compute either." },
       { "q": "Should I correct every mistake in a five minute test?", "a": "Correct the word you are on, because uncorrected errors are penalised in most exams, but never go back more than one word. Momentum matters more over five minutes." },
       { "q": "How can I build typing stamina?", "a": "Add one longer passage to each practice session, keep your accuracy above 97%, and take short breaks between runs. Stamina improves within two or three weeks of consistent work." },

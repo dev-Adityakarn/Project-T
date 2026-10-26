@@ -57,7 +57,7 @@
       {
         "h2": "Who we are",
         "p": [
-          "Typinger is built and maintained by a small independent team of developers who got tired of their own typing plateaus. We read every message sent through the contact page, and a large share of the features on the site, including the daily challenge and the difficulty levels, came from user suggestions."
+          "Typinger is an independent project built and maintained by a small team of developers who got tired of their own typing plateaus. We read the messages sent through the contact form, and feature suggestions are always welcome."
         ]
       }
     ],
@@ -78,19 +78,19 @@
     "path": "/contact",
     "key": "contact",
     "title": "Contact Typinger: Support, Feedback and Bug Reports",
-    "description": "Get in touch with the Typinger team about bugs, leaderboard issues, feature ideas, account problems or partnership enquiries. We reply within two days.",
+    "description": "Send the Typinger team a message about bugs, leaderboard issues, feature ideas, account problems or partnership enquiries using the contact form.",
     "h1": "Contact Typinger",
     "lead": "Questions, bugs, leaderboard disputes or a game idea you cannot stop thinking about — send it over.",
     "breadcrumbs": [{ "name": "Contact" }],
     "blocks": [
       {
-        "h2": "How to reach us",
+        "h2": "Send a message",
         "p": [
-          "Email hello@typinger.app and you will normally get a reply within two working days. There is one inbox and a real person reads it, so a short, specific message gets the fastest answer."
+          "Use the form on this page. It stores your message for the Typinger team. Include a valid email address if you want a reply; we do not publish a support email address."
         ],
         "ul": [
           "Bug reports: tell us the page, your browser and keyboard layout, and what you expected to happen.",
-          "Account help: write from the email address on the account so we can verify it safely. Never send us your password.",
+          "Account help: include the email address on the account so we can verify the request safely. Never send us your password.",
           "Leaderboard reports: include the game, the difficulty and the player name; verified cheating is removed by our moderators.",
           "Feature ideas: describe the practice problem you are trying to solve rather than the solution, and we will look for the simplest fix.",
           "Press and partnerships: mention the audience and the format you have in mind."
@@ -105,10 +105,10 @@
       }
     ],
     "faqs": [
-      { "q": "How quickly do you reply?", "a": "Within two working days for almost every message. Account recovery requests can take a little longer because we verify the email address on the account first." },
+      { "q": "How do I send a message?", "a": "Use the contact form on this page and choose the closest subject. The form stores the message for the Typinger team; include a valid email address if you want a reply." },
       { "q": "My score did not save. What happened?", "a": "Scores are attached to your account when the run finishes, so a run started while signed out will not save. Sign in first, then play, and the result will appear in your dashboard history." },
-      { "q": "How do I report a suspected cheater?", "a": "Email us the game name, difficulty and the player name shown on the leaderboard. Our moderators can flag or remove individual results after review." },
-      { "q": "Can I delete my account and data?", "a": "Yes. Email us from the address on the account and we will delete the account, its results and its badges permanently." },
+      { "q": "How do I report a suspected cheater?", "a": "Use the contact form and choose Leaderboard report. Include the game name, difficulty and the player name shown on the leaderboard. Our moderators can flag or remove individual results after review." },
+      { "q": "Can I delete my account and data?", "a": "Yes. Use the contact form and choose Account or data request. Include the email address on the account so we can verify the request, and we will delete the account, its results and its badges permanently." },
       { "q": "Do you accept guest posts?", "a": "Occasionally, if the author genuinely knows the subject and the article is original. Send a short outline rather than a finished draft." }
     ],
     "related": [
@@ -147,20 +147,20 @@
         "h2": "How we use your data",
         "p": [
           "Account and result data exists to run the features you asked for: your dashboard, your WPM chart, your achievement badges, the daily challenge board and the public leaderboards. Your display name is visible on leaderboards; your email address never is.",
-          "We do not sell personal data and we do not profile you for marketing. We use Google AdSense to display advertising; Google and its partners may use cookies to serve ads based on your visits to this and other websites. Aggregate, anonymised statistics may be used to write articles, for example average speeds across difficulty levels."
+          "We do not sell personal data and we do not profile you for marketing. When advertising is enabled, we use Google AdSense to display advertising; Google and its partners may then use cookies to serve ads based on your visits to this and other websites. Aggregate, anonymised statistics may be used to write articles, for example average speeds across difficulty levels."
         ]
       },
       {
         "h2": "Advertising and Google AdSense",
         "p": [
-          "Typinger is free and supported by advertising delivered by Google AdSense. Google, as a third-party vendor, uses cookies to serve ads on this site. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to Typinger and/or other sites on the Internet.",
+          "When advertising is enabled, Typinger is supported by advertising delivered by Google AdSense. Google, as a third-party vendor, then uses cookies to serve ads on this site. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to Typinger and/or other sites on the Internet.",
           "You can opt out of personalised advertising by visiting Google Ads Settings at adssettings.google.com or aboutads.info. Where required by law, Google shows a consent message before using advertising cookies, and you can change your choice at any time. Advertising is never placed inside an active typing test, lesson, game, exam or Daily Challenge; ads appear only after a result or inside editorial content."
         ]
       },
       {
         "h2": "Your rights and deletion",
         "p": [
-          "You can request a copy of your data or ask us to delete your account at any time by emailing hello@typinger.app from the address on the account. Deletion removes your profile, results and badges permanently, and leaderboard entries disappear with them.",
+          "You can request a copy of your data or ask us to delete your account at any time through the contact form using the email address on the account. Deletion removes your profile, results and badges permanently, and leaderboard entries disappear with them.",
           "Children under 13 should use Typinger with a parent or guardian and should not create an account with a personal email address."
         ]
       },
@@ -173,10 +173,10 @@
       }
     ],
     "faqs": [
-      { "q": "Do you use tracking cookies?", "a": "We use analytics cookies only after you accept them in the consent banner. Google AdSense may set advertising cookies to serve ads; where required, Google shows a separate consent message. Authentication cookies are strictly necessary and are set only when you sign in." },
+      { "q": "Do you use tracking cookies?", "a": "We use analytics cookies only after you accept them in the consent banner. When ads are enabled, Google AdSense may set advertising cookies to serve ads; where required, Google shows a separate consent message. Authentication cookies are strictly necessary and are set only when you sign in." },
       { "q": "Can I use Typinger without an account?", "a": "Yes. All tests, lessons and games work signed out, and nothing is stored about you beyond standard server logs." },
       { "q": "Where is my data stored?", "a": "In a managed MongoDB database used only by Typinger. Access is restricted to the application and to site administrators." },
-      { "q": "How do I delete my data?", "a": "Email hello@typinger.app from your account address and we will permanently delete the account, its results and its achievement records." },
+      { "q": "How do I delete my data?", "a": "Use the contact form and choose Account or data request. Include the email address on the account and we will permanently delete the account, its results and its achievement records." },
       { "q": "Is my password readable by anyone?", "a": "No. Passwords are hashed with bcrypt before storage, so neither we nor an attacker with database access can read them." }
     ],
     "related": [

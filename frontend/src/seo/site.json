@@ -5,13 +5,8 @@
   "description": "Typinger is a free typing website: take a typing speed test, run daily typing practice drills, follow touch typing lessons and train with ten typing games.",
   "locale": "en_US",
   "lang": "en",
-  "twitter": "@typingerapp",
-  "email": "hello@typinger.app",
+  "contactPath": "/contact/",
   "ogImage": "/og/typinger-default.png",
   "logo": "/og/typinger-logo.png",
-  "founded": "2026",
-  "sameAs": [
-    "https://x.com/typingerapp",
-    "https://github.com/typinger"
-  ]
+  "founded": "2026"
 }

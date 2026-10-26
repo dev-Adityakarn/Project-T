@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { ADSENSE_CONFIG, isValidAdSlot } from "@/config/adsense";
+import { useLocation } from "react-router-dom";
+import {
+  ADSENSE_CONFIG,
+  canRequestAds,
+  isValidAdSlot,
+} from "@/config/adsense";
+import { adPolicyFor } from "@/config/adPolicy";
+import { ensureAdSenseScript } from "@/lib/adRuntime";
 import { cn } from "@/lib/utils";
 
 const VARIANT_HEIGHTS = {
@@ -10,8 +17,9 @@ const VARIANT_HEIGHTS = {
 };
 
 /**
- * The only component that talks to AdSense. It keeps one <ins> per mounted
- * unit, pushes exactly once, never focuses anything and never reacts to keys.
+ * The only component that creates an AdSense unit. It keeps one <ins> per
+ * mounted unit, pushes exactly once, never focuses anything and never reacts
+ * to keys. Eligibility is decided by canRequestAds() before any request.
  */
 export const AdSenseUnit = ({
   slot,
@@ -21,12 +29,18 @@ export const AdSenseUnit = ({
   className = "",
   variant = "leaderboard",
   isPaused = false,
+  interaction = "idle",
   lazy = true,
 }) => {
+  const { pathname } = useLocation();
+  const policy = adPolicyFor(pathname);
   const configured = isValidAdSlot(slot);
+  const requestAllowed = canRequestAds({ slot, pathname, interaction });
   const [everActive, setEverActive] = useState(!isPaused);
   const [visible, setVisible] = useState(!lazy);
-  const [unfilled, setUnfilled] = useState(false);
+  const [scriptState, setScriptState] = useState("idle");
+  const [adStatus, setAdStatus] = useState(null);
+  const [collapsed, setCollapsed] = useState(false);
   const wrapRef = useRef(null);
   const insRef = useRef(null);
   const pushedRef = useRef(false);
@@ -39,7 +53,7 @@ export const AdSenseUnit = ({
   // Below-the-fold units wait for the viewport, but their space is already
   // reserved by the min-height so the wait cannot shift the page.
   useEffect(() => {
-    if (!configured || !everActive || !lazy) return undefined;
+    if (!requestAllowed || !everActive || !lazy) return undefined;
     const node = wrapRef.current;
     if (!node || typeof IntersectionObserver === "undefined") {
       setVisible(true);
@@ -56,35 +70,68 @@ export const AdSenseUnit = ({
     );
     observer.observe(node);
     return () => observer.disconnect();
-  }, [configured, everActive, lazy]);
+  }, [requestAllowed, everActive, lazy]);
 
   useEffect(() => {
-    if (!configured || !everActive || !visible || pushedRef.current) return;
-    const ins = insRef.current;
-    if (!ins) return;
-    // Set the guard before pushing so StrictMode's second effect run, a route
-    // remount or a hot reload cannot initialize the same <ins> twice.
-    pushedRef.current = true;
-    try {
-      window.adsbygoogle = window.adsbygoogle || [];
-      window.adsbygoogle.push({});
-    } catch (error) {
-      if (process.env.NODE_ENV !== "production") {
-        console.warn("AdSense could not initialize this unit:", error);
+    if (!requestAllowed || !everActive || !visible || pushedRef.current) return undefined;
+    let cancelled = false;
+
+    ensureAdSenseScript().then((ready) => {
+      if (cancelled) return;
+      if (!ready) {
+        setScriptState("failed");
+        return;
       }
-    }
-  }, [configured, everActive, visible]);
+      const ins = insRef.current;
+      if (!ins) return;
+      // Set the guard before pushing so StrictMode's second effect run, a route
+      // remount or a hot reload cannot initialize the same <ins> twice.
+      pushedRef.current = true;
+      try {
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.push({});
+        setScriptState("ready");
+      } catch (error) {
+        setScriptState("failed");
+        if (process.env.NODE_ENV !== "production") {
+          console.warn("AdSense could not initialize this unit:", error);
+        }
+      }
+    });
 
-  // Ad blockers and unfilled units never leave a permanent empty box behind.
+    return () => {
+      cancelled = true;
+    };
+  }, [requestAllowed, everActive, visible]);
+
+  // Use the documented fill signal, never a timer. "unfilled" is the only
+  // state that may collapse; "unfill-optimized" must stay visible. An unfilled
+  // unit that is still in the viewport keeps its reserved space to avoid CLS.
   useEffect(() => {
-    if (!configured || !everActive || !visible) return undefined;
+    if (!requestAllowed || !everActive || !visible || scriptState !== "ready") return undefined;
     const ins = insRef.current;
     if (!ins) return undefined;
+
     const syncStatus = () => {
       const status = ins.getAttribute("data-ad-status");
-      if (status === "unfilled") setUnfilled(true);
-      if (status === "filled") setUnfilled(false);
+      if (status === "filled") {
+        setAdStatus("filled");
+        setCollapsed(false);
+        return;
+      }
+      if (status === "unfill-optimized") {
+        setAdStatus("unfill-optimized");
+        setCollapsed(false);
+        return;
+      }
+      if (status === "unfilled") {
+        setAdStatus("unfilled");
+        const rect = ins.getBoundingClientRect();
+        const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        setCollapsed(!inViewport);
+      }
     };
+
     syncStatus();
     const observer =
       typeof MutationObserver === "undefined"
@@ -94,17 +141,18 @@ export const AdSenseUnit = ({
       attributes: true,
       attributeFilter: ["data-ad-status"],
     });
-    const timer = window.setTimeout(() => {
-      if (!ins.getAttribute("data-ad-status")) setUnfilled(true);
-    }, 6000);
-    return () => {
-      observer?.disconnect();
-      window.clearTimeout(timer);
-    };
-  }, [configured, everActive, visible]);
+    return () => observer?.disconnect();
+  }, [requestAllowed, everActive, visible, scriptState]);
 
-  if (!configured) {
+  if (!policy.allowed) return null;
+
+  if (!requestAllowed) {
     if (process.env.NODE_ENV === "production") return null;
+    const reason = !ADSENSE_CONFIG.enabled
+      ? "disabled"
+      : !configured
+        ? "slot"
+        : "consent-or-route";
     return (
       <div
         className={cn(
@@ -113,12 +161,17 @@ export const AdSenseUnit = ({
           className,
         )}
         data-ad-placeholder="true"
+        data-ad-placeholder-reason={reason}
       >
         <span className="text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
           Advertisement
         </span>
         <span className="mt-2 text-xs text-muted-foreground/70">
-          Advertisement (slot not configured)
+          {reason === "disabled"
+            ? "Advertisement (disabled in this build)"
+            : reason === "slot"
+              ? "Advertisement (slot not configured)"
+              : "Advertisement (consent or route not eligible)"}
         </span>
       </div>
     );
@@ -127,12 +180,16 @@ export const AdSenseUnit = ({
   // If a unit was mounted before a pause began, it stays untouched. A unit
   // that is paused before its first mount is not created at all.
   if (isPaused && !everActive) return null;
+  if (scriptState === "failed") return null;
 
   return (
     <div
       ref={wrapRef}
-      className={cn("w-full", unfilled && "hidden", className)}
+      className={cn("w-full", collapsed && "hidden", className)}
       data-ad-unit={variant}
+      data-ad-interaction={interaction}
+      data-ad-state={adStatus || scriptState}
+      aria-label="Advertisement"
     >
       <div className="mb-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground/70">
         Advertisement

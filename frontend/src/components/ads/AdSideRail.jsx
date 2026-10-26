@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
-import { isValidAdSlot } from "@/config/adsense";
+import { ADSENSE_CONFIG, isValidAdSlot } from "@/config/adsense";
+import { isAdEligibleRoute } from "@/config/adPolicy";
 import { cn } from "@/lib/utils";
 
 const RAIL_QUERY = "(min-width: 1280px)";
@@ -37,9 +39,10 @@ const useIsDesktopRail = () => {
  */
 export const AdSideRail = ({ slot, className = "" }) => {
   const isDesktop = useIsDesktopRail();
-  if (!isDesktop) return null;
-  // Production never creates a rail for an unconfigured slot. Development
-  // keeps the AdSenseUnit mounted so its dashed placeholder is visible.
+  const { pathname } = useLocation();
+  if (!isDesktop || !isAdEligibleRoute(pathname)) return null;
+  // Production never creates a rail for an unconfigured or disabled build.
+  if (!ADSENSE_CONFIG.enabled && process.env.NODE_ENV === "production") return null;
   if (!isValidAdSlot(slot) && process.env.NODE_ENV === "production") return null;
 
   return (
@@ -54,15 +57,17 @@ export const AdSideRail = ({ slot, className = "" }) => {
 };
 
 /**
- * Adds a fixed-width rail column only when a rail slot exists. In production,
- * an unconfigured slot leaves the original layout untouched; in development it
- * mounts the placeholder so missing placements are visible. Pass enabled=false
- * on pages where a rail is deliberately not wanted.
+ * Adds a fixed-width rail column only when ads are enabled and a rail slot
+ * exists. Pass enabled=false on pages where a rail is deliberately not wanted.
  */
 export const AdRailLayout = ({ slot, children, className = "", enabled = true }) => {
+  const { pathname } = useLocation();
+  const routeAllowed = isAdEligibleRoute(pathname);
   const showRail =
-    isValidAdSlot(slot) ||
-    (enabled && process.env.NODE_ENV !== "production");
+    enabled &&
+    routeAllowed &&
+    ((ADSENSE_CONFIG.enabled && isValidAdSlot(slot)) ||
+      process.env.NODE_ENV !== "production");
   if (!showRail) return children;
 
   return (

@@ -1,8 +1,15 @@
 import axios from "axios";
 
+export const API_TIMEOUT_MS = 12000;
+
+const backendOrigin = (process.env.REACT_APP_BACKEND_URL || "").replace(/\/+$/, "");
+
 export const api = axios.create({
-  baseURL: `${process.env.REACT_APP_BACKEND_URL}/api`,
+  // Falling back to a same-origin /api avoids the old "undefined/api" base URL
+  // when a local build has not been given an explicit backend origin.
+  baseURL: `${backendOrigin}/api`,
   withCredentials: true,
+  timeout: API_TIMEOUT_MS,
 });
 
 api.interceptors.request.use((config) => {

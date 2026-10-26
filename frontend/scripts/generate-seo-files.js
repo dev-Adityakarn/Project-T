@@ -17,8 +17,9 @@ const lastmodFor = (route) => {
   return null;
 };
 
-// Filter only canonical, indexable routes intended for sitemap (exclude thin utility/app pages)
-const sitemapRoutes = routes.filter((r) => r.sitemap !== false);
+// Filter only canonical, indexable routes intended for the sitemap. A route
+// explicitly marked noindex must never leak back in through the sitemap.
+const sitemapRoutes = routes.filter((r) => r.sitemap !== false && !r.noindex);
 
 const urls = sitemapRoutes
   .map((r) => {

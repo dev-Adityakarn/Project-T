@@ -1,12 +1,21 @@
 import "@/App.css";
 import { Suspense, lazy, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CookieConsent } from "@/components/CookieConsent";
 import { AppSeo } from "@/components/AppSeo";
+import { AdSenseBootstrap } from "@/components/ads/AdSenseBootstrap";
 import { loadAnalytics, trackPageview } from "@/lib/analytics";
 import Home from "@/pages/Home";
 
@@ -76,7 +85,8 @@ const TrailingSlashHandler = () => {
       !pathname.endsWith("/") &&
       !pathname.includes(".") &&
       !pathname.startsWith("/api") &&
-      !pathname.startsWith("/admin")
+      !pathname.startsWith("/admin") &&
+      pathname !== "/404"
     ) {
       navigate(`${pathname}/${search}${hash}`, { replace: true });
     }
@@ -108,54 +118,61 @@ const SiteChrome = ({ children }) => {
   );
 };
 
+function AppShell() {
+  return (
+    <AuthProvider>
+      <TrailingSlashHandler />
+      <RouteEffects />
+      <AppSeo />
+      <AdSenseBootstrap />
+      <SiteChrome>
+        <Suspense fallback={<Fallback />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {CONTENT_ROUTES.flatMap((p) => [
+              <Route key={p} path={p} element={<ContentPage path={p} />} />,
+              <Route key={`${p}/`} path={`${p}/`} element={<ContentPage path={p} />} />,
+            ])}
+            <Route path="/typing-lessons" element={<Lessons />} />
+            <Route path="/typing-lessons/" element={<Lessons />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/blog/:slug/" element={<BlogPost />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/games/" element={<Games />} />
+            <Route path="/games/:id" element={<GamePlay />} />
+            <Route path="/games/:id/" element={<GamePlay />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/leaderboard/" element={<Leaderboard />} />
+            <Route path="/daily" element={<Daily />} />
+            <Route path="/daily/" element={<Daily />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/" element={<Dashboard />} />
+            <Route path="/login" element={<AuthPage mode="login" />} />
+            <Route path="/login/" element={<AuthPage mode="login" />} />
+            <Route path="/register" element={<AuthPage mode="register" />} />
+            <Route path="/register/" element={<AuthPage mode="register" />} />
+            <Route path="/admin/*" element={<AdminApp />} />
+            {Object.entries(REDIRECTS).map(([from, to]) => (
+              <Route key={from} path={from} element={<Navigate to={to} replace />} />
+            ))}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </SiteChrome>
+    </AuthProvider>
+  );
+}
+
+const router = createBrowserRouter([{ path: "*", element: <AppShell /> }]);
+
 function App() {
   useEffect(() => { loadAnalytics(); }, []);
 
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <AuthProvider>
-          <TrailingSlashHandler />
-          <RouteEffects />
-          <AppSeo />
-          <SiteChrome>
-            <Suspense fallback={<Fallback />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                {CONTENT_ROUTES.flatMap((p) => [
-                  <Route key={p} path={p} element={<ContentPage path={p} />} />,
-                  <Route key={`${p}/`} path={`${p}/`} element={<ContentPage path={p} />} />,
-                ])}
-                <Route path="/typing-lessons" element={<Lessons />} />
-                <Route path="/typing-lessons/" element={<Lessons />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/blog/:slug/" element={<BlogPost />} />
-                <Route path="/games" element={<Games />} />
-                <Route path="/games/" element={<Games />} />
-                <Route path="/games/:id" element={<GamePlay />} />
-                <Route path="/games/:id/" element={<GamePlay />} />
-                <Route path="/leaderboard" element={<Leaderboard />} />
-                <Route path="/leaderboard/" element={<Leaderboard />} />
-                <Route path="/daily" element={<Daily />} />
-                <Route path="/daily/" element={<Daily />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/dashboard/" element={<Dashboard />} />
-                <Route path="/login" element={<AuthPage mode="login" />} />
-                <Route path="/login/" element={<AuthPage mode="login" />} />
-                <Route path="/register" element={<AuthPage mode="register" />} />
-                <Route path="/register/" element={<AuthPage mode="register" />} />
-                <Route path="/admin/*" element={<AdminApp />} />
-                {Object.entries(REDIRECTS).map(([from, to]) => (
-                  <Route key={from} path={from} element={<Navigate to={to} replace />} />
-                ))}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </SiteChrome>
-        </AuthProvider>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }

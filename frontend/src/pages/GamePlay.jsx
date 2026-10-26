@@ -10,8 +10,6 @@ import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import { DifficultyPicker, DifficultyBadge } from "@/components/DifficultyPicker";
 import { BadgeIcon } from "@/components/Badges";
-import { AdAfterResult } from "@/components/ads/AdAfterResult";
-import { AD_SLOTS } from "@/config/adsense";
 
 const MiniBoard = ({ rows, title }) => (
   <div className="rounded-2xl border bg-card p-5" data-testid="game-mini-leaderboard">
@@ -52,6 +50,11 @@ const Intro = ({ game, difficulty, setDifficulty, daily, loading, onStart }) => 
     </div>
     <Button size="lg" onClick={onStart} disabled={loading} className="mt-8 rounded-full px-8 font-semibold" data-testid="game-start-btn"><Play size={16} /> {loading ? "Loading challenge..." : "Start game"}</Button>
     <p className="mt-3 text-xs text-muted-foreground">or press Enter</p>
+    <p className="mt-5 max-w-xl text-sm text-muted-foreground" data-testid="game-scoring-note">
+      Scores combine words per minute with accuracy, so a clean run beats a fast run
+      full of mistakes. The timer starts with your first keystroke. Use a physical
+      keyboard and keep the game area focused for a fair result.
+    </p>
   </div>
 );
 
@@ -69,7 +72,7 @@ const NewBadges = ({ badges }) => (
   </div>
 );
 
-const Result = ({ r, saved, user, onAgain, difficulty, daily, badges, resultAdSlot }) => (
+const Result = ({ r, saved, user, onAgain, difficulty, daily, badges }) => (
   <>
     <div className="rise-in rounded-2xl border bg-card p-8 sm:p-12" data-testid="game-result">
       {daily && <DailyTag daily={daily} />}
@@ -94,7 +97,6 @@ const Result = ({ r, saved, user, onAgain, difficulty, daily, badges, resultAdSl
         )}
       </div>
     </div>
-    <AdAfterResult slot={resultAdSlot} />
   </>
 );
 
@@ -157,7 +159,6 @@ export default function GamePlay() {
 
   if (!game) return <div className="p-20 text-center">Game not found. <Link to="/games/" className="text-primary">Back</Link></div>;
   const I = game.icon;
-  const resultAdSlot = daily ? AD_SLOTS.dailyAfterResult : AD_SLOTS.gameAfterResult;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8">
@@ -174,7 +175,7 @@ export default function GamePlay() {
         <div data-testid="game-stage">
           {phase === "ready" && <Intro game={game} difficulty={activeDiff} setDifficulty={pickDifficulty} daily={daily} loading={loading} onStart={start} />}
           {phase === "playing" && <Comp key={run} onFinish={onFinish} difficulty={activeDiff} seed={daily?.seed} />}
-          {phase === "over" && result && <Result r={result} saved={saved} user={user} onAgain={start} difficulty={activeDiff} daily={daily} badges={badges} resultAdSlot={resultAdSlot} />}
+          {phase === "over" && result && <Result r={result} saved={saved} user={user} onAgain={start} difficulty={activeDiff} daily={daily} badges={badges} />}
         </div>
         <aside className="space-y-4"><MiniBoard rows={board} title={daily ? "Today's top players" : `Top players · ${activeDiff}`} /></aside>
       </div>

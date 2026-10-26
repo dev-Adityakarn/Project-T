@@ -45,7 +45,10 @@ const ld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).re
 
 const organization = () => ({
   "@context": "https://schema.org", "@type": "Organization", name: SITE.name, legalName: SITE.legalName,
-  url: `${PRODUCTION_ORIGIN}/`, logo: `${PRODUCTION_ORIGIN}${SITE.logo}`, email: SITE.email, foundingDate: SITE.founded, sameAs: SITE.sameAs,
+  url: `${PRODUCTION_ORIGIN}/`, logo: `${PRODUCTION_ORIGIN}${SITE.logo}`,
+  ...(SITE.email ? { email: SITE.email } : {}),
+  ...(SITE.founded ? { foundingDate: SITE.founded } : {}),
+  ...(SITE.sameAs?.length ? { sameAs: SITE.sameAs } : {}),
 });
 const website = () => ({
   "@context": "https://schema.org", "@type": "WebSite", name: SITE.name, url: `${PRODUCTION_ORIGIN}/`,
@@ -83,6 +86,9 @@ const blocksHtml = (blocks = []) => blocks.map((b) => {
   (b.p || []).forEach((p) => out.push(`<p>${esc(p)}</p>`));
   if (b.ul) out.push(`<ul>${b.ul.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`);
   if (b.steps) out.push(b.steps.map((s) => `<h3>${esc(s.h3)}</h3><p>${esc(s.p)}</p>`).join(""));
+  if (b.sources && b.sources.length) {
+    out.push(`<section><h3>Sources</h3><ul>${b.sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener noreferrer">${esc(s.label)}</a></li>`).join("")}</ul></section>`);
+  }
   return `<section>${out.join("")}</section>`;
 }).join("");
 
@@ -138,7 +144,7 @@ const head = ({ path: p, title, description, lang = "en", type = "website", noin
     `<meta name="twitter:title" content="${esc(title)}"/>`,
     `<meta name="twitter:description" content="${esc(description)}"/>`,
     `<meta name="twitter:image" content="${PRODUCTION_ORIGIN}${SITE.ogImage}"/>`,
-    `<meta name="twitter:site" content="${esc(SITE.twitter)}"/>`,
+    SITE.twitter ? `<meta name="twitter:site" content="${esc(SITE.twitter)}"/>` : "",
     GSC ? `<meta name="google-site-verification" content="${esc(GSC)}"/>` : "",
     ...alternates.map((a) => `<link rel="alternate" hreflang="${a.hreflang}" href="${abs(a.path)}"/>`),
     ...schemas.map(ld),
@@ -216,7 +222,10 @@ POSTS.forEach((post) => {
   const crumbs = [{ name: "Blog", path: "/blog/" }, { name: post.title }];
   const schemas = [organization(), website(), article(post), breadcrumbs(crumbs)];
   if (post.faqs && post.faqs.length) schemas.push(faqPage(post.faqs));
-  const body = `<article>${crumbHtml(crumbs)}<h1>${esc(post.h1 || post.title)}</h1><p>${esc(post.excerpt)}</p>${blocksHtml(post.blocks)}${faqHtml(post.faqs)}${linksHtml(post.related)}</article>${FOOTER}`;
+  const updated = post.dateModified && post.dateModified !== post.datePublished
+    ? `<p><small>Updated ${esc(post.dateModified)}</small></p>`
+    : "";
+  const body = `<article>${crumbHtml(crumbs)}<h1>${esc(post.h1 || post.title)}</h1><p>${esc(post.excerpt)}</p>${updated}${blocksHtml(post.blocks)}${faqHtml(post.faqs)}${linksHtml(post.related)}</article>${FOOTER}`;
   write(`/blog/${post.slug}/`, head({ path: `/blog/${post.slug}/`, title: post.title, description: post.description, type: "article", schemas }), body);
   count += 1;
 });
@@ -256,6 +265,7 @@ GAMES.forEach((game) => {
     path: gamePath,
     title: gameTitle,
     description: gameDesc,
+    noindex: "noindex,follow",
     schemas: [organization(), website(), webApp(gamePage), breadcrumbs(gameCrumbs)],
   }), gameBody);
   count += 1;
@@ -268,6 +278,7 @@ write("/daily/", head({
   path: "/daily/",
   title: "Daily Typing Challenge: One Game, Everyone, Each Day",
   description: "Every day Typinger picks one game, one difficulty and one shared word seed. Compete against every other player on exactly the same challenge.",
+  noindex: "noindex,follow",
   schemas: [organization(), website(), breadcrumbs(dailyCrumbs)],
 }), dailyBody);
 count += 1;
@@ -279,6 +290,7 @@ write("/leaderboard/", head({
   path: "/leaderboard/",
   title: "Typing Leaderboard: Fastest Typists by Game and Level",
   description: "See the fastest Typinger typists for every game and difficulty level, with WPM, accuracy and best scores updated as results come in.",
+  noindex: "noindex,follow",
   schemas: [organization(), website(), breadcrumbs(leaderboardCrumbs)],
 }), leaderboardBody);
 count += 1;
@@ -289,6 +301,12 @@ const appRoutes = [
   { path: "/register/", title: "Create a Free Typinger Account", description: "Create an account to save typing stats and join leaderboards.", noindex: "noindex,follow" },
   { path: "/dashboard/", title: "Your Typing Dashboard", description: "Track your typing progress and badges.", noindex: "noindex,follow" },
   { path: "/admin/", title: "Typinger Admin", description: "Restricted administration area for Typinger content and leaderboard moderation.", noindex: "noindex,nofollow" },
+  { path: "/admin/login/", title: "Typinger Admin Sign In", description: "Restricted administration area for Typinger staff.", noindex: "noindex,nofollow" },
+  { path: "/admin/content/", title: "Content Management — Typinger Admin", description: "Manage typing passages and blog posts.", noindex: "noindex,nofollow" },
+  { path: "/admin/users/", title: "User Management — Typinger Admin", description: "Manage Typinger user accounts.", noindex: "noindex,nofollow" },
+  { path: "/admin/moderation/", title: "Moderation — Typinger Admin", description: "Review flagged results and moderation records.", noindex: "noindex,nofollow" },
+  { path: "/admin/audit-logs/", title: "Audit Logs — Typinger Admin", description: "Review administrator audit records.", noindex: "noindex,nofollow" },
+  { path: "/admin/admins/", title: "Administrators — Typinger Admin", description: "Manage administrator access.", noindex: "noindex,nofollow" },
 ];
 appRoutes.forEach((ar) => {
   write(ar.path, head({ path: ar.path, title: ar.title, description: ar.description, noindex: ar.noindex }), "");

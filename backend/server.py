@@ -30,6 +30,19 @@ from admin import (
     record_audit,
     validate_admin_session,
 )
+from content import (
+    CONTENT_FORMAT_LEGACY,
+    CONTENT_FORMAT_RICH,
+    CONTENT_FORMATS,
+    ContentValidationError,
+    excerpt_from_doc,
+    first_text_from_doc,
+    lead_text_from_doc,
+    reading_time_from_text,
+    rich_text_from_doc,
+    validate_legacy_content,
+    validate_rich_doc,
+)
 
 client = AsyncIOMotorClient(os.environ["MONGO_URL"])
 db = client[os.environ["DB_NAME"]]
@@ -145,7 +158,9 @@ class PassageIn(BaseModel):
 class Post(BaseDocument):
     title: str
     slug: str
-    content: str
+    content: str = ""
+    content_format: str = CONTENT_FORMAT_LEGACY
+    content_json: Optional[dict] = None
     excerpt: str = ""
     meta_title: str = ""
     meta_description: str = ""
@@ -158,7 +173,9 @@ class Post(BaseDocument):
 class PostIn(BaseModel):
     title: str = Field(min_length=3, max_length=140)
     slug: str = Field(min_length=3, max_length=140, pattern=r"^[a-z0-9-]+$")
-    content: str = Field(min_length=20)
+    content: Optional[str] = None
+    content_format: str = CONTENT_FORMAT_LEGACY
+    content_json: Optional[dict] = None
     excerpt: str = ""
     meta_title: str = ""
     meta_description: str = ""
@@ -166,8 +183,32 @@ class PostIn(BaseModel):
     published: bool = False
 
 
+class PostUpdate(BaseModel):
+    """Partial update payload. Body fields are only touched when they are sent."""
+
+    title: Optional[str] = Field(default=None, min_length=3, max_length=140)
+    slug: Optional[str] = Field(default=None, min_length=3, max_length=140, pattern=r"^[a-z0-9-]+$")
+    content: Optional[str] = None
+    content_format: Optional[str] = None
+    content_json: Optional[dict] = None
+    excerpt: Optional[str] = None
+    meta_title: Optional[str] = None
+    meta_description: Optional[str] = None
+    author: Optional[str] = None
+    published: Optional[bool] = None
+
+
 class FlagIn(BaseModel):
     flagged: bool = True
+
+
+class ContactIn(BaseModel):
+    name: str = Field(min_length=1, max_length=80)
+    email: EmailStr
+    subject: str = Field(min_length=1, max_length=80)
+    message: str = Field(min_length=10, max_length=5000)
+    # Honeypot field. A real browser leaves it empty.
+    website: str = Field(default="", max_length=200)
 
 
 def post_blocks(content: str) -> list:
@@ -183,22 +224,155 @@ def post_blocks(content: str) -> list:
     return blocks
 
 
-def public_post(p: Post) -> dict:
-    words = len(p.content.split())
-    return {
+def rich_doc_for_read(p: Post) -> Optional[dict]:
+    """Return the stored rich document only when it is safe to render.
+
+    Writes are validated, but documents can also arrive through scripts or
+    manual database edits.  Invalid stored documents fall back to the legacy
+    text rather than reaching the public renderer unchecked.
+    """
+    if p.content_format != CONTENT_FORMAT_RICH or not isinstance(p.content_json, dict):
+        return None
+    try:
+        return validate_rich_doc(p.content_json)
+    except ContentValidationError:
+        logger.warning("Ignoring invalid rich content for post %s", p.slug)
+        return None
+
+
+def public_post(p: Post, *, summary: bool = False) -> dict:
+    rich_doc = rich_doc_for_read(p)
+    if rich_doc is not None:
+        body_text = rich_text_from_doc(rich_doc)
+        lead = lead_text_from_doc(rich_doc)
+        excerpt = p.excerpt or excerpt_from_doc(rich_doc) or first_text_from_doc(rich_doc)
+    else:
+        body_text = p.content
+        lead = None
+        excerpt = p.excerpt
+
+    data = {
         "slug": p.slug,
         "title": p.meta_title or p.title,
         "h1": p.title,
-        "description": p.meta_description or p.excerpt or p.title,
-        "excerpt": p.excerpt,
+        "description": p.meta_description or excerpt or p.title,
+        "excerpt": excerpt,
+        "lead": lead,
         "author": p.author,
         "datePublished": p.date_published,
         "dateModified": p.updated_at.strftime("%Y-%m-%d"),
-        "readingTime": f"{max(1, round(words / 220))} min read",
-        "blocks": post_blocks(p.content),
+        "readingTime": reading_time_from_text(body_text),
+        "contentFormat": CONTENT_FORMAT_RICH if rich_doc is not None else CONTENT_FORMAT_LEGACY,
         "faqs": [],
         "related": [],
     }
+    if not summary:
+        if rich_doc is not None:
+            data["body"] = {"format": CONTENT_FORMAT_RICH, "doc": rich_doc}
+        else:
+            data["blocks"] = post_blocks(p.content)
+    return data
+
+
+def _post_oid(post_id: str) -> ObjectId:
+    try:
+        return ObjectId(post_id)
+    except Exception:
+        raise HTTPException(404, "Post not found") from None
+
+
+def _content_error(exc: ContentValidationError) -> HTTPException:
+    return HTTPException(422, detail=exc.as_detail())
+
+
+def _prepare_post_create(body: PostIn) -> dict:
+    content_format = body.content_format or CONTENT_FORMAT_LEGACY
+    if content_format not in CONTENT_FORMATS:
+        raise HTTPException(422, "Unsupported content format.")
+
+    data = body.model_dump()
+    data["content_format"] = content_format
+    if content_format == CONTENT_FORMAT_RICH:
+        if body.content_json is None:
+            raise HTTPException(422, "Rich posts need a content_json document.")
+        try:
+            doc = validate_rich_doc(body.content_json)
+        except ContentValidationError as exc:
+            raise _content_error(exc) from None
+        data["content_json"] = doc
+        # The rich document is authoritative.  The plain-text copy is always
+        # derived for new rich posts so callers cannot inject unrelated text.
+        data["content"] = rich_text_from_doc(doc)
+    else:
+        if body.content_json is not None:
+            raise HTTPException(422, "content_json is only valid for rich-json-v1 posts.")
+        try:
+            data["content"] = validate_legacy_content(body.content)
+        except ContentValidationError as exc:
+            raise _content_error(exc) from None
+        data["content_json"] = None
+    return data
+
+
+async def _prepare_post_update(post_id: str, body: PostUpdate) -> tuple[Post, dict]:
+    oid = _post_oid(post_id)
+    doc = await db.posts.find_one({"_id": oid})
+    if not doc:
+        raise HTTPException(404, "Post not found")
+    current = Post.from_mongo(doc)
+
+    updates = body.model_dump(exclude_unset=True)
+    for field in ("title", "slug", "excerpt", "meta_title", "meta_description", "author", "published"):
+        if field in updates and updates[field] is None:
+            updates.pop(field)
+
+    content_format = updates.get("content_format")
+    if content_format is not None and content_format not in CONTENT_FORMATS:
+        raise HTTPException(422, "Unsupported content format.")
+
+    body_keys = {"content", "content_format", "content_json"} & set(updates)
+    if body_keys:
+        if content_format is None:
+            if "content_json" in updates:
+                content_format = CONTENT_FORMAT_RICH
+            elif "content" in updates:
+                content_format = CONTENT_FORMAT_LEGACY
+            else:
+                content_format = current.content_format
+
+        if content_format == CONTENT_FORMAT_RICH:
+            doc_json = updates.get("content_json", current.content_json)
+            if doc_json is None:
+                raise HTTPException(422, "Rich posts need a content_json document.")
+            try:
+                normalized = validate_rich_doc(doc_json)
+            except ContentValidationError as exc:
+                raise _content_error(exc) from None
+            updates["content_format"] = CONTENT_FORMAT_RICH
+            updates["content_json"] = normalized
+            # The rich document is authoritative.  Converted legacy posts keep
+            # their original text; otherwise keep or derive a plain-text copy.
+            updates.pop("content", None)
+            if not (current.content or "").strip():
+                updates["content"] = rich_text_from_doc(normalized)
+        else:
+            if updates.get("content_json") is not None:
+                raise HTTPException(422, "content_json is only valid for rich-json-v1 posts.")
+            content = updates.get("content", current.content)
+            try:
+                updates["content"] = validate_legacy_content(content)
+            except ContentValidationError as exc:
+                raise _content_error(exc) from None
+            updates["content_format"] = CONTENT_FORMAT_LEGACY
+            updates["content_json"] = None
+
+    if "slug" in updates and updates["slug"] != current.slug:
+        existing = await db.posts.find_one({"slug": updates["slug"], "_id": {"$ne": oid}})
+        if existing:
+            raise HTTPException(400, "Slug already used")
+
+    updates["updated_at"] = datetime.now(timezone.utc)
+    return current, updates
 
 
 def public_user(u: User) -> dict:
@@ -380,6 +554,38 @@ async def root():
     return {"message": "Typinger API"}
 
 
+@api.post("/contact")
+async def contact(body: ContactIn, request: Request):
+    """Store a contact message without publishing a support mailbox.
+
+    The owner reviews these records through the admin API. The honeypot and
+    per-IP cap keep the public endpoint from becoming an easy spam target.
+    """
+    if body.website.strip():
+        return {"ok": True}
+
+    now = datetime.now(timezone.utc)
+    ip = request.client.host if request.client else "unknown"
+    recent = await db.contact_messages.count_documents(
+        {"ip": ip, "created_at": {"$gte": now - timedelta(hours=1)}}
+    )
+    if recent >= 5:
+        raise HTTPException(429, "Too many messages. Try again later.")
+
+    await db.contact_messages.insert_one(
+        {
+            "name": body.name.strip(),
+            "email": str(body.email).lower(),
+            "subject": body.subject.strip(),
+            "message": body.message.strip(),
+            "ip": ip,
+            "user_agent": request.headers.get("user-agent", "")[:300],
+            "created_at": now,
+        }
+    )
+    return {"ok": True}
+
+
 @api.post("/auth/register")
 async def register(body: RegisterIn, response: Response):
     email = body.email.lower()
@@ -512,7 +718,7 @@ async def leaderboard(game_id: str, difficulty: Optional[str] = None, limit: int
 @api.get("/posts")
 async def list_posts():
     docs = await db.posts.find({"published": True}).sort("date_published", -1).to_list(200)
-    return [public_post(Post.from_mongo(d)) for d in docs]
+    return [public_post(Post.from_mongo(d), summary=True) for d in docs]
 
 
 @api.get("/posts/{slug}")
@@ -574,31 +780,61 @@ async def admin_list_posts(_: User = Depends(get_admin_user)):
 
 @api.post("/admin/posts")
 async def admin_create_post(body: PostIn, request: Request, admin: User = Depends(get_admin_user)):
+    data = _prepare_post_create(body)
     if await db.posts.find_one({"slug": body.slug}):
         raise HTTPException(400, "Slug already used")
-    p = Post(**body.model_dump())
-    p.id = str((await db.posts.insert_one(p.to_mongo())).inserted_id)
+    p = Post(**data)
+    try:
+        p.id = str((await db.posts.insert_one(p.to_mongo())).inserted_id)
+    except Exception as exc:
+        if "duplicate key" in str(exc).lower():
+            raise HTTPException(400, "Slug already used") from None
+        raise
     await record_audit(db, admin, "POST_CREATED", "post", p.id, {"slug": p.slug, "title": p.title}, request)
     return p.model_dump()
 
 
 @api.put("/admin/posts/{post_id}")
-async def admin_update_post(post_id: str, body: PostIn, request: Request, admin: User = Depends(get_admin_user)):
-    data = {**body.model_dump(), "updated_at": datetime.now(timezone.utc)}
-    res = await db.posts.update_one({"_id": ObjectId(post_id)}, {"$set": data})
+async def admin_update_post(post_id: str, body: PostUpdate, request: Request, admin: User = Depends(get_admin_user)):
+    current, data = await _prepare_post_update(post_id, body)
+    res = await db.posts.update_one({"_id": _post_oid(post_id)}, {"$set": data})
     if not res.matched_count:
         raise HTTPException(404, "Post not found")
-    await record_audit(db, admin, "POST_UPDATED", "post", post_id, {"slug": body.slug, "title": body.title}, request)
+    await record_audit(
+        db,
+        admin,
+        "POST_UPDATED",
+        "post",
+        post_id,
+        {"slug": data.get("slug", current.slug), "title": data.get("title", current.title)},
+        request,
+    )
     return {"ok": True}
 
 
 @api.delete("/admin/posts/{post_id}")
 async def admin_delete_post(post_id: str, request: Request, admin: User = Depends(get_admin_user)):
-    res = await db.posts.delete_one({"_id": ObjectId(post_id)})
+    res = await db.posts.delete_one({"_id": _post_oid(post_id)})
     if not res.deleted_count:
         raise HTTPException(404, "Post not found")
     await record_audit(db, admin, "POST_DELETED", "post", post_id, None, request)
     return {"ok": True}
+
+
+@api.get("/admin/contact-messages")
+async def admin_contact_messages(limit: int = Query(50, ge=1, le=200), _: User = Depends(get_admin_user)):
+    docs = await db.contact_messages.find({}).sort("created_at", -1).to_list(limit)
+    return [
+        {
+            "id": str(doc["_id"]),
+            "name": doc.get("name", ""),
+            "email": doc.get("email", ""),
+            "subject": doc.get("subject", ""),
+            "message": doc.get("message", ""),
+            "created_at": doc.get("created_at"),
+        }
+        for doc in docs
+    ]
 
 
 @api.get("/admin/results")

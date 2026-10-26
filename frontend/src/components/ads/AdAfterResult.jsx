@@ -7,6 +7,7 @@ export const AdAfterResult = ({ slot, className = "" }) => (
     slot={slot}
     variant="leaderboard"
     format="auto"
+    interaction="completed"
     className={cn("mt-8", className)}
   />
 );

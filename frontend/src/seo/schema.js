@@ -7,9 +7,9 @@ export const organizationSchema = () => ({
   legalName: SITE.legalName,
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}${SITE.logo}`,
-  email: SITE.email,
-  foundingDate: SITE.founded,
-  sameAs: SITE.sameAs,
+  ...(SITE.email ? { email: SITE.email } : {}),
+  ...(SITE.founded ? { foundingDate: SITE.founded } : {}),
+  ...(SITE.sameAs?.length ? { sameAs: SITE.sameAs } : {}),
 });
 
 export const websiteSchema = () => ({

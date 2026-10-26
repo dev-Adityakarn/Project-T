@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Keyboard } from "lucide-react";
 import { ROUTES, SITE } from "@/seo";
+import { openPrivacyChoices } from "@/lib/consent";
 
 const GROUPS = ["Typing tests", "Practice & lessons", "Exam practice", "Games", "Company"];
 
@@ -31,10 +32,20 @@ export const SiteFooter = () => (
     <div className="border-t">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p>© {new Date().getFullYear()} {SITE.name}. Practice daily, type freely.</p>
-        <ul className="flex flex-wrap gap-4">
+        <ul className="flex flex-wrap items-center gap-4">
           {ROUTES.filter((r) => r.group === "Company" && r.nav).map((r) => (
             <li key={r.path}><Link to={r.path} className="hover:text-primary" data-testid={`footer-legal-${r.path}`}>{r.nav}</Link></li>
           ))}
+          <li>
+            <button
+              type="button"
+              onClick={openPrivacyChoices}
+              className="hover:text-primary"
+              data-testid="privacy-choices-btn"
+            >
+              Privacy choices
+            </button>
+          </li>
         </ul>
       </div>
     </div>

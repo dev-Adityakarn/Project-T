@@ -28,6 +28,25 @@ const Block = ({ b }) => (
         ))}
       </div>
     )}
+    {b.sources?.length > 0 && (
+      <div className="mt-5 rounded-xl border bg-muted/30 p-4" data-testid="article-sources">
+        <h3 className="text-sm font-semibold">Sources</h3>
+        <ul className="mt-2 space-y-2 text-sm">
+          {b.sources.map((source) => (
+            <li key={source.url}>
+              <a
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2"
+              >
+                {source.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
   </section>
 );
 
@@ -73,6 +92,7 @@ const contentLength = (blocks = []) =>
   blocks.reduce((total, block) => {
     const parts = [block.h2, ...(block.p || []), ...(block.ul || [])];
     (block.steps || []).forEach((step) => parts.push(step.h3, step.p));
+    (block.sources || []).forEach((source) => parts.push(source.label));
     return total + parts.filter(Boolean).join(" ").length;
   }, 0);
 

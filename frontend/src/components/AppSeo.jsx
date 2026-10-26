@@ -13,11 +13,13 @@ const MAP = {
     title: "Daily Typing Challenge: One Game, Everyone, Each Day",
     description: "Every day Typinger picks one game, one difficulty and one shared word seed. Compete against every other player on exactly the same challenge.",
     crumbs: [{ name: "Daily challenge" }],
+    noindex: true,
   },
   "/leaderboard": {
     title: "Typing Leaderboard: Fastest Typists by Game and Level",
     description: "See the fastest Typinger typists for every game and difficulty level, with WPM, accuracy and best scores updated as results come in.",
     crumbs: [{ name: "Leaderboard" }],
+    noindex: true,
   },
   "/dashboard": {
     title: "Your Typing Dashboard: WPM History and Badges",
@@ -62,7 +64,7 @@ export const AppSeo = () => {
     description: `${game.description} Play free on Typinger in easy, medium or hard mode and climb the leaderboard.`.slice(0, 155),
   };
   return (
-    <Seo path={path} title={page.title} description={page.description}
+    <Seo path={path} title={page.title} description={page.description} noindex
       jsonLd={[organizationSchema(), websiteSchema(), webAppSchema(page), breadcrumbSchema([{ name: "Typing games", path: "/games/" }, { name: game.title }])]} />
   );
 };

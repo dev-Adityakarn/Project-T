@@ -1,11 +1,17 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "project-t",
+  "main": "worker.js",
   "compatibility_date": "2026-10-12",
   "observability": {
     "enabled": true
   },
   "assets": {
-    "directory": "build"
+    "directory": "build",
+    "binding": "ASSETS",
+    "not_found_handling": "none",
+    // These two paths must always reach the Worker so they can be answered
+    // with a real HTTP 404 instead of the static 404.html asset (HTTP 200).
+    "run_worker_first": ["/404", "/404.html"]
   }
 }

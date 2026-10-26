@@ -1,6 +1,12 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
-  X-Robots-Tag: noindex, follow
 
 /robots.txt
   Content-Type: text/plain; charset=utf-8
@@ -31,3 +37,27 @@
 
 /register/*
   X-Robots-Tag: noindex, follow
+
+/daily
+  X-Robots-Tag: noindex, follow
+
+/daily/*
+  X-Robots-Tag: noindex, follow
+
+/leaderboard
+  X-Robots-Tag: noindex, follow
+
+/leaderboard/*
+  X-Robots-Tag: noindex, follow
+
+# Game detail screens are thin, interactive app pages. Keep the /games/ hub
+# indexable while marking only the detail routes noindex. The trailing slash
+# pattern does not match /games/ itself.
+/games/*/
+  X-Robots-Tag: noindex, follow
+
+/404
+  X-Robots-Tag: noindex, nofollow
+
+/404.html
+  X-Robots-Tag: noindex, nofollow

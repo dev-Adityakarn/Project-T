@@ -63,7 +63,7 @@ export const Seo = ({ path, title, description, image, type = "website", noindex
     meta("twitter:title", title);
     meta("twitter:description", description);
     meta("twitter:image", `${SITE_URL}${image || SITE.ogImage}`);
-    meta("twitter:site", SITE.twitter);
+    if (SITE.twitter) meta("twitter:site", SITE.twitter);
     if (process.env.REACT_APP_GSC_VERIFICATION) meta("google-site-verification", process.env.REACT_APP_GSC_VERIFICATION);
 
     document.head.querySelectorAll('link[data-seo="alt"]').forEach((n) => n.remove());

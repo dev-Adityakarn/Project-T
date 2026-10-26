@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import {
   FileText,
   Plus,
@@ -26,21 +26,9 @@ import {
   PageHeader,
   TableSkeleton,
 } from "@/components/admin/AdminUI";
+import { PostEditor } from "@/components/admin/PostEditor";
 
 const EMPTY_PASSAGE = { title: "", text: "", language: "en", difficulty: "medium" };
-const EMPTY_POST = {
-  title: "",
-  slug: "",
-  content: "",
-  excerpt: "",
-  meta_title: "",
-  meta_description: "",
-  author: "Typinger Team",
-  published: false,
-};
-
-const slugify = (value) =>
-  value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 const Field = ({ label, htmlFor, hint, children }) => (
   <div className="space-y-2">
@@ -199,36 +187,52 @@ function PassagesTab() {
 
 function PostsTab() {
   const { data, loading, error, reload } = useAdminFetch("/posts");
-  const [form, setForm] = useState(EMPTY_POST);
-  const [editing, setEditing] = useState(null);
-  const [busy, setBusy] = useState(false);
-  const [formError, setFormError] = useState("");
+  const [selected, setSelected] = useState({ key: "new-0", post: null });
+  const [editorDirty, setEditorDirty] = useState(false);
+  const [pendingSelection, setPendingSelection] = useState(null);
   const [search, setSearch] = useState("");
   const [deleteTarget, setDeleteTarget] = useState(null);
+  const newKeyRef = useRef(0);
 
   const rows = useMemo(() => data || [], [data]);
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
     if (!term) return rows;
-    return rows.filter((row) => row.title.toLowerCase().includes(term) || row.slug.includes(term));
+    return rows.filter(
+      (row) =>
+        row.title.toLowerCase().includes(term) ||
+        row.slug.toLowerCase().includes(term),
+    );
   }, [rows, search]);
 
-  const save = async (event) => {
-    event.preventDefault();
-    setFormError("");
-    setBusy(true);
-    try {
-      if (editing) await adminApi.put(`/posts/${editing}`, form);
-      else await adminApi.post("/posts", form);
-      toast.success(editing ? "Post updated" : "Post created");
-      setForm(EMPTY_POST);
-      setEditing(null);
-      reload();
-    } catch (err) {
-      setFormError(formatAdminError(err));
-    } finally {
-      setBusy(false);
+  const newSelection = () => {
+    newKeyRef.current += 1;
+    return { key: `new-${newKeyRef.current}`, post: null };
+  };
+
+  const select = (next) => {
+    if (editorDirty) {
+      setPendingSelection(next);
+      return;
     }
+    setSelected(next);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleDirtyChange = useCallback((dirty) => {
+    setEditorDirty(dirty);
+  }, []);
+
+  const handleSaved = (saved) => {
+    reload();
+    if (saved?.id) {
+      setSelected({ key: saved.id, post: saved });
+    }
+    setEditorDirty(false);
+  };
+
+  const handleCancel = () => {
+    select(newSelection());
   };
 
   const remove = async () => {
@@ -236,6 +240,10 @@ function PostsTab() {
     try {
       await adminApi.delete(`/posts/${deleteTarget.id}`);
       toast.success("Post deleted");
+      if (selected.post?.id === deleteTarget.id) {
+        setSelected(newSelection());
+        setEditorDirty(false);
+      }
       setDeleteTarget(null);
       reload();
     } catch (err) {
@@ -244,61 +252,30 @@ function PostsTab() {
   };
 
   return (
-    <div className="grid gap-4 xl:grid-cols-[460px_1fr]">
+    <div className="grid gap-4 xl:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
       <Card>
-        <CardHeader className="pb-3">
-          <CardTitle className="text-sm font-semibold">{editing ? "Edit post" : "New post"}</CardTitle>
+        <CardHeader className="flex-row items-center justify-between gap-3 space-y-0 pb-3">
+          <CardTitle className="text-sm font-semibold">
+            {selected.post ? "Edit post" : "New post"}
+          </CardTitle>
+          <Button
+            type="button"
+            size="sm"
+            variant="outline"
+            className="h-8"
+            onClick={() => select(newSelection())}
+          >
+            <Plus size={14} /> New post
+          </Button>
         </CardHeader>
         <CardContent>
-          <form onSubmit={save} className="space-y-4">
-            <Field label="Title" htmlFor="post-title">
-              <Input
-                id="post-title"
-                required
-                maxLength={140}
-                value={form.title}
-                onChange={(event) => {
-                  const title = event.target.value;
-                  setForm((prev) => ({ ...prev, title, slug: editing ? prev.slug : slugify(title) }));
-                }}
-              />
-            </Field>
-            <Field label="Slug" htmlFor="post-slug" hint="Lowercase letters, numbers and hyphens only. Must be unique.">
-              <Input id="post-slug" required pattern="[a-z0-9-]+" value={form.slug} onChange={(event) => setForm({ ...form, slug: event.target.value })} />
-            </Field>
-            <Field label="Content" htmlFor="post-content" hint="Blank line between paragraphs; prefix a line with “## ” for a heading.">
-              <Textarea id="post-content" required rows={8} value={form.content} onChange={(event) => setForm({ ...form, content: event.target.value })} />
-            </Field>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <Field label="Excerpt" htmlFor="post-excerpt">
-                <Input id="post-excerpt" value={form.excerpt} onChange={(event) => setForm({ ...form, excerpt: event.target.value })} />
-              </Field>
-              <Field label="Author" htmlFor="post-author">
-                <Input id="post-author" value={form.author} onChange={(event) => setForm({ ...form, author: event.target.value })} />
-              </Field>
-              <Field label="Meta title" htmlFor="post-meta-title">
-                <Input id="post-meta-title" value={form.meta_title} onChange={(event) => setForm({ ...form, meta_title: event.target.value })} />
-              </Field>
-              <Field label="Meta description" htmlFor="post-meta-description">
-                <Input id="post-meta-description" value={form.meta_description} onChange={(event) => setForm({ ...form, meta_description: event.target.value })} />
-              </Field>
-            </div>
-            <label className="flex items-center gap-2 text-sm">
-              <input type="checkbox" checked={form.published} onChange={(event) => setForm({ ...form, published: event.target.checked })} />
-              Published (visible on the public blog)
-            </label>
-            {formError && <p className="text-xs text-destructive">{formError}</p>}
-            <div className="flex gap-2">
-              <Button type="submit" size="sm" disabled={busy}>
-                {editing ? <Save size={14} /> : <Plus size={14} />} {busy ? "Saving…" : editing ? "Update" : "Create"}
-              </Button>
-              {editing && (
-                <Button type="button" size="sm" variant="outline" onClick={() => { setEditing(null); setForm(EMPTY_POST); }}>
-                  <X size={14} /> Cancel
-                </Button>
-              )}
-            </div>
-          </form>
+          <PostEditor
+            key={selected.key}
+            post={selected.post}
+            onSaved={handleSaved}
+            onCancel={handleCancel}
+            onDirtyChange={handleDirtyChange}
+          />
         </CardContent>
       </Card>
 
@@ -327,12 +304,15 @@ function PostsTab() {
                       <Badge variant={post.published ? "default" : "outline"} className="text-[9px] uppercase">
                         {post.published ? "published" : "draft"}
                       </Badge>
+                      <Badge variant="secondary" className="text-[9px] uppercase">
+                        {post.content_format === "rich-json-v1" ? "rich" : "legacy"}
+                      </Badge>
                     </div>
                     <div className="mt-1 font-mono-type text-[11px] text-muted-foreground">/blog/{post.slug}</div>
                     <div className="mt-1 text-[10px] text-muted-foreground">{post.date_published} · {post.author}</div>
                   </div>
                   <div className="flex shrink-0 gap-1">
-                    <Button size="sm" variant="ghost" className="h-8 text-xs" onClick={() => { setEditing(post.id); setForm({ title: post.title, slug: post.slug, content: post.content, excerpt: post.excerpt, meta_title: post.meta_title, meta_description: post.meta_description, author: post.author, published: post.published }); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+                    <Button size="sm" variant="ghost" className="h-8 text-xs" onClick={() => select({ key: post.id, post })}>
                       Edit
                     </Button>
                     <Button size="sm" variant="ghost" className="h-8 px-2 text-muted-foreground hover:text-destructive" onClick={() => setDeleteTarget(post)} aria-label={`Delete ${post.title}`}>
@@ -355,6 +335,23 @@ function PostsTab() {
         destructive
         onConfirm={remove}
       />
+
+      <ConfirmDialog
+        open={Boolean(pendingSelection)}
+        onOpenChange={(open) => {
+          if (!open) setPendingSelection(null);
+        }}
+        title="Discard unsaved changes?"
+        description="This post has unsaved changes. Switching posts now will discard them."
+        confirmLabel="Discard changes"
+        destructive
+        onConfirm={() => {
+          setSelected(pendingSelection);
+          setPendingSelection(null);
+          setEditorDirty(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      />
     </div>
   );
 }
@@ -374,7 +371,13 @@ export default function Content() {
           <TabsTrigger value="posts">Blog posts</TabsTrigger>
         </TabsList>
         <TabsContent value="passages" className="mt-4"><PassagesTab /></TabsContent>
-        <TabsContent value="posts" className="mt-4"><PostsTab /></TabsContent>
+        <TabsContent
+          value="posts"
+          className="mt-4 data-[state=inactive]:hidden"
+          forceMount
+        >
+          <PostsTab />
+        </TabsContent>
       </Tabs>
     </>
   );

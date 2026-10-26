@@ -6,7 +6,7 @@
     "h1": "How to type faster: nine changes that actually work",
     "excerpt": "Speed is not about trying harder. It is about removing the small inefficiencies that cost you a tenth of a second, hundreds of times an hour.",
     "datePublished": "2026-02-10",
-    "dateModified": "2026-06-01",
+    "dateModified": "2026-10-27",
     "author": "Typinger Team",
     "readingTime": "7 min read",
     "tags": ["speed", "technique"],
@@ -41,7 +41,7 @@
         "h2": "4. Chase accuracy first, speed second",
         "p": [
           "Errors are expensive in a way that is easy to underestimate. A single typo costs the wrong keystroke, a backspace, the retype and, worst of all, the broken rhythm that usually produces a second mistake within the next few words.",
-          "The rule that works: type at the fastest pace where you stay above 97% accuracy. If accuracy falls, slow down by ten percent until it recovers. Most people who do this for two weeks find their raw speed higher at the end, despite never practising speed directly."
+          "The rule that works: type at the fastest pace where you stay above 97% accuracy. If accuracy falls, slow down by ten percent until it recovers. Many typists find that a few weeks of accuracy-first practice raises their usable speed even without direct speed drills; your result will vary."
         ]
       },
       {
@@ -83,12 +83,12 @@
         "h2": "A four week plan",
         "p": [
           "Week one: no looking down, accuracy above 97%, ten minutes a day of home row and top row drills. Week two: add chunking practice with real sentences and one daily timed minute. Week three: add numbers and punctuation drills twice, and one three minute test. Week four: one five minute test as a benchmark and games for the rest.",
-          "A typist starting at 40 WPM who follows that plan usually lands somewhere between 55 and 65 WPM, and the gain holds because it came from technique rather than adrenaline."
+          "Progress varies. The gain that holds is the one built on accuracy and technique rather than a single fast run; use the four-week plan as a structure, not a promise of a specific WPM."
         ]
       }
     ],
     "faqs": [
-      { "q": "How long does it take to type faster?", "a": "Most people gain 10 to 15 WPM within four to six weeks of practising ten to fifteen minutes a day, provided they stop looking at the keyboard and keep accuracy above 97%." },
+      { "q": "How long does it take to type faster?", "a": "There is no guaranteed timeline. Ten to fifteen minutes of daily practice with accuracy above 97% is a reasonable approach; track your own trend over several weeks rather than relying on a promised gain." },
       { "q": "Does typing with two fingers ever work?", "a": "A few hunt-and-peck typists reach 60 WPM, but the method has a hard ceiling and it demands constant visual attention. Touch typing frees your eyes for the screen, which matters more than the raw number." },
       { "q": "Should I practise with a timer?", "a": "Use both. Timed tests train performance under pressure and measure progress; untimed drills build the clean technique that raises your ceiling." },
       { "q": "Is a mechanical keyboard faster?", "a": "Marginally, and mostly because the feedback helps you type with less force. Technique is worth ten times more than hardware." }
@@ -106,25 +106,26 @@
     "h1": "Average typing speed by age, job and experience",
     "excerpt": "The average adult types around 40 words per minute. Here is how that number breaks down by age, occupation and years of practice — and what to aim for.",
     "datePublished": "2026-03-04",
-    "dateModified": "2026-06-01",
+    "dateModified": "2026-10-27",
     "author": "Typinger Team",
     "readingTime": "6 min read",
     "tags": ["benchmarks", "wpm"],
     "blocks": [
       {
         "p": [
-          "The single most common question in typing is also the vaguest: is my speed normal? The answer depends on your age, how much of your day involves a keyboard and whether you ever learned touch typing. Below are the benchmarks that hold up across published studies and large online datasets, along with what they mean for your own target."
+          "The single most common question in typing is also the vaguest: is my speed normal? The answer depends on your age, how much of your day involves a keyboard and whether you ever learned touch typing. There is no single authoritative average, so treat the ranges below as rough guides rather than a controlled study, and measure your own baseline."
         ]
       },
       {
         "h2": "The headline number",
         "p": [
-          "The average adult typing in English on a full keyboard produces about 40 words per minute with roughly 92% to 95% accuracy. Professional typists and transcriptionists sit between 65 and 90 WPM, and competitive typists exceed 120 WPM with accuracy above 98%.",
-          "Remember that a word means five characters including spaces, so these figures are directly comparable only when they use the same definition: WPM = (correct characters / 5) / (seconds / 60)."
+          "A commonly cited figure for adult English typing is around 40 words per minute, with accuracy often reported in the low 90s. Experienced typists and transcriptionists are often described in the 65 to 90 WPM range, while competitive typists can exceed 120 WPM. Published estimates vary with the sample, the keyboard and the test method, so these are not universal benchmarks.",
+          "Remember that a word means five characters including spaces, so figures are directly comparable only when they use the same definition: WPM = (correct characters / 5) / (seconds / 60)."
         ]
       },
       {
         "h2": "Typing speed by age group",
+        "p": ["These ranges are approximate and come from general typing guidance, not a single controlled study. Use them to sanity-check your own result, not to grade yourself."],
         "ul": [
           "Ages 6 to 8: 8 to 15 WPM. Hands are small and the keyboard map is still being learned; accuracy matters far more than speed.",
           "Ages 9 to 12: 15 to 25 WPM. With structured lessons, many children in this band reach 30 WPM.",
@@ -136,6 +137,7 @@
       },
       {
         "h2": "Typing speed by occupation",
+        "p": ["Job ranges are equally approximate. Roles differ in how much prose, code or numeric data they handle, and employers rarely publish a single universal speed requirement."],
         "ul": [
           "Data entry clerk: 60 to 80 WPM with 98% or better accuracy, plus strong numeric keypad speed.",
           "Secretary or administrative assistant: 50 to 70 WPM, often with a formal exam requirement around 40 WPM.",
@@ -148,15 +150,19 @@
       {
         "h2": "What exams expect",
         "p": [
-          "Formal typing requirements are lower than people assume, because accuracy is weighted heavily. Many government clerical exams ask for about 35 WPM in English or 30 WPM in Hindi over a five or ten minute passage, with errors capped at roughly 5% to 8%.",
-          "That combination is why candidates fail at 45 WPM and pass at 33 WPM. If you are preparing for an exam, your real target is the error limit, not the speed line."
+          "Government exam requirements are not uniform. The SSC CHSL 2025 notification for LDC/JSA sets 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test. The CPCT score card sets a qualifying net speed of 30 words per minute in English or 25 words per minute in Hindi. Other exams and posts publish different figures.",
+          "That is why you should read your own notification rather than training to a generic number. In exams that penalise uncorrected errors, a clean run at the required speed can beat a faster run that exceeds the error limit."
+        ],
+        "sources": [
+          { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" },
+          { "label": "CPCT score card (qualifying net speed)", "url": "https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf" }
         ]
       },
       {
         "h2": "How quickly speed improves",
         "p": [
-          "Progress is fast at the start and then slows predictably. A beginner practising fifteen minutes a day typically moves from 20 to 40 WPM in four to six weeks. From 40 to 60 WPM takes another month or two. From 60 to 80 WPM usually takes several months and requires deliberate work on numbers, punctuation and chunking rather than more general typing.",
-          "Beyond 100 WPM, gains come almost entirely from eliminating hesitation: the micro pauses before capitals, symbols and unfamiliar words."
+          "Progress is usually fastest at the start and then slows. The pace depends on your starting point, how consistently you practise and whether you work on technique rather than just repeating tests. Longer-term gains usually require deliberate work on numbers, punctuation and chunking rather than more general typing.",
+          "Beyond 100 WPM, gains come mostly from eliminating hesitation: the micro pauses before capitals, symbols and unfamiliar words."
         ]
       },
       {
@@ -175,8 +181,8 @@
       }
     ],
     "faqs": [
-      { "q": "What is a good typing speed for my age?", "a": "As a rough guide: 15 WPM for primary school, 30 WPM for teenagers, and 50 to 60 WPM for adults. Accuracy above 97% is a better goal than any particular speed." },
-      { "q": "Is 100 WPM realistic?", "a": "Yes, for a dedicated typist. It usually takes several months of deliberate practice from a 60 WPM base, with most of the gain coming from chunking and removing hesitation." },
+      { "q": "What is a good typing speed for my age?", "a": "There is no official standard by age. The ranges above are rough guides, not benchmarks. Accuracy above 97% is a better goal than any particular speed." },
+      { "q": "Is 100 WPM realistic?", "a": "It can be, but it is not a typical target. Reaching it usually requires sustained deliberate practice; the gain comes from chunking and removing hesitation rather than forcing your fingers to move faster." },
       { "q": "Do phones and messaging make people faster on keyboards?", "a": "No. Thumb typing is a different motor skill and often reinforces two-finger habits on a physical keyboard." },
       { "q": "Does typing speed decline with age?", "a": "Slightly, but experience compensates. Trained typists in their fifties frequently beat untrained typists in their twenties on net speed because their accuracy is far higher." }
     ],
@@ -193,14 +199,14 @@
     "h1": "Touch typing guide for beginners: learn in 14 days",
     "excerpt": "Touch typing is not a talent, it is a map. Learn the map one row at a time and your hands stop needing your eyes.",
     "datePublished": "2026-03-22",
-    "dateModified": "2026-06-01",
+    "dateModified": "2026-10-27",
     "author": "Typinger Team",
     "readingTime": "8 min read",
     "tags": ["beginners", "lessons"],
     "blocks": [
       {
         "p": [
-          "Touch typing means typing without looking at the keyboard, using all ten fingers, each responsible for a fixed set of keys. It takes most adults about two weeks to feel natural and about six weeks to beat their old hunt-and-peck speed. This guide covers exactly what to learn, in what order, and what to ignore."
+          "Touch typing means typing without looking at the keyboard, using all ten fingers, each responsible for a fixed set of keys. Many adults feel comfortable within a few weeks, while the time to beat an old hunt-and-peck speed varies. This guide covers what to learn, in what order, and what to ignore."
         ]
       },
       {
@@ -257,8 +263,8 @@
       {
         "h2": "What to expect, honestly",
         "p": [
-          "Days one to four feel clumsy and slow. Around day five something clicks on the home row and the top row starts to follow. By the end of week two most learners type 25 to 35 WPM without looking, which already beats many two-finger typists on sustained work because their eyes stay on the screen.",
-          "From there, progress comes from normal use plus short drills. Within six weeks, 50 WPM is a realistic place to be, and the ceiling above it is high: WPM = (correct characters / 5) / (seconds / 60) keeps rewarding cleaner technique indefinitely."
+          "Days one to four often feel clumsy and slow. Around day five something may click on the home row and the top row starts to follow. By the end of the plan many learners can type without looking at a basic working speed; your exact WPM will vary with your starting point and consistency.",
+          "From there, progress comes from normal use plus short drills. With consistent practice, 50 WPM is a common medium-term target, but it is not guaranteed. The ceiling above it is high: WPM = (correct characters / 5) / (seconds / 60) keeps rewarding cleaner technique."
         ]
       },
       {
@@ -273,7 +279,7 @@
       }
     ],
     "faqs": [
-      { "q": "How long does touch typing take to learn?", "a": "Two weeks to feel natural at 25 to 35 WPM, and about six weeks to pass your old hunt-and-peck speed, practising fifteen minutes a day." },
+      { "q": "How long does touch typing take to learn?", "a": "Many learners feel comfortable within a few weeks of short daily practice. Passing your old hunt-and-peck speed depends on your starting point and how consistently you practise; there is no fixed timeline." },
       { "q": "Should I learn numbers at the same time as letters?", "a": "No. Learn the three letter rows first, then add capitals, punctuation and numbers. Adding everything at once slows almost everyone down." },
       { "q": "Is it bad to look at the keyboard sometimes?", "a": "In the first two weeks, yes, because it prevents the spatial map from forming. After that an occasional glance for a rare symbol is harmless." },
       { "q": "Can children learn with the same method?", "a": "Yes, with shorter sessions of five to ten minutes and more game time. Children usually need more repetition per row but learn the map just as well." }
@@ -291,7 +297,7 @@
     "h1": "How to improve typing accuracy without losing speed",
     "excerpt": "At 92% accuracy, one keystroke in twelve is wrong — and each one costs you three. Fixing accuracy is the fastest way to type faster.",
     "datePublished": "2026-04-15",
-    "dateModified": "2026-06-01",
+    "dateModified": "2026-10-27",
     "author": "Typinger Team",
     "readingTime": "7 min read",
     "tags": ["accuracy", "technique"],
@@ -348,13 +354,13 @@
       {
         "h2": "Give it two weeks",
         "p": [
-          "Accuracy responds quickly because it is mostly a decision rather than a physical limit. Typists who commit to the 97% rule for a fortnight usually report the same two things: the same WPM on paper, and noticeably less time spent fixing text in real documents.",
-          "Then the second phase starts. With clean technique and no hesitation, raw speed grows on its own, because nothing is interrupting the flow any more."
+          "Accuracy often responds quickly because it is mostly a decision rather than a physical limit. Typists who commit to the 97% rule for a few weeks commonly report less time spent fixing text in real documents, even before their measured WPM moves.",
+          "Then the second phase starts. With clean technique and no hesitation, raw speed can grow on its own, because nothing is interrupting the flow any more."
         ]
       }
     ],
     "faqs": [
-      { "q": "What is a good typing accuracy?", "a": "Above 97% is good and above 99% is excellent. The online average is around 92%, which means roughly one wrong keystroke in every twelve." },
+      { "q": "What is a good typing accuracy?", "a": "Above 97% is a good target and above 99% is excellent. Online test averages are often reported around 92%, which means roughly one wrong keystroke in every twelve; treat that as a rough comparison, not a rule." },
       { "q": "Will slowing down make me permanently slower?", "a": "No. Slowing down temporarily to fix technique almost always produces a higher speed within two to three weeks, because errors and corrections stop eating your time." },
       { "q": "Why do I type the same typos repeatedly?", "a": "Repeated typos are learned patterns, usually from a wrong finger or a same-hand shift. Drill the specific word slowly five times to overwrite the pattern." },
       { "q": "Does autocorrect help accuracy?", "a": "It hides errors rather than fixing them, so your typing never improves and the mistakes resurface anywhere autocorrect is unavailable, such as a terminal or an exam." }
@@ -370,9 +376,9 @@
     "title": "What Is a Good WPM Score? Benchmarks and Targets",
     "description": "What counts as a good WPM score? Compare beginner, average, professional and competitive typing speeds, and learn which number to put on your CV.",
     "h1": "What is a good WPM score?",
-    "excerpt": "40 WPM is average, 60 is comfortable, 80 is fast and 100 is rare. But the number only means something alongside your accuracy and the test length.",
+    "excerpt": "40 WPM is often cited as average, 60 is comfortable, 80 is fast and 100 is rare. But the number only means something alongside your accuracy and the test length.",
     "datePublished": "2026-05-06",
-    "dateModified": "2026-06-01",
+    "dateModified": "2026-10-27",
     "author": "Typinger Team",
     "readingTime": "6 min read",
     "tags": ["wpm", "benchmarks"],
@@ -384,6 +390,7 @@
       },
       {
         "h2": "The benchmark ladder",
+        "p": ["These bands are practical labels used by typing tutors, not a scientific standard. Different studies and tests will place the boundaries elsewhere."],
         "ul": [
           "10 to 25 WPM: beginner. Keys are still being located visually; lessons will produce very fast gains.",
           "25 to 40 WPM: developing. Touch typing is partly in place but reaches and punctuation are unreliable.",
@@ -404,7 +411,7 @@
       {
         "h2": "Test length matters too",
         "p": [
-          "A one minute score is typically five to ten percent higher than the same typist's five minute score, because fatigue, lost focus and recovery from mistakes have not yet averaged in. That is why employers and exams use longer passages.",
+          "A one minute score is often higher than the same typist's five minute score, because fatigue, lost focus and recovery from mistakes have not yet averaged in. That is why employers and exams use longer passages.",
           "If you are quoting a number, say which length it came from. The honest, defensible figure is a three or five minute result, which is also the one worth putting on a CV."
         ]
       },
@@ -416,7 +423,11 @@
           "Data entry: 60 to 80 WPM plus strong numeric keypad speed and accuracy above 98%.",
           "Transcription: 75 WPM sustained is the realistic floor, because the audio sets the pace.",
           "Software development: 50 to 70 WPM on prose, with symbol fluency mattering more than top speed.",
-          "Government typing exams: usually about 35 WPM in English or 30 WPM in Hindi, with a strict error limit."
+          "Government typing exams: requirements vary. SSC CHSL 2025 LDC/JSA uses 35 WPM English or 30 WPM Hindi, while CPCT uses 30 WPM English or 25 WPM Hindi. Check your own notification."
+        ],
+        "sources": [
+          { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" },
+          { "label": "CPCT score card (qualifying net speed)", "url": "https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf" }
         ]
       },
       {
@@ -436,7 +447,7 @@
     ],
     "faqs": [
       { "q": "Is 60 WPM a good typing speed?", "a": "Yes. 60 WPM is above average and comfortably enough for nearly all office work, especially if your accuracy is above 97%." },
-      { "q": "Is 100 WPM impressive?", "a": "Very. Around 100 WPM puts you in a small minority of typists, and at that level accuracy and rhythm matter far more than finger speed." },
+      { "q": "Is 100 WPM impressive?", "a": "Very. 100 WPM is well above the commonly cited adult average, and at that level accuracy and rhythm matter far more than finger speed." },
       { "q": "Which WPM should I put on my CV?", "a": "Quote a three or five minute result with its accuracy, for example 68 WPM at 98% accuracy over five minutes. It is honest and it is the format assessors recognise." },
       { "q": "Why does my WPM vary so much between attempts?", "a": "Warm-up, fatigue, time of day, keyboard and passage difficulty all shift results by several words per minute. Use the trend across many attempts rather than a single score." }
     ],

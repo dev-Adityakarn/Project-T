@@ -236,6 +236,95 @@ def test_cookie_session_authorizes_content_management(admin_session):
         admin_session.delete(f"{ADMIN_API}/passages/{passage_id}", timeout=20)
 
 
+def test_rich_post_draft_filtering_and_partial_body_updates(admin_session):
+    slug = f"rich-live-{uuid.uuid4().hex[:10]}"
+    rich_doc = {
+        "type": "doc",
+        "content": [
+            {
+                "type": "lead",
+                "content": [
+                    {"type": "text", "text": "Live lead paragraph for the rich post."}
+                ],
+            },
+            {
+                "type": "heading",
+                "attrs": {"level": 2},
+                "content": [{"type": "text", "text": "Live section"}],
+            },
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Live body paragraph with enough text to pass validation.",
+                    }
+                ],
+            },
+        ],
+    }
+    created = admin_session.post(
+        f"{ADMIN_API}/posts",
+        json={
+            "title": f"Rich live test {slug}",
+            "slug": slug,
+            "content_format": "rich-json-v1",
+            "content_json": rich_doc,
+            "author": "Live Test",
+            "published": False,
+        },
+        timeout=20,
+    )
+    assert created.status_code == 200, created.text
+    post_id = created.json()["id"]
+
+    try:
+        public_list = requests.get(f"{API}/posts", timeout=20).json()
+        assert all(item["slug"] != slug for item in public_list)
+        assert requests.get(f"{API}/posts/{slug}", timeout=20).status_code == 404
+
+        published = admin_session.put(
+            f"{ADMIN_API}/posts/{post_id}",
+            json={"published": True},
+            timeout=20,
+        )
+        assert published.status_code == 200, published.text
+
+        public_list = requests.get(f"{API}/posts", timeout=20).json()
+        summary = next(item for item in public_list if item["slug"] == slug)
+        assert "body" not in summary
+        assert "blocks" not in summary
+        assert summary["lead"] == "Live lead paragraph for the rich post."
+
+        single = requests.get(f"{API}/posts/{slug}", timeout=20)
+        assert single.status_code == 200, single.text
+        body = single.json()
+        assert body["body"]["format"] == "rich-json-v1"
+        assert body["body"]["doc"]["content"][0]["type"] == "lead"
+
+        before = next(
+            item
+            for item in admin_session.get(f"{ADMIN_API}/posts", timeout=20).json()
+            if item["id"] == post_id
+        )
+        updated = admin_session.put(
+            f"{ADMIN_API}/posts/{post_id}",
+            json={"excerpt": "Live excerpt only"},
+            timeout=20,
+        )
+        assert updated.status_code == 200, updated.text
+        after = next(
+            item
+            for item in admin_session.get(f"{ADMIN_API}/posts", timeout=20).json()
+            if item["id"] == post_id
+        )
+        assert after["content_json"] == before["content_json"]
+        assert after["content"] == before["content"]
+        assert after["excerpt"] == "Live excerpt only"
+    finally:
+        admin_session.delete(f"{ADMIN_API}/posts/{post_id}", timeout=20)
+
+
 # ---------------------------------------------------------------------------
 # User management
 # ---------------------------------------------------------------------------
