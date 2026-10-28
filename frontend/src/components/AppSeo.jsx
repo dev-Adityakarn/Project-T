@@ -1,42 +1,45 @@
 import { useLocation } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { getGame } from "@/data/games";
-import { organizationSchema, websiteSchema, breadcrumbSchema, webAppSchema } from "@/seo/schema";
+import { buildSchemas } from "@/seo/schema";
 
 const MAP = {
   "/games": {
+    kind: "games-index",
     title: "Typing Games: 10 Free Games to Build Typing Speed",
     description: "Play ten free typing games, from a classic speed test to zombie defence and space shooting. Three difficulty levels and global leaderboards.",
     crumbs: [{ name: "Typing games" }],
   },
   "/daily": {
+    kind: "utility",
     title: "Daily Typing Challenge: One Game, Everyone, Each Day",
     description: "Every day Typinger picks one game, one difficulty and one shared word seed. Compete against every other player on exactly the same challenge.",
     crumbs: [{ name: "Daily challenge" }],
     noindex: true,
   },
   "/leaderboard": {
+    kind: "utility",
     title: "Typing Leaderboard: Fastest Typists by Game and Level",
     description: "See the fastest Typinger typists for every game and difficulty level, with WPM, accuracy and best scores updated as results come in.",
     crumbs: [{ name: "Leaderboard" }],
     noindex: true,
   },
   "/dashboard": {
+    kind: "shell",
     title: "Your Typing Dashboard: WPM History and Badges",
     description: "Track your typing progress: WPM chart, per game statistics, personal bests, achievement badges and your recent results in one place.",
-    crumbs: [{ name: "Dashboard" }],
     noindex: true,
   },
   "/login": {
+    kind: "shell",
     title: "Sign In to Typinger: Save Your Typing Progress",
     description: "Sign in to Typinger to save typing results, keep your WPM history, unlock achievement badges and appear on the global leaderboards.",
-    crumbs: [{ name: "Sign in" }],
     noindex: true,
   },
   "/register": {
+    kind: "shell",
     title: "Create a Free Typinger Account to Track Typing",
     description: "Create a free Typinger account in seconds to save every typing test, chart your WPM history, earn badges and join the daily challenge.",
-    crumbs: [{ name: "Create account" }],
     noindex: true,
   },
 };
@@ -50,7 +53,7 @@ export const AppSeo = () => {
   if (entry) {
     return (
       <Seo path={path} title={entry.title} description={entry.description} noindex={entry.noindex}
-        jsonLd={[organizationSchema(), websiteSchema(), breadcrumbSchema(entry.crumbs)]} />
+        jsonLd={buildSchemas({ kind: entry.kind, path, crumbs: entry.crumbs || [] })} />
     );
   }
 
@@ -65,6 +68,11 @@ export const AppSeo = () => {
   };
   return (
     <Seo path={path} title={page.title} description={page.description} noindex
-      jsonLd={[organizationSchema(), websiteSchema(), webAppSchema(page), breadcrumbSchema([{ name: "Typing games", path: "/games/" }, { name: game.title }])]} />
+      jsonLd={buildSchemas({
+        kind: "game",
+        path,
+        page,
+        crumbs: [{ name: "Typing games", path: "/games/" }, { name: game.title }],
+      })} />
   );
 };

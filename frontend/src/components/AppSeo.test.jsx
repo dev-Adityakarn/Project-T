@@ -13,7 +13,9 @@ const robots = () => document.head.querySelector('meta[name="robots"]')?.content
 
 describe("AppSeo noindex decisions", () => {
   afterEach(() => {
-    document.head.querySelectorAll('[data-seo="managed"]').forEach((node) => node.remove());
+    document.head
+      .querySelectorAll('[data-seo="managed"], script[data-seo-owned="true"], script[data-seo="jsonld"]')
+      .forEach((node) => node.remove());
   });
 
   it("marks the daily challenge noindex", () => {

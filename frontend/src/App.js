@@ -1,5 +1,5 @@
 import "@/App.css";
-import { Suspense, lazy, useEffect } from "react";
+import { Suspense, lazy, useEffect, useLayoutEffect } from "react";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,6 +17,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { AppSeo } from "@/components/AppSeo";
 import { AdSenseBootstrap } from "@/components/ads/AdSenseBootstrap";
 import { loadAnalytics, trackPageview } from "@/lib/analytics";
+import { clearStaleOwnedJsonLd } from "@/seo/jsonld-dom";
 import Home from "@/pages/Home";
 
 const Games = lazy(() => import("@/pages/Games"));
@@ -104,6 +105,19 @@ const RouteEffects = () => {
   return null;
 };
 
+/**
+ * Drop route-scoped JSON-LD belonging to the previous pathname immediately.
+ * This also covers destinations whose article metadata is still loading and
+ * therefore have not rendered their <Seo> component yet.
+ */
+const SchemaRouteGuard = () => {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    clearStaleOwnedJsonLd(pathname);
+  }, [pathname]);
+  return null;
+};
+
 const SiteChrome = ({ children }) => {
   const { pathname } = useLocation();
   if (pathname.startsWith("/admin")) return children;
@@ -123,6 +137,7 @@ function AppShell() {
     <AuthProvider>
       <TrailingSlashHandler />
       <RouteEffects />
+      <SchemaRouteGuard />
       <AppSeo />
       <AdSenseBootstrap />
       <SiteChrome>

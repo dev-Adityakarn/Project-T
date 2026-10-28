@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SeoArticle } from "@/components/SeoArticle";
 import { TypingTool } from "@/components/TypingTool";
 import { AD_SLOTS } from "@/config/adsense";
-import { organizationSchema, websiteSchema, webAppSchema, faqSchema, breadcrumbSchema } from "@/seo/schema";
+import { buildSchemas } from "@/seo/schema";
 
 const CONFIG = { kind: "lesson", duration: null };
 
@@ -16,7 +16,7 @@ export default function Lessons() {
   return (
     <>
       <Seo path={page.path} title={page.title} description={page.description}
-        jsonLd={[organizationSchema(), websiteSchema(), webAppSchema(page), faqSchema(page.faqs), breadcrumbSchema(page.breadcrumbs)]} />
+        jsonLd={buildSchemas({ kind: "lesson", path: page.path, page, faqs: page.faqs, crumbs: page.breadcrumbs })} />
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8" data-testid="page-typing-lessons">
         <Breadcrumbs crumbs={page.breadcrumbs} />
         <header className="mx-auto max-w-3xl">

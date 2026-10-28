@@ -5,6 +5,7 @@
   "scripts": {
     "build": "cd frontend && npm run build",
     "build:frontend": "cd frontend && npm run build",
+    "verify:seo": "cd frontend && npm run verify:seo",
     "test": "cd frontend && npm test"
   }
 }

@@ -248,7 +248,7 @@
     "title": "Government Exam Typing Test: SSC, CPCT, RRB Practice",
     "description": "Practise government exam typing with 5 and 10 minute passages, exam-style scoring and error limits for SSC CHSL, CPCT, RRB NTPC and state clerical posts.",
     "h1": "Government exam typing test practice",
-    "lead": "Formal English passages at exam length, with the scoring rules and error limits used by SSC, CPCT, RRB and state clerical typing tests.",
+    "lead": "Formal English passages at exam length, with speed and accuracy scoring plus published examples and error rules for SSC, CPCT, RRB and state clerical typing tests.",
     "tool": { "kind": "paragraph", "durations": [300, 600], "duration": 300 },
     "breadcrumbs": [{ "name": "Government exam typing test" }],
     "blocks": [
@@ -256,7 +256,7 @@
         "h2": "How exam typing tests are scored",
         "p": [
           "Most government typing tests use a fixed passage, a fixed duration and a minimum speed. Speed alone does not pass you: a candidate who types quickly but exceeds the permitted error limit can still fail. The exact rule differs by exam, post and year, so read your own notification before you train.",
-          "Two current examples show why the details matter. The SSC CHSL 2025 notification for LDC/JSA sets 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test. The CPCT score card sets a qualifying net speed of 30 words per minute in English or 25 words per minute in Hindi. Neither figure is a universal requirement for every government exam."
+          "Two published examples show why the details matter. The SSC CHSL 2025 notification for LDC/JSA sets 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test. A CPCT score card shows a qualifying net speed of 30 words per minute in English or 25 words per minute in Hindi. Neither figure is a universal requirement for every government exam."
         ],
         "sources": [
           { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" },
@@ -264,10 +264,11 @@
         ]
       },
       {
-        "h2": "The formula examiners use",
+        "h2": "How WPM, gross speed and net speed differ",
         "p": [
-          "Gross speed is calculated exactly as on this page: WPM = (correct characters / 5) / (seconds / 60), with five keystrokes counted as one word. Many exams then derive net speed by subtracting one full word for every uncorrected mistake, so net WPM = gross WPM - (errors / minutes).",
-          "Accuracy here is reported as ((keystrokes - errors) / keystrokes) x 100 together with the raw error count, which lets you check yourself against either an accuracy percentage rule or a net speed rule."
+          "Typinger reports WPM as (correct characters / 5) / (seconds / 60), with five correct characters counted as one word. Because only correct characters count, treat this as a net-style practice score rather than an official exam score.",
+          "Many exams calculate gross speed from all characters typed, then subtract a penalty for errors to arrive at net speed. The exact formula, error cap and rounding differ by exam, so check your official notification rather than assuming this page reproduces the exam software.",
+          "Accuracy here is reported as ((keystrokes - errors) / keystrokes) x 100 together with the raw error count, which lets you check yourself against either an accuracy percentage rule or a net speed rule. Typinger is practice software, not the official exam client."
         ]
       },
       {

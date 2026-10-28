@@ -59,6 +59,31 @@ describe("site quality regressions", () => {
     });
   });
 
+  it("cross-links overlapping guides in both directions", () => {
+    const posts = readJson("seo/blog.json");
+    const linksTo = (slug, target) =>
+      posts.find((post) => post.slug === slug).related?.some((link) => link.to === `/blog/${target}`);
+
+    [
+      ["how-to-type-faster", "how-to-increase-typing-speed"],
+      ["what-is-a-good-wpm-score", "what-is-a-good-typing-speed"],
+      ["touch-typing-guide-for-beginners", "touch-typing-for-beginners"],
+    ].forEach(([a, b]) => {
+      expect(linksTo(a, b)).toBe(true);
+      expect(linksTo(b, a)).toBe(true);
+    });
+  });
+
+  it("does not present Typinger practice WPM as an official exam score", () => {
+    const page = readJson("seo/pages.special.json").find(
+      (entry) => entry.path === "/government-exam-typing-test",
+    );
+    const copy = JSON.stringify(page);
+    expect(copy).not.toContain("Gross speed is calculated exactly as on this page");
+    expect(copy).toContain("net-style practice score");
+    expect(copy).toContain("not the official exam client");
+  });
+
   it("cites official sources for the government-exam speed claims", () => {
     const sources = [
       ...readJson("seo/pages.special.json").flatMap((page) => page.blocks || []),

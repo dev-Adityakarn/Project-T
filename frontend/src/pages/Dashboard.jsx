@@ -5,6 +5,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianG
 import { api } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
 import { GAMES, getGame } from "@/data/games";
+import { canonicalPath } from "@/seo";
 import { BadgeCard } from "@/components/Badges";
 import { DifficultyBadge } from "@/components/DifficultyPicker";
 
@@ -78,7 +79,7 @@ export default function Dashboard() {
           <h2 className="mb-4 text-lg font-semibold">Personal bests</h2>
           {GAMES.map((g) => (
             <div key={g.id} className="flex items-center justify-between border-t py-2.5 text-sm first:border-t-0">
-              <Link to={`/games/${g.id}`} className="flex items-center gap-2 hover:text-primary"><g.icon size={14} style={{ color: g.color }} /> {g.title}</Link>
+              <Link to={canonicalPath(`/games/${g.id}`)} className="flex items-center gap-2 hover:text-primary"><g.icon size={14} style={{ color: g.color }} /> {g.title}</Link>
               <span className="font-mono-type text-muted-foreground">{perGame[g.id] ? `${perGame[g.id].best_score} pts · ${perGame[g.id].plays} plays` : "—"}</span>
             </div>
           ))}

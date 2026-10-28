@@ -76,6 +76,7 @@
     "build:seo": "node scripts/generate-seo-files.js",
     "build:prerender": "node scripts/prerender.js",
     "build": "node scripts/generate-seo-files.js && craco build && node scripts/prerender.js",
+    "verify:seo": "node scripts/test-seo-regression.js",
     "test": "craco test"
   },
   "jest": {

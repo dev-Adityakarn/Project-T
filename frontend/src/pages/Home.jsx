@@ -8,8 +8,8 @@ import { Seo } from "@/components/Seo";
 import { SeoArticle } from "@/components/SeoArticle";
 import { TypingTool } from "@/components/TypingTool";
 import { AD_SLOTS } from "@/config/adsense";
-import { getPage } from "@/seo";
-import { organizationSchema, websiteSchema, webAppSchema, faqSchema } from "@/seo/schema";
+import { getPage, canonicalPath } from "@/seo";
+import { buildSchemas } from "@/seo/schema";
 
 const Strip = () => (
   <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border bg-border sm:grid-cols-3">
@@ -29,7 +29,7 @@ const Strip = () => (
 const GameTile = ({ g, big, i }) => {
   const I = g.icon;
   return (
-    <Link to={`/games/${g.id}`} data-testid={`home-game-${g.id}`} style={{ animationDelay: `${i * 60}ms` }}
+    <Link to={canonicalPath(`/games/${g.id}`)} data-testid={`home-game-${g.id}`} style={{ animationDelay: `${i * 60}ms` }}
       className={`rise-in group relative flex flex-col justify-between overflow-hidden rounded-2xl border bg-card p-6 transition-transform duration-300 hover:-translate-y-1 ${big ? "sm:col-span-2 sm:row-span-2 min-h-[260px]" : "min-h-[150px]"}`}>
       <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full opacity-20 blur-2xl transition-opacity duration-300 group-hover:opacity-40" style={{ background: g.color }} />
       <I size={big ? 40 : 26} style={{ color: g.color }} />
@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <div>
       <Seo path="/" title={page.title} description={page.description}
-        jsonLd={[organizationSchema(), websiteSchema(), webAppSchema(page), faqSchema(page.faqs)]} />
+        jsonLd={buildSchemas({ kind: "home", path: "/", page, faqs: page.faqs })} />
       <section className="noise relative overflow-hidden bg-grid">
         <div className="mx-auto grid max-w-7xl items-center gap-4 px-4 pb-8 pt-14 sm:px-8 sm:pt-16 lg:grid-cols-[5fr_7fr]">
           <div className="rise-in max-w-3xl">

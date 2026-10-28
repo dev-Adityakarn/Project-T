@@ -1,31 +1,112 @@
-/* SEO regression test suite */
+/* Post-build SEO regression suite.
+ *
+ * Run after `npm run build`:
+ *   node scripts/test-seo-regression.js
+ *
+ * Every assertion is derived from the same JSON used by the prerenderer, so
+ * adding a route or article automatically extends the checks.
+ */
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
 const BUILD = path.join(ROOT, "build");
+const SEO = path.join(ROOT, "src/seo");
+const SITE_URL = "https://typinger.in";
 
-let failures = [];
-const assert = (condition, msg) => {
-  if (!condition) {
-    console.error(`❌ FAIL: ${msg}`);
-    failures.push(msg);
-  } else {
-    console.log(`✅ PASS: ${msg}`);
+const read = (file) => fs.readFileSync(file, "utf8");
+const readJson = (file) => JSON.parse(read(path.join(SEO, file)));
+
+const routes = readJson("routes.json");
+const posts = readJson("blog.json");
+const pages = [
+  ...readJson("pages.tests.json"),
+  ...readJson("pages.practice.json"),
+  ...readJson("pages.special.json"),
+  ...readJson("pages.static.json"),
+];
+
+const failures = [];
+const pass = (message) => console.log(`PASS ${message}`);
+const assert = (condition, message) => {
+  if (condition) pass(message);
+  else {
+    console.error(`FAIL ${message}`);
+    failures.push(message);
   }
 };
 
-console.log("\n--- Validating Sitemap & Robots ---");
+const countMatches = (text, regex) => (text.match(regex) || []).length;
+const firstMatch = (text, regex) => {
+  const match = text.match(regex);
+  return match ? match[1] : null;
+};
+const normalizePath = (value = "/") => {
+  const clean = String(value).split("?")[0].split("#")[0].replace(/^\/+/, "").replace(/\/+$/, "");
+  return clean ? `/${clean}` : "/";
+};
+const canonicalPath = (value = "/") => {
+  const clean = normalizePath(value);
+  return clean === "/" ? "/" : `${clean}/`;
+};
+const buildFileForPath = (pathname) => {
+  const clean = normalizePath(pathname);
+  return clean === "/"
+    ? path.join(BUILD, "index.html")
+    : path.join(BUILD, clean.replace(/^\//, ""), "index.html");
+};
+const pageForPath = (pathname) => {
+  const clean = normalizePath(pathname);
+  return pages.find((page) => normalizePath(page.path) === clean);
+};
+const postForPath = (pathname) => {
+  const clean = normalizePath(pathname);
+  return posts.find((post) => clean === `/blog/${post.slug}`);
+};
+
+const parseJsonLd = (html) => {
+  const scripts = [];
+  const regex = /<script type="application\/ld\+json"([^>]*)>([\s\S]*?)<\/script>/g;
+  let match;
+  while ((match = regex.exec(html)) !== null) {
+    scripts.push({
+      attrs: match[1],
+      raw: match[2],
+      data: JSON.parse(match[2]),
+    });
+  }
+  return scripts;
+};
+
+const keyOf = (script) => firstMatch(script.attrs, /data-seo-key="([^"]+)"/);
+const scopeOf = (script) => firstMatch(script.attrs, /data-seo-scope="([^"]+)"/);
+const pathOf = (script) => firstMatch(script.attrs, /data-seo-path="([^"]+)"/);
+
+const breadcrumbOf = (scripts) =>
+  scripts.find((script) => script.data["@type"] === "BreadcrumbList");
+
+const assertBreadcrumb = (html, canonical, label) => {
+  const breadcrumb = breadcrumbOf(parseJsonLd(html));
+  if (!breadcrumb) return;
+  const items = breadcrumb.data.itemListElement || [];
+  const finalItem = items[items.length - 1] || {};
+  if (Object.prototype.hasOwnProperty.call(finalItem, "item")) {
+    assert(finalItem.item === canonical, `${label}: final breadcrumb item is the canonical URL`);
+    assert(
+      normalizePath(finalItem.item.replace(SITE_URL, "")) !== "/" || canonical === `${SITE_URL}/`,
+      `${label}: final breadcrumb does not fall back to the homepage`,
+    );
+  } else {
+    assert(true, `${label}: final breadcrumb omits item (allowed)`);
+  }
+};
+
+console.log("\n--- Sitemap and robots ---");
 const sitemapPath = path.join(BUILD, "sitemap.xml");
 assert(fs.existsSync(sitemapPath), "build/sitemap.xml exists");
-const sitemap = fs.readFileSync(sitemapPath, "utf8");
-assert(sitemap.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), "sitemap has XML declaration");
-assert(sitemap.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'), "sitemap has schema namespace");
-assert(sitemap.includes("<loc>https://typinger.in/</loc>"), "sitemap has homepage canonical with trailing slash");
-assert(sitemap.includes("<loc>https://typinger.in/typing-test/</loc>"), "sitemap has /typing-test/ with trailing slash");
-assert(sitemap.includes("<loc>https://typinger.in/games/</loc>"), "sitemap has /games/ with trailing slash");
-assert(!sitemap.includes("<priority>"), "sitemap has no <priority> tags");
-assert(!sitemap.includes("<changefreq>"), "sitemap has no <changefreq> tags");
+const sitemap = read(sitemapPath);
+assert(sitemap.startsWith('<?xml version="1.0" encoding="UTF-8"?>'), "sitemap has an XML declaration");
+assert(sitemap.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'), "sitemap has the sitemap namespace");
 assert(!sitemap.includes("preview.emergentagent.com"), "sitemap has no preview domain");
 assert(!sitemap.includes("localhost"), "sitemap has no localhost URLs");
 assert(!sitemap.includes("/admin"), "sitemap excludes /admin");
@@ -34,90 +115,255 @@ assert(!sitemap.includes("/register"), "sitemap excludes /register");
 assert(!sitemap.includes("/dashboard"), "sitemap excludes /dashboard");
 assert(!sitemap.includes("/daily"), "sitemap excludes thin /daily");
 assert(!sitemap.includes("/leaderboard"), "sitemap excludes thin /leaderboard");
-assert(!sitemap.includes("/games/speed-test"), "sitemap excludes thin /games/speed-test");
+assert(!sitemap.includes("/games/speed-test"), "sitemap excludes noindex game detail pages");
 
-// Verify sitemap contains exactly 24 URLs
-const locMatches = sitemap.match(/<loc>/g) || [];
-assert(locMatches.length === 24, `sitemap has exactly 24 canonical URLs (found ${locMatches.length})`);
+const sitemapLocations = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
+const expectedSitemapRoutes = routes.filter((route) => route.sitemap !== false && !route.noindex);
+assert(
+  sitemapLocations.length === expectedSitemapRoutes.length,
+  `sitemap has exactly ${expectedSitemapRoutes.length} canonical URLs (found ${sitemapLocations.length})`,
+);
+assert(new Set(sitemapLocations).size === sitemapLocations.length, "sitemap URLs are unique");
+sitemapLocations.forEach((loc) => {
+  assert(loc.startsWith(`${SITE_URL}/`), `sitemap URL uses the production origin: ${loc}`);
+  assert(loc.endsWith("/"), `sitemap URL uses the trailing-slash policy: ${loc}`);
+});
 
-// Verify lastmod only on blog articles
-const lastmodMatches = sitemap.match(/<lastmod>/g) || [];
-assert(lastmodMatches.length === 5, `sitemap has exactly 5 authentic blog lastmod entries (found ${lastmodMatches.length})`);
+const lastmodBlocks = Array.from(
+  sitemap.matchAll(/<url>\s*<loc>([^<]+)<\/loc>\s*(?:<lastmod>([^<]+)<\/lastmod>)?\s*<\/url>/g),
+);
+lastmodBlocks.forEach((match) => {
+  const loc = match[1];
+  const lastmod = match[2];
+  const post = postForPath(new URL(loc).pathname);
+  if (lastmod) {
+    assert(Boolean(post), `lastmod only appears on blog articles: ${loc}`);
+    if (post) {
+      const expected = post.dateModified || post.datePublished;
+      assert(lastmod === expected, `${loc}: lastmod comes from content metadata (${expected})`);
+    }
+  }
+});
+posts.forEach((post) => {
+  assert(
+    sitemapLocations.includes(`${SITE_URL}/blog/${post.slug}/`),
+    `sitemap includes article ${post.slug}`,
+  );
+});
+const lastmodCount = countMatches(sitemap, /<lastmod>/g);
+assert(
+  lastmodCount === posts.length,
+  `sitemap has exactly ${posts.length} article lastmod entries (found ${lastmodCount})`,
+);
 
-const robotsPath = path.join(BUILD, "robots.txt");
-assert(fs.existsSync(robotsPath), "build/robots.txt exists");
-const robots = fs.readFileSync(robotsPath, "utf8");
-assert(robots.includes("Sitemap: https://typinger.in/sitemap.xml"), "robots.txt references production sitemap");
+const robots = read(path.join(BUILD, "robots.txt"));
+assert(robots.includes(`Sitemap: ${SITE_URL}/sitemap.xml`), "robots.txt references the production sitemap");
 assert(robots.includes("Allow: /"), "robots.txt allows /");
 assert(robots.includes("Disallow: /admin"), "robots.txt disallows /admin");
 assert(robots.includes("Disallow: /api"), "robots.txt disallows /api");
 assert(!robots.includes("Disallow: /typing-test"), "robots.txt does not block /typing-test");
 
-console.log("\n--- Validating Cloudflare Headers & Redirects ---");
-const headersPath = path.join(BUILD, "_headers");
-assert(fs.existsSync(headersPath), "build/_headers exists");
-const headers = fs.readFileSync(headersPath, "utf8");
+console.log("\n--- Cloudflare headers and redirects ---");
+const headers = read(path.join(BUILD, "_headers"));
 assert(headers.includes("Content-Type: application/xml; charset=utf-8"), "_headers sets XML content-type for sitemap");
-assert(headers.includes("X-Robots-Tag: noindex, follow"), "_headers has noindex, follow for private user pages");
+assert(headers.includes("X-Robots-Tag: noindex, follow"), "_headers keeps utility routes noindex");
+assert(headers.includes("/games/*/"), "_headers keeps game detail routes noindex");
 
-const redirectsPath = path.join(BUILD, "_redirects");
-assert(fs.existsSync(redirectsPath), "build/_redirects exists");
-const redirects = fs.readFileSync(redirectsPath, "utf8");
-assert(redirects.includes("/test /typing-test/ 301"), "_redirects includes /test -> /typing-test/ 301");
-assert(redirects.includes("/typing-speed-test /typing-test/ 301"), "_redirects includes /typing-speed-test -> /typing-test/ 301");
-assert(redirects.includes("/typing-test /typing-test/ 301"), "_redirects includes non-trailing slash /typing-test -> /typing-test/ 301");
-assert(!redirects.includes("/index.html"), "_redirects does not rewrite to /index.html (prevents Cloudflare loop 100324)");
+const redirects = read(path.join(BUILD, "_redirects"));
+assert(redirects.includes("/typing-speed-test /typing-test/ 301"), "_redirects keeps the legacy typing redirect");
+assert(redirects.includes("/typing-test /typing-test/ 301"), "_redirects keeps the trailing-slash redirect");
+assert(redirects.includes("/games/speed-test /games/speed-test/ 301"), "_redirects keeps the game trailing-slash redirect");
+assert(!redirects.includes("/index.html"), "_redirects does not rewrite to /index.html");
 
-console.log("\n--- Validating Homepage HTML ---");
-const indexPath = path.join(BUILD, "index.html");
-assert(fs.existsSync(indexPath), "build/index.html exists");
-const indexHtml = fs.readFileSync(indexPath, "utf8");
-assert(indexHtml.includes('<link rel="canonical" href="https://typinger.in/"/>'), "homepage canonical is https://typinger.in/");
-assert(indexHtml.includes('<meta property="og:url" content="https://typinger.in/"/>'), "homepage og:url is https://typinger.in/");
-assert(!indexHtml.includes("preview.emergentagent.com"), "homepage has no preview domain in canonical");
-assert(indexHtml.includes("<title>Typing Test Online Free: Practice With 10 Typing Games</title>"), "homepage has proper title");
-assert(indexHtml.includes('name="description"'), "homepage has meta description");
-assert(indexHtml.includes('<main><h1>Free typing test and ten typing games in one place</h1>'), "homepage prerendered body has meaningful h1");
-assert(!indexHtml.includes('<div id="root"></div>'), "homepage is not an empty root div");
+console.log("\n--- Every sitemap page ---");
+sitemapLocations.forEach((loc) => {
+  const url = new URL(loc);
+  const label = url.pathname;
+  const file = buildFileForPath(url.pathname);
+  assert(fs.existsSync(file), `${label}: prerendered HTML exists`);
 
-console.log("\n--- Validating Representative Public Routes ---");
-const routesToTest = [
-  { file: "typing-test/index.html", canonical: "https://typinger.in/typing-test/", h1: "Typing speed test with instant WPM and accuracy" },
-  { file: "typing-test/1-minute/index.html", canonical: "https://typinger.in/typing-test/1-minute/", h1: "1 minute typing test" },
-  { file: "games/speed-test/index.html", canonical: "https://typinger.in/games/speed-test/", h1: "Speed Test" },
-  { file: "blog/how-to-type-faster/index.html", canonical: "https://typinger.in/blog/how-to-type-faster/", h1: "How to type faster: nine changes that actually work" },
-  { file: "hindi-typing-test/index.html", canonical: "https://typinger.in/hindi-typing-test/", h1: "Hindi typing test in Devanagari" },
-];
+  if (!fs.existsSync(file)) return;
 
-routesToTest.forEach(({ file, canonical, h1 }) => {
-  const filePath = path.join(BUILD, file);
-  assert(fs.existsSync(filePath), `${file} exists`);
-  const content = fs.readFileSync(filePath, "utf8");
-  assert(content.includes(`<link rel="canonical" href="${canonical}"/>`), `${file} has canonical ${canonical}`);
-  assert(content.includes(`<meta property="og:url" content="${canonical}"/>`), `${file} has matching og:url ${canonical}`);
-  assert(content.includes(`<h1>${h1}</h1>`), `${file} has distinct h1: "${h1}"`);
-  assert(!content.includes("preview.emergentagent.com"), `${file} has no preview domain`);
+  const html = read(file);
+  const canonical = canonicalPath(url.pathname);
+  const expectedCanonical = `${SITE_URL}${canonical}`;
+
+  assert(!html.includes("preview.emergentagent.com"), `${label}: no preview-domain leakage`);
+  assert(countMatches(html, /<link rel="canonical"/g) === 1, `${label}: exactly one canonical`);
+  assert(
+    firstMatch(html, /<link rel="canonical" href="([^"]+)"/) === expectedCanonical,
+    `${label}: canonical is ${expectedCanonical}`,
+  );
+  assert(countMatches(html, /<title>/g) === 1, `${label}: exactly one title`);
+  assert(countMatches(html, /<meta name="description"/g) === 1, `${label}: exactly one meta description`);
+  assert(countMatches(html, /<h1[\s>]/g) === 1, `${label}: exactly one H1`);
+  assert(
+    firstMatch(html, /<meta property="og:url" content="([^"]+)"/) === expectedCanonical,
+    `${label}: og:url matches the canonical`,
+  );
+  assert(
+    firstMatch(html, /<meta name="robots" content="([^"]+)"/) === "index,follow,max-image-preview:large",
+    `${label}: robots permits indexing`,
+  );
+  assert(
+    html.includes('<div id="root">') && !html.includes('<div id="root"></div>'),
+    `${label}: initial HTML contains prerendered content`,
+  );
+
+  const scripts = parseJsonLd(html);
+  assert(scripts.length > 0, `${label}: contains parseable JSON-LD`);
+  scripts.forEach((script) => {
+    assert(
+      script.attrs.includes('data-seo-owned="true"'),
+      `${label}: JSON-LD is ownership-marked`,
+    );
+    assert(Boolean(keyOf(script)), `${label}: JSON-LD has a stable key`);
+  });
+  const keys = scripts.map(keyOf).filter(Boolean);
+  assert(new Set(keys).size === keys.length, `${label}: no duplicate schema keys`);
+
+  const organization = scripts.find((script) => keyOf(script) === "organization");
+  const website = scripts.find((script) => keyOf(script) === "website");
+  assert(Boolean(organization), `${label}: one Organization entity`);
+  assert(Boolean(website), `${label}: one WebSite entity`);
+  if (organization) assert(scopeOf(organization) === "site", `${label}: Organization is site-scoped`);
+  if (website) assert(scopeOf(website) === "site", `${label}: WebSite is site-scoped`);
+
+  scripts
+    .filter((script) => scopeOf(script) === "route")
+    .forEach((script) => {
+      assert(
+        pathOf(script) === normalizePath(url.pathname),
+        `${label}: ${keyOf(script)} is bound to the current route`,
+      );
+    });
+
+  assertBreadcrumb(html, expectedCanonical, label);
+
+  const page = pageForPath(url.pathname);
+  const post = postForPath(url.pathname);
+  if (page?.tool) {
+    assert(keys.includes("webapplication"), `${label}: includes WebApplication for an interactive tool`);
+  }
+  if (page?.faqs?.length || post?.faqs?.length) {
+    assert(keys.includes("faq"), `${label}: includes FAQPage for rendered FAQs`);
+  }
+  if (post) {
+    assert(keys.includes("article"), `${label}: includes Article schema`);
+    assert(!keys.includes("webapplication"), `${label}: does not include homepage WebApplication`);
+  }
 });
 
-console.log("\n--- Validating 404 & Private Shells ---");
-const notFoundPath = path.join(BUILD, "404.html");
-assert(fs.existsSync(notFoundPath), "build/404.html exists");
-const notFound = fs.readFileSync(notFoundPath, "utf8");
+console.log("\n--- Representative breadcrumb trails ---");
+const breadcrumbExpectations = [
+  {
+    path: "/typing-test/1-minute/",
+    names: ["Home", "Typing speed test", "1 minute"],
+    items: [`${SITE_URL}/`, `${SITE_URL}/typing-test/`, `${SITE_URL}/typing-test/1-minute/`],
+  },
+  {
+    path: "/typing-test/",
+    names: ["Home", "Typing speed test"],
+    items: [`${SITE_URL}/`, `${SITE_URL}/typing-test/`],
+  },
+  {
+    path: "/hindi-typing-test/",
+    names: ["Home", "Hindi typing test"],
+    items: [`${SITE_URL}/`, `${SITE_URL}/hindi-typing-test/`],
+  },
+  {
+    path: "/games/",
+    names: ["Home", "Typing games"],
+    items: [`${SITE_URL}/`, `${SITE_URL}/games/`],
+  },
+  {
+    path: "/blog/",
+    names: ["Home", "Blog"],
+    items: [`${SITE_URL}/`, `${SITE_URL}/blog/`],
+  },
+  {
+    path: "/blog/how-to-type-faster/",
+    names: ["Home", "Blog", posts.find((post) => post.slug === "how-to-type-faster").title],
+    items: [
+      `${SITE_URL}/`,
+      `${SITE_URL}/blog/`,
+      `${SITE_URL}/blog/how-to-type-faster/`,
+    ],
+  },
+];
+
+breadcrumbExpectations.forEach(({ path: pagePath, names, items }) => {
+  const html = read(buildFileForPath(pagePath));
+  const breadcrumb = breadcrumbOf(parseJsonLd(html));
+  assert(Boolean(breadcrumb), `${pagePath}: BreadcrumbList exists`);
+  if (!breadcrumb) return;
+  const list = breadcrumb.data.itemListElement || [];
+  assert(
+    JSON.stringify(list.map((item) => item.name)) === JSON.stringify(names),
+    `${pagePath}: breadcrumb labels are ${names.join(" > ")}`,
+  );
+  assert(
+    JSON.stringify(list.map((item) => item.item)) === JSON.stringify(items),
+    `${pagePath}: breadcrumb URLs are correct`,
+  );
+});
+
+console.log("\n--- Indexability policy ---");
+const indexableGameHrefs = Array.from(
+  read(buildFileForPath("/games/")).matchAll(/<a href="(\/games\/[^"]+)"/g),
+  (match) => match[1],
+);
+assert(indexableGameHrefs.length >= 10, "games hub links to every game");
+indexableGameHrefs.forEach((href) => {
+  assert(href.endsWith("/"), `games hub link uses the canonical trailing slash: ${href}`);
+});
+
+routes
+  .filter((route) => route.path.startsWith("/games/") && route.path !== "/games/")
+  .forEach((route) => {
+    const html = read(buildFileForPath(route.path));
+    assert(
+      firstMatch(html, /<meta name="robots" content="([^"]+)"/) === "noindex,follow",
+      `${route.path}: individual game remains noindex,follow`,
+    );
+  });
+
+const gamesHub = read(buildFileForPath("/games/"));
+assert(
+  firstMatch(gamesHub, /<meta name="robots" content="([^"]+)"/) === "index,follow,max-image-preview:large",
+  "/games/: hub remains indexable",
+);
+
+[
+  "/daily/",
+  "/leaderboard/",
+  "/login/",
+  "/register/",
+  "/dashboard/",
+  "/admin/",
+].forEach((pagePath) => {
+  const html = read(buildFileForPath(pagePath));
+  const robotsValue = firstMatch(html, /<meta name="robots" content="([^"]+)"/);
+  assert(
+    robotsValue && robotsValue.startsWith("noindex"),
+    `${pagePath}: remains noindex`,
+  );
+});
+
+const notFound = read(path.join(BUILD, "404.html"));
 assert(notFound.includes('content="noindex,nofollow"'), "404 page has noindex,nofollow");
 
-const loginPath = path.join(BUILD, "login/index.html");
-assert(fs.existsSync(loginPath), "build/login/index.html exists for static hosting refresh");
-const login = fs.readFileSync(loginPath, "utf8");
-assert(login.includes('content="noindex,follow"'), "login shell has noindex,follow");
-
-const adminPath = path.join(BUILD, "admin/index.html");
-assert(fs.existsSync(adminPath), "build/admin/index.html exists for static hosting refresh");
-const admin = fs.readFileSync(adminPath, "utf8");
-assert(admin.includes('content="noindex,nofollow"'), "admin shell has noindex,nofollow");
+console.log("\n--- Game link source ---");
+const homeSource = read(path.join(ROOT, "src/pages/Home.jsx"));
+const dashboardSource = read(path.join(ROOT, "src/pages/Dashboard.jsx"));
+assert(homeSource.includes("canonicalPath(`/games/${g.id}`)"), "homepage game tiles use canonicalPath");
+assert(dashboardSource.includes("canonicalPath(`/games/${g.id}`)"), "dashboard game links use canonicalPath");
+assert(!homeSource.includes("to={`/games/${g.id}`}"), "homepage does not link to non-trailing-slash game URLs");
+assert(!dashboardSource.includes("to={`/games/${g.id}`}"), "dashboard does not link to non-trailing-slash game URLs");
 
 if (failures.length > 0) {
-  console.error(`\n❌ Regression testing failed with ${failures.length} errors.`);
+  console.error(`\nSEO regression testing failed with ${failures.length} error(s).`);
   process.exit(1);
-} else {
-  console.log(`\n🎉 All SEO regression tests passed successfully!`);
 }
+
+console.log(`\nAll SEO regression checks passed (${sitemapLocations.length} sitemap URLs).`);

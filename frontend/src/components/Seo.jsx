@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { SITE, SITE_URL, absUrl } from "@/seo";
+import { syncOwnedJsonLd } from "@/seo/jsonld-dom";
 
 const upsert = (selector, tag, attrs) => {
   let el = document.head.querySelector(selector);
@@ -36,8 +37,10 @@ const setCanonical = (href) => {
 /** Declarative head manager: title, description, canonical, robots, OG/Twitter, JSON-LD. */
 export const Seo = ({ path, title, description, image, type = "website", noindex = false, lang = "en", jsonLd = [], alternates = [] }) => {
   const json = JSON.stringify(jsonLd);
+  const altJson = JSON.stringify(alternates);
 
-  useEffect(() => {
+  // Layout effect keeps the head synchronised before paint on route changes.
+  useLayoutEffect(() => {
     const canonical = absUrl(path);
     document.documentElement.lang = lang;
     document.title = title;
@@ -67,7 +70,7 @@ export const Seo = ({ path, title, description, image, type = "website", noindex
     if (process.env.REACT_APP_GSC_VERIFICATION) meta("google-site-verification", process.env.REACT_APP_GSC_VERIFICATION);
 
     document.head.querySelectorAll('link[data-seo="alt"]').forEach((n) => n.remove());
-    alternates.forEach((a) => {
+    JSON.parse(altJson).forEach((a) => {
       const l = document.createElement("link");
       l.setAttribute("rel", "alternate");
       l.setAttribute("hreflang", a.hreflang);
@@ -76,15 +79,8 @@ export const Seo = ({ path, title, description, image, type = "website", noindex
       document.head.appendChild(l);
     });
 
-    document.head.querySelectorAll('script[data-seo="jsonld"]').forEach((n) => n.remove());
-    JSON.parse(json).forEach((schema) => {
-      const s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.setAttribute("data-seo", "jsonld");
-      s.textContent = JSON.stringify(schema);
-      document.head.appendChild(s);
-    });
-  }, [path, title, description, image, type, noindex, lang, json, alternates]);
+    syncOwnedJsonLd(JSON.parse(json), path);
+  }, [path, title, description, image, type, noindex, lang, json, altJson]);
 
   return null;
 };

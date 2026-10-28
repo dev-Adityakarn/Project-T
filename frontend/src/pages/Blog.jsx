@@ -9,7 +9,7 @@ import { SeoArticle } from "@/components/SeoArticle";
 import { AdInArticle } from "@/components/ads/AdInArticle";
 import { AdRailLayout } from "@/components/ads/AdSideRail";
 import { AD_SLOTS } from "@/config/adsense";
-import { organizationSchema, websiteSchema, breadcrumbSchema } from "@/seo/schema";
+import { buildSchemas } from "@/seo/schema";
 
 const Card = ({ p, i }) => (
   <Link to={`/blog/${p.slug}/`} data-testid={`blog-card-${p.slug}`} style={{ animationDelay: `${i * 60}ms` }}
@@ -43,7 +43,7 @@ export default function Blog() {
   return (
     <>
       <Seo path={page.path} title={page.title} description={page.description}
-        jsonLd={[organizationSchema(), websiteSchema(), breadcrumbSchema(page.breadcrumbs)]} />
+        jsonLd={buildSchemas({ kind: "blog-index", path: page.path, crumbs: page.breadcrumbs })} />
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-8" data-testid="page-blog">
         <AdRailLayout slot={AD_SLOTS.desktopRail}>
           <Breadcrumbs crumbs={page.breadcrumbs} />

@@ -96,7 +96,8 @@
     "related": [
       { "to": "/typing-test/1-minute", "label": "Benchmark with a 1 minute test" },
       { "to": "/typing-practice", "label": "Untimed typing practice" },
-      { "to": "/blog/how-to-improve-typing-accuracy", "label": "How to improve typing accuracy" }
+      { "to": "/blog/how-to-improve-typing-accuracy", "label": "How to improve typing accuracy" },
+      { "to": "/blog/how-to-increase-typing-speed", "label": "Follow a 30-day speed plan" }
     ]
   },
   {
@@ -287,7 +288,8 @@
     "related": [
       { "to": "/typing-lessons", "label": "Start the 12 touch typing lessons" },
       { "to": "/typing-practice/beginners", "label": "Beginner practice drill" },
-      { "to": "/blog/how-to-type-faster", "label": "How to type faster" }
+      { "to": "/blog/how-to-type-faster", "label": "How to type faster" },
+      { "to": "/blog/touch-typing-for-beginners", "label": "Quick home-row routine for beginners" }
     ]
   },
   {
@@ -454,6 +456,7 @@
     "related": [
       { "to": "/typing-test", "label": "Take a typing speed test" },
       { "to": "/blog/average-typing-speed-by-age", "label": "Average typing speed by age" },
+      { "to": "/blog/what-is-a-good-typing-speed", "label": "Good typing speed for India and exams" },
       { "to": "/leaderboard", "label": "See the Typinger leaderboards" }
     ]
   },

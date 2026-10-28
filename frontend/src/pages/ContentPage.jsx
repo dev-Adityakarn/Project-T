@@ -5,7 +5,7 @@ import { SeoArticle } from "@/components/SeoArticle";
 import { TypingTool } from "@/components/TypingTool";
 import { ContactForm } from "@/components/ContactForm";
 import { AD_SLOTS } from "@/config/adsense";
-import { organizationSchema, websiteSchema, webAppSchema, faqSchema, breadcrumbSchema } from "@/seo/schema";
+import { buildSchemas } from "@/seo/schema";
 
 const ALTERNATES = {
   "/hindi-typing-test": [
@@ -34,10 +34,13 @@ export default function ContentPage({ path }) {
       : isTypingTestPage
         ? AD_SLOTS.typingAfterResult
         : "";
-  const schemas = [organizationSchema(), websiteSchema()];
-  if (page.tool) schemas.push(webAppSchema(page));
-  if (page.faqs?.length) schemas.push(faqSchema(page.faqs));
-  if (page.breadcrumbs?.length) schemas.push(breadcrumbSchema(page.breadcrumbs));
+  const schemas = buildSchemas({
+    kind: "content",
+    path: page.path,
+    page,
+    faqs: page.faqs || [],
+    crumbs: page.breadcrumbs || [],
+  });
 
   return (
     <>

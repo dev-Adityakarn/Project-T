@@ -6,16 +6,11 @@ import SPECIAL from "@/seo/pages.special.json";
 import STATIC from "@/seo/pages.static.json";
 import POSTS from "@/seo/blog.json";
 import LESSONS from "@/seo/lessons.json";
+import structuredData from "@/seo/structured-data.js";
 
-export const PRODUCTION_ORIGIN = "https://typinger.in";
-export const SITE_URL = PRODUCTION_ORIGIN;
+const { PRODUCTION_ORIGIN, SITE_URL, absUrl, canonicalPath, normalizePath } = structuredData;
+
 export const PAGE_LIST = [...TESTS, ...PRACTICE, ...SPECIAL, ...STATIC];
-
-const normalizePath = (p) => {
-  if (!p || p === "/") return "/";
-  const clean = String(p).split("?")[0].split("#")[0].replace(/^\/+/, "").replace(/\/+$/, "");
-  return `/${clean}`;
-};
 
 export const PAGES = Object.fromEntries(
   PAGE_LIST.flatMap((p) => {
@@ -37,10 +32,14 @@ export const getPage = (path) => {
 
 export const getPost = (slug) => POSTS.find((p) => p.slug === slug);
 
-export const absUrl = (path = "/") => {
-  if (!path || path === "/") return `${PRODUCTION_ORIGIN}/`;
-  const clean = String(path).split("?")[0].split("#")[0].replace(/^\/+/, "").replace(/\/+$/, "");
-  return `${PRODUCTION_ORIGIN}/${clean}/`;
+export {
+  PRODUCTION_ORIGIN,
+  SITE_URL,
+  absUrl,
+  canonicalPath,
+  normalizePath,
+  SITE,
+  ROUTES,
+  POSTS,
+  LESSONS,
 };
-
-export { SITE, ROUTES, POSTS, LESSONS };

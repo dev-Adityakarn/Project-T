@@ -10,7 +10,7 @@ import { SeoArticle } from "@/components/SeoArticle";
 import { AdRailLayout } from "@/components/ads/AdSideRail";
 import { AD_SLOTS } from "@/config/adsense";
 import NotFound from "@/pages/NotFound";
-import { organizationSchema, websiteSchema, articleSchema, faqSchema, breadcrumbSchema } from "@/seo/schema";
+import { buildSchemas } from "@/seo/schema";
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -27,15 +27,21 @@ export default function BlogPost() {
   if (!post) return <div className="p-20 text-center text-sm text-muted-foreground" data-testid="post-loading">Loading article…</div>;
 
   const crumbs = [{ name: "Blog", path: "/blog" }, { name: post.title }];
-  const schemas = [organizationSchema(), websiteSchema(), articleSchema(post), breadcrumbSchema(crumbs)];
-  if (post.faqs?.length) schemas.push(faqSchema(post.faqs));
+  const canonicalPath = `/blog/${post.slug}`;
+  const schemas = buildSchemas({
+    kind: "blog-post",
+    path: canonicalPath,
+    post,
+    faqs: post.faqs || [],
+    crumbs,
+  });
 
   const richBody = post.body?.format === "rich-json-v1" && post.body?.doc;
   const lead = richBody ? post.lead : post.excerpt;
 
   return (
     <>
-      <Seo path={`/blog/${post.slug}`} title={post.title} description={post.description} type="article" jsonLd={schemas} />
+      <Seo path={canonicalPath} title={post.title} description={post.description} type="article" jsonLd={schemas} />
       <article className="mx-auto max-w-7xl px-4 py-10 sm:px-8" data-testid={`post-${post.slug}`}>
         <AdRailLayout slot={AD_SLOTS.desktopRail}>
           <Breadcrumbs crumbs={crumbs} />

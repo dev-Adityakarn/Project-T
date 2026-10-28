@@ -2,6 +2,7 @@
    public marketing route so crawlers receive the full page in the first response. */
 const fs = require("fs");
 const path = require("path");
+const structuredData = require("../src/seo/structured-data.js");
 
 const ROOT = path.join(__dirname, "..");
 const BUILD = path.join(ROOT, "build");
@@ -19,8 +20,7 @@ const readEnv = () => {
 };
 
 const env = { ...readEnv(), ...process.env };
-const PRODUCTION_ORIGIN = "https://typinger.in";
-const SITE_URL = PRODUCTION_ORIGIN;
+const PRODUCTION_ORIGIN = structuredData.PRODUCTION_ORIGIN;
 const GSC = env.REACT_APP_GSC_VERIFICATION || "";
 
 const SITE = readJson("site.json");
@@ -35,50 +35,27 @@ const LESSONS = readJson("lessons.json");
 const GAMES = readJson("games.json");
 
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const abs = (p) => {
-  if (!p || p === "/") return `${PRODUCTION_ORIGIN}/`;
-  const clean = String(p).split("?")[0].split("#")[0].replace(/^\/+/, "").replace(/\/+$/, "");
-  return `${PRODUCTION_ORIGIN}/${clean}/`;
+const abs = (p) => structuredData.absUrl(p, PRODUCTION_ORIGIN);
+const buildSchemas = (options) =>
+  structuredData.buildRouteSchemas({ site: SITE, origin: PRODUCTION_ORIGIN, ...options });
+
+/**
+ * Every Typinger-generated JSON-LD block carries the same ownership marker and
+ * stable key that the browser lifecycle uses. Hydration can therefore adopt and
+ * update this node instead of appending a duplicate.
+ */
+const ld = ({ key, scope, path: schemaPath, data }) => {
+  const attrs = [
+    'type="application/ld+json"',
+    'data-seo-owned="true"',
+    `data-seo-key="${esc(key)}"`,
+    `data-seo-scope="${esc(scope)}"`,
+    scope === structuredData.SCHEMA_SCOPES.route
+      ? `data-seo-path="${esc(structuredData.normalizePath(schemaPath))}"`
+      : "",
+  ].filter(Boolean).join(" ");
+  return `<script ${attrs}>${structuredData.serializeJsonLd(data)}</script>`;
 };
-
-const ld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, "\\u003c")}</script>`;
-
-const organization = () => ({
-  "@context": "https://schema.org", "@type": "Organization", name: SITE.name, legalName: SITE.legalName,
-  url: `${PRODUCTION_ORIGIN}/`, logo: `${PRODUCTION_ORIGIN}${SITE.logo}`,
-  ...(SITE.email ? { email: SITE.email } : {}),
-  ...(SITE.founded ? { foundingDate: SITE.founded } : {}),
-  ...(SITE.sameAs?.length ? { sameAs: SITE.sameAs } : {}),
-});
-const website = () => ({
-  "@context": "https://schema.org", "@type": "WebSite", name: SITE.name, url: `${PRODUCTION_ORIGIN}/`,
-  description: SITE.description, inLanguage: "en",
-  publisher: { "@type": "Organization", name: SITE.name, url: `${PRODUCTION_ORIGIN}/` },
-});
-const webApp = (page) => ({
-  "@context": "https://schema.org", "@type": "WebApplication", name: page.title, url: abs(page.path),
-  description: page.description, applicationCategory: "EducationalApplication", operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript and a physical keyboard",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  publisher: { "@type": "Organization", name: SITE.name, url: `${PRODUCTION_ORIGIN}/` },
-});
-const faqPage = (faqs) => ({
-  "@context": "https://schema.org", "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
-});
-const breadcrumbs = (crumbs) => ({
-  "@context": "https://schema.org", "@type": "BreadcrumbList",
-  itemListElement: [{ name: "Home", path: "/" }, ...crumbs].map((c, i) => ({
-    "@type": "ListItem", position: i + 1, name: c.name, item: abs(c.path || "/"),
-  })),
-});
-const article = (post) => ({
-  "@context": "https://schema.org", "@type": "Article", headline: post.title, description: post.description,
-  datePublished: post.datePublished, dateModified: post.dateModified || post.datePublished,
-  author: { "@type": "Organization", name: post.author || SITE.name },
-  publisher: { "@type": "Organization", name: SITE.name, logo: { "@type": "ImageObject", url: `${PRODUCTION_ORIGIN}${SITE.logo}` } },
-  image: `${PRODUCTION_ORIGIN}${SITE.ogImage}`, mainEntityOfPage: { "@type": "WebPage", "@id": abs(`/blog/${post.slug}`) }, inLanguage: "en",
-});
 
 const blocksHtml = (blocks = []) => blocks.map((b) => {
   const out = [];
@@ -194,10 +171,14 @@ let count = 0;
 
 // Marketing content pages
 PAGES.forEach((page) => {
-  const schemas = [organization(), website()];
-  if (page.tool) schemas.push(webApp(page));
-  if (page.faqs && page.faqs.length) schemas.push(faqPage(page.faqs));
-  if (page.breadcrumbs && page.breadcrumbs.length) schemas.push(breadcrumbs(page.breadcrumbs));
+  const kind = page.path === "/" ? "home" : page.path === "/typing-lessons" ? "lesson" : "content";
+  const schemas = buildSchemas({
+    kind,
+    path: page.path,
+    page,
+    faqs: page.faqs || [],
+    crumbs: page.breadcrumbs || [],
+  });
   const body = `<main>${crumbHtml(page.breadcrumbs)}<h1>${esc(page.h1)}</h1><p>${esc(page.lead)}</p>${blocksHtml(page.blocks)}${faqHtml(page.faqs)}${linksHtml(page.related)}</main>${FOOTER}`;
   write(page.path, head({
     path: page.path, title: page.title, description: page.description, lang: page.lang || "en",
@@ -212,21 +193,32 @@ if (!lessonsPage) {
   const lp = readJson("pages.practice.json").find((p) => p.path === "/typing-lessons");
   if (lp) {
     const body = `<main>${crumbHtml(lp.breadcrumbs)}<h1>${esc(lp.h1)}</h1><p>${esc(lp.lead)}</p><ol>${LESSONS.map((l) => `<li><h2>Lesson ${l.id}: ${esc(l.title)}</h2><p>${esc(l.goal)} — keys ${esc(l.keys)}</p></li>`).join("")}</ol>${blocksHtml(lp.blocks)}${faqHtml(lp.faqs)}${linksHtml(lp.related)}</main>${FOOTER}`;
-    write(lp.path, head({ path: lp.path, title: lp.title, description: lp.description, schemas: [organization(), website(), webApp(lp), faqPage(lp.faqs), breadcrumbs(lp.breadcrumbs)] }), body);
+    write(lp.path, head({
+      path: lp.path,
+      title: lp.title,
+      description: lp.description,
+      schemas: buildSchemas({ kind: "lesson", path: lp.path, page: lp, faqs: lp.faqs || [], crumbs: lp.breadcrumbs || [] }),
+    }), body);
     count += 1;
   }
 }
 
 // Blog articles
 POSTS.forEach((post) => {
+  const postPath = `/blog/${post.slug}`;
   const crumbs = [{ name: "Blog", path: "/blog/" }, { name: post.title }];
-  const schemas = [organization(), website(), article(post), breadcrumbs(crumbs)];
-  if (post.faqs && post.faqs.length) schemas.push(faqPage(post.faqs));
+  const schemas = buildSchemas({
+    kind: "blog-post",
+    path: postPath,
+    post,
+    faqs: post.faqs || [],
+    crumbs,
+  });
   const updated = post.dateModified && post.dateModified !== post.datePublished
     ? `<p><small>Updated ${esc(post.dateModified)}</small></p>`
     : "";
   const body = `<article>${crumbHtml(crumbs)}<h1>${esc(post.h1 || post.title)}</h1><p>${esc(post.excerpt)}</p>${updated}${blocksHtml(post.blocks)}${faqHtml(post.faqs)}${linksHtml(post.related)}</article>${FOOTER}`;
-  write(`/blog/${post.slug}/`, head({ path: `/blog/${post.slug}/`, title: post.title, description: post.description, type: "article", schemas }), body);
+  write(postPath, head({ path: postPath, title: post.title, description: post.description, type: "article", schemas }), body);
   count += 1;
 });
 
@@ -236,7 +228,12 @@ if (blogIndex) {
   const body = `<main>${crumbHtml(blogIndex.breadcrumbs)}<h1>${esc(blogIndex.h1)}</h1><p>${esc(blogIndex.lead)}</p><ul>${
     POSTS.map((p) => `<li><h2><a href="/blog/${p.slug}/">${esc(p.title)}</a></h2><p>${esc(p.excerpt)}</p></li>`).join("")
   }</ul>${blocksHtml(blogIndex.blocks)}${linksHtml(blogIndex.related)}</main>${FOOTER}`;
-  write("/blog/", head({ path: "/blog/", title: blogIndex.title, description: blogIndex.description, schemas: [organization(), website(), breadcrumbs(blogIndex.breadcrumbs)] }), body);
+  write("/blog/", head({
+    path: "/blog/",
+    title: blogIndex.title,
+    description: blogIndex.description,
+    schemas: buildSchemas({ kind: "blog-index", path: "/blog/", crumbs: blogIndex.breadcrumbs || [] }),
+  }), body);
   count += 1;
 }
 
@@ -247,13 +244,13 @@ write("/games/", head({
   path: "/games/",
   title: "Typing Games: 10 Free Games to Build Typing Speed",
   description: "Play ten free typing games, from a classic speed test to zombie defence and space shooting. Three difficulty levels and global leaderboards.",
-  schemas: [organization(), website(), breadcrumbs(gamesIndexCrumbs)],
+  schemas: buildSchemas({ kind: "games-index", path: "/games/", crumbs: gamesIndexCrumbs }),
 }), gamesIndexBody);
 count += 1;
 
 // Individual game pages
 GAMES.forEach((game) => {
-  const gamePath = `/games/${game.id}/`;
+  const gamePath = `/games/${game.id}`;
   const gameCrumbs = [{ name: "Typing games", path: "/games/" }, { name: game.title }];
   const gameTitle = `${game.title} — Free Typing Game to Practise ${game.category === "Arcade" ? "Speed" : "Accuracy"}`.slice(0, 60);
   const gameDesc = `${game.description} Play free on Typinger in easy, medium or hard mode and climb the leaderboard.`.slice(0, 155);
@@ -266,7 +263,7 @@ GAMES.forEach((game) => {
     title: gameTitle,
     description: gameDesc,
     noindex: "noindex,follow",
-    schemas: [organization(), website(), webApp(gamePage), breadcrumbs(gameCrumbs)],
+    schemas: buildSchemas({ kind: "game", path: gamePath, page: gamePage, crumbs: gameCrumbs }),
   }), gameBody);
   count += 1;
 });
@@ -279,7 +276,7 @@ write("/daily/", head({
   title: "Daily Typing Challenge: One Game, Everyone, Each Day",
   description: "Every day Typinger picks one game, one difficulty and one shared word seed. Compete against every other player on exactly the same challenge.",
   noindex: "noindex,follow",
-  schemas: [organization(), website(), breadcrumbs(dailyCrumbs)],
+  schemas: buildSchemas({ kind: "utility", path: "/daily/", crumbs: dailyCrumbs }),
 }), dailyBody);
 count += 1;
 
@@ -291,7 +288,7 @@ write("/leaderboard/", head({
   title: "Typing Leaderboard: Fastest Typists by Game and Level",
   description: "See the fastest Typinger typists for every game and difficulty level, with WPM, accuracy and best scores updated as results come in.",
   noindex: "noindex,follow",
-  schemas: [organization(), website(), breadcrumbs(leaderboardCrumbs)],
+  schemas: buildSchemas({ kind: "utility", path: "/leaderboard/", crumbs: leaderboardCrumbs }),
 }), leaderboardBody);
 count += 1;
 
@@ -309,14 +306,21 @@ const appRoutes = [
   { path: "/admin/admins/", title: "Administrators — Typinger Admin", description: "Manage administrator access.", noindex: "noindex,nofollow" },
 ];
 appRoutes.forEach((ar) => {
-  write(ar.path, head({ path: ar.path, title: ar.title, description: ar.description, noindex: ar.noindex }), "");
+  write(ar.path, head({
+    path: ar.path,
+    title: ar.title,
+    description: ar.description,
+    noindex: ar.noindex,
+    schemas: buildSchemas({ kind: "shell", path: ar.path }),
+  }), "");
 });
 
 // 404 page
 write("/404", head({
   path: "/404", title: "Page not found (404) — Typinger typing tests",
   description: "That page does not exist. Jump back to the typing speed test, the practice drills, the touch typing lessons or the arcade.",
-  noindex: "noindex,nofollow", schemas: [organization(), website()],
+  noindex: "noindex,nofollow",
+  schemas: buildSchemas({ kind: "not-found", path: "/404" }),
 }), `<main><h1>Page not found</h1><p>The link is broken or the page has moved.</p>${linksHtml([
   { to: "/typing-test/", label: "Typing speed test" },
   { to: "/typing-practice/", label: "Typing practice" },
