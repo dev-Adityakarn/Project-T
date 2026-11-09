@@ -33,6 +33,7 @@ const PAGES = [
 const POSTS = readJson("blog.json");
 const LESSONS = readJson("lessons.json");
 const GAMES = readJson("games.json");
+const WIDGETS = readJson("widgets.json");
 
 const esc = (s = "") => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const abs = (p) => structuredData.absUrl(p, PRODUCTION_ORIGIN);
@@ -57,12 +58,62 @@ const ld = ({ key, scope, path: schemaPath, data }) => {
   return `<script ${attrs}>${structuredData.serializeJsonLd(data)}</script>`;
 };
 
+const hrefFor = (to) => {
+  const cleanTo = to === "/" ? "/" : `/${String(to).replace(/^\/+/, "").replace(/\/+$/, "")}/`;
+  return cleanTo;
+};
+
+const tableHtml = (table) => {
+  if (!table?.columns?.length || !table?.rows?.length) return "";
+  const caption = table.caption ? `<caption>${esc(table.caption)}</caption>` : "";
+  const head = `<thead><tr>${table.columns.map((column) => `<th scope="col">${esc(column)}</th>`).join("")}</tr></thead>`;
+  const body = `<tbody>${table.rows.map((row) => `<tr>${row.map((cell, index) => (
+    index === 0
+      ? `<th scope="row">${esc(cell)}</th>`
+      : `<td>${esc(cell)}</td>`
+  )).join("")}</tr>`).join("")}</tbody>`;
+  return `<table>${caption}${head}${body}</table>`;
+};
+
+const articleLinksHtml = (links, heading = "Related reading") => (
+  links?.length
+    ? `<aside><h3>${esc(heading)}</h3><ul>${links.map((link) => `<li><a href="${esc(hrefFor(link.to))}">${esc(link.label)}</a>${link.description ? ` — ${esc(link.description)}` : ""}</li>`).join("")}</ul></aside>`
+    : ""
+);
+
+const keyList = (keys) => keys.map((key) => (/^[A-Z0-9]$/.test(key) ? key : `"${key}"`)).join(", ");
+
+const widgetHtml = (id) => {
+  const widget = WIDGETS[id];
+  if (!widget) return "";
+  const out = [`<section data-widget="${esc(id)}"><h3>${esc(widget.title)}</h3>`];
+  if (widget.intro) out.push(`<p>${esc(widget.intro)}</p>`);
+  if (widget.text) out.push(`<p>${esc(widget.text)}</p>`);
+  if (widget.staticText) out.push(`<p>${esc(widget.staticText)}</p>`);
+  if (widget.bands) {
+    out.push(`<h4>Practical WPM bands</h4><ul>${widget.bands.map((band) => `<li><strong>${esc(band.range)}: ${esc(band.label)}.</strong> ${esc(band.note)}</li>`).join("")}</ul>`);
+  }
+  if (widget.targets) {
+    out.push(`<h4>Common reference points</h4><ul>${widget.targets.map((target) => `<li>${esc(target.label)}: ${target.wpm} WPM. ${esc(target.detail)}</li>`).join("")}</ul>`);
+  }
+  if (widget.fingers) {
+    out.push(`<table><caption>Finger-to-key map</caption><thead><tr><th scope="col">Finger</th><th scope="col">Keys</th><th scope="col">Home key</th></tr></thead><tbody>${widget.fingers.map((finger) => `<tr><th scope="row">${esc(finger.hand)} ${esc(finger.name)}</th><td>${esc(keyList(finger.keys))}</td><td>${esc(finger.home)}</td></tr>`).join("")}</tbody></table>`);
+  }
+  if (widget.space) out.push(`<p>${esc(widget.space)}</p>`);
+  if (widget.note) out.push(`<p>${esc(widget.note)}</p>`);
+  return `${out.join("")}</section>`;
+};
+
 const blocksHtml = (blocks = []) => blocks.map((b) => {
   const out = [];
   if (b.h2) out.push(`<h2>${esc(b.h2)}</h2>`);
   (b.p || []).forEach((p) => out.push(`<p>${esc(p)}</p>`));
   if (b.ul) out.push(`<ul>${b.ul.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`);
+  if (b.table) out.push(tableHtml(b.table));
+  if (b.pre) out.push(`<pre>${esc(Array.isArray(b.pre) ? b.pre.join("\n") : b.pre)}</pre>`);
   if (b.steps) out.push(b.steps.map((s) => `<h3>${esc(s.h3)}</h3><p>${esc(s.p)}</p>`).join(""));
+  if (b.links) out.push(articleLinksHtml(b.links, b.linksHeading));
+  if (b.widget) out.push(widgetHtml(b.widget));
   if (b.sources && b.sources.length) {
     out.push(`<section><h3>Sources</h3><ul>${b.sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener noreferrer">${esc(s.label)}</a></li>`).join("")}</ul></section>`);
   }

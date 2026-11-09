@@ -8,7 +8,7 @@
     "howTo": [
       "Timer starts on your first keystroke",
       "Backspace fixes mistakes",
-      "Score = net WPM x accuracy"
+      "Score = correct-character WPM x accuracy"
     ]
   },
   {

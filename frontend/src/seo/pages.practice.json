@@ -27,7 +27,7 @@
         "h2": "Five tips to type faster",
         "steps": [
           { "h3": "Practise little and often", "p": "Two ten minute sessions a day beat one ninety minute marathon. Muscle memory is built by repetition spread over time, not by volume in a single sitting." },
-          { "h3": "Say the word, type the word", "p": "Reading a whole short word before typing it trains chunking. Letter-by-letter typing has a hard ceiling around 50 WPM for most people." },
+          { "h3": "Say the word, type the word", "p": "Reading a whole short word before typing it trains chunking. Letter-by-letter typing puts a low ceiling on speed." },
           { "h3": "Slow down on your worst keys", "p": "When a passage includes a reach you keep missing, deliberately type that word at half speed three times. Repairing the pattern is faster than repeating the mistake." },
           { "h3": "Keep your fingers curved", "p": "Flat fingers slap keys and overshoot. A gentle curve, with the fingertip landing on the key, is both quieter and noticeably faster." },
           { "h3": "End sessions on a clean run", "p": "Finishing with a slow, 100% accurate passage leaves the correct pattern fresh. Ending on a messy sprint teaches your hands the wrong habit." }
@@ -46,7 +46,7 @@
       { "q": "Is untimed practice better than timed tests?", "a": "They do different jobs. Untimed practice builds technique and accuracy; timed tests measure progress and train you to perform under pressure. A good routine uses both." },
       { "q": "Should I look at the keyboard while practising?", "a": "No. Looking down feels faster at first but caps your long-term speed. If you cannot find a key, glance at the on-screen keyboard hint instead of your hands." },
       { "q": "How do I stop plateauing around 50 WPM?", "a": "Plateaus usually mean you are typing letter by letter or using the wrong fingers for reaches. Drop your speed by 20%, fix the technique for a week, then build back up." },
-      { "q": "Does the drill save my results?", "a": "Signed-in users have practice results stored in their WPM history alongside tests and games, so the chart on your dashboard reflects every session." }
+      { "q": "Does the drill save my results?", "a": "No. The untimed drill does not store results, so note your WPM and accuracy if you want a progress log. Signed-in users can save game scores and view game statistics." }
     ],
     "related": [
       { "to": "/typing-practice/beginners", "label": "Typing practice for beginners" },
@@ -82,7 +82,7 @@
       {
         "h2": "Five tips to type faster as a beginner",
         "steps": [
-          { "h3": "Cover your hands", "p": "If you cannot stop peeking, drape a cloth over your hands or type in a dim room. Two uncomfortable days will save you two years of hunt-and-peck habits." },
+          { "h3": "Cover your hands", "p": "If you cannot stop peeking, drape a cloth over your hands or type in a dim room. A few uncomfortable days can help break the hunt-and-peck habit." },
           { "h3": "Learn one row at a time", "p": "Master the home row, then the top row, then the bottom row, then numbers and symbols. Trying to learn the whole keyboard at once slows everyone down." },
           { "h3": "Use the correct pinky", "p": "Left pinky handles A, shift and tab. Right pinky handles semicolon, enter and the right shift. Pinkies feel weak at first and become reliable within a week." },
           { "h3": "Type real words, not random letters", "p": "Words teach your hands common letter pairs such as th, er, in and on, which is where real speed comes from." },

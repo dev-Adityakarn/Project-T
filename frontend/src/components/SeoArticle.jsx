@@ -2,9 +2,23 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { AdInArticle } from "@/components/ads/AdInArticle";
+import { HomeRowDrill } from "@/components/HomeRowDrill";
+import { KeyboardFingerMap } from "@/components/KeyboardFingerMap";
+import { WpmInterpreter } from "@/components/WpmInterpreter";
 import { isValidAdSlot } from "@/config/adsense";
 
-const Block = ({ b }) => (
+const WIDGETS = {
+  "wpm-interpreter": WpmInterpreter,
+  "finger-map": KeyboardFingerMap,
+  "home-row-drill": HomeRowDrill,
+};
+
+const normalizeTo = (to) => (to === "/" ? "/" : to.endsWith("/") ? to : `${to}/`);
+
+const Block = ({ b }) => {
+  const Widget = b.widget ? WIDGETS[b.widget] : null;
+
+  return (
   <section className="mt-10">
     {b.h2 && <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{b.h2}</h2>}
     {b.p?.map((t) => <p key={t.slice(0, 24)} className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{t}</p>)}
@@ -17,6 +31,46 @@ const Block = ({ b }) => (
         ))}
       </ul>
     )}
+    {b.table && (
+      <div className="mt-6 overflow-x-auto">
+        <table className="w-full min-w-[560px] border-collapse text-left text-sm" data-testid="article-table">
+          {b.table.caption && (
+            <caption className="pb-3 text-left text-sm font-medium text-muted-foreground">{b.table.caption}</caption>
+          )}
+          <thead>
+            <tr>
+              {b.table.columns.map((column) => (
+                <th key={column} scope="col" className="border-b bg-muted/40 px-3 py-2 font-semibold">
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {b.table.rows.map((row, rowIndex) => (
+              <tr key={rowIndex} className="border-b last:border-0">
+                {row.map((cell, cellIndex) => (
+                  cellIndex === 0 ? (
+                    <th key={cellIndex} scope="row" className="px-3 py-2 align-top font-medium">
+                      {cell}
+                    </th>
+                  ) : (
+                    <td key={cellIndex} className="px-3 py-2 align-top text-muted-foreground">
+                      {cell}
+                    </td>
+                  )
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+    {b.pre && (
+      <pre className="mt-5 overflow-x-auto rounded-xl border bg-muted/30 p-4 font-mono-type text-sm leading-relaxed">
+        {Array.isArray(b.pre) ? b.pre.join("\n") : b.pre}
+      </pre>
+    )}
     {b.steps && (
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         {b.steps.map((s, i) => (
@@ -28,6 +82,22 @@ const Block = ({ b }) => (
         ))}
       </div>
     )}
+    {b.links?.length > 0 && (
+      <div className="mt-5 rounded-xl border bg-muted/20 p-4" data-testid="article-links">
+        <h3 className="text-sm font-semibold">{b.linksHeading || "Related reading"}</h3>
+        <ul className="mt-2 space-y-2 text-sm">
+          {b.links.map((link) => (
+            <li key={link.to}>
+              <Link to={normalizeTo(link.to)} className="font-medium text-primary underline underline-offset-2">
+                {link.label}
+              </Link>
+              {link.description ? <span className="text-muted-foreground"> — {link.description}</span> : null}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+    {Widget && <Widget />}
     {b.sources?.length > 0 && (
       <div className="mt-5 rounded-xl border bg-muted/30 p-4" data-testid="article-sources">
         <h3 className="text-sm font-semibold">Sources</h3>
@@ -48,7 +118,8 @@ const Block = ({ b }) => (
       </div>
     )}
   </section>
-);
+  );
+};
 
 export const Faqs = ({ faqs, heading = "Frequently asked questions" }) => {
   if (!faqs?.length) return null;
@@ -90,8 +161,11 @@ export const RelatedLinks = ({ links, heading = "Keep practising" }) => {
 
 const contentLength = (blocks = []) =>
   blocks.reduce((total, block) => {
-    const parts = [block.h2, ...(block.p || []), ...(block.ul || [])];
+    const parts = [block.h2, block.pre, ...(block.p || []), ...(block.ul || [])];
+    (block.table?.columns || []).forEach((column) => parts.push(column));
+    (block.table?.rows || []).forEach((row) => row.forEach((cell) => parts.push(cell)));
     (block.steps || []).forEach((step) => parts.push(step.h3, step.p));
+    (block.links || []).forEach((link) => parts.push(link.label, link.description));
     (block.sources || []).forEach((source) => parts.push(source.label));
     return total + parts.filter(Boolean).join(" ").length;
   }, 0);

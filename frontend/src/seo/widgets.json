@@ -1,0 +1,60 @@
+{
+  "wpm-interpreter": {
+    "title": "Check what your WPM means",
+    "intro": "Enter a result from any typing test. The interpretation uses practical learning bands, not population percentiles. A speed is only useful at the accuracy and duration you can sustain.",
+    "staticText": "The interactive version accepts WPM, accuracy and test duration. It does not estimate a population percentile or reproduce an exam's scoring.",
+    "bands": [
+      { "max": 19, "range": "Under 20 WPM", "label": "Starting out", "note": "You are still locating keys. Work on the home row and clean keystrokes before chasing speed." },
+      { "max": 29, "range": "20-29 WPM", "label": "Developing", "note": "You can type normal text, but you may still look at the keyboard often. Finger placement and accuracy are the next wins." },
+      { "max": 39, "range": "30-39 WPM", "label": "Functional", "note": "Enough for many study and entry-level tasks. Build toward 40 WPM without sacrificing accuracy." },
+      { "max": 49, "range": "40-49 WPM", "label": "Comfortable", "note": "A practical range for regular email, notes and office work." },
+      { "max": 69, "range": "50-69 WPM", "label": "Fast", "note": "A strong everyday speed if accuracy stays high. Use a longer test to confirm you can sustain it." },
+      { "max": null, "range": "70 WPM and above", "label": "Very fast", "note": "Well above typical office demands. Gains now come from consistency, symbols and accuracy." }
+    ],
+    "targets": [
+      { "label": "Comfortable office work", "wpm": 40, "detail": "A common practical target, not an official rule." },
+      { "label": "SSC CHSL LDC/JSA, English", "wpm": 35, "detail": "Official 2026 skill-test requirement over 10 minutes." },
+      { "label": "MP CPCT typing, English", "wpm": 30, "detail": "30 NWPM is the minimum passing band in the published rulebook." },
+      { "label": "RRB NTPC typist posts, English", "wpm": 30, "detail": "Historical CBTST standard under CEN 06/2025; the 2026 CENs dispensed the test for the notified posts." }
+    ],
+    "durationNotes": {
+      "1": "One minute is a short burst. Use it to warm up or measure pace, not to predict a 10-minute exam result.",
+      "2": "Two minutes is still a short sample. Use it as a pace check rather than a sustained benchmark.",
+      "3": "Three minutes starts to show sustained speed, but fatigue over a longer test can still lower the number.",
+      "5": "Five minutes is a useful sustained benchmark for everyday and office typing.",
+      "10": "Ten minutes matches the length of several Indian typing skill tests, including SSC CHSL LDC/JSA.",
+      "15": "Fifteen minutes matches the MP CPCT typing modules and is a strong endurance check."
+    },
+    "accuracyNotes": {
+      "high": "Strong accuracy. A speed at this level is usable in real work and gives you room inside typical exam error limits.",
+      "medium": "Workable accuracy, but keep watching the error count. Exam rules can still fail a fast run with too many mistakes.",
+      "low": "Treat the speed as provisional. Errors and corrections eat into usable output, and many exams count mistakes separately."
+    },
+    "note": "These reference points are for orientation. Exam scoring, language, duration and error rules differ; use your own notification."
+  },
+  "finger-map": {
+    "title": "Keyboard finger map",
+    "intro": "Each key belongs to one finger. The home keys are A, S, D and F for the left hand, and J, K, L and ; for the right hand. Return each finger to its home key after every reach.",
+    "rows": [
+      ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+      ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"],
+      ["Z", "X", "C", "V", "B", "N", "M", ",", ".", "/"]
+    ],
+    "fingers": [
+      { "id": "lp", "hand": "Left", "name": "Little finger", "abbr": "LP", "home": "A", "keys": ["Q", "A", "Z"] },
+      { "id": "lr", "hand": "Left", "name": "Ring finger", "abbr": "LR", "home": "S", "keys": ["W", "S", "X"] },
+      { "id": "lm", "hand": "Left", "name": "Middle finger", "abbr": "LM", "home": "D", "keys": ["E", "D", "C"] },
+      { "id": "li", "hand": "Left", "name": "Index finger", "abbr": "LI", "home": "F", "keys": ["R", "F", "V", "T", "G", "B"] },
+      { "id": "ri", "hand": "Right", "name": "Index finger", "abbr": "RI", "home": "J", "keys": ["Y", "H", "N", "U", "J", "M"] },
+      { "id": "rm", "hand": "Right", "name": "Middle finger", "abbr": "RM", "home": "K", "keys": ["I", "K", ","] },
+      { "id": "rr", "hand": "Right", "name": "Ring finger", "abbr": "RR", "home": "L", "keys": ["O", "L", "."] },
+      { "id": "rp", "hand": "Right", "name": "Little finger", "abbr": "RP", "home": ";", "keys": ["P", ";", "/"] }
+    ],
+    "space": "Space bar: either thumb."
+  },
+  "home-row-drill": {
+    "title": "One-minute home-row drill",
+    "text": "This drill uses home-row words only. It starts when you click, so it will not capture keystrokes while you read. Keep your eyes on the screen and return each finger to its home key after every reach.",
+    "staticText": "The interactive drill starts only after you press the start button. Until then, it does not listen for keystrokes."
+  }
+}

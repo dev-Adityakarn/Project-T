@@ -96,7 +96,61 @@ describe("site quality regressions", () => {
       expect(source.url).toMatch(/^https:\/\//);
     });
     const urls = sources.map((source) => source.url);
-    expect(urls).toContain("https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf");
-    expect(urls).toContain("https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf");
+    expect(urls).toContain("https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf");
+    expect(urls).toContain("https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf");
+  });
+
+  it("does not repeat outdated exam-cycle or unsupported average claims", () => {
+    const blog = read("seo/blog.json");
+    const testPages = read("seo/pages.tests.json");
+    const specialPages = read("seo/pages.special.json");
+    const practicePages = read("seo/pages.practice.json");
+
+    [blog, testPages, specialPages].forEach((copy) => {
+      expect(copy).not.toContain("SSC CHSL 2025");
+      expect(copy).not.toContain("CPCT score card");
+    });
+    expect(testPages).not.toContain("gross speed is the number of correctly typed characters");
+    expect(testPages).not.toContain("you get net WPM");
+    expect(testPages).not.toContain("average for an adult typing in English");
+    expect(testPages).not.toContain("total keystrokes and a score");
+    expect(testPages).not.toContain("only from the time you actually typed");
+    expect(testPages).not.toContain("5 to 10 percent");
+    expect(testPages).not.toContain("Sign in first");
+    expect(blog).not.toContain("higher effective rate");
+    expect(blog).not.toContain("same physical effort");
+    expect(blog).not.toContain("largest public dataset");
+    expect(practicePages).not.toContain("practice results stored");
+  });
+
+  it("keeps every timed test route at its advertised duration", () => {
+    const pages = readJson("seo/pages.tests.json");
+    const expected = {
+      "/typing-test/1-minute": 60,
+      "/typing-test/3-minute": 180,
+      "/typing-test/5-minute": 300,
+    };
+
+    Object.entries(expected).forEach(([route, seconds]) => {
+      const page = pages.find((entry) => entry.path === route);
+      expect(page).toBeTruthy();
+      expect(page.tool.duration).toBe(seconds);
+      expect(page.tool.durations || [page.tool.duration]).toContain(seconds);
+    });
+
+    pages.forEach((page) => {
+      expect(page.tool.duration).toBeGreaterThan(0);
+      (page.tool.durations || []).forEach((duration) => expect(duration).toBeGreaterThan(0));
+    });
+  });
+
+  it("resolves every widget referenced by an article", () => {
+    const widgets = readJson("seo/widgets.json");
+    const posts = readJson("seo/blog.json");
+    posts.forEach((post) => {
+      (post.blocks || []).forEach((block) => {
+        if (block.widget) expect(widgets[block.widget]).toBeTruthy();
+      });
+    });
   });
 });

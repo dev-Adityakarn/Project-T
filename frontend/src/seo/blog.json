@@ -13,7 +13,7 @@
     "blocks": [
       {
         "p": [
-          "Almost everyone who types for a living is slower than they could be, and almost nobody is slow because their fingers cannot move. The limit is technique: looking down, using the wrong finger for a reach, typing letter by letter instead of word by word, and spending a surprising amount of every session repairing mistakes. Fix those and speed appears without extra effort."
+          "Many people who type for a living are slower than they could be, and the limit is usually technique rather than finger speed: looking down, using the wrong finger for a reach, typing letter by letter instead of word by word, and spending a surprising amount of every session repairing mistakes. Fix those and speed can improve without extra effort."
         ]
       },
       {
@@ -102,95 +102,235 @@
   },
   {
     "slug": "average-typing-speed-by-age",
-    "title": "Average Typing Speed by Age, Job and Experience",
-    "description": "What is the average typing speed? See typical WPM by age group, profession and experience level, plus realistic targets for students, clerks and developers.",
-    "h1": "Average typing speed by age, job and experience",
-    "excerpt": "The average adult types around 40 words per minute. Here is how that number breaks down by age, occupation and years of practice — and what to aim for.",
+    "title": "Typing Speed by Age: What the Evidence Shows (2026)",
+    "description": "There is no reliable average typing speed by age. See what a 168,960-participant study measured, why it is not an age norm, and practical targets by experience.",
+    "h1": "Typing speed by age: what the evidence actually shows",
+    "excerpt": "Age-band typing charts look precise, but the public evidence does not support them. Here is what the largest public study measured, what it cannot tell you, and how to set a practical target.",
     "datePublished": "2026-03-04",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
-    "readingTime": "6 min read",
-    "tags": ["benchmarks", "wpm"],
+    "readingTime": "8 min read",
+    "tags": [
+      "benchmarks",
+      "wpm"
+    ],
     "blocks": [
       {
         "p": [
-          "The single most common question in typing is also the vaguest: is my speed normal? The answer depends on your age, how much of your day involves a keyboard and whether you ever learned touch typing. There is no single authoritative average, so treat the ranges below as rough guides rather than a controlled study, and measure your own baseline."
+          "A short answer first: there is no trustworthy average typing speed by age. Age-band tables often mix school targets, self-selected online results and generic advice, then present the result as a population average.",
+          "A large public dataset often cited is Dhakal et al. (CHI 2018), with 168,960 self-selected participants. It reports a mean of 51.56 WPM (SD 20.2), an uncorrected error rate of 1.17% and about 6.3% corrections. Those numbers describe that sample, not a representative age breakdown."
         ]
       },
       {
-        "h2": "The headline number",
+        "h2": "What the 136-million-keystroke study measured",
         "p": [
-          "A commonly cited figure for adult English typing is around 40 words per minute, with accuracy often reported in the low 90s. Experienced typists and transcriptionists are often described in the 65 to 90 WPM range, while competitive typists can exceed 120 WPM. Published estimates vary with the sample, the keyboard and the test method, so these are not universal benchmarks.",
-          "Remember that a word means five characters including spaces, so figures are directly comparable only when they use the same definition: WPM = (correct characters / 5) / (seconds / 60)."
-        ]
-      },
-      {
-        "h2": "Typing speed by age group",
-        "p": ["These ranges are approximate and come from general typing guidance, not a single controlled study. Use them to sanity-check your own result, not to grade yourself."],
-        "ul": [
-          "Ages 6 to 8: 8 to 15 WPM. Hands are small and the keyboard map is still being learned; accuracy matters far more than speed.",
-          "Ages 9 to 12: 15 to 25 WPM. With structured lessons, many children in this band reach 30 WPM.",
-          "Ages 13 to 17: 25 to 45 WPM. Heavy messaging and schoolwork mean the spread is wide; touch typing is the deciding factor.",
-          "Ages 18 to 29: 40 to 60 WPM. The fastest group on average, largely because of constant keyboard exposure.",
-          "Ages 30 to 49: 40 to 55 WPM. Office experience tends to improve accuracy more than speed.",
-          "Ages 50 and over: 35 to 45 WPM, with experienced typists in this band frequently outperforming younger ones thanks to better technique."
-        ]
-      },
-      {
-        "h2": "Typing speed by occupation",
-        "p": ["Job ranges are equally approximate. Roles differ in how much prose, code or numeric data they handle, and employers rarely publish a single universal speed requirement."],
-        "ul": [
-          "Data entry clerk: 60 to 80 WPM with 98% or better accuracy, plus strong numeric keypad speed.",
-          "Secretary or administrative assistant: 50 to 70 WPM, often with a formal exam requirement around 40 WPM.",
-          "Transcriptionist: 70 to 90 WPM sustained, because audio sets the pace and falling behind is not an option.",
-          "Software developer: 50 to 70 WPM on prose, typically 20% to 30% lower on code because of symbol density.",
-          "Customer support agent: 55 to 75 WPM, since live chat rewards fast, accurate replies.",
-          "Student: 35 to 50 WPM, which is enough for essays but usually limited by hunt-and-peck habits."
-        ]
-      },
-      {
-        "h2": "What exams expect",
-        "p": [
-          "Government exam requirements are not uniform. The SSC CHSL 2025 notification for LDC/JSA sets 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test. The CPCT score card sets a qualifying net speed of 30 words per minute in English or 25 words per minute in Hindi. Other exams and posts publish different figures.",
-          "That is why you should read your own notification rather than training to a generic number. In exams that penalise uncorrected errors, a clean run at the required speed can beat a faster run that exceeds the error limit."
+          "Dhakal et al. analysed more than 136 million keystrokes from 168,960 people who chose to take an online typing test. The headline result was a mean speed of 51.56 WPM, with a standard deviation of 20.2 WPM.",
+          "The same paper reports an uncorrected error rate of 1.17% and a correction rate of about 6.3%. Those are sample statistics, not universal standards. A different website, passage or population would produce different numbers.",
+          "The sample was not designed to represent a country or an age group. About 68% of participants were in the United States, the sample skewed younger, and more than 70% had taken a touch-typing class. That makes it useful for studying typing behaviour, not for claiming what is normal at 15, 35 or 65."
         ],
         "sources": [
-          { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" },
-          { "label": "CPCT score card (qualifying net speed)", "url": "https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf" }
+          {
+            "label": "Dhakal et al., CHI 2018: 136M keystrokes, 168,960 participants, 51.56 WPM mean, 20.2 SD, 1.17% uncorrected errors",
+            "url": "https://userinterfaces.aalto.fi/136Mkeystrokes/resources/chi-18-analysis.pdf"
+          }
         ]
       },
       {
-        "h2": "How quickly speed improves",
+        "h2": "Why age-band WPM tables are unreliable",
         "p": [
-          "Progress is usually fastest at the start and then slows. The pace depends on your starting point, how consistently you practise and whether you work on technique rather than just repeating tests. Longer-term gains usually require deliberate work on numbers, punctuation and chunking rather than more general typing.",
-          "Beyond 100 WPM, gains come mostly from eliminating hesitation: the micro pauses before capitals, symbols and unfamiliar words."
+          "A table that says 'ages 18-29: 40-60 WPM' looks authoritative, but it needs a representative sample, a controlled test method and a clear definition of WPM. Public typing sites rarely publish all three.",
+          "Age also competes with practice, keyboard exposure, language, keyboard layout, test duration and accuracy rules. A 50-year-old who types all day can easily outperform a 20-year-old who rarely uses a physical keyboard. Age alone does not predict the result."
+        ],
+        "table": {
+          "caption": "What the evidence can and cannot support",
+          "columns": [
+            "Claim",
+            "Status",
+            "Why"
+          ],
+          "rows": [
+            [
+              "There is a single average adult WPM",
+              "Not supported",
+              "Published figures use different samples, tests and scoring methods."
+            ],
+            [
+              "Each age band has a typical WPM",
+              "Not supported",
+              "No representative age-stratified dataset is cited by the charts that make this claim."
+            ],
+            [
+              "Typing speed always declines with age",
+              "Not established",
+              "Practice, technique and keyboard exposure confound simple age comparisons."
+            ],
+            [
+              "The 168,960-participant study is an age norm",
+              "Misleading",
+              "It is a self-selected online sample, not a population survey."
+            ]
+          ]
+        }
+      },
+      {
+        "h2": "Practical targets by experience, not age",
+        "p": [
+          "Use these as learning targets, not population averages. They describe what to aim for at each stage, not what people of a certain age should do."
+        ],
+        "table": {
+          "caption": "Illustrative learning targets by experience",
+          "columns": [
+            "Stage",
+            "Practical target",
+            "What to work on"
+          ],
+          "rows": [
+            [
+              "Just starting",
+              "Accuracy first; speed will vary",
+              "Home row, correct fingers, short daily practice."
+            ],
+            [
+              "Can touch type slowly",
+              "30-40 WPM at high accuracy",
+              "Common words, punctuation, returning to the home row."
+            ],
+            [
+              "Consistent everyday typist",
+              "40-50 WPM",
+              "Sustained 5-minute passages, error review, weak-key drills."
+            ],
+            [
+              "Strong office or exam typist",
+              "50+ WPM with controlled errors",
+              "10-minute simulations, exam rules, symbols and numbers."
+            ]
+          ]
+        }
+      },
+      {
+        "h2": "What the accuracy numbers mean",
+        "p": [
+          "The study's uncorrected error rate of 1.17% and correction rate of about 6.3% are often summarised badly. They do not mean the average person types at 92% accuracy, and they do not set a pass mark for an exam.",
+          "Accuracy depends on how a test counts errors, whether corrections are allowed and how the passage is scored. Typinger reports accuracy as (keystrokes - errors) / keystrokes, so a corrected mistake still counts. Use your own trend and your exam's rule, not a headline percentage."
         ]
       },
       {
-        "h2": "Accuracy, the number nobody quotes",
+        "h2": "How to measure your own baseline",
         "p": [
-          "Average accuracy online sits around 92%, which sounds respectable until you work out the cost. At 92% accuracy, roughly one keystroke in twelve is wrong, and each one carries a backspace and a retype. Lifting accuracy to 98% often raises effective speed by ten percent with no change in finger speed at all.",
-          "Accuracy is calculated as ((keystrokes - errors) / keystrokes) x 100, and it is the number to optimise if you want your real-world output to improve rather than just your test screenshot."
-        ]
+          "Take a one-minute warm-up, then a five-minute test. Record WPM, accuracy and the keys that caused repeated errors. Repeat under the same conditions after two weeks.",
+          "If the five-minute result is much lower than the one-minute result, work on endurance and posture. If accuracy is low, reduce speed before adding more practice volume."
+        ],
+        "links": [
+          {
+            "to": "/typing-test/1-minute",
+            "label": "Take a 1-minute warm-up",
+            "description": "Quick pace check before the longer test."
+          },
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Take a 5-minute baseline",
+            "description": "A better figure to compare over time."
+          },
+          {
+            "to": "/blog/how-to-improve-typing-accuracy",
+            "label": "Work on accuracy",
+            "description": "Drills for the errors that survive speed work."
+          }
+        ],
+        "linksHeading": "Measure your own trend"
       },
       {
-        "h2": "Setting your own target",
+        "h2": "Setting a target that helps",
         "p": [
-          "Take a one minute test today and a five minute test this week. If the five minute figure is more than ten percent lower, your next goal is stamina and posture. If accuracy is under 95%, that is the goal instead of speed. If both look good and you still feel slow at work, the problem is almost certainly numbers and punctuation.",
-          "A realistic and genuinely useful target for most office workers is 65 WPM at 98% accuracy. At that level typing stops being the bottleneck between your thinking and the screen, which is the entire point."
+          "A useful target is specific to your task: 40 WPM at 95%+ accuracy for everyday office work, 35 WPM English for SSC CHSL LDC/JSA, or 30 NWPM English for the CPCT minimum band. The exact figure comes from the task or the notice, not from an age chart.",
+          "Then practise until you can reproduce the result on a longer test. A single fast attempt is not evidence that the speed is stable."
+        ],
+        "links": [
+          {
+            "to": "/blog/what-is-a-good-typing-speed",
+            "label": "Use task-based WPM targets",
+            "description": "A practical guide with an interpreter for your own result."
+          },
+          {
+            "to": "/blog/typing-speed-required-government-jobs-india",
+            "label": "Check government requirements",
+            "description": "Verified SSC, CPCT and RRB figures by post."
+          }
+        ],
+        "linksHeading": "Choose the right target"
+      },
+      {
+        "h2": "What about children?",
+        "p": [
+          "Children's typing ability varies widely with hand size, instruction and practice. A structured lesson with short sessions is more useful than an age-band target.",
+          "The touch typing guide covers a beginner progression that starts with the home row and adds keys gradually. Keep sessions short and prioritise accuracy."
+        ],
+        "links": [
+          {
+            "to": "/blog/touch-typing-for-beginners",
+            "label": "Start touch typing from the home row",
+            "description": "Finger placement, a map and a short drill."
+          },
+          {
+            "to": "/typing-lessons",
+            "label": "Follow structured typing lessons",
+            "description": "A step-by-step sequence for beginners."
+          }
+        ],
+        "linksHeading": "For younger learners"
+      },
+      {
+        "h2": "The bottom line",
+        "p": [
+          "Age is a weak predictor of typing speed. The useful variables are technique, practice and the task in front of you.",
+          "Measure your own baseline, use practical targets, and check the official rule when an exam is involved. That is more reliable than comparing yourself with an age-band chart that has no representative sample behind it."
         ]
       }
     ],
     "faqs": [
-      { "q": "What is a good typing speed for my age?", "a": "There is no official standard by age. The ranges above are rough guides, not benchmarks. Accuracy above 97% is a better goal than any particular speed." },
-      { "q": "Is 100 WPM realistic?", "a": "It can be, but it is not a typical target. Reaching it usually requires sustained deliberate practice; the gain comes from chunking and removing hesitation rather than forcing your fingers to move faster." },
-      { "q": "Do phones and messaging make people faster on keyboards?", "a": "No. Thumb typing is a different motor skill and often reinforces two-finger habits on a physical keyboard." },
-      { "q": "Does typing speed decline with age?", "a": "Slightly, but experience compensates. Trained typists in their fifties frequently beat untrained typists in their twenties on net speed because their accuracy is far higher." }
+      {
+        "q": "What is a good typing speed for my age?",
+        "a": "There is no verified standard by age. The age-band charts online are not population norms. Use a task-specific target and your own trend instead."
+      },
+      {
+        "q": "Is 100 WPM realistic?",
+        "a": "It is possible, but it is well above everyday needs. Reaching it usually requires sustained deliberate practice; gains come from chunking and removing hesitation rather than forcing your fingers to move faster."
+      },
+      {
+        "q": "Do phones and messaging make people faster on keyboards?",
+        "a": "Thumb typing is a different motor skill. It does not automatically transfer to a physical keyboard, and it can reinforce two-finger habits if that is the only practice you do."
+      },
+      {
+        "q": "Does typing speed decline with age?",
+        "a": "Not as a universal rule. Practice, technique, keyboard exposure and health matter. Compare your own results over time rather than assuming a decline."
+      },
+      {
+        "q": "What does the 168,960-participant study actually show?",
+        "a": "It reports a mean of 51.56 WPM (SD 20.2), a 1.17% uncorrected error rate and about 6.3% corrections in a self-selected online sample. It is not an age norm or a representative population average."
+      }
     ],
     "related": [
-      { "to": "/typing-test/5-minute", "label": "Take a 5 minute benchmark test" },
-      { "to": "/government-exam-typing-test", "label": "Exam typing requirements" },
-      { "to": "/blog/what-is-a-good-wpm-score", "label": "What is a good WPM score?" }
+      {
+        "to": "/blog/what-is-a-good-typing-speed",
+        "label": "Task-based typing speed targets"
+      },
+      {
+        "to": "/typing-test/5-minute",
+        "label": "Take a 5 minute benchmark test"
+      },
+      {
+        "to": "/blog/what-is-a-good-wpm-score",
+        "label": "How to read a WPM score"
+      },
+      {
+        "to": "/blog/touch-typing-for-beginners",
+        "label": "Touch typing for beginners"
+      },
+      {
+        "to": "/government-exam-typing-test",
+        "label": "Exam typing practice"
+      }
     ]
   },
   {
@@ -265,7 +405,7 @@
         "h2": "What to expect, honestly",
         "p": [
           "Days one to four often feel clumsy and slow. Around day five something may click on the home row and the top row starts to follow. By the end of the plan many learners can type without looking at a basic working speed; your exact WPM will vary with your starting point and consistency.",
-          "From there, progress comes from normal use plus short drills. With consistent practice, 50 WPM is a common medium-term target, but it is not guaranteed. The ceiling above it is high: WPM = (correct characters / 5) / (seconds / 60) keeps rewarding cleaner technique."
+          "From there, progress comes from normal use plus short drills. With consistent practice, 50 WPM is a reasonable medium-term target, but it is not guaranteed. The ceiling above it is high: WPM = (correct characters / 5) / (seconds / 60) keeps rewarding cleaner technique."
         ]
       },
       {
@@ -281,9 +421,9 @@
     ],
     "faqs": [
       { "q": "How long does touch typing take to learn?", "a": "Many learners feel comfortable within a few weeks of short daily practice. Passing your old hunt-and-peck speed depends on your starting point and how consistently you practise; there is no fixed timeline." },
-      { "q": "Should I learn numbers at the same time as letters?", "a": "No. Learn the three letter rows first, then add capitals, punctuation and numbers. Adding everything at once slows almost everyone down." },
+      { "q": "Should I learn numbers at the same time as letters?", "a": "No. Learn the three letter rows first, then add capitals, punctuation and numbers. Adding everything at once usually slows learners down." },
       { "q": "Is it bad to look at the keyboard sometimes?", "a": "In the first two weeks, yes, because it prevents the spatial map from forming. After that an occasional glance for a rare symbol is harmless." },
-      { "q": "Can children learn with the same method?", "a": "Yes, with shorter sessions of five to ten minutes and more game time. Children usually need more repetition per row but learn the map just as well." }
+      { "q": "Can children learn with the same method?", "a": "Yes, with shorter sessions of five to ten minutes and more game time. Children may need more repetition per row but can learn the map just as well." }
     ],
     "related": [
       { "to": "/typing-lessons", "label": "Start the 12 touch typing lessons" },
@@ -297,9 +437,9 @@
     "title": "How to Improve Typing Accuracy Without Losing Speed",
     "description": "Accuracy, not finger speed, is what limits most typists. Learn why errors happen, how accuracy is measured and seven drills that clean up your typing.",
     "h1": "How to improve typing accuracy without losing speed",
-    "excerpt": "At 92% accuracy, one keystroke in twelve is wrong — and each one costs you three. Fixing accuracy is the fastest way to type faster.",
+    "excerpt": "Every error costs three events: the wrong key, the correction and the lost rhythm. Fixing accuracy is often the fastest way to type faster.",
     "datePublished": "2026-04-15",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
     "readingTime": "7 min read",
     "tags": ["accuracy", "technique"],
@@ -313,7 +453,7 @@
         "h2": "How accuracy is measured",
         "p": [
           "Accuracy on Typinger, and on any serious test, is counted per keystroke: accuracy = ((total keystrokes - incorrect keystrokes) / total keystrokes) x 100. Fixing a mistake with backspace does not remove the error, because the mistake still happened and still cost you time.",
-          "That is why a result of 70 WPM at 90% accuracy is weaker than 62 WPM at 99%. The careful typist produces more usable text per minute and needs almost no proofreading. Game scores here multiply WPM by accuracy for exactly that reason."
+          "That is why 70 WPM at 90% accuracy can involve far more correction work than 62 WPM at 99%. The careful typist needs less proofreading, and the gap in usable output is smaller than the raw WPM suggests. The speed-test game score multiplies WPM by accuracy for exactly that reason."
         ]
       },
       {
@@ -342,7 +482,7 @@
       {
         "h2": "The 97% rule",
         "p": [
-          "Use accuracy as the throttle for speed. Type at the fastest pace where you remain above 97%. If you fall below it, reduce your pace by about ten percent until you climb back. Over two or three weeks this single rule tends to raise both numbers, because it stops you practising mistakes.",
+          "Use accuracy as the throttle for speed. Type at the fastest pace where you remain above 97%. If you fall below it, reduce your pace until you climb back. Over time this single rule tends to raise both numbers, because it stops you practising mistakes.",
           "It also fixes the most common bad habit in typing practice: grinding attempt after attempt at a speed you cannot control, which simply trains error patterns into your hands."
         ]
       },
@@ -356,14 +496,14 @@
       {
         "h2": "Give it two weeks",
         "p": [
-          "Accuracy often responds quickly because it is mostly a decision rather than a physical limit. Typists who commit to the 97% rule for a few weeks commonly report less time spent fixing text in real documents, even before their measured WPM moves.",
+          "Accuracy often responds quickly because it is mostly a decision rather than a physical limit. Typists who commit to the 97% rule for a few weeks may notice less time spent fixing text in real documents, even before their measured WPM moves.",
           "Then the second phase starts. With clean technique and no hesitation, raw speed can grow on its own, because nothing is interrupting the flow any more."
         ]
       }
     ],
     "faqs": [
-      { "q": "What is a good typing accuracy?", "a": "Above 97% is a good target and above 99% is excellent. Online test averages are often reported around 92%, which means roughly one wrong keystroke in every twelve; treat that as a rough comparison, not a rule." },
-      { "q": "Will slowing down make me permanently slower?", "a": "No. Slowing down temporarily to fix technique almost always produces a higher speed within two to three weeks, because errors and corrections stop eating your time." },
+      { "q": "What is a good typing accuracy?", "a": "Above 97% is a good practice target and above 99% is excellent. Accuracy depends on how a test counts errors, so compare like with like and focus on your own trend rather than a headline average." },
+      { "q": "Will slowing down make me permanently slower?", "a": "No. Slowing down temporarily to fix technique can produce a higher speed as errors and corrections stop eating your time; the timeline varies by person." },
       { "q": "Why do I type the same typos repeatedly?", "a": "Repeated typos are learned patterns, usually from a wrong finger or a same-hand shift. Drill the specific word slowly five times to overwrite the pattern." },
       { "q": "Does autocorrect help accuracy?", "a": "It hides errors rather than fixing them, so your typing never improves and the mistakes resurface anywhere autocorrect is unavailable, such as a terminal or an exam." }
     ],
@@ -375,89 +515,164 @@
   },
   {
     "slug": "what-is-a-good-wpm-score",
-    "title": "What Is a Good WPM Score? Benchmarks and Targets",
-    "description": "What counts as a good WPM score? Compare beginner, average, professional and competitive typing speeds, and learn which number to put on your CV.",
-    "h1": "What is a good WPM score?",
-    "excerpt": "40 WPM is often cited as average, 60 is comfortable, 80 is fast and 100 is rare. But the number only means something alongside your accuracy and the test length.",
+    "title": "What Is a Good WPM Score? How to Read Your Result",
+    "description": "A WPM score only means something with accuracy and test length. Learn how to interpret a result, compare attempts and quote it honestly on a CV.",
+    "h1": "What is a good WPM score? How to read your typing result",
+    "excerpt": "A WPM number by itself cannot tell you whether it is good. Accuracy, test length and the task decide what the score means. Here is how to read your result.",
     "datePublished": "2026-05-06",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
-    "readingTime": "6 min read",
-    "tags": ["wpm", "benchmarks"],
+    "readingTime": "7 min read",
+    "tags": [
+      "wpm",
+      "benchmarks"
+    ],
     "blocks": [
       {
         "p": [
-          "WPM, words per minute, is the standard unit of typing speed, where one word is defined as five characters including spaces. The formula every credible test uses is WPM = (correct characters / 5) / (seconds / 60). Knowing that definition is the first step to interpreting any score, including your own."
-        ]
+          "WPM, words per minute, is the standard unit of typing speed, with one word defined as five characters including spaces. The formula is WPM = (correct characters / 5) / (seconds / 60).",
+          "But the number alone cannot tell you whether it is good. A 60 WPM result over one minute at 88% accuracy is a different result from 55 WPM over five minutes at 99%. This guide is about interpreting the score; for India-specific task and exam targets, use the good typing speed guide."
+        ],
+        "links": [
+          {
+            "to": "/blog/what-is-a-good-typing-speed",
+            "label": "Read the task-based WPM guide",
+            "description": "Practical targets for study, office work and Indian exams."
+          }
+        ],
+        "linksHeading": "Looking for a target?"
       },
       {
-        "h2": "The benchmark ladder",
-        "p": ["These bands are practical labels used by typing tutors, not a scientific standard. Different studies and tests will place the boundaries elsewhere."],
+        "h2": "The benchmark ladder (illustrative)",
+        "p": [
+          "These bands are practical labels used on this page, not population percentiles or a scientific standard. Different tests and employers place the boundaries elsewhere."
+        ],
         "ul": [
-          "10 to 25 WPM: beginner. Keys are still being located visually; lessons will produce very fast gains.",
-          "25 to 40 WPM: developing. Touch typing is partly in place but reaches and punctuation are unreliable.",
-          "40 to 55 WPM: average adult. Perfectly workable for email, notes and study.",
-          "55 to 75 WPM: good. Typing no longer limits your thinking; this is the practical target for most office roles.",
-          "75 to 95 WPM: advanced. Requires clean chunking, confident symbols and consistent rhythm.",
-          "95 to 120 WPM: expert, usually sustained by daily practice and excellent accuracy.",
-          "Above 120 WPM: competitive. A small population, typically with 98% or better accuracy."
+          "Under 25 WPM: starting out. Keys are still being located; lessons produce fast early gains.",
+          "25-39 WPM: developing. Touch typing is partly in place, but reaches and punctuation are unreliable.",
+          "40-54 WPM: comfortable for email, notes and study.",
+          "55-74 WPM: strong everyday speed; typing rarely limits your work.",
+          "75-94 WPM: advanced. Requires clean chunking, confident symbols and consistent rhythm.",
+          "95 WPM and above: very fast. Accuracy and consistency matter more than another few WPM."
         ]
       },
       {
         "h2": "Why accuracy changes the meaning of the number",
         "p": [
-          "A score without accuracy is almost meaningless. 80 WPM at 88% accuracy means roughly one keystroke in eight is wrong, and the finished text needs heavy correction. 65 WPM at 99% produces clean text at a higher effective rate.",
-          "Accuracy is reported as ((keystrokes - errors) / keystrokes) x 100. When comparing yourself to anyone else, compare both numbers, or the comparison tells you nothing."
+          "A score without accuracy is almost meaningless. 80 WPM at 88% accuracy means roughly one keystroke in eight is wrong, and the finished text needs heavy correction. 65 WPM at 99% produces cleaner text, even though the raw speed is lower.",
+          "Accuracy is reported as ((keystrokes - errors) / keystrokes) x 100. When comparing yourself with anyone else, compare both numbers, or the comparison tells you nothing."
         ]
       },
       {
         "h2": "Test length matters too",
         "p": [
-          "A one minute score is often higher than the same typist's five minute score, because fatigue, lost focus and recovery from mistakes have not yet averaged in. That is why employers and exams use longer passages.",
-          "If you are quoting a number, say which length it came from. The honest, defensible figure is a three or five minute result, which is also the one worth putting on a CV."
+          "A one-minute score can be higher than the same typist's five-minute score, because fatigue, lost focus and recovery from mistakes have not yet averaged in. That is why employers and exams use longer passages.",
+          "If you are quoting a number, say which length it came from. The honest, defensible figure is a three- or five-minute result, which is also the one worth putting on a CV."
         ]
       },
       {
         "h2": "What is good for your situation",
         "ul": [
-          "Student: 40 WPM is enough for essays and notes; 55 WPM makes live note taking comfortable.",
-          "Office or administrative work: aim for 60 to 70 WPM at 98% accuracy.",
-          "Data entry: 60 to 80 WPM plus strong numeric keypad speed and accuracy above 98%.",
-          "Transcription: 75 WPM sustained is the realistic floor, because the audio sets the pace.",
-          "Software development: 50 to 70 WPM on prose, with symbol fluency mattering more than top speed.",
-          "Government typing exams: requirements vary. SSC CHSL 2025 LDC/JSA uses 35 WPM English or 30 WPM Hindi, while CPCT uses 30 WPM English or 25 WPM Hindi. Check your own notification."
+          "Student: 40 WPM is a practical target for essays and notes; 55 WPM gives more headroom for live note taking.",
+          "Office or administrative work: 50-70 WPM at high accuracy is comfortable; some job listings ask for a minimum around 40 WPM.",
+          "Data entry: speed plus numeric keypad accuracy; check the employer's test rather than assuming one number.",
+          "Transcription: sustained speed matters because the audio sets the pace.",
+          "Software development: prose speed helps, but symbol fluency and accuracy matter more than a top WPM.",
+          "Government typing exams: requirements vary by post and year. Use the government jobs guide and your own notification."
         ],
-        "sources": [
-          { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" },
-          { "label": "CPCT score card (qualifying net speed)", "url": "https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf" }
-        ]
+        "links": [
+          {
+            "to": "/blog/typing-speed-required-government-jobs-india",
+            "label": "Compare government typing requirements",
+            "description": "SSC, CPCT, RRB and state recruitment in one table."
+          }
+        ],
+        "linksHeading": "Exam-specific targets"
       },
       {
         "h2": "What a good score is worth in practice",
         "p": [
-          "The real value of a higher WPM is not output volume, it is attention. When typing becomes automatic, your working memory is free for the thing you are actually doing: writing the argument, debugging the function, listening to the customer. That is why the jump from 40 to 65 WPM feels transformative while the jump from 90 to 110 feels cosmetic.",
-          "For most people, the sensible target is 65 WPM at 98% accuracy over five minutes, with confident numbers and punctuation. Reach that and typing stops being a limit on your work."
+          "The real value of a higher WPM is not output volume, it is attention. When typing becomes automatic, your working memory is free for the thing you are actually doing: writing the argument, debugging the function, listening to the customer.",
+          "For many office workers, a practical target is 50-65 WPM with high accuracy over five minutes, plus confident numbers and punctuation. Reach that and typing stops being a limit on your work."
         ]
       },
       {
         "h2": "How to raise your number",
         "p": [
-          "Take a one minute test for your daily benchmark and a five minute test weekly for the real figure. Spend most of your practice time on untimed drills with accuracy above 97%, add dedicated number and punctuation sessions twice a week, and use games to make the habit survive past day three.",
+          "Take a one-minute test for your daily benchmark and a five-minute test weekly for the real figure. Spend most of your practice time on untimed drills with high accuracy, add dedicated number and punctuation sessions twice a week, and use games to make the habit survive past day three.",
           "Track the trend rather than individual attempts. A single bad run means you are tired; four weeks of flat results means something in your technique needs attention."
+        ],
+        "links": [
+          {
+            "to": "/typing-test",
+            "label": "Take a typing speed test",
+            "description": "Start with a short test, then move to a longer duration."
+          },
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Take the 5-minute test",
+            "description": "The better figure for a CV or a progress check."
+          },
+          {
+            "to": "/typing-practice",
+            "label": "Use targeted practice drills",
+            "description": "Work on weak keys between measurements."
+          }
+        ],
+        "linksHeading": "Measure and practise"
+      },
+      {
+        "h2": "How to quote a score honestly",
+        "p": [
+          "Quote the duration and accuracy: '68 WPM at 98% accuracy over five minutes' is more useful than '68 WPM'.",
+          "Use the same test conditions when comparing attempts. A new keyboard, a different passage or a one-minute sprint can move the number by several WPM.",
+          "Do not present a practice score as an official exam result. Typinger's score is a correct-character practice score, not the exam client."
         ]
       }
     ],
     "faqs": [
-      { "q": "Is 60 WPM a good typing speed?", "a": "Yes. 60 WPM is above average and comfortably enough for nearly all office work, especially if your accuracy is above 97%." },
-      { "q": "Is 100 WPM impressive?", "a": "Very. 100 WPM is well above the commonly cited adult average, and at that level accuracy and rhythm matter far more than finger speed." },
-      { "q": "Which WPM should I put on my CV?", "a": "Quote a three or five minute result with its accuracy, for example 68 WPM at 98% accuracy over five minutes. It is honest and it is the format assessors recognise." },
-      { "q": "Why does my WPM vary so much between attempts?", "a": "Warm-up, fatigue, time of day, keyboard and passage difficulty all shift results by several words per minute. Use the trend across many attempts rather than a single score." }
+      {
+        "q": "Is 60 WPM a good typing speed?",
+        "a": "Yes, 60 WPM is a comfortable practical speed for many office tasks, especially with high accuracy. It is not a universal benchmark."
+      },
+      {
+        "q": "Is 100 WPM impressive?",
+        "a": "It is very fast for general use. At that level, accuracy and consistency matter more than another few WPM."
+      },
+      {
+        "q": "Which WPM should I put on my CV?",
+        "a": "Quote a three- or five-minute result with its accuracy, for example 68 WPM at 98% accuracy over five minutes. Say which test and duration produced it."
+      },
+      {
+        "q": "Why does my WPM vary so much between attempts?",
+        "a": "Warm-up, fatigue, time of day, keyboard and passage difficulty all shift results by several words per minute. Use the trend across many attempts rather than a single score."
+      },
+      {
+        "q": "What is the difference between WPM and net WPM?",
+        "a": "Gross WPM counts all typed characters; net WPM usually subtracts errors. Typinger reports correct-character WPM plus accuracy, which is a practice score. Check the exam's formula."
+      }
     ],
     "related": [
-      { "to": "/typing-test", "label": "Take a typing speed test" },
-      { "to": "/blog/average-typing-speed-by-age", "label": "Average typing speed by age" },
-      { "to": "/blog/what-is-a-good-typing-speed", "label": "Good typing speed for India and exams" },
-      { "to": "/leaderboard", "label": "See the Typinger leaderboards" }
+      {
+        "to": "/typing-test",
+        "label": "Take a typing speed test"
+      },
+      {
+        "to": "/blog/what-is-a-good-typing-speed",
+        "label": "Good typing speed for India and exams"
+      },
+      {
+        "to": "/blog/average-typing-speed-by-age",
+        "label": "What the age evidence shows"
+      },
+      {
+        "to": "/typing-test/5-minute",
+        "label": "Take a 5-minute benchmark"
+      },
+      {
+        "to": "/leaderboard",
+        "label": "See the Typinger leaderboards"
+      }
     ]
   },
   {
@@ -467,7 +682,7 @@
     "h1": "How to increase typing speed: a 30-day practice plan",
     "excerpt": "Speed is not one skill. It is accuracy, finger control and rhythm holding up under a timer. This 30-day plan builds all three without turning practice into random speed tests.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
     "readingTime": "8 min read",
     "tags": [
@@ -485,7 +700,7 @@
       {
         "h2": "Step 1: Measure your real baseline",
         "p": [
-          "Before trying to improve, take three typing tests on the same day. Use one short test to warm up and two longer tests to measure your normal pace. Record three numbers: net WPM, accuracy and the keys or words that caused the most errors.",
+          "Before trying to improve, take three typing tests on the same day. Use one short test to warm up and two longer tests to measure your normal pace. Record three numbers: correct-character WPM (or the exam's net figure), accuracy and the keys or words that caused the most errors.",
           "A single 15-second sprint can make your speed look better than it really is. If your goal is an exam or office work, use a 5-minute or 10-minute test because it measures whether you can hold your speed without accuracy collapsing.",
           "Your baseline might look like this: 27 WPM, 91% accuracy, frequent errors on R, T, P and punctuation. That is more useful than simply saying 'I am slow', because you now know what to train."
         ]
@@ -519,7 +734,7 @@
           },
           {
             "h3": "Days 15-21: Controlled speed work",
-            "p": "Push slightly above your comfortable speed for short intervals. Do three 1-minute runs with a short break between them, then return to a 5-minute or 10-minute passage at a controlled pace. If accuracy drops below about 92%, reduce speed."
+            "p": "Push slightly above your comfortable speed for short intervals. Do three 1-minute runs with a short break between them, then return to a 5-minute or 10-minute passage at a controlled pace. If accuracy drops below about 95%, reduce speed."
           },
           {
             "h3": "Days 22-30: Test like the real task",
@@ -566,7 +781,7 @@
     "faqs": [
       {
         "q": "How long does it take to increase typing speed?",
-        "a": "It depends on your starting point and how consistently you practise. Many beginners see early gains within two to four weeks, while a larger jump usually takes several months of regular accuracy-first practice."
+        "a": "It depends on your starting point and how consistently you practise. Early practice often brings quick gains in control, while larger speed gains take longer. Track your own trend rather than relying on a fixed timeline."
       },
       {
         "q": "Can I reach 40 WPM in 30 days?",
@@ -607,13 +822,13 @@
   {
     "slug": "what-is-a-good-typing-speed",
     "title": "What Is a Good Typing Speed? WPM Benchmarks in India (2026)",
-    "description": "What is a good typing speed in WPM? Compare practical benchmarks for beginners, students, office work and Indian government typing exams.",
+    "description": "What is a good typing speed in WPM? Compare practical targets for study, office work and Indian exams, and interpret your own WPM, accuracy and test length.",
     "h1": "What is a good typing speed? WPM benchmarks for India",
-    "excerpt": "A good typing speed is the speed your actual task needs, at an accuracy you can sustain. Here are practical benchmarks for students, office work and Indian government exams.",
+    "excerpt": "There is no single good WPM. A useful target depends on the task, the test length and your accuracy. Use the practical bands, reference table and interpreter below to read your own result.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
-    "readingTime": "7 min read",
+    "readingTime": "8 min read",
     "tags": [
       "wpm",
       "benchmarks",
@@ -622,93 +837,236 @@
     "blocks": [
       {
         "p": [
-          "A good typing speed depends on what you need to do. A student writing assignments, an office assistant, a programmer and an SSC candidate can all have different targets.",
-          "The most useful way to judge your speed is to compare it with the task in front of you. For everyday typing, 40 WPM with high accuracy can feel comfortable. For some government examinations, a specific minimum such as 35 WPM in English is what matters. For competitive typing, much higher scores are possible, but they are not necessary for most people."
+          "A good typing speed is the speed your actual task needs, at an accuracy you can sustain. For everyday office work, 40-50 WPM at 95%+ accuracy is a practical target. For study and entry-level tasks, 30-40 WPM is functional. Indian government exams set exact cutoffs, so the notification for your post is the only number that decides a result.",
+          "The table and interpreter below help you place a result. They are educational guides, not population percentiles or exam simulations."
         ]
       },
       {
-        "h2": "What does WPM mean?",
+        "h2": "Typing speed targets at a glance",
         "p": [
-          "WPM means words per minute. Typing tests usually standardise one word as five keystrokes or characters, including spaces. That makes it possible to compare typing speed even when the passage contains words of different lengths.",
-          "Two results matter: gross WPM and net WPM. Gross WPM measures how much you typed. Net WPM adjusts for errors or only counts correct output, depending on the test. If you are preparing for an exam, use the exam's own scoring method rather than assuming every website calculates mistakes the same way."
+          "Use this table to find the right kind of target. The exam rows are official requirements from the named notices; the everyday rows are practical learning targets, not statistical averages."
+        ],
+        "table": {
+          "caption": "Common typing targets and reference points (verify exam rules in your own notification)",
+          "columns": [
+            "Task or test",
+            "Target",
+            "Duration",
+            "What it means"
+          ],
+          "rows": [
+            [
+              "Everyday email and notes",
+              "40 WPM at 95%+ accuracy",
+              "3-5 minutes",
+              "Comfortable for regular writing and office communication."
+            ],
+            [
+              "Study and assignments",
+              "30-40 WPM",
+              "3-5 minutes",
+              "Reduces the friction of notes, essays and online answers."
+            ],
+            [
+              "Office and administrative work",
+              "40-50 WPM",
+              "5 minutes",
+              "A common practical target; some roles test higher or add numeric entry."
+            ],
+            [
+              "SSC CHSL LDC/JSA (2026)",
+              "35 WPM English / 30 WPM Hindi",
+              "10 minutes",
+              "Official skill-test requirement; Hindi typing in Mangal font."
+            ],
+            [
+              "MP CPCT typing module",
+              "30 NWPM English / 20 NWPM Hindi",
+              "15 minutes",
+              "Minimum passing band in the published rulebook."
+            ],
+            [
+              "RRB NTPC typist posts (historical)",
+              "30 WPM English / 25 WPM Hindi",
+              "10 minutes",
+              "CEN 06/2025 standard; the 2026 CENs dispensed CBTST for the notified posts."
+            ]
+          ]
+        },
+        "sources": [
+          {
+            "label": "SSC CHSL 2026 notice (LDC/JSA: 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font; DEO key-depression rules)",
+            "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
+          },
+          {
+            "label": "MP CPCT rulebook V1.3 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
+            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf"
+          },
+          {
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
+          },
+          {
+            "label": "CEN 06/2026 (graduate NTPC) official notification",
+            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+          },
+          {
+            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
+          },
+          {
+            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
+            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+          }
         ]
+      },
+      {
+        "h2": "Check what your result means",
+        "p": [
+          "Enter the WPM, accuracy and duration from a test you have taken. The widget interprets the numbers against the practical bands below. It does not estimate a percentile or decide whether you pass a specific exam."
+        ],
+        "widget": "wpm-interpreter"
+      },
+      {
+        "h2": "What WPM means - and which WPM this site reports",
+        "p": [
+          "WPM means words per minute. Typing tests standardise a word as five characters, including spaces, so passages with different word lengths can be compared. Typinger uses the formula WPM = (correct characters / 5) / (seconds / 60).",
+          "That is a correct-character score, not gross WPM. Gross WPM counts every character you typed; a separately calculated net WPM usually subtracts errors. Typinger reports correct-character WPM and accuracy = ((keystrokes - errors) / keystrokes) x 100, so a corrected mistake still counts against accuracy. If an exam publishes its own net-speed formula, use the exam's formula.",
+          "For a longer, steadier measurement, take the 5-minute typing test. For exam preparation, use the full duration in your notification."
+        ],
+        "links": [
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Take the 5-minute typing test",
+            "description": "A sustained result is more useful than a one-minute burst."
+          },
+          {
+            "to": "/typing-test/1-minute",
+            "label": "Take the 1-minute test",
+            "description": "Use it as a warm-up or a quick pace check."
+          }
+        ],
+        "linksHeading": "Measure your own result"
       },
       {
         "h2": "Practical WPM bands",
         "p": [
-          "These are useful learning bands, not universal rules. Different tests and employers will place the boundaries elsewhere."
+          "These bands are illustrative learning labels used on this page, not population averages or percentiles. Different tests and employers draw the boundaries elsewhere."
         ],
         "ul": [
-          "Under 20 WPM: beginner level. Focus on key familiarity and correct finger use.",
-          "20-30 WPM: developing. You can type normal text, but you may still look at the keyboard often.",
-          "30-40 WPM: functional for many study and entry-level office tasks.",
-          "40-50 WPM: comfortable for regular writing, email and documentation.",
-          "50-70 WPM: fast for everyday professional use if accuracy remains high.",
-          "70+ WPM: advanced for most general users."
+          "Under 20 WPM: starting out. Focus on key familiarity, the home row and clean keystrokes.",
+          "20-29 WPM: developing. You can type normal text, but you may still look at the keyboard often.",
+          "30-39 WPM: functional for many study and entry-level tasks.",
+          "40-49 WPM: comfortable for regular email, notes and office work.",
+          "50-69 WPM: fast for everyday professional use if accuracy remains high.",
+          "70 WPM and above: very fast for general use. Gains now come from consistency, symbols and accuracy."
         ]
       },
       {
         "h2": "What is a good typing speed for students?",
         "p": [
-          "For school and college students, a sustainable 30-40 WPM is a useful early target because it reduces the friction of writing assignments, notes and online answers. Once you can type without looking down, moving toward 40-50 WPM makes longer writing tasks feel much easier.",
-          "Students should not obsess over very high WPM. The bigger advantage comes from being able to think about the answer while the hands type automatically."
-        ]
+          "For school and college students, a sustainable 30-40 WPM is a useful early target because it reduces the friction of writing assignments, notes and online answers. Once you can type without looking down, moving toward 40-50 WPM makes longer writing tasks easier.",
+          "Do not chase a very high WPM at the expense of accuracy. The bigger advantage is being able to think about the answer while your hands type automatically."
+        ],
+        "links": [
+          {
+            "to": "/typing-lessons",
+            "label": "Start the touch typing lessons",
+            "description": "A structured route from the home row to full sentences."
+          },
+          {
+            "to": "/typing-practice/beginners",
+            "label": "Try the beginner practice drill",
+            "description": "Short, low-pressure practice for new finger patterns."
+          }
+        ],
+        "linksHeading": "Build the habit"
       },
       {
         "h2": "What is a good typing speed for office jobs?",
         "p": [
-          "For roles that involve regular emails, data entry, support, documentation or administrative work, 40-50 WPM with strong accuracy is a practical target. Some employers may set their own typing tests, and data-entry roles can demand higher sustained speed or specialised numeric entry.",
-          "If a job description specifies a minimum WPM, treat that as the real target. Practise above the minimum so you have a buffer for exam-day pressure, an unfamiliar keyboard and a harder passage."
+          "For regular email, data entry, support, documentation or administrative work, 40-50 WPM with strong accuracy is a practical target. Some employers set their own tests, and data-entry roles can require higher sustained speed or numeric keypad skill.",
+          "If a job description specifies a minimum, treat that as the real target. Practise above it so an unfamiliar keyboard or a harder passage does not push you below the line."
         ]
       },
       {
         "h2": "Government exam benchmarks in India",
         "p": [
-          "Government recruitment is where good becomes a formal number. The exact requirement depends on the notification and post.",
-          "For SSC CHSL LDC/JSA, the 2026 notice lists 35 WPM for English and 30 WPM for Hindi, judged on a 10-minute passage. Previous RRB NTPC recruitment cycles for typist-designated posts have used 30 WPM in English or 25 WPM in Hindi, but candidates must verify the current CEN because railway recruitment rules can change by cycle. The 2026 RRB NTPC cycle has removed the CBTST for the notified typist posts, so do not prepare from an old speed figure without checking your own notification.",
-          "Madhya Pradesh CPCT uses separate net typing requirements: 30 NWPM for English and 20 NWPM for Hindi in the published rulebook. The typing modules run for 15 minutes and allow Remington GAIL or InScript on Unicode. Some CPCT score cards have shown 25 WPM as the 50% Hindi mark, so verify the current CPCT documentation.",
-          "These figures can change by recruitment cycle, so always verify your own official notice. Do not prepare from a random average typing speed chart when the exam gives an exact standard."
+          "Government recruitment is where a good speed becomes a formal number. The requirement depends on the recruiting body, post, language, test duration and error rule. The 2026 SSC CHSL LDC/JSA notice lists 35 WPM in English or 30 WPM in Hindi over 10 minutes, with Hindi typing in Mangal font.",
+          "The MP CPCT rulebook sets a 50% minimum passing score. Its typing modules use 30 NWPM English and 20 NWPM Hindi as the minimum passing band, over 15-minute modules. The Hindi 50% band runs from 20 to 25 NWPM, so 25 NWPM is the top of that band, not the pass mark.",
+          "RRB rules are cycle-specific. CEN 06/2025 used 30 WPM English or 25 WPM Hindi over a 10-minute evaluated test for designated typist posts. The 2026 RRB NTPC CENs (06/2026 and 07/2026) dispensed with CBTST for the notified typist posts, so do not prepare from the historical figure as if it were the current requirement.",
+          "The table above is a starting point; the official notice is the source of truth. If your exam has a typing stage, practise the exact duration and correction rules."
         ],
         "sources": [
           {
-            "label": "SSC CHSL 2026 notice (LDC/JSA typing test, 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font)",
+            "label": "SSC CHSL 2026 notice (LDC/JSA: 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font; DEO key-depression rules)",
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
           },
           {
-            "label": "Railway Recruitment Board - official CEN and notification portal",
-            "url": "https://rrb.indianrailways.gov.in/"
+            "label": "MP CPCT rulebook V1.3 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
+            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf"
           },
           {
-            "label": "MP CPCT rulebook (30 NWPM English, 20 NWPM Hindi, 15-minute typing modules)",
-            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf"
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
+          },
+          {
+            "label": "CEN 06/2026 (graduate NTPC) official notification",
+            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+          },
+          {
+            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
+          },
+          {
+            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
+            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+          },
+          {
+            "label": "Railway Recruitment Board official CEN and notification portal",
+            "url": "https://rrb.indianrailways.gov.in/"
           }
-        ]
+        ],
+        "links": [
+          {
+            "to": "/government-exam-typing-test",
+            "label": "Practise a 10-minute exam passage",
+            "description": "Longer formal text with speed and accuracy scoring."
+          },
+          {
+            "to": "/blog/typing-speed-required-government-jobs-india",
+            "label": "Compare government job requirements",
+            "description": "A notice-by-notice table for SSC, CPCT, RRB and state recruitment."
+          }
+        ],
+        "linksHeading": "Go deeper"
       },
       {
         "h2": "Is 30 WPM good?",
         "p": [
-          "Thirty WPM is a meaningful milestone. It shows you are moving beyond hunt-and-peck typing and can handle many basic tasks. It is also around the range used in several Indian exam standards, especially Hindi or lower-threshold typing tests.",
-          "If you are at 30 WPM, the next goal should usually be 35-40 WPM while keeping accuracy above 95%."
+          "Thirty WPM is a meaningful milestone. It shows you are moving beyond hunt-and-peck typing and can handle many basic tasks. It also sits at or near the minimum band for some Indian exam standards, including the CPCT English requirement and the historical RRB English requirement.",
+          "If you are at 30 WPM, the next goal is usually 35-40 WPM while keeping accuracy high. Test a full 10-minute passage before assuming you can hold it in an exam."
         ]
       },
       {
         "h2": "Is 40 WPM good?",
         "p": [
-          "For general use, yes. Forty WPM is fast enough that typing stops feeling like the main bottleneck for many people. It is also above some government exam minimums, although you must still follow the exact rules, duration and language of the test you are taking.",
+          "For general use, yes. Forty WPM is fast enough that typing stops being the main bottleneck for many people. It is above some government exam minimums, but you must still follow the exact rules, duration and language of your test.",
           "A 40 WPM score on a one-minute test is not automatically the same as 40 WPM over ten minutes. Always test your sustained speed."
         ]
       },
       {
         "h2": "Is 50 WPM good?",
         "p": [
-          "Fifty WPM with good accuracy is a strong everyday typing speed. At that pace, you can produce around 500 standardised words in ten minutes before error adjustments. It gives you a comfortable buffer above common 30-35 WPM exam thresholds."
+          "Fifty WPM with good accuracy is a strong everyday typing speed. At that pace you can produce around 500 standardised words in ten minutes before error adjustments. It gives you a comfortable buffer above common 30-35 WPM exam thresholds.",
+          "The buffer matters most in the final minutes, when fatigue and unfamiliar exam keyboards tend to lower output."
         ]
       },
       {
         "h2": "Accuracy changes the meaning of speed",
         "p": [
-          "Suppose two people both show 45 gross WPM. One has 98% accuracy; the other has 88%. The first person is likely producing far more usable text and spending less time correcting mistakes.",
-          "That is why your result page should never be reduced to one giant WPM number. Track accuracy, error count and consistency too."
+          "Suppose two people both show 45 correct-character WPM. One has 98% accuracy; the other has 88%. The first is making fewer corrections for the same displayed speed, so less of the session is spent fixing errors.",
+          "That is why a result should never be reduced to one giant WPM number. Track accuracy, error count and consistency too. If accuracy is below about 95%, treat the speed as provisional and work on clean keystrokes before adding more pace."
         ]
       },
       {
@@ -716,13 +1074,26 @@
         "p": [
           "Take one short warm-up, then complete two 5-minute tests. Use the average of the two longer tests as your normal speed. If you are preparing for a 10-minute exam, test yourself for the full ten minutes at least twice per week.",
           "Repeat the measurement under similar conditions: same keyboard, same test duration and similar passage difficulty. That gives you a trend you can trust."
-        ]
+        ],
+        "links": [
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Take a 5-minute benchmark",
+            "description": "The practical default for a sustained result."
+          },
+          {
+            "to": "/blog/how-to-improve-typing-accuracy",
+            "label": "Fix accuracy before adding speed",
+            "description": "Drills for the errors that make a fast score unusable."
+          }
+        ],
+        "linksHeading": "Next step"
       },
       {
         "h2": "The best target is a task-specific target",
         "p": [
           "There is no single WPM score that makes someone a good typist. A better question is: can you type fast enough for your real task while staying accurate?",
-          "Use Typinger to measure your current WPM, choose a target that matches your study, job or exam goal, and then practise until you can reproduce that score consistently rather than hitting it once."
+          "Choose a target that matches your study, job or exam goal, then practise until you can reproduce that score consistently rather than hitting it once. If you are preparing for a government test, keep the official notice open and train the exact language, duration and font."
         ]
       }
     ],
@@ -733,19 +1104,23 @@
       },
       {
         "q": "Is 30 WPM good for government jobs?",
-        "a": "It can meet some Hindi or lower-threshold typing tests, but SSC CHSL English requires 35 WPM. Always check the exact notification for your post, language and test duration."
+        "a": "It can meet some Hindi or lower-threshold typing tests, including the CPCT English minimum band and historical RRB standards. SSC CHSL English requires 35 WPM. Always check the exact notification for your post, language and test duration."
       },
       {
         "q": "Is 40 WPM enough for SSC CHSL?",
-        "a": "Forty WPM gives you a small buffer above the 35 WPM English requirement, but you should be able to hold it for ten minutes with high accuracy. Aim for a stable 40+ rather than a one-minute peak."
+        "a": "Forty WPM gives you a small buffer above the 35 WPM English requirement, but you should hold it for ten minutes with high accuracy. Aim for a stable 40+ rather than a one-minute peak."
       },
       {
         "q": "What is the average typing speed?",
-        "a": "Many typing tutors cite around 40 WPM as a rough adult average, but the number varies by source and test method. When an exam or employer gives a cutoff, use that instead of an average."
+        "a": "There is no single verified population average. Published figures use different samples, durations and scoring methods. Use the target for your task or exam instead of an average, and compare your own results over time."
       },
       {
         "q": "Does 10-minute typing speed matter more than 1-minute speed?",
         "a": "For exams and real work, yes. A one-minute score shows short-burst speed; a ten-minute score shows whether you can sustain accuracy and rhythm under fatigue."
+      },
+      {
+        "q": "How does Typinger calculate WPM?",
+        "a": "Typinger uses correct characters divided by 5, divided by minutes elapsed. Accuracy is (keystrokes - errors) divided by keystrokes. This is a correct-character score, not gross WPM; an exam may use a different formula."
       }
     ],
     "related": [
@@ -755,15 +1130,19 @@
       },
       {
         "to": "/government-exam-typing-test",
-        "label": "Practise a 10 minute exam passage"
+        "label": "Practise a 10-minute exam passage"
       },
       {
         "to": "/blog/what-is-a-good-wpm-score",
-        "label": "Compare WPM benchmarks"
+        "label": "How to read a WPM score"
       },
       {
         "to": "/blog/average-typing-speed-by-age",
-        "label": "Average typing speed by age"
+        "label": "What the age evidence shows"
+      },
+      {
+        "to": "/blog/typing-speed-required-government-jobs-india",
+        "label": "Government typing speed requirements"
       }
     ]
   },
@@ -774,7 +1153,7 @@
     "h1": "English typing test: how to use 1, 5 and 10 minute tests",
     "excerpt": "A one-minute test measures a sprint. A ten-minute test measures exam readiness. Use each duration for the question it can actually answer.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
     "readingTime": "7 min read",
     "tags": [
@@ -792,8 +1171,8 @@
       {
         "h2": "What an online English typing test measures",
         "p": [
-          "A useful typing test should show at least net WPM, accuracy, total errors and test duration. Some platforms also show gross WPM, problem keys or a comparison with a target speed.",
-          "WPM is usually standardised around five keystrokes per word. This avoids the problem of one passage containing many short words while another contains long words.",
+          "A useful typing test should show a clear speed figure, accuracy, total errors and test duration. Check whether that speed is gross, net or correct-character, because the labels are not interchangeable. Some platforms also show problem keys or a comparison with a target speed.",
+          "WPM is usually standardised around five characters per word, including spaces. This avoids the problem of one passage containing many short words while another contains long words.",
           "The exact error formula can vary. That matters for government exams, where full mistakes, half mistakes, ignored error percentages or disabled editing keys may affect the final result."
         ]
       },
@@ -816,7 +1195,7 @@
       {
         "h2": "When to use a 10-minute typing test",
         "p": [
-          "Ten minutes is important for sustained performance. It matches the SSC CHSL LDC/JSA typing test and has also been used in previous Railway Recruitment Board typing-skill-test cycles for relevant typist posts.",
+          "Ten minutes is important for sustained performance. It matches the SSC CHSL LDC/JSA typing test. CEN 06/2025 also used a 10-minute qualifying CBTST for designated RRB NTPC typist posts, but CEN 06/2026 and CEN 07/2026 dispensed with that test for the notified posts, so check your own cycle.",
           "The challenge is not simply staying fast. You must keep your concentration and accuracy stable for the entire passage. Many learners start too aggressively, make mistakes in the first two minutes and spend the rest of the test recovering.",
           "Practise pacing. The first minute should feel controlled, not like a sprint."
         ],
@@ -824,6 +1203,14 @@
           {
             "label": "SSC CHSL 2026 notice (LDC/JSA typing test, 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font)",
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
+          },
+          {
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for the notified typist posts",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
+          },
+          {
+            "label": "CEN 06/2025 (published copy), para 13.4: 10-minute qualifying CBTST at 30 WPM English / 25 WPM Hindi",
+            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
           }
         ]
       },
@@ -831,7 +1218,7 @@
         "h2": "What is a good English typing test score?",
         "p": [
           "For a beginner, 20-30 WPM is a reasonable development stage. Around 30-40 WPM is functional for many tasks, and 40-50 WPM is comfortable for regular study and office work. Higher scores are useful, but accuracy still matters.",
-          "If you are preparing for an exam, ignore generic labels like average or fast and compare your result with the official minimum for your recruitment. For example, SSC CHSL LDC/JSA uses 35 WPM in English in its 2026 notice. Previous RRB NTPC typist-post instructions have used 30 WPM in English, but the current recruitment notification must always be checked before treating that figure as active. Your safe practice target should be above the applicable minimum, not exactly on it."
+          "If you are preparing for an exam, ignore generic labels like average or fast and compare your result with the official minimum for your recruitment. For example, SSC CHSL LDC/JSA uses 35 WPM in English in its 2026 notice. Earlier RRB NTPC typist-post instructions used 30 WPM in English, but the 2026 CENs dispensed CBTST for the notified posts, so check your own cycle before treating that figure as active. Your safe practice target should be above the applicable minimum, not exactly on it."
         ],
         "sources": [
           {
@@ -841,6 +1228,10 @@
           {
             "label": "Railway Recruitment Board - official CEN and notification portal",
             "url": "https://rrb.indianrailways.gov.in/"
+          },
+          {
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for the notified typist posts",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
           }
         ]
       },
@@ -1129,13 +1520,13 @@
   {
     "slug": "rrb-ntpc-typing-test",
     "title": "RRB NTPC Typing Test 2026: Current Status & Previous Rules",
-    "description": "RRB NTPC 2026 removed the typing test for notified posts. Check your CEN, see previous 30 WPM English / 25 WPM Hindi rules and how to prepare.",
+    "description": "RRB NTPC 2026 dispensed CBTST for the notified typist posts. See the CEN evidence, affected posts, and the previous 30 WPM English / 25 WPM Hindi rules.",
     "h1": "RRB NTPC typing test: current status, previous rules and practice",
-    "excerpt": "The most important RRB NTPC typing question in 2026 is whether your post still has a typing stage. Start with the current CEN, then use previous-cycle rules only as historical practice guidance.",
+    "excerpt": "The 2026 RRB NTPC CENs dispensed with the Computer Based Typing Skill Test for the notified typist posts. Check your post in the evidence table, then use previous-cycle rules only as historical practice guidance.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
-    "readingTime": "6 min read",
+    "readingTime": "8 min read",
     "tags": [
       "rrb ntpc",
       "government exam",
@@ -1144,63 +1535,156 @@
     "blocks": [
       {
         "p": [
-          "RRB NTPC typing requirements are not a rule you should copy from an old blog and assume will remain unchanged. Railway Recruitment Board notifications can change the posts, recruitment stages and skill-test requirements from one CEN to another.",
-          "The safest page therefore answers both questions users actually have: does my current RRB NTPC cycle include a typing test, and if my post has one, how should I prepare?"
+          "For the 2026 cycle, the important answer is a status check: CEN 06/2026 and CEN 07/2026 dispensed with the Computer Based Typing Skill Test (CBTST) for the typist posts named in those notices. If your post is one of them, there is no typing stage in this cycle.",
+          "If you are checking an older cycle or a different RRB post, the typing stage may still exist. The official CEN for your post, language and year is the only source that decides it."
         ]
       },
       {
-        "h2": "Current status: check your CEN first",
+        "h2": "Current status: which posts still have a typing stage?",
         "p": [
-          "For the 2026 recruitment cycle, the RRB NTPC notifications (CEN 06/2026 for graduate posts and CEN 07/2026 for undergraduate posts) have removed the Computer Based Typing Skill Test (CBTST) for the notified typist posts.",
-          "That means candidates should not assume the typing stage still applies. Open the official notification for your exact CEN and post, and read the recruitment process and skill-test section.",
-          "If the current CEN does not list CBTST for your post, do not prepare from an old typing-test article as though the stage still applies. If a future or different CEN lists it, confirm the exact post name, language options, minimum speed, test duration, editing restrictions and mistake rules."
+          "The two 2026 NTPC notices cover different posts. The table separates what each notice says from the historical rules that candidates still find online."
+        ],
+        "table": {
+          "caption": "RRB NTPC typing status by CEN. Always confirm your post in the official notification.",
+          "columns": [
+            "CEN",
+            "Posts affected",
+            "Typing stage in 2026",
+            "Evidence"
+          ],
+          "rows": [
+            [
+              "CEN 06/2026 (graduate)",
+              "Junior Accounts Assistant cum Typist; Senior Clerk cum Typist",
+              "CBTST dispensed",
+              "PIB release, 11 October 2026"
+            ],
+            [
+              "CEN 07/2026 (undergraduate)",
+              "Junior Clerk cum Typist; Accounts Clerk cum Typist",
+              "Typing skill test dispensed (para 13(c))",
+              "Detailed CEN 07/2026"
+            ],
+            [
+              "CEN 06/2025 (previous cycle)",
+              "Designated typist posts",
+              "30 WPM English / 25 WPM Hindi, 10-minute qualifying CBTST",
+              "CEN 06/2025, para 13.4"
+            ]
+          ]
+        },
+        "sources": [
+          {
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
+          },
+          {
+            "label": "CEN 06/2026 (graduate NTPC) official notification",
+            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+          },
+          {
+            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
+          },
+          {
+            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
+            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+          },
+          {
+            "label": "Railway Recruitment Board official CEN and notification portal",
+            "url": "https://rrb.indianrailways.gov.in/"
+          }
+        ]
+      },
+      {
+        "h2": "What changed in 2026",
+        "p": [
+          "The 2026 notices changed the skill-test requirement for the notified typist posts; they did not remove the need for basic computer and typing proficiency on the job. The PIB release says candidates are expected to possess basic computer and typing proficiency, which will be assessed after joining, as specified in the notification.",
+          "That distinction matters: no CBTST stage is not the same as no typing skill. If you are preparing for another exam or for office work, the practice is still useful.",
+          "CEN 06/2026 is the graduate NTPC notice; CEN 07/2026 is the undergraduate notice. Both belong to the 2026 recruitment cycle."
         ],
         "sources": [
           {
-            "label": "Railway Recruitment Board - official CEN and notification portal",
-            "url": "https://rrb.indianrailways.gov.in/"
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
+          },
+          {
+            "label": "CEN 06/2026 (graduate NTPC) official notification",
+            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+          },
+          {
+            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
           }
         ]
       },
       {
         "h2": "Previous RRB NTPC typing rules (historical reference)",
         "p": [
-          "Previous RRB NTPC typist-post instructions are still useful for understanding the kind of skill that railway typing tests have measured. Earlier official cycles used computer-based typing, qualifying cutoffs and restrictions that made clean, sustained typing more important than short one-minute speed bursts.",
-          "A previous official RRB cycle used 30 WPM English and 25 WPM Hindi benchmarks for relevant typist posts over a 10-minute evaluated test. Earlier instructions also described mistake treatment and limits on editing.",
-          "These details are valuable for practice design, but they should be labelled with their notification year instead of presented as permanent 2026 rules. The official CEN for your cycle always overrides a previous guide."
+          "Earlier cycles are still useful for understanding the skill the railway test measured. CEN 06/2025, para 13.4, set a qualifying CBTST for Senior Clerk cum Typist and Junior Accounts Assistant cum Typist: 30 WPM in English or 25 WPM in Hindi on a personal computer, without editing tools or spell check. The test was qualifying, not part of the merit list.",
+          "The notice said Hindi candidates must be familiar with Kruti Dev or Mangal, and it set out exemptions for candidates with specified disabilities. Those details belong to that cycle; do not assume they carry into 2026.",
+          "If you are practising for a different RRB CEN that still lists CBTST, use its exact duration, font, editing rules and mistake treatment. A historical 30/25 target is useful for practice design, not as proof of a current requirement."
         ],
         "sources": [
           {
-            "label": "RRB Chandigarh - CBTST special instructions, CEN 05/2024 (previous-cycle typing rules)",
-            "url": "https://www.rrbcdg.gov.in/uploads/2024/05-NTPCG/052024-CBTST_Instructions.pdf"
+            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
+            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+          },
+          {
+            "label": "RRB Chandigarh CBTST special instructions, CEN 05/2024 (archived copy)",
+            "url": "https://web.archive.org/web/2025/https://www.rrbcdg.gov.in/uploads/2024/05-NTPCG/052024-CBTST_Instructions.pdf"
           }
         ]
       },
       {
-        "h2": "Why the current status matters",
+        "h2": "If your current CEN still includes a typing test",
         "p": [
-          "Candidates searching for the RRB NTPC typing test usually want a yes-or-no answer first. This page states the current notification status up front, then explains previous rules and offers a matching practice mode. That is more useful than a generic article that only repeats 30 WPM and 25 WPM without saying which cycle it applies to.",
-          "If the current cycle has no typing stage for your post, the page should explain the change, link to the official notice and offer general typing practice only as an optional computer-skill exercise. It should not pretend the test is still an exam requirement."
-        ]
-      },
-      {
-        "h2": "If the current cycle does include a typing test",
-        "p": [
-          "Build a buffer above the official cutoff rather than aiming to touch the minimum once. Use the exact official duration for your full simulations and track net WPM, accuracy or mistake count, and consistency.",
-          "Train with the same correction rules described in the notification. If editing is restricted, add controlled no-correction sessions so the exam interface does not feel unfamiliar."
-        ]
+          "Build a buffer above the official cutoff rather than aiming to touch the minimum once. Use the exact official duration for full simulations and track correct-character WPM, accuracy, error count and consistency.",
+          "Train with the correction rules described in your notification. If editing is restricted, add controlled no-correction sessions so the exam interface does not feel unfamiliar."
+        ],
+        "links": [
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Take a 5-minute practice test",
+            "description": "A useful benchmark before moving to the full exam duration."
+          },
+          {
+            "to": "/government-exam-typing-test",
+            "label": "Practise a 10-minute exam passage",
+            "description": "Formal text at the length used by several Indian skill tests."
+          },
+          {
+            "to": "/hindi-typing-test",
+            "label": "Practise Hindi typing",
+            "description": "Devanagari practice for candidates whose CEN allows Hindi."
+          }
+        ],
+        "linksHeading": "Practise the right format"
       },
       {
         "h2": "English practice plan",
         "p": [
           "Use short drills to improve weak keys and punctuation, then complete full-duration passages at a pace you can sustain. Speed intervals can raise your ceiling, but the main benchmark should match the official test length for your cycle.",
           "Do not repeatedly restart a bad attempt. Finish it, review where speed fell or errors increased, and record the result."
-        ]
+        ],
+        "links": [
+          {
+            "to": "/typing-practice",
+            "label": "Use targeted practice drills",
+            "description": "Work on weak keys between full-length tests."
+          },
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Measure sustained English speed",
+            "description": "Five minutes is long enough to expose fatigue."
+          }
+        ],
+        "linksHeading": "Build speed that lasts"
       },
       {
         "h2": "Hindi practice plan",
         "p": [
-          "For Hindi, verify the font and keyboard layout stated in the current notification. Do not assume that Mangal, Kruti Dev, InScript or Remington are interchangeable; the allowed setup must come from the official recruitment instructions.",
+          "For Hindi, verify the font and keyboard layout stated in the current notification. Do not assume Mangal, Kruti Dev, InScript and Remington are interchangeable; the allowed setup must come from the official instructions.",
           "Once the correct layout is known, keep it stable during final preparation. Repetition is what makes matras, conjuncts and difficult character combinations automatic."
         ]
       },
@@ -1224,44 +1708,62 @@
       {
         "h2": "What to track",
         "p": [
-          "Keep four columns: date, net WPM, accuracy or mistake count, and notes. Notes such as spacing errors, speed fell late or Hindi matras weak turn practice into diagnosis.",
+          "Keep four columns: date, correct-character WPM (or the exam's net figure), accuracy or mistake count, and notes. Notes such as spacing errors, speed fell late or Hindi matras weak turn practice into diagnosis.",
           "If you are practising for a current typing stage, compare your trend across full-length tests. A single lucky score is not evidence that you are ready."
         ]
       },
       {
         "h2": "Practise on Typinger",
         "p": [
-          "If your current CEN includes a typing test, use the 10-minute government exam typing test for English and the Hindi typing test for language practice. If it does not, use general English or Hindi practice and label it clearly as skill practice rather than an official RRB simulation."
-        ]
+          "If your current CEN includes a typing test, use the 10-minute government exam typing test for English and the Hindi typing test for language practice. If your post is covered by the 2026 dispensation, use the same tests as general computer-skill practice, not as an official RRB simulation."
+        ],
+        "links": [
+          {
+            "to": "/government-exam-typing-test",
+            "label": "Open the government exam typing test",
+            "description": "Longer passages with speed and accuracy scoring."
+          },
+          {
+            "to": "/hindi-typing-test",
+            "label": "Open the Hindi typing test",
+            "description": "Devanagari practice in the browser."
+          },
+          {
+            "to": "/typing-lessons",
+            "label": "Start touch typing lessons",
+            "description": "Build finger placement before chasing a railway cutoff."
+          }
+        ],
+        "linksHeading": "Choose a practice mode"
       },
       {
         "h2": "Final rule",
         "p": [
-          "Never treat an RRB speed requirement as current without the notification cycle beside it. Railway recruitment content is time-sensitive, and the official CEN always overrides a previous Typinger guide.",
-          "A current, sourced answer will build more trust than a page that keeps an old cutoff in the title after the recruitment process has changed."
+          "Never treat an RRB speed requirement as current without the notification cycle beside it. Railway recruitment content is time-sensitive, and the official CEN overrides any previous guide.",
+          "A current, sourced answer is more useful than an old cutoff that no longer applies to your post."
         ]
       }
     ],
     "faqs": [
       {
         "q": "Is there a typing test in RRB NTPC 2026?",
-        "a": "The 2026 RRB NTPC notifications removed the CBTST for the notified typist posts. Check your exact CEN and post in the official notification before preparing for a typing stage."
+        "a": "For the notified typist posts, no. CEN 06/2026 dispensed CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist (PIB, 11 October 2026). CEN 07/2026 dispensed the typing skill test for Junior Clerk cum Typist and Accounts Clerk cum Typist (para 13(c)). Check your exact post."
       },
       {
         "q": "What was the RRB NTPC typing speed in previous cycles?",
-        "a": "Previous official cycles used 30 WPM in English or 25 WPM in Hindi over a 10-minute evaluated test for designated typist posts. Treat those figures as historical unless your current CEN confirms them."
+        "a": "CEN 06/2025 set 30 WPM English or 25 WPM Hindi over a 10-minute qualifying CBTST for designated typist posts. Treat that as historical unless your current CEN confirms it."
       },
       {
         "q": "Which posts had typing tests in previous RRB NTPC cycles?",
-        "a": "Typing-skill tests were used for designated typist posts such as Senior Clerk cum Typist and Junior Accounts Assistant cum Typist in previous cycles. The exact list varies by CEN."
+        "a": "Designated typist posts such as Senior Clerk cum Typist and Junior Accounts Assistant cum Typist. The exact list varies by CEN."
       },
       {
         "q": "Which Hindi font or layout is allowed in the RRB typing test?",
-        "a": "Check the current CEN. Previous instructions allowed specific layouts such as Kruti Dev or Mangal in some cycles, but the allowed setup must come from your own notification."
+        "a": "Check the current CEN. CEN 06/2025 told Hindi candidates to be familiar with Kruti Dev or Mangal, but the allowed setup must come from your own notification."
       },
       {
         "q": "Should I still practise typing if the 2026 cycle removed CBTST?",
-        "a": "Typing is still a useful skill for computer-based work and other exams, but do not treat it as a requirement for a post that no longer has a typing stage. Practise as general skill development."
+        "a": "Yes, as general skill development. The notice dispensed with the test stage, but basic computer and typing proficiency is still expected on the job. It also helps for other exams."
       }
     ],
     "related": [
@@ -1278,6 +1780,10 @@
         "label": "Practise Hindi typing"
       },
       {
+        "to": "/blog/typing-speed-required-government-jobs-india",
+        "label": "Compare government typing speeds"
+      },
+      {
         "to": "/blog/ssc-chsl-typing-test-2026",
         "label": "Read the SSC CHSL 2026 guide"
       }
@@ -1290,7 +1796,7 @@
     "h1": "Hindi typing test: Mangal, Kruti Dev, InScript and Remington explained",
     "excerpt": "Hindi typing gets confusing because font, keyboard layout and encoding are three different things. Get those right before you chase WPM.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
     "readingTime": "7 min read",
     "tags": [
@@ -1354,14 +1860,22 @@
       {
         "h2": "Hindi typing speed targets in Indian exams",
         "p": [
-          "Different exams use different standards. The SSC CHSL 2026 notice lists 30 WPM for Hindi for LDC/JSA, with a 10-minute test and Mangal font only. Previous RRB NTPC typist-post cycles have used 25 WPM Hindi, but the active CEN must be checked before treating that as a current requirement; the 2026 RRB NTPC cycle has removed CBTST for the notified typist posts.",
-          "The MP CPCT rulebook uses a published minimum of 20 net WPM for Hindi typing certification. Its Hindi typing module runs for 15 minutes and allows Remington GAIL or InScript on Unicode. Some CPCT score cards have shown 25 WPM as the 50% Hindi mark, so verify the current CPCT documentation.",
+          "Different exams use different standards. The SSC CHSL 2026 notice lists 30 WPM for Hindi for LDC/JSA, with a 10-minute test and Mangal font only. Earlier RRB NTPC typist-post cycles used 25 WPM Hindi, but the active CEN must be checked before treating that as a current requirement; the 2026 RRB NTPC cycle dispensed with CBTST for the notified typist posts.",
+          "The MP CPCT rulebook sets a 50% minimum passing score and lists 20 NWPM Hindi and 30 NWPM English as the minimum passing bands for its 15-minute typing modules. In Hindi, 20 to 25 NWPM is the 50% band, so 25 NWPM is the top of that band, not the pass mark. Its Hindi module allows Remington GAIL or InScript on Unicode.",
           "These are examples, not one universal rule. State courts, police recruitment, clerical posts and other bodies can set their own speed, duration, layout and accuracy requirements."
         ],
         "sources": [
           {
             "label": "SSC CHSL 2026 notice (LDC/JSA typing test, 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font)",
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
+          },
+          {
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for the notified typist posts",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
+          },
+          {
+            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
+            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
           },
           {
             "label": "Railway Recruitment Board - official CEN and notification portal",
@@ -1449,7 +1963,7 @@
       },
       {
         "q": "What is a good Hindi typing speed?",
-        "a": "SSC CHSL requires 30 WPM for Hindi LDC/JSA, while MP CPCT uses 20 net WPM as its published minimum. Other exams set their own standards, so use the official cutoff for your post."
+        "a": "SSC CHSL requires 30 WPM for Hindi LDC/JSA. The MP CPCT rulebook sets a 50% minimum and lists 20 NWPM Hindi as the minimum passing band, with 20-25 NWPM forming the 50% band; 25 NWPM is the top of that band, not the pass mark. Other exams set their own standards, so use the official cutoff for your post."
       },
       {
         "q": "Can I use Google transliteration for exam practice?",
@@ -1478,13 +1992,13 @@
   {
     "slug": "typing-speed-required-government-jobs-india",
     "title": "Typing Speed for Government Jobs in India (2026 Guide)",
-    "description": "See common typing-speed requirements for Indian government jobs, including SSC CHSL, RRB NTPC and MP CPCT, plus a safe practice strategy.",
+    "description": "Verified typing-speed requirements for SSC CHSL 2026, MP CPCT and RRB NTPC, plus a safe preparation strategy for Indian government jobs.",
     "h1": "Typing speed required for government jobs in India",
-    "excerpt": "There is no single government typing speed. The number depends on the recruiting body, post, language, duration and error rule. Here are the benchmarks worth knowing.",
+    "excerpt": "There is no single government typing speed. The number depends on the recruiting body, post, language, duration and error rule. Here are verified benchmarks and how to prepare for the exact notice.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
-    "readingTime": "8 min read",
+    "readingTime": "9 min read",
     "tags": [
       "government jobs",
       "typing speed",
@@ -1494,32 +2008,117 @@
       {
         "p": [
           "There is no single typing speed required for every government job in India. The number depends on the recruiting body, post, language, test duration and evaluation method.",
-          "That is why candidates should avoid memorising one rule such as government jobs need 35 WPM. Thirty-five WPM is important for some exams, but other recruitments use 30 WPM, 25 WPM, 20 net WPM, key depressions per hour or a scored typing test.",
-          "Below are several common examples. Always verify the current notification for your own recruitment cycle."
+          "The table below gives verified reference points from current notices. It is not a substitute for your own notification: exam cycles change, and a test held in 2026 may belong to an older CEN."
+        ]
+      },
+      {
+        "h2": "Verified typing requirements at a glance",
+        "p": [
+          "These figures come from the named notices. Where a rule has changed, the table says so rather than presenting an old cutoff as current."
+        ],
+        "table": {
+          "caption": "Verified typing requirements and reference points. Always confirm the current notice for your post.",
+          "columns": [
+            "Exam or post",
+            "Requirement",
+            "Test length",
+            "Status and source"
+          ],
+          "rows": [
+            [
+              "SSC CHSL LDC/JSA (2026)",
+              "35 WPM English / 30 WPM Hindi",
+              "10 minutes",
+              "Current notice; Hindi in Mangal font"
+            ],
+            [
+              "SSC CHSL DEO (2026)",
+              "15,000 KDPH for Para 8.1 departments; 8,000 KDPH for others",
+              "15 minutes",
+              "Current notice; skill test mandatory"
+            ],
+            [
+              "MP CPCT typing module",
+              "30 NWPM English / 20 NWPM Hindi minimum passing band",
+              "15 minutes",
+              "Rulebook V1.3; 50% overall minimum"
+            ],
+            [
+              "RRB NTPC typist posts (2026)",
+              "CBTST dispensed for notified posts",
+              "-",
+              "CEN 06/2026 and 07/2026; check your post"
+            ],
+            [
+              "RRB NTPC typist posts (historical)",
+              "30 WPM English / 25 WPM Hindi",
+              "10 minutes",
+              "CEN 06/2025, para 13.4"
+            ]
+          ]
+        },
+        "sources": [
+          {
+            "label": "SSC CHSL 2026 notice (LDC/JSA: 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font; DEO key-depression rules)",
+            "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
+          },
+          {
+            "label": "MP CPCT rulebook V1.3 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
+            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf"
+          },
+          {
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
+          },
+          {
+            "label": "CEN 06/2026 (graduate NTPC) official notification",
+            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+          },
+          {
+            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
+          },
+          {
+            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
+            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+          }
         ]
       },
       {
         "h2": "SSC CHSL LDC/JSA",
         "p": [
-          "The SSC CHSL 2026 notice lists 35 WPM for candidates choosing English and 30 WPM for candidates choosing Hindi for the LDC/JSA typing test. The normal test duration is 10 minutes, and Hindi typing must be done in Mangal font.",
+          "The SSC CHSL 2026 notice lists 35 WPM for English and 30 WPM for Hindi for the LDC/JSA typing test. The normal duration is 10 minutes, and Hindi typing must be done in Mangal font. The speed is judged on the accuracy of typing a given passage.",
           "For preparation, do not aim for the cutoff only. Build a buffer above the minimum and practise the full ten minutes."
         ],
         "sources": [
           {
-            "label": "SSC CHSL 2026 notice (LDC/JSA typing test, 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font)",
+            "label": "SSC CHSL 2026 notice (LDC/JSA: 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font; DEO key-depression rules)",
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
           }
-        ]
+        ],
+        "links": [
+          {
+            "to": "/blog/ssc-chsl-typing-test-2026",
+            "label": "Read the SSC CHSL 2026 typing guide",
+            "description": "The post, language and duration rules in one place."
+          },
+          {
+            "to": "/government-exam-typing-test",
+            "label": "Practise a 10-minute SSC-style passage",
+            "description": "Formal text with speed and accuracy scoring."
+          }
+        ],
+        "linksHeading": "Prepare for SSC"
       },
       {
         "h2": "SSC CHSL Data Entry Operator",
         "p": [
-          "The Data Entry Operator skill test is different from the LDC/JSA typing test. SSC uses key-depression standards and a 15-minute test for DEO categories, with different requirements depending on the post or department.",
-          "The 2026 notice lists 15,000 key depressions per hour for DEO posts in certain departments and 8,000 key depressions per hour for others. This is a good example of why SSC typing speed is too broad a phrase. You need the requirement for the exact post."
+          "The DEO skill test is different from the LDC/JSA typing test. SSC uses key-depression standards and a 15-minute test for DEO categories, with different requirements depending on the post or department.",
+          "The 2026 notice lists 15,000 key depressions per hour for DEO posts in departments named at Para 8.1, and 8,000 key depressions per hour for others. That is why 'SSC typing speed' is too broad a phrase: you need the requirement for the exact post."
         ],
         "sources": [
           {
-            "label": "SSC CHSL 2026 notice (LDC/JSA typing test, 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font)",
+            "label": "SSC CHSL 2026 notice (LDC/JSA: 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font; DEO key-depression rules)",
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
           }
         ]
@@ -1527,40 +2126,79 @@
       {
         "h2": "RRB NTPC and railway typist posts",
         "p": [
-          "Railway typing requirements are cycle-specific. Previous RRB NTPC instructions for designated typist posts have used 30 WPM in English or 25 WPM in Hindi with a 10-minute evaluated test.",
-          "The 2026 RRB NTPC cycle has removed the CBTST for the notified typist posts, so candidates should verify the active CEN before relying on any speed figure. Show the notification cycle beside every RRB requirement and update your preparation when the recruitment process changes.",
-          "That is more reliable than presenting one historical cutoff as a permanent railway rule."
+          "Railway typing requirements are cycle-specific. CEN 06/2025, para 13.4, used 30 WPM English or 25 WPM Hindi over a 10-minute qualifying CBTST for designated typist posts.",
+          "The 2026 cycle changed the requirement for the notified posts: CEN 06/2026 dispensed CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist (PIB, 11 October 2026), and CEN 07/2026 dispensed the typing skill test for Junior Clerk cum Typist and Accounts Clerk cum Typist (para 13(c)). Do not present the historical 30/25 figure as a current requirement without checking your CEN.",
+          "If you are preparing for a different railway CEN that still lists CBTST, train the exact duration, font and correction rules."
         ],
         "sources": [
           {
-            "label": "Railway Recruitment Board - official CEN and notification portal",
-            "url": "https://rrb.indianrailways.gov.in/"
+            "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist",
+            "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
           },
           {
-            "label": "RRB Chandigarh - CBTST special instructions, CEN 05/2024 (previous-cycle typing rules)",
-            "url": "https://www.rrbcdg.gov.in/uploads/2024/05-NTPCG/052024-CBTST_Instructions.pdf"
+            "label": "CEN 06/2026 (graduate NTPC) official notification",
+            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+          },
+          {
+            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
+          },
+          {
+            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
+            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+          },
+          {
+            "label": "Railway Recruitment Board official CEN and notification portal",
+            "url": "https://rrb.indianrailways.gov.in/"
           }
-        ]
+        ],
+        "links": [
+          {
+            "to": "/blog/rrb-ntpc-typing-test",
+            "label": "RRB NTPC typing status by CEN",
+            "description": "Affected posts, evidence and previous-cycle rules."
+          },
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Measure your sustained English speed",
+            "description": "A practical benchmark before exam-length practice."
+          }
+        ],
+        "linksHeading": "Prepare for RRB"
       },
       {
         "h2": "MP CPCT",
         "p": [
-          "The Computer Proficiency Certification Test in Madhya Pradesh uses net words per minute. Its published rulebook lists a minimum passing score tied to 30 NWPM in English and 20 NWPM in Hindi for the typing modules. Some CPCT score cards have shown 25 WPM as the 50% Hindi mark, so verify the current CPCT documentation.",
-          "The English and Hindi typing tests each run for 15 minutes, and the Hindi module allows Remington GAIL or InScript on Unicode. CPCT illustrates another important point: some systems certify English and Hindi separately, and employers may still ask for higher performance depending on the role."
+          "The Computer Proficiency Certification Test in Madhya Pradesh uses net words per minute. Its rulebook sets a minimum passing score of 50% and lists 30 NWPM English and 20 NWPM Hindi as the minimum passing speeds for the typing modules.",
+          "The score bands matter: in Hindi, 20-25 NWPM is the 50% band, so 25 NWPM is the top of that band, not the pass mark. In English, 30-40 NWPM is the 50% band. Both typing modules run for 15 minutes, and the Hindi module allows Remington GAIL or InScript on Unicode.",
+          "CPCT also certifies English and Hindi separately. Employers may still ask for higher performance depending on the role."
         ],
         "sources": [
           {
-            "label": "MP CPCT rulebook (30 NWPM English, 20 NWPM Hindi, 15-minute typing modules)",
+            "label": "MP CPCT rulebook V1.3 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
             "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf"
           }
-        ]
+        ],
+        "links": [
+          {
+            "to": "/hindi-typing-test",
+            "label": "Practise Hindi typing",
+            "description": "Devanagari text for CPCT-style practice."
+          },
+          {
+            "to": "/blog/hindi-typing-test-mangal-krutidev-inscript-remington",
+            "label": "Hindi font and layout guide",
+            "description": "Mangal, Kruti Dev, InScript and Remington explained."
+          }
+        ],
+        "linksHeading": "Prepare for CPCT"
       },
       {
         "h2": "Other courts, police and state recruitment",
         "p": [
           "High Courts, district courts, police departments, state staff-selection boards and public-sector bodies publish their own typing standards. Some tests use 25 WPM, some 30 or 35, and some judge correct words or key depressions.",
           "The font and layout can also change. Hindi tests may specify Mangal, InScript, Remington GAIL, Kruti Dev or another approved configuration.",
-          "Never practise only from an old YouTube video or a coaching-site screenshot. Find the current official notice whenever possible."
+          "Never practise only from an old video or a coaching-site screenshot. Find the current official notice whenever possible."
         ]
       },
       {
@@ -1573,7 +2211,7 @@
       {
         "h2": "Test duration matters as much as the cutoff",
         "p": [
-          "A one-minute score is not a reliable substitute for a ten-minute exam. Most people can type faster in a short sprint than they can sustain over a long passage.",
+          "A one-minute score is not a reliable substitute for a ten-minute exam. Many people can type faster in a short sprint than they can sustain over a long passage.",
           "If the official test is ten minutes, make ten-minute practice your main benchmark during the final weeks. Use one-minute tests only as speed training."
         ]
       },
@@ -1593,7 +2231,7 @@
           },
           {
             "h3": "Week 2: Build clean technique",
-            "p": "Improve weak keys and build consistent touch typing. Keep accuracy above 95% before adding speed work."
+            "p": "Improve weak keys and build consistent touch typing. Keep accuracy high before adding speed work."
           },
           {
             "h3": "Week 3: Add controlled speed",
@@ -1606,17 +2244,35 @@
         ]
       },
       {
-        "h2": "Build one source of truth for your exam",
+        "h2": "Keep one source of truth for your exam",
         "p": [
-          "A dedicated practice mode with the official speed, time and input rules clearly shown above the test is more useful than making users remember settings manually.",
-          "For now, use the English, Hindi and timed typing tests that match your requirement, and keep the official recruitment notice open as the final authority."
-        ]
+          "Keep one note with the official speed, duration, language, font or layout, error rule and correction rule for your post. Update it when a new notice is published.",
+          "Use the English, Hindi and timed typing tests that match your requirement, and keep the official recruitment notice open as the final authority."
+        ],
+        "links": [
+          {
+            "to": "/government-exam-typing-test",
+            "label": "Take a government exam typing test",
+            "description": "Five- and ten-minute formal passages."
+          },
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Take a 5-minute typing test",
+            "description": "A quick sustained-speed check."
+          },
+          {
+            "to": "/blog/what-is-a-good-typing-speed",
+            "label": "Read the general WPM guide",
+            "description": "Task-based bands and a result interpreter."
+          }
+        ],
+        "linksHeading": "Start practising"
       }
     ],
     "faqs": [
       {
         "q": "What is the minimum typing speed for government jobs in India?",
-        "a": "There is no single minimum. SSC CHSL LDC/JSA uses 35 WPM English or 30 WPM Hindi; MP CPCT uses 30 NWPM English or 20 NWPM Hindi; previous RRB NTPC typist cycles used 30 WPM English or 25 WPM Hindi. Check your own notification."
+        "a": "There is no single minimum. SSC CHSL LDC/JSA uses 35 WPM English or 30 WPM Hindi; MP CPCT uses 30 NWPM English or 20 NWPM Hindi; CEN 06/2025 used 30 WPM English or 25 WPM Hindi for RRB NTPC typist posts, but the 2026 CENs dispensed CBTST for the notified posts. Check your own notification."
       },
       {
         "q": "Is 30 WPM enough for government jobs?",
@@ -1628,11 +2284,15 @@
       },
       {
         "q": "Is CPCT 30 WPM English and 20 WPM Hindi?",
-        "a": "The CPCT rulebook uses 30 net WPM for English and 20 net WPM for Hindi, not gross WPM. Both typing modules run for 15 minutes. Some CPCT score cards have shown 25 WPM as the 50% Hindi mark, so verify the current CPCT documentation."
+        "a": "The CPCT rulebook uses 30 NWPM English and 20 NWPM Hindi as the minimum passing speeds for the typing modules, not gross WPM. Both run for 15 minutes. The Hindi 50% band is 20-25 NWPM, so 25 NWPM is not the minimum pass mark."
       },
       {
         "q": "How much buffer above the cutoff should I build?",
         "a": "Aim for a consistent full-length average several WPM above the requirement with high accuracy. For a 35 WPM exam, a stable 40+ WPM is a practical target."
+      },
+      {
+        "q": "Is there a typing test in RRB NTPC 2026?",
+        "a": "For the notified typist posts, no. CEN 06/2026 and CEN 07/2026 dispensed the typing skill test for the posts named in those notices. Check your exact post before preparing."
       }
     ],
     "related": [
@@ -1651,19 +2311,27 @@
       {
         "to": "/hindi-typing-test",
         "label": "Practise Hindi typing"
+      },
+      {
+        "to": "/blog/what-is-a-good-typing-speed",
+        "label": "Interpret your own WPM"
+      },
+      {
+        "to": "/typing-test/5-minute",
+        "label": "Measure sustained speed"
       }
     ]
   },
   {
     "slug": "touch-typing-for-beginners",
     "title": "Touch Typing for Beginners: Finger Placement & Routine",
-    "description": "Learn touch typing from the home row with correct finger placement and a simple 15-minute daily routine for beginners.",
+    "description": "Learn touch typing from the home row with correct finger placement, an accessible keyboard map and a short daily routine for beginners.",
     "h1": "Touch typing for beginners: finger placement and a 15-minute routine",
     "excerpt": "Touch typing is not memorising a keyboard picture. It is teaching each finger a small set of movements until the right key stops needing a decision.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-10-27",
+    "dateModified": "2026-11-09",
     "author": "Typinger Team",
-    "readingTime": "7 min read",
+    "readingTime": "8 min read",
     "tags": [
       "touch typing",
       "beginners",
@@ -1681,25 +2349,22 @@
         "p": [
           "Place the left-hand fingers on A, S, D and F. Place the right-hand fingers on J, K, L and the semicolon key. Your thumbs rest near the spacebar.",
           "Notice the small raised marks on F and J. They help your index fingers find the home position without looking down.",
-          "After pressing a key above or below the home row, return your finger toward its home position. This keeps your hands centred and reduces unnecessary movement."
+          "After pressing a key above or below the home row, return your finger toward its home position. This keeps your hands centred and reduces unnecessary movement. If you are not sure which finger owns a key, use the map below."
         ]
       },
       {
-        "h2": "Which finger presses which keys?",
+        "h2": "Which finger presses which key?",
         "p": [
-          "A common touch-typing map is:"
+          "The map below is the standard eight-finger assignment for the main letter rows. Each key shows a short finger label, and the text legend gives the full key list. This is a learning convention, not a rule that every typist must follow forever."
         ],
-        "ul": [
-          "Left little finger: Q, A, Z.",
-          "Left ring finger: W, S, X.",
-          "Left middle finger: E, D, C.",
-          "Left index finger: R, F, V and T, G, B.",
-          "Right index finger: Y, H, N and U, J, M.",
-          "Right middle finger: I, K and comma.",
-          "Right ring finger: O, L and period.",
-          "Right little finger: P, semicolon and nearby punctuation.",
-          "Thumbs: spacebar."
-        ]
+        "widget": "finger-map"
+      },
+      {
+        "h2": "Try the home-row drill",
+        "p": [
+          "Reading a finger map is not the same as training the movement. Start this one-minute drill when you are ready; it uses home-row words only and does not capture keystrokes until you click the button."
+        ],
+        "widget": "home-row-drill"
       },
       {
         "h2": "Why looking at the keyboard slows long-term progress",
@@ -1723,13 +2388,26 @@
             "h3": "Minutes 11-15: Short test and review",
             "p": "Take a short typing test and review the mistakes. Do not repeat the test immediately just to get a higher score. Practise the weak keys first."
           }
-        ]
+        ],
+        "links": [
+          {
+            "to": "/typing-lessons",
+            "label": "Follow the 12 touch typing lessons",
+            "description": "A structured sequence from the home row to punctuation and numbers."
+          },
+          {
+            "to": "/typing-practice/beginners",
+            "label": "Try the beginner practice drill",
+            "description": "A short, low-pressure session for new finger patterns."
+          }
+        ],
+        "linksHeading": "Turn the routine into a course"
       },
       {
         "h2": "Accuracy before speed",
         "p": [
           "During the first two weeks, your WPM may drop compared with your old hunt-and-peck method. That does not mean touch typing is failing.",
-          "Use 95% accuracy as a useful practice target. If you are making too many errors, reduce speed. Repeating the wrong movement at high speed only makes the wrong movement more automatic."
+          "Use about 95% accuracy as a useful practice target. If you are making too many errors, reduce speed. Repeating the wrong movement at high speed only makes the wrong movement more automatic."
         ]
       },
       {
@@ -1751,7 +2429,20 @@
         "p": [
           "Use short tests from the beginning, but do not make them the entire lesson. A one-minute test is enough to measure progress in the first week.",
           "After you can type without constantly looking down, add five-minute tests. Longer tests reveal whether your posture, rhythm and accuracy remain stable."
-        ]
+        ],
+        "links": [
+          {
+            "to": "/typing-test/1-minute",
+            "label": "Take a 1-minute baseline",
+            "description": "A quick check of short-burst speed."
+          },
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Take a 5-minute test",
+            "description": "See whether the new technique holds up over time."
+          }
+        ],
+        "linksHeading": "Measure without over-testing"
       },
       {
         "h2": "Posture and hand position",
@@ -1788,13 +2479,26 @@
         "h2": "Start with a baseline",
         "p": [
           "Take a typing test before beginning the routine and save your WPM and accuracy. Repeat the same duration after two weeks and four weeks. That gives you a clean measurement of whether touch typing is becoming automatic."
-        ]
+        ],
+        "links": [
+          {
+            "to": "/typing-test/1-minute",
+            "label": "Take the 1-minute typing test",
+            "description": "Use the same duration each time for a fair comparison."
+          },
+          {
+            "to": "/typing-test/5-minute",
+            "label": "Take the 5-minute typing test",
+            "description": "Use this when you want a more stable progress check."
+          }
+        ],
+        "linksHeading": "Your next step"
       }
     ],
     "faqs": [
       {
         "q": "How long does it take to learn touch typing?",
-        "a": "It depends on your practice. A few weeks can build home-row familiarity, while several months of regular practice are usually needed for automatic speed. Fifteen focused minutes a day is enough to build the habit."
+        "a": "It depends on your practice. A few weeks can build home-row familiarity, while automatic speed can take several months of regular practice. Fifteen focused minutes a day is enough to build the habit."
       },
       {
         "q": "Should I look at the keyboard while learning?",

@@ -3,7 +3,7 @@ import { Gauge, CloudRain, Skull, Rocket, Flag, HeartCrack, Zap, Shuffle, PartyP
 export const GAMES = [
   { id: "speed-test", title: "Speed Test", tagline: "Classic timed WPM test", category: "Classic", icon: Gauge, color: "#22C55E",
     description: "Type as many words as you can before the clock runs out. Pick 15, 30 or 60 seconds.",
-    howTo: ["Timer starts on your first keystroke", "Backspace fixes mistakes", "Score = net WPM x accuracy"] },
+    howTo: ["Timer starts on your first keystroke", "Backspace fixes mistakes", "Score = correct-character WPM x accuracy"] },
   { id: "falling-words", title: "Falling Words", tagline: "Stop the word rain", category: "Arcade", icon: CloudRain, color: "#38BDF8",
     description: "Words drop from the sky. Type them before they hit the ground. It gets faster every level.",
     howTo: ["Type a falling word to clear it", "3 words hitting the floor = game over", "Longer words score more"] },

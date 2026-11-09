@@ -5,7 +5,7 @@ export const calcStats = (correct, keys, errors, seconds) => {
   const mins = Math.max(seconds, 1) / 60;
   const wpm = Math.round(correct / 5 / mins);
   const accuracy = keys ? Math.round(((keys - errors) / keys) * 1000) / 10 : 0;
-  return { wpm, accuracy, duration: Math.round(seconds) };
+  return { wpm, accuracy, duration: Math.round(seconds), errors, keystrokes: keys };
 };
 
 export function useCharTyper(text, { active = true, strict = false, autoIndent = false, onDone, onMistake } = {}) {

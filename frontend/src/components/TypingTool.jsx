@@ -20,6 +20,7 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
   const [result, setResult] = useState(null);
   const [left, setLeft] = useState(config.duration ?? 0);
   const done = useRef(false);
+  const startTracked = useRef(false);
 
   const text = useMemo(
     () => textOverride || makeTestText(config.kind, { words: config.words ?? (dur ? Math.max(60, dur * 3) : 60), texts: config.texts }),
@@ -40,6 +41,16 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
   const t = useCharTyper(text, { active: !result, autoIndent: config.kind === "code", onDone: end });
 
   useEffect(() => {
+    if (!t.started || result || startTracked.current) return;
+    startTracked.current = true;
+    trackEvent("typing_test_start", {
+      label,
+      duration: dur || "untimed",
+      page_path: typeof window === "undefined" ? "" : window.location.pathname,
+    });
+  }, [dur, label, result, t.started]);
+
+  useEffect(() => {
     if (!dur || !t.started || result) return undefined;
     const id = setInterval(() => {
       const l = Math.max(0, dur - t.elapsed());
@@ -51,6 +62,7 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
 
   const restart = () => {
     done.current = false;
+    startTracked.current = false;
     t.reset();
     setResult(null);
     setLeft(dur ?? 0);
@@ -59,6 +71,7 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
 
   const changeDuration = (d) => {
     done.current = false;
+    startTracked.current = false;
     t.reset();
     setDur(d);
     setLeft(d);
@@ -86,6 +99,10 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
             <div>
               <div className="font-pixel text-2xl sm:text-3xl" data-testid="tool-result-duration">{result.duration}s</div>
               <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">time typed</div>
+            </div>
+            <div>
+              <div className="font-pixel text-2xl sm:text-3xl" data-testid="tool-result-errors">{result.errors}</div>
+              <div className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">errors</div>
             </div>
           </div>
           <ShareCard wpm={result.wpm} accuracy={result.accuracy} duration={result.duration} label={label} />

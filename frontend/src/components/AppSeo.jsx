@@ -33,13 +33,13 @@ const MAP = {
   "/login": {
     kind: "shell",
     title: "Sign In to Typinger: Save Your Typing Progress",
-    description: "Sign in to Typinger to save typing results, keep your WPM history, unlock achievement badges and appear on the global leaderboards.",
+    description: "Sign in to Typinger to save game scores, keep your WPM history, unlock achievement badges and appear on the global leaderboards.",
     noindex: true,
   },
   "/register": {
     kind: "shell",
     title: "Create a Free Typinger Account to Track Typing",
-    description: "Create a free Typinger account in seconds to save every typing test, chart your WPM history, earn badges and join the daily challenge.",
+    description: "Create a free Typinger account in seconds to save game scores, chart your WPM history, earn badges and join the daily challenge.",
     noindex: true,
   },
 };

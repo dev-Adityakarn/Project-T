@@ -42,11 +42,11 @@
       }
     ],
     "faqs": [
-      { "q": "What is a good number typing speed?", "a": "For pure digits, 25 to 35 WPM on the number row is solid, and experienced data entry typists reach 50 WPM or more using the numeric keypad. Accuracy above 98% matters far more than speed with numbers." },
+      { "q": "What is a good number typing speed?", "a": "For pure digits, 25 to 35 WPM on the number row is a useful working target, and keypad users can go faster. Accuracy above 98% matters far more than speed with numbers." },
       { "q": "Should I use the number row or the keypad?", "a": "Use the keypad for continuous figures such as invoices and spreadsheets. Use the number row when digits are mixed into text, because moving your hand away from the home row costs more than the keypad saves." },
       { "q": "Why do I keep transposing digits?", "a": "Transposition usually comes from typing faster than you are reading. Slow the reading pace, group digits in pairs, and keep your eyes on the source rather than the keyboard." },
       { "q": "Does this test include symbols?", "a": "Yes. Amounts, dates and codes bring commas, dots, slashes and currency signs with them, which is how numbers appear in real documents." },
-      { "q": "Is numeric typing useful for exams?", "a": "Very. Many clerical and government typing exams include figures inside the passage, and candidates lose most of their accuracy marks on exactly those lines." }
+      { "q": "Is numeric typing useful for exams?", "a": "Very. Many clerical and government typing exams include figures inside the passage, and those lines are a common source of errors." }
     ],
     "related": [
       { "to": "/typing-test/punctuation", "label": "Punctuation typing test" },
@@ -98,7 +98,7 @@
       }
     ],
     "faqs": [
-      { "q": "Why is my speed so much lower with punctuation?", "a": "Punctuation uses the weakest fingers and often needs a shift press, so each symbol is effectively two keystrokes. A drop of five to ten WPM is normal until the movements become automatic." },
+      { "q": "Why is my speed so much lower with punctuation?", "a": "Punctuation uses the weakest fingers and often needs a shift press, so each symbol is effectively two keystrokes. A noticeable drop is normal until the movements become automatic." },
       { "q": "Which hand should press shift?", "a": "Always the hand opposite to the key you are shifting. Left shift for right-side characters, right shift for left-side characters. It keeps both hands balanced and avoids wrist twisting." },
       { "q": "Do apostrophes and quotes use the same key?", "a": "On a standard layout, yes: the apostrophe key produces a double quote with shift, and both are handled by the right pinky." },
       { "q": "Should beginners take this test?", "a": "Finish the home row and top row lessons first. Punctuation is lesson nine onwards for a reason, and drilling it too early reinforces awkward finger choices." },
@@ -154,7 +154,7 @@
       }
     ],
     "faqs": [
-      { "q": "What is a good typing speed for a programmer?", "a": "Around 50 to 60 WPM on code is comfortable and already faster than most developers. Raw speed matters less than accuracy and knowing symbol positions without looking." },
+      { "q": "What is a good typing speed for a programmer?", "a": "Around 50 to 60 WPM on code is a comfortable working target. Raw speed matters less than accuracy and knowing symbol positions without looking." },
       { "q": "Which languages are included?", "a": "JavaScript, JSX and Python snippets across easy, medium and hard levels, chosen to cover the symbols and structures that appear most in everyday work." },
       { "q": "How is indentation handled?", "a": "Press Enter and the leading whitespace of the next line is filled in automatically, so you type the code rather than the spaces and your accuracy is not punished by indentation." },
       { "q": "Does typing speed make me a better developer?", "a": "No, but slow or inaccurate typing is friction. Removing it keeps your attention on design and debugging rather than on finding the next bracket." },
@@ -219,19 +219,19 @@
       {
         "h2": "Preparing for Hindi typing exams",
         "p": [
-          "Hindi typing requirements are not uniform. The CPCT score card sets a qualifying net speed of 25 words per minute in Hindi and 30 words per minute in English. The SSC CHSL 2025 notification for LDC/JSA sets 30 words per minute in Hindi and 35 words per minute in English over a 10-minute test. State and departmental exams can publish different figures, so check your own notification.",
+          "Hindi typing requirements are not uniform. The MP CPCT rulebook sets a 50% minimum passing score and lists 20 NWPM Hindi and 30 NWPM English as the minimum passing bands for its typing modules. In Hindi, 20 to 25 NWPM is the 50% band, so 25 NWPM is the top of that band, not the pass mark. The SSC CHSL 2026 notification for LDC/JSA sets 30 words per minute in Hindi and 35 words per minute in English over a 10-minute test, with Hindi typing in Mangal font. State and departmental exams can publish different figures, so check your own notification.",
           "Practise at the longer five-minute duration and measure both speed and accuracy. Keep an English session in your weekly routine as well, and use the government exam typing page for the official links and the scoring method."
         ],
         "sources": [
-          { "label": "CPCT score card (qualifying net speed)", "url": "https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf" },
-          { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" }
+          { "label": "MP CPCT rulebook V1.3 (50% minimum; 20 NWPM Hindi / 30 NWPM English; 15-minute modules)", "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf" },
+          { "label": "SSC CHSL 2026 notice (LDC/JSA: 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf" }
         ]
       }
     ],
     "faqs": [
       { "q": "Which Hindi keyboard layout should I use?", "a": "Check your exam notification for the required layout. Mangal Inscript is common on Windows and is a sensible default for practice, but do not assume it is accepted everywhere; some exams specify Remington GAIL or another layout." },
-      { "q": "What is a good Hindi typing speed?", "a": "Aim above the requirement for your exam rather than a generic target. CPCT's qualifying net speed is 25 WPM in Hindi; the SSC CHSL 2025 notification for LDC/JSA uses 30 WPM in Hindi. Both are measured differently from a casual one-minute test, so read the official rule." },
-      { "q": "Why is my Hindi speed lower than my English speed?", "a": "Devanagari needs more keystrokes per visible character because of matras and conjuncts. A Hindi WPM figure of 30 often represents the same physical effort as 50 WPM in English." },
+      { "q": "What is a good Hindi typing speed?", "a": "Aim above the requirement for your exam rather than a generic target. The MP CPCT rulebook puts the Hindi minimum passing band at 20 NWPM (the 50% band runs from 20 to 25 NWPM); the SSC CHSL 2026 notice for LDC/JSA uses 30 WPM in Hindi. Both are measured differently from a casual one-minute test, so read the official rule." },
+      { "q": "Why is my Hindi speed lower than my English speed?", "a": "Devanagari needs more keystrokes per visible character because of matras and conjuncts, so a Hindi WPM number is not directly comparable to an English WPM number. Compare Hindi results with Hindi results." },
       { "q": "Do I need special software to practise here?", "a": "No software beyond your operating system's Hindi input method. Enable the Devanagari keyboard, switch to it, and the test records exactly what you type." },
       { "q": "Can I take a longer Hindi test?", "a": "Yes. Choose the five minute duration to practise under exam conditions, where stamina and consistent accuracy matter more than a fast start." }
     ],
@@ -256,11 +256,11 @@
         "h2": "How exam typing tests are scored",
         "p": [
           "Most government typing tests use a fixed passage, a fixed duration and a minimum speed. Speed alone does not pass you: a candidate who types quickly but exceeds the permitted error limit can still fail. The exact rule differs by exam, post and year, so read your own notification before you train.",
-          "Two published examples show why the details matter. The SSC CHSL 2025 notification for LDC/JSA sets 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test. A CPCT score card shows a qualifying net speed of 30 words per minute in English or 25 words per minute in Hindi. Neither figure is a universal requirement for every government exam."
+          "Two published examples show why the details matter. The SSC CHSL 2026 notice for LDC/JSA sets 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test, with Hindi typing in Mangal font. The MP CPCT rulebook sets a 50% minimum passing score, with 30 NWPM English and 20 NWPM Hindi as the minimum passing bands for its 15-minute typing modules. Neither figure is a universal requirement for every government exam."
         ],
         "sources": [
-          { "label": "SSC CHSL 2025 notification (LDC/JSA typing test)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2025.pdf" },
-          { "label": "CPCT score card (qualifying net speed)", "url": "https://cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/downloads/score_card.pdf" }
+          { "label": "SSC CHSL 2026 notice (LDC/JSA: 35 WPM English / 30 WPM Hindi, 10 minutes, Mangal font)", "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf" },
+          { "label": "MP CPCT rulebook V1.3 (50% minimum; 20 NWPM Hindi / 30 NWPM English; 15-minute modules)", "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf" }
         ]
       },
       {
@@ -290,17 +290,17 @@
       }
     ],
     "faqs": [
-      { "q": "What typing speed is required for SSC CHSL?", "a": "The SSC CHSL 2025 notification for LDC/JSA states 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test. Check the current notification for your post and year, because the figures and error rules can change." },
+      { "q": "What typing speed is required for SSC CHSL?", "a": "The SSC CHSL 2026 notice for LDC/JSA states 35 words per minute in English or 30 words per minute in Hindi over a 10-minute test, with Hindi typing in Mangal font. Check the current notification for your post and year, because the figures and error rules can change." },
       { "q": "How many mistakes are allowed in a government typing test?", "a": "The error rule is set by each exam, and SSC and CPCT do not use the same method. Check your official notification rather than assuming a universal percentage. A practical training target is under 3% while you build control, but that is not a substitute for the published rule." },
       { "q": "Is backspace allowed in exam typing tests?", "a": "It depends on the exam software. Some tests allow backspace but charge you the time; others restrict corrections. Practise correcting only the word you are typing so that either rule feels manageable." },
-      { "q": "How long should I prepare for a typing exam?", "a": "There is no guaranteed timeline. Four to six weeks of daily practice is a common preparation window, but starting speed, accuracy and the exam's rules all affect the result. Track your own trend rather than relying on a promised gain." },
+      { "q": "How long should I prepare for a typing exam?", "a": "There is no guaranteed timeline. Plan for several weeks of daily practice, but starting speed, accuracy and the exam's rules all affect the result. Track your own trend rather than relying on a promised gain." },
       { "q": "Which is better to practise, five or ten minutes?", "a": "Practise both. Five minute runs build speed and are easy to repeat, while occasional ten minute runs build the endurance and concentration the real paper demands." }
     ],
     "related": [
       { "to": "/hindi-typing-test", "label": "Hindi typing test" },
       { "to": "/typing-test/5-minute", "label": "5 minute typing test" },
       { "to": "/typing-lessons", "label": "Touch typing lessons" },
-      { "to": "/blog/average-typing-speed-by-age", "label": "Read: average typing speed by age" }
+      { "to": "/blog/average-typing-speed-by-age", "label": "Typing speed and age: what the evidence shows" }
     ]
   }
 ]
