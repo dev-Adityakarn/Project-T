@@ -104,9 +104,63 @@ const widgetHtml = (id) => {
   return `${out.join("")}</section>`;
 };
 
+const wordsOf = (value) =>
+  String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+
+const duplicatesLead = (paragraph, lead) => {
+  if (!paragraph || !lead) return false;
+  const a = wordsOf(lead);
+  const b = wordsOf(paragraph);
+  if (!a.length || !b.length) return false;
+  if (paragraph.trim() === lead.trim()) return true;
+  if (Math.min(a.length, b.length) < 12) return false;
+  const leadWords = new Set(a);
+  const overlap = b.filter((word) => leadWords.has(word)).length;
+  return overlap / Math.min(a.length, b.length) >= 0.8;
+};
+
+// The visible header already prints the lead. Drop an identical opening
+// paragraph so prerendered HTML does not repeat it for crawlers either.
+const withoutDuplicateLead = (blocks = [], lead = "") => {
+  if (!lead || !blocks.length) return blocks;
+  const first = blocks[0];
+  if (!first?.p?.length || first.h2 || first.h3) return blocks;
+  if (!duplicatesLead(first.p[0], lead)) return blocks;
+  const next = { ...first, p: first.p.slice(1) };
+  if (!next.p.length) {
+    const { p, ...rest } = next;
+    return Object.keys(rest).length ? [rest, ...blocks.slice(1)] : blocks.slice(1);
+  }
+  return [next, ...blocks.slice(1)];
+};
+
+const collectSources = (blocks = []) => {
+  const seen = new Set();
+  const sources = [];
+  blocks.forEach((block) => {
+    (block.sources || []).forEach((source) => {
+      if (!source?.url || seen.has(source.url)) return;
+      seen.add(source.url);
+      sources.push(source);
+    });
+  });
+  return sources;
+};
+
+const sourcesHtml = (blocks = []) => {
+  const sources = collectSources(blocks);
+  if (!sources.length) return "";
+  return `<section><h2>Sources</h2><ul>${sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener noreferrer">${esc(s.label)}</a></li>`).join("")}</ul></section>`;
+};
+
 const blocksHtml = (blocks = []) => blocks.map((b) => {
   const out = [];
   if (b.h2) out.push(`<h2>${esc(b.h2)}</h2>`);
+  if (b.h3) out.push(`<h3>${esc(b.h3)}</h3>`);
   (b.p || []).forEach((p) => out.push(`<p>${esc(p)}</p>`));
   if (b.ul) out.push(`<ul>${b.ul.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`);
   if (b.table) out.push(tableHtml(b.table));
@@ -114,9 +168,6 @@ const blocksHtml = (blocks = []) => blocks.map((b) => {
   if (b.steps) out.push(b.steps.map((s) => `<h3>${esc(s.h3)}</h3><p>${esc(s.p)}</p>`).join(""));
   if (b.links) out.push(articleLinksHtml(b.links, b.linksHeading));
   if (b.widget) out.push(widgetHtml(b.widget));
-  if (b.sources && b.sources.length) {
-    out.push(`<section><h3>Sources</h3><ul>${b.sources.map((s) => `<li><a href="${esc(s.url)}" rel="noopener noreferrer">${esc(s.label)}</a></li>`).join("")}</ul></section>`);
-  }
   return `<section>${out.join("")}</section>`;
 }).join("");
 
@@ -202,6 +253,7 @@ const SPA_TEMPLATE = fs.readFileSync(path.join(BUILD, "index.html"), "utf8");
 
 const write = (route, headHtml, bodyHtml, lang = "en") => {
   let html = SPA_TEMPLATE
+    .replace(/<noscript>[\s\S]*?<\/noscript>/gi, "")
     .replace(/<title>[\s\S]*?<\/title>/gi, "")
     .replace(/<meta\s+name="description"[^>]*>/gi, "")
     .replace(/<link\s+rel="canonical"[^>]*>/gi, "")
@@ -230,7 +282,8 @@ PAGES.forEach((page) => {
     faqs: page.faqs || [],
     crumbs: page.breadcrumbs || [],
   });
-  const body = `<main>${crumbHtml(page.breadcrumbs)}<h1>${esc(page.h1)}</h1><p>${esc(page.lead)}</p>${blocksHtml(page.blocks)}${faqHtml(page.faqs)}${linksHtml(page.related)}</main>${FOOTER}`;
+  const pageBlocks = withoutDuplicateLead(page.blocks, page.lead);
+  const body = `<main>${crumbHtml(page.breadcrumbs)}<h1>${esc(page.h1)}</h1><p>${esc(page.lead)}</p>${blocksHtml(pageBlocks)}${sourcesHtml(pageBlocks)}${faqHtml(page.faqs)}${linksHtml(page.related)}</main>${FOOTER}`;
   write(page.path, head({
     path: page.path, title: page.title, description: page.description, lang: page.lang || "en",
     schemas, alternates: ALTERNATES[page.path] || [],
@@ -268,7 +321,8 @@ POSTS.forEach((post) => {
   const updated = post.dateModified && post.dateModified !== post.datePublished
     ? `<p><small>Updated ${esc(post.dateModified)}</small></p>`
     : "";
-  const body = `<article>${crumbHtml(crumbs)}<h1>${esc(post.h1 || post.title)}</h1><p>${esc(post.excerpt)}</p>${updated}${blocksHtml(post.blocks)}${faqHtml(post.faqs)}${linksHtml(post.related)}</article>${FOOTER}`;
+  const postBlocks = withoutDuplicateLead(post.blocks, post.excerpt);
+  const body = `<article>${crumbHtml(crumbs)}<h1>${esc(post.h1 || post.title)}</h1><p>${esc(post.excerpt)}</p>${updated}${blocksHtml(postBlocks)}${sourcesHtml(postBlocks)}${faqHtml(post.faqs)}${linksHtml(post.related)}</article>${FOOTER}`;
   write(postPath, head({ path: postPath, title: post.title, description: post.description, type: "article", schemas }), body);
   count += 1;
 });

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { api } from "@/lib/api";
+import { SITE } from "@/seo";
 import { Button } from "@/components/ui/button";
 
 const SUBJECTS = [
@@ -55,7 +56,7 @@ export const ContactForm = () => {
       <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-primary/40 bg-card p-6" data-testid="contact-success" role="status">
         <h2 className="text-xl font-semibold">Message received</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Your message has been stored for the Typinger team. The email address you
+          Your message has been stored for the {SITE.owner?.name || SITE.name} team. The email address you
           supplied is stored with it so the team can reply if needed.
         </p>
         <Button type="button" variant="outline" className="mt-4 rounded-full" onClick={() => setStatus("idle")} data-testid="contact-send-another">
@@ -69,8 +70,15 @@ export const ContactForm = () => {
     <form onSubmit={submit} className="mx-auto mt-10 max-w-3xl rounded-2xl border bg-card p-6 sm:p-8" data-testid="contact-form">
       <h2 className="text-xl font-semibold">Send a message</h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        This form stores your message for the site owner. We do not publish a support
-        email address. Include a valid email if you want a reply.
+        This form stores your message for the site owner. You can also email{" "}
+        <a
+          href={`mailto:${SITE.supportEmail}`}
+          className="font-medium text-primary underline underline-offset-2"
+          data-testid="contact-support-email"
+        >
+          {SITE.supportEmail}
+        </a>
+        . Include a valid email address if you want a reply.
       </p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">

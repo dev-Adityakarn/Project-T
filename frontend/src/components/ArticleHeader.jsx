@@ -1,8 +1,9 @@
 import { CalendarDays, Clock, RefreshCw, User } from "lucide-react";
+import { SITE } from "@/seo";
 
 export function ArticleHeader({
   title,
-  author = "Typinger Team",
+  author = SITE.author,
   datePublished,
   dateModified,
   readingTime,
@@ -20,7 +21,7 @@ export function ArticleHeader({
       </h1>
       <div className="mt-5 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
         <span className="flex items-center gap-1">
-          <User size={12} /> {author || "Typinger Team"}
+          <User size={12} /> {author || SITE.author}
         </span>
         {datePublished && (
           <span className="flex items-center gap-1" data-testid="article-published">

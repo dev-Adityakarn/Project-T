@@ -25,6 +25,19 @@ describe("appRoutes", () => {
     expect(redirectForPath("/typing-speed-test")).toBe("/typing-test/");
     expect(redirectForPath("/typing-speed-test/")).toBe("/typing-test/");
     expect(redirectForPath("/blog/index/")).toBe("/blog/");
+    expect(redirectForPath("/blog/what-is-a-good-wpm-score")).toBe(
+      "/blog/what-is-a-good-typing-speed/",
+    );
+    expect(
+      redirectForPath(
+        "/blog/ssc-chsl-typing-test-mistakes-full-errors-half-errors-and-corrections/",
+      ),
+    ).toBe("/blog/ssc-chsl-typing-test-2026/");
+    expect(
+      redirectForPath(
+        "/blog/english-typing-test-for-10-minutes-a-government-exam-practice-guide",
+      ),
+    ).toBe("/blog/english-typing-test-1-5-10-minute/");
     expect(resolveRoute("/typing-test")).toEqual({
       type: "redirect",
       location: "/typing-test/",
@@ -58,6 +71,27 @@ describe("appRoutes", () => {
       "/register/",
     ].forEach((path) => {
       expect(resolveRoute(path)).toEqual({ type: "app-shell" });
+    });
+  });
+
+  it("redirects the consolidated article slugs permanently", () => {
+    [
+      ["/blog/touch-typing-guide-for-beginners/", "/blog/touch-typing-for-beginners/"],
+      ["/blog/what-is-a-good-wpm-score/", "/blog/what-is-a-good-typing-speed/"],
+      [
+        "/blog/ssc-chsl-typing-test-2026-speed-duration-and-preparation-guide/",
+        "/blog/ssc-chsl-typing-test-2026/",
+      ],
+      [
+        "/blog/how-to-increase-typing-speed-30-day-plan-to-reach-40-wpm-meta-description",
+        "/blog/how-to-increase-typing-speed/",
+      ],
+    ].forEach(([from, to]) => {
+      expect(resolveRoute(from)).toEqual({
+        type: "redirect",
+        location: to,
+        status: 301,
+      });
     });
   });
 

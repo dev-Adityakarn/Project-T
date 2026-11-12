@@ -19,7 +19,17 @@ const lastmodFor = (route) => {
 
 // Filter only canonical, indexable routes intended for the sitemap. A route
 // explicitly marked noindex must never leak back in through the sitemap.
-const sitemapRoutes = routes.filter((r) => r.sitemap !== false && !r.noindex);
+const RETIRED = new Set([
+  "/blog/touch-typing-guide-for-beginners/",
+  "/blog/what-is-a-good-wpm-score/",
+  "/blog/ssc-chsl-typing-test-2026-speed-duration-and-preparation-guide/",
+  "/blog/ssc-chsl-typing-test-mistakes-full-errors-half-errors-and-corrections/",
+  "/blog/how-to-increase-typing-speed-30-day-plan-to-reach-40-wpm-meta-description/",
+  "/blog/english-typing-test-for-10-minutes-a-government-exam-practice-guide/",
+]);
+const sitemapRoutes = routes.filter(
+  (r) => r.sitemap !== false && !r.noindex && !RETIRED.has(r.path),
+);
 
 const urls = sitemapRoutes
   .map((r) => {
@@ -39,12 +49,29 @@ ${urls}
 </urlset>
 `;
 
+// Googlebot needs the public content, and Mediapartners-Google must be able
+// to fetch any page that can carry an ad. Both are kept out of the private
+// application and API surfaces only.
+const crawlerGroup = (agent) => `User-agent: ${agent}
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+`;
+
 const robots = `User-agent: *
 Allow: /
 
 Disallow: /admin
 Disallow: /api
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
 
+${crawlerGroup("Googlebot")}
+${crawlerGroup("Mediapartners-Google")}
 Sitemap: ${PRODUCTION_ORIGIN}/sitemap.xml
 `;
 

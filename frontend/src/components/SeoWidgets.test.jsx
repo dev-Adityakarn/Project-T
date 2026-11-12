@@ -4,6 +4,8 @@ import { SeoArticle } from "@/components/SeoArticle";
 import { WpmInterpreter } from "@/components/WpmInterpreter";
 import { KeyboardFingerMap } from "@/components/KeyboardFingerMap";
 import { HomeRowDrill } from "@/components/HomeRowDrill";
+import { CustomCodePractice } from "@/components/CustomCodePractice";
+import { ExamNetSpeedCalculator } from "@/components/ExamNetSpeedCalculator";
 
 describe("WpmInterpreter", () => {
   const renderInterpreter = () =>
@@ -101,6 +103,61 @@ describe("HomeRowDrill", () => {
 
     expect(screen.getByTestId("home-row-drill-tool")).toBeTruthy();
     expect(screen.getByTestId("home-row-drill-shuffle")).toBeTruthy();
+  });
+});
+
+describe("CustomCodePractice", () => {
+  test("keeps the editor local and mounts the typing drill only after start", () => {
+    render(<CustomCodePractice />);
+
+    expect(screen.queryByTestId("custom-code-practice-typing")).toBeNull();
+    fireEvent.change(screen.getByTestId("custom-code-practice-input"), {
+      target: {
+        value: "const total = items.reduce((sum, item) => sum + item.price, 0);",
+      },
+    });
+    expect(screen.getByTestId("custom-code-practice").textContent).toContain(
+      "stays in your browser",
+    );
+    fireEvent.click(screen.getByTestId("custom-code-practice-start"));
+
+    expect(screen.getByTestId("custom-code-practice-typing")).toBeTruthy();
+  });
+
+  test("requires a real snippet before starting", () => {
+    render(<CustomCodePractice />);
+
+    fireEvent.click(screen.getByTestId("custom-code-practice-start"));
+
+    expect(screen.getByTestId("custom-code-practice-error").textContent).toContain(
+      "at least a few lines",
+    );
+    expect(screen.queryByTestId("custom-code-practice-typing")).toBeNull();
+  });
+});
+
+describe("ExamNetSpeedCalculator", () => {
+  test("subtracts user-entered mistake penalties from the starting speed", () => {
+    render(<ExamNetSpeedCalculator />);
+
+    expect(screen.getByTestId("exam-net-speed-gross").textContent).toBe("35.0");
+    expect(screen.getByTestId("exam-net-speed-net").textContent).toBe("35.0");
+    expect(screen.getByTestId("exam-net-speed-status").textContent).toContain(
+      "At or above your target",
+    );
+
+    fireEvent.change(screen.getByTestId("exam-net-speed-full"), {
+      target: { value: "10" },
+    });
+
+    expect(screen.getByTestId("exam-net-speed-penalty").textContent).toBe("1.0");
+    expect(screen.getByTestId("exam-net-speed-net").textContent).toBe("34.0");
+    expect(screen.getByTestId("exam-net-speed-status").textContent).toContain(
+      "Close to your target",
+    );
+    expect(screen.getByTestId("exam-net-speed").textContent).toContain(
+      "not affiliated",
+    );
   });
 });
 

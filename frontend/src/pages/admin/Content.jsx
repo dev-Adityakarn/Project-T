@@ -272,6 +272,7 @@ function PostsTab() {
           <PostEditor
             key={selected.key}
             post={selected.post}
+            otherPosts={rows}
             onSaved={handleSaved}
             onCancel={handleCancel}
             onDirtyChange={handleDirtyChange}

@@ -63,7 +63,7 @@ export default function ContentPage({ path }) {
           </div>
         )}
         {page.key === "contact" && <ContactForm />}
-        <SeoArticle blocks={page.blocks} faqs={page.faqs} related={page.related} />
+        <SeoArticle blocks={page.blocks} faqs={page.faqs} related={page.related} lead={page.lead} />
       </div>
     </>
   );

@@ -31,11 +31,19 @@ export const SiteFooter = () => (
     </div>
     <div className="border-t">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <p>© {new Date().getFullYear()} {SITE.name}. Practice daily, type freely.</p>
+        <div className="max-w-2xl space-y-1">
+          <p>© {new Date().getFullYear()} {SITE.owner?.legalName || SITE.name}. Practice daily, type freely.</p>
+          <p>{SITE.affiliationDisclaimer}</p>
+        </div>
         <ul className="flex flex-wrap items-center gap-4">
           {ROUTES.filter((r) => r.group === "Company" && r.nav).map((r) => (
             <li key={r.path}><Link to={r.path} className="hover:text-primary" data-testid={`footer-legal-${r.path}`}>{r.nav}</Link></li>
           ))}
+          <li>
+            <a href={`mailto:${SITE.supportEmail}`} className="hover:text-primary" data-testid="footer-support-email">
+              {SITE.supportEmail}
+            </a>
+          </li>
           <li>
             <button
               type="button"

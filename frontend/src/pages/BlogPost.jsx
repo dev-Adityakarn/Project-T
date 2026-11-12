@@ -63,6 +63,7 @@ export default function BlogPost() {
               blocks={post.blocks}
               faqs={post.faqs}
               related={post.related}
+              lead={lead}
               inArticleAds={[AD_SLOTS.articleMid, AD_SLOTS.articleLower]}
             />
           )}

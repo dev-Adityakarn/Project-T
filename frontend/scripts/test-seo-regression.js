@@ -116,6 +116,16 @@ assert(!sitemap.includes("/dashboard"), "sitemap excludes /dashboard");
 assert(!sitemap.includes("/daily"), "sitemap excludes thin /daily");
 assert(!sitemap.includes("/leaderboard"), "sitemap excludes thin /leaderboard");
 assert(!sitemap.includes("/games/speed-test"), "sitemap excludes noindex game detail pages");
+[
+  "touch-typing-guide-for-beginners",
+  "what-is-a-good-wpm-score",
+  "ssc-chsl-typing-test-2026-speed-duration-and-preparation-guide",
+  "ssc-chsl-typing-test-mistakes-full-errors-half-errors-and-corrections",
+  "how-to-increase-typing-speed-30-day-plan-to-reach-40-wpm-meta-description",
+  "english-typing-test-for-10-minutes-a-government-exam-practice-guide",
+].forEach((slug) => {
+  assert(!sitemap.includes(`/blog/${slug}/`), `sitemap excludes retired article ${slug}`);
+});
 
 const sitemapLocations = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
 const expectedSitemapRoutes = routes.filter((route) => route.sitemap !== false && !route.noindex);
@@ -161,7 +171,10 @@ assert(robots.includes(`Sitemap: ${SITE_URL}/sitemap.xml`), "robots.txt referenc
 assert(robots.includes("Allow: /"), "robots.txt allows /");
 assert(robots.includes("Disallow: /admin"), "robots.txt disallows /admin");
 assert(robots.includes("Disallow: /api"), "robots.txt disallows /api");
+assert(robots.includes("User-agent: Googlebot"), "robots.txt has a Googlebot group");
+assert(robots.includes("User-agent: Mediapartners-Google"), "robots.txt has a Mediapartners-Google group");
 assert(!robots.includes("Disallow: /typing-test"), "robots.txt does not block /typing-test");
+assert(!robots.includes("Disallow: /blog"), "robots.txt does not block /blog");
 
 console.log("\n--- Cloudflare headers and redirects ---");
 const headers = read(path.join(BUILD, "_headers"));
@@ -208,6 +221,11 @@ sitemapLocations.forEach((loc) => {
   assert(
     html.includes('<div id="root">') && !html.includes('<div id="root"></div>'),
     `${label}: initial HTML contains prerendered content`,
+  );
+  assert(!html.includes("<noscript>"), `${label}: no noscript banner in the built HTML`);
+  assert(
+    countMatches(html, /<h2>Sources<\/h2>/g) <= 1,
+    `${label}: at most one consolidated Sources section`,
   );
 
   const scripts = parseJsonLd(html);

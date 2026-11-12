@@ -23,7 +23,11 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
   const startTracked = useRef(false);
 
   const text = useMemo(
-    () => textOverride || makeTestText(config.kind, { words: config.words ?? (dur ? Math.max(60, dur * 3) : 60), texts: config.texts }),
+    () => textOverride || makeTestText(config.kind, {
+      words: config.words ?? (dur ? Math.max(60, dur * 3) : 60),
+      texts: config.texts,
+      passage: config.passage,
+    }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [config, dur, textOverride],
   );

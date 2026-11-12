@@ -2,6 +2,8 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { AdInArticle } from "@/components/ads/AdInArticle";
+import { CustomCodePractice } from "@/components/CustomCodePractice";
+import { ExamNetSpeedCalculator } from "@/components/ExamNetSpeedCalculator";
 import { HomeRowDrill } from "@/components/HomeRowDrill";
 import { KeyboardFingerMap } from "@/components/KeyboardFingerMap";
 import { WpmInterpreter } from "@/components/WpmInterpreter";
@@ -11,9 +13,62 @@ const WIDGETS = {
   "wpm-interpreter": WpmInterpreter,
   "finger-map": KeyboardFingerMap,
   "home-row-drill": HomeRowDrill,
+  "exam-net-speed": ExamNetSpeedCalculator,
+  "custom-code-practice": CustomCodePractice,
 };
 
 const normalizeTo = (to) => (to === "/" ? "/" : to.endsWith("/") ? to : `${to}/`);
+
+const wordsOf = (value) =>
+  String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+
+/**
+ * A legacy article can repeat its excerpt as the first paragraph. The header
+ * already renders the lead, so compare the two and drop the duplicate rather
+ * than rendering the same sentence twice.
+ */
+const duplicatesLead = (paragraph, lead) => {
+  if (!paragraph || !lead) return false;
+  const a = wordsOf(lead);
+  const b = wordsOf(paragraph);
+  if (!a.length || !b.length) return false;
+  if (paragraph.trim() === lead.trim()) return true;
+  if (Math.min(a.length, b.length) < 12) return false;
+  const leadWords = new Set(a);
+  const overlap = b.filter((word) => leadWords.has(word)).length;
+  return overlap / Math.min(a.length, b.length) >= 0.8;
+};
+
+const withoutDuplicateLead = (blocks = [], lead = "") => {
+  if (!lead || !blocks.length) return blocks;
+  const first = blocks[0];
+  if (!first?.p?.length || first.h2 || first.h3) return blocks;
+  if (!duplicatesLead(first.p[0], lead)) return blocks;
+
+  const next = { ...first, p: first.p.slice(1) };
+  if (!next.p.length) {
+    const { p, ...rest } = next;
+    return Object.keys(rest).length ? [rest, ...blocks.slice(1)] : blocks.slice(1);
+  }
+  return [next, ...blocks.slice(1)];
+};
+
+const collectSources = (blocks = []) => {
+  const seen = new Set();
+  const sources = [];
+  blocks.forEach((block) => {
+    (block.sources || []).forEach((source) => {
+      if (!source?.url || seen.has(source.url)) return;
+      seen.add(source.url);
+      sources.push(source);
+    });
+  });
+  return sources;
+};
 
 const Block = ({ b }) => {
   const Widget = b.widget ? WIDGETS[b.widget] : null;
@@ -21,6 +76,7 @@ const Block = ({ b }) => {
   return (
   <section className="mt-10">
     {b.h2 && <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{b.h2}</h2>}
+    {b.h3 && <h3 className="mt-6 text-xl font-semibold tracking-tight">{b.h3}</h3>}
     {b.p?.map((t) => <p key={t.slice(0, 24)} className="mt-4 text-sm leading-relaxed text-muted-foreground md:text-base">{t}</p>)}
     {b.ul && (
       <ul className="mt-5 space-y-3">
@@ -98,25 +154,6 @@ const Block = ({ b }) => {
       </div>
     )}
     {Widget && <Widget />}
-    {b.sources?.length > 0 && (
-      <div className="mt-5 rounded-xl border bg-muted/30 p-4" data-testid="article-sources">
-        <h3 className="text-sm font-semibold">Sources</h3>
-        <ul className="mt-2 space-y-2 text-sm">
-          {b.sources.map((source) => (
-            <li key={source.url}>
-              <a
-                href={source.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary underline underline-offset-2"
-              >
-                {source.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
   </section>
   );
 };
@@ -159,9 +196,32 @@ export const RelatedLinks = ({ links, heading = "Keep practising" }) => {
   );
 };
 
+const Sources = ({ sources }) => {
+  if (!sources.length) return null;
+  return (
+    <section className="mt-14" data-testid="article-sources">
+      <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Sources</h2>
+      <ul className="mt-4 space-y-2 text-sm">
+        {sources.map((source) => (
+          <li key={source.url}>
+            <a
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-2"
+            >
+              {source.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
+
 const contentLength = (blocks = []) =>
   blocks.reduce((total, block) => {
-    const parts = [block.h2, block.pre, ...(block.p || []), ...(block.ul || [])];
+    const parts = [block.h2, block.h3, block.pre, ...(block.p || []), ...(block.ul || [])];
     (block.table?.columns || []).forEach((column) => parts.push(column));
     (block.table?.rows || []).forEach((row) => row.forEach((cell) => parts.push(cell)));
     (block.steps || []).forEach((step) => parts.push(step.h3, step.p));
@@ -198,13 +258,16 @@ export const SeoArticle = ({
   faqs = [],
   related = [],
   inArticleAds = [],
+  lead = "",
 }) => {
-  const adPositions = articleAdPositions(blocks, inArticleAds);
+  const visibleBlocks = withoutDuplicateLead(blocks, lead);
+  const sources = collectSources(visibleBlocks);
+  const adPositions = articleAdPositions(visibleBlocks, inArticleAds);
 
   return (
     <div className="mx-auto max-w-3xl">
-      {blocks.map((b, i) => (
-        <Fragment key={b.h2 || i}>
+      {visibleBlocks.map((b, i) => (
+        <Fragment key={b.h2 || b.h3 || i}>
           <Block b={b} />
           {adPositions
             .filter((position) => position.after === i + 1)
@@ -216,6 +279,7 @@ export const SeoArticle = ({
             ))}
         </Fragment>
       ))}
+      <Sources sources={sources} />
       <Faqs faqs={faqs} />
       <RelatedLinks links={related} />
     </div>

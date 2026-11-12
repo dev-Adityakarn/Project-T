@@ -5,8 +5,12 @@
     "title": "Typing Blog: Speed, Accuracy and Keyboard Guides",
     "description": "Practical guides on typing speed, accuracy, average WPM by age and touch typing technique, written for anyone who wants faster and calmer hands.",
     "h1": "The Typinger typing blog",
-    "lead": "Long-form guides on speed, accuracy, technique and what the numbers actually mean. No gimmicks, just what works.",
-    "breadcrumbs": [{ "name": "Blog" }],
+    "lead": "Practical guides on speed, accuracy, technique and what the numbers actually mean. Every guide states what it is based on and when it was last updated.",
+    "breadcrumbs": [
+      {
+        "name": "Blog"
+      }
+    ],
     "blocks": [
       {
         "h2": "What you will find here",
@@ -18,9 +22,18 @@
     ],
     "faqs": [],
     "related": [
-      { "to": "/typing-test", "label": "Take a typing speed test" },
-      { "to": "/typing-lessons", "label": "Touch typing lessons" },
-      { "to": "/typing-practice", "label": "Typing practice drills" }
+      {
+        "to": "/typing-test",
+        "label": "Take a typing speed test"
+      },
+      {
+        "to": "/typing-lessons",
+        "label": "Touch typing lessons"
+      },
+      {
+        "to": "/typing-practice",
+        "label": "Typing practice drills"
+      }
     ]
   },
   {
@@ -30,7 +43,11 @@
     "description": "Learn who builds Typinger, why the site mixes serious typing tests with arcade games, and how WPM, accuracy and leaderboards are calculated here.",
     "h1": "About Typinger",
     "lead": "Typinger is a free typing site built on one idea: practice only works if you come back tomorrow.",
-    "breadcrumbs": [{ "name": "About" }],
+    "breadcrumbs": [
+      {
+        "name": "About"
+      }
+    ],
     "blocks": [
       {
         "h2": "Why we built Typinger",
@@ -57,21 +74,64 @@
       {
         "h2": "Who we are",
         "p": [
-          "Typinger is an independent project built and maintained by a small team of developers who got tired of their own typing plateaus. We read the messages sent through the contact form, and feature suggestions are always welcome."
+          "Typinger is an independent project maintained by its owner and a small group of contributors. The site owner is responsible for the code, the practice passages and the editorial pages. You can reach us at support@typinger.in or through the contact form.",
+          "Typinger is not affiliated with the Staff Selection Commission, the Railway Recruitment Boards, the MP CPCT programme or any government recruitment body. A practice score is feedback for training, not an official result or certification."
+        ]
+      },
+      {
+        "h2": "How we research and update guides",
+        "p": [
+          "We use primary documents where a claim depends on a rule: official notifications, rulebooks, government releases and the exam body's own notice board. When a figure belongs to a specific cycle, the article names that cycle and links the source.",
+          "Every article shows a published date and, where it has been revised, an updated date. If a rule changes, we correct the article rather than leaving an old figure presented as current. If you spot an error, email support@typinger.in with the page and the correction.",
+          "Our practice passages are original text written for Typinger. They are not copies of official exam passages, and a practice score does not reproduce an exam's scoring software."
+        ]
+      },
+      {
+        "h2": "Editorial independence",
+        "p": [
+          "Advertising, when enabled, does not determine which tools or articles we publish. We do not accept payment for a favourable review, a claimed pass mark or a testimonial. Where a page discusses an external product or exam, we say what we can verify and link the primary source."
         ]
       }
     ],
     "faqs": [
-      { "q": "Is Typinger really free?", "a": "Yes. Every test, lesson and game is free and unlimited, and an account is optional. We do not charge for results or lock features behind a subscription." },
-      { "q": "Do you sell my typing data?", "a": "No. We store the minimum needed to show your history and leaderboards, and we never sell personal data. The privacy policy explains exactly what is kept." },
-      { "q": "Can I suggest a new game or feature?", "a": "Please do. Use the contact page; feature requests from users are the main source of our roadmap, including difficulty levels and the daily challenge." },
-      { "q": "Which keyboards and layouts are supported?", "a": "Any physical keyboard and any layout, including QWERTY, Dvorak, Colemak and Devanagari input methods for the Hindi test." },
-      { "q": "Do you have a mobile app?", "a": "Not yet. The site works in any modern browser, and we recommend a physical keyboard for a fair measurement of speed." }
+      {
+        "q": "Is Typinger really free?",
+        "a": "Yes. Every test, lesson and game is free and unlimited, and an account is optional. We do not charge for results or lock features behind a subscription."
+      },
+      {
+        "q": "Do you sell my typing data?",
+        "a": "No. We store the minimum needed to show your history and leaderboards, and we never sell personal data. The privacy policy explains exactly what is kept."
+      },
+      {
+        "q": "Can I suggest a new game or feature?",
+        "a": "Please do. Use the contact page; feature requests from users are the main source of our roadmap, including difficulty levels and the daily challenge."
+      },
+      {
+        "q": "Which keyboards and layouts are supported?",
+        "a": "Any physical keyboard and any layout, including QWERTY, Dvorak, Colemak and Devanagari input methods for the Hindi test."
+      },
+      {
+        "q": "Do you have a mobile app?",
+        "a": "Not yet. The site works in any modern browser, and we recommend a physical keyboard for a fair measurement of speed."
+      },
+      {
+        "q": "Who owns Typinger?",
+        "a": "Typinger is an independent project. The site owner is responsible for the service and can be contacted at support@typinger.in."
+      }
     ],
     "related": [
-      { "to": "/contact", "label": "Contact the Typinger team" },
-      { "to": "/privacy-policy", "label": "Read the privacy policy" },
-      { "to": "/typing-test", "label": "Take a typing test" }
+      {
+        "to": "/contact",
+        "label": "Contact the Typinger team"
+      },
+      {
+        "to": "/privacy-policy",
+        "label": "Read the privacy policy"
+      },
+      {
+        "to": "/terms",
+        "label": "Read the terms of service"
+      }
     ]
   },
   {
@@ -80,19 +140,24 @@
     "title": "Contact Typinger: Support, Feedback and Bug Reports",
     "description": "Send the Typinger team a message about bugs, leaderboard issues, feature ideas, account problems or partnership enquiries using the contact form.",
     "h1": "Contact Typinger",
-    "lead": "Questions, bugs, leaderboard disputes or a game idea you cannot stop thinking about — send it over.",
-    "breadcrumbs": [{ "name": "Contact" }],
+    "lead": "Questions, corrections, bugs, leaderboard disputes or a feature idea — email us or use the form below.",
+    "breadcrumbs": [
+      {
+        "name": "Contact"
+      }
+    ],
     "blocks": [
       {
         "h2": "Send a message",
         "p": [
-          "Use the form on this page. It stores your message for the Typinger team. Include a valid email address if you want a reply; we do not publish a support email address."
+          "Use the form on this page or email support@typinger.in. Include a valid email address if you want a reply. For account and data requests, write from the email address on the account so we can verify the request."
         ],
         "ul": [
           "Bug reports: tell us the page, your browser and keyboard layout, and what you expected to happen.",
           "Account help: include the email address on the account so we can verify the request safely. Never send us your password.",
           "Leaderboard reports: include the game, the difficulty and the player name; verified cheating is removed by our moderators.",
           "Feature ideas: describe the practice problem you are trying to solve rather than the solution, and we will look for the simplest fix.",
+          "Corrections: include the page URL and the sentence you believe is wrong. A primary source helps us verify the change.",
           "Press and partnerships: mention the audience and the format you have in mind."
         ]
       },
@@ -105,16 +170,44 @@
       }
     ],
     "faqs": [
-      { "q": "How do I send a message?", "a": "Use the contact form on this page and choose the closest subject. The form stores the message for the Typinger team; include a valid email address if you want a reply." },
-      { "q": "My score did not save. What happened?", "a": "Scores are attached to your account when the run finishes, so a run started while signed out will not save. Sign in first, then play, and the result will appear in your dashboard history." },
-      { "q": "How do I report a suspected cheater?", "a": "Use the contact form and choose Leaderboard report. Include the game name, difficulty and the player name shown on the leaderboard. Our moderators can flag or remove individual results after review." },
-      { "q": "Can I delete my account and data?", "a": "Yes. Use the contact form and choose Account or data request. Include the email address on the account so we can verify the request, and we will delete the account, its results and its badges permanently." },
-      { "q": "Do you accept guest posts?", "a": "Occasionally, if the author genuinely knows the subject and the article is original. Send a short outline rather than a finished draft." }
+      {
+        "q": "How do I send a message?",
+        "a": "Use the contact form on this page or email support@typinger.in. Include a valid email address if you want a reply."
+      },
+      {
+        "q": "My score did not save. What happened?",
+        "a": "Scores are attached to your account when the run finishes, so a run started while signed out will not save. Sign in first, then play, and the result will appear in your dashboard history."
+      },
+      {
+        "q": "How do I report a suspected cheater?",
+        "a": "Use the contact form and choose Leaderboard report. Include the game name, difficulty and the player name shown on the leaderboard. Our moderators can flag or remove individual results after review."
+      },
+      {
+        "q": "Can I delete my account and data?",
+        "a": "Yes. Use the contact form and choose Account or data request. Include the email address on the account so we can verify the request, and we will delete the account, its results and its badges permanently."
+      },
+      {
+        "q": "Do you accept guest posts?",
+        "a": "Occasionally, if the author genuinely knows the subject and the article is original. Send a short outline rather than a finished draft."
+      },
+      {
+        "q": "Do you publish a support email address?",
+        "a": "Yes. The support address is support@typinger.in. The contact form remains available if you prefer not to use email."
+      }
     ],
     "related": [
-      { "to": "/about", "label": "About Typinger" },
-      { "to": "/terms", "label": "Terms of service" },
-      { "to": "/blog", "label": "Typing guides and articles" }
+      {
+        "to": "/about",
+        "label": "About Typinger"
+      },
+      {
+        "to": "/terms",
+        "label": "Terms of service"
+      },
+      {
+        "to": "/blog",
+        "label": "Typing guides and articles"
+      }
     ]
   },
   {
@@ -123,8 +216,12 @@
     "title": "Privacy Policy: How Typinger Handles Your Data",
     "description": "Read how Typinger collects, stores and protects your data, which cookies we set, how analytics consent works and how to delete your account for good.",
     "h1": "Privacy policy",
-    "lead": "Last updated October 2026. The short version: we store what is needed to show your typing history, and nothing is sold.",
-    "breadcrumbs": [{ "name": "Privacy policy" }],
+    "lead": "Last updated November 2026. The short version: we store what is needed to show your typing history, and nothing is sold.",
+    "breadcrumbs": [
+      {
+        "name": "Privacy policy"
+      }
+    ],
     "blocks": [
       {
         "h2": "What we collect",
@@ -161,7 +258,8 @@
         "h2": "Your rights and deletion",
         "p": [
           "You can request a copy of your data or ask us to delete your account at any time through the contact form using the email address on the account. Deletion removes your profile, results and badges permanently, and leaderboard entries disappear with them.",
-          "Children under 13 should use Typinger with a parent or guardian and should not create an account with a personal email address."
+          "Children under 13 should use Typinger with a parent or guardian and should not create an account with a personal email address.",
+          "You can also email support@typinger.in with the subject line \"Data request\". We may ask you to verify control of the account before deleting it."
         ]
       },
       {
@@ -173,16 +271,40 @@
       }
     ],
     "faqs": [
-      { "q": "Do you use tracking cookies?", "a": "We use analytics cookies only after you accept them in the consent banner. When ads are enabled, Google AdSense may set advertising cookies to serve ads; where required, Google shows a separate consent message. Authentication cookies are strictly necessary and are set only when you sign in." },
-      { "q": "Can I use Typinger without an account?", "a": "Yes. All tests, lessons and games work signed out, and nothing is stored about you beyond standard server logs." },
-      { "q": "Where is my data stored?", "a": "In a managed MongoDB database used only by Typinger. Access is restricted to the application and to site administrators." },
-      { "q": "How do I delete my data?", "a": "Use the contact form and choose Account or data request. Include the email address on the account and we will permanently delete the account, its results and its achievement records." },
-      { "q": "Is my password readable by anyone?", "a": "No. Passwords are hashed with bcrypt before storage, so neither we nor an attacker with database access can read them." }
+      {
+        "q": "Do you use tracking cookies?",
+        "a": "We use analytics cookies only after you accept them in the consent banner. When ads are enabled, Google AdSense may set advertising cookies to serve ads; where required, Google shows a separate consent message. Authentication cookies are strictly necessary and are set only when you sign in."
+      },
+      {
+        "q": "Can I use Typinger without an account?",
+        "a": "Yes. All tests, lessons and games work signed out, and nothing is stored about you beyond standard server logs."
+      },
+      {
+        "q": "Where is my data stored?",
+        "a": "In a managed MongoDB database used only by Typinger. Access is restricted to the application and to site administrators."
+      },
+      {
+        "q": "How do I delete my data?",
+        "a": "Use the contact form and choose Account or data request, or email support@typinger.in from the address on the account. We will permanently delete the account, its results and its achievement records after verification."
+      },
+      {
+        "q": "Is my password readable by anyone?",
+        "a": "No. Passwords are hashed with bcrypt before storage, so neither we nor an attacker with database access can read them."
+      }
     ],
     "related": [
-      { "to": "/terms", "label": "Terms of service" },
-      { "to": "/about", "label": "About Typinger" },
-      { "to": "/contact", "label": "Contact us about your data" }
+      {
+        "to": "/terms",
+        "label": "Terms of service"
+      },
+      {
+        "to": "/about",
+        "label": "About Typinger"
+      },
+      {
+        "to": "/contact",
+        "label": "Contact us about your data"
+      }
     ]
   },
   {
@@ -191,8 +313,12 @@
     "title": "Terms of Service: Rules for Using Typinger",
     "description": "The terms for using Typinger, covering accounts, fair play on leaderboards, acceptable use, intellectual property, liability and how disputes are handled.",
     "h1": "Terms of service",
-    "lead": "Last updated June 2026. Use the site, practise hard, do not cheat the leaderboard.",
-    "breadcrumbs": [{ "name": "Terms" }],
+    "lead": "Last updated November 2026. Use the site, practise hard, do not cheat the leaderboard.",
+    "breadcrumbs": [
+      {
+        "name": "Terms"
+      }
+    ],
     "blocks": [
       {
         "h2": "Accepting these terms",
@@ -227,28 +353,57 @@
         "h2": "Content and intellectual property",
         "p": [
           "The Typinger name, interface, games, lesson material and articles are our intellectual property and may not be copied wholesale. You are welcome to quote an article with a link back, and to share your own result cards anywhere you like.",
-          "Typing passages include public domain and originally written text. If you believe something here infringes your rights, contact us and we will review it promptly."
+          "Typing passages include public domain and originally written text. If you believe something here infringes your rights, contact us and we will review it promptly.",
+          "Typinger is an independent practice website. We are not affiliated with SSC, RRB, MP CPCT or any government recruitment body, and we do not claim to reproduce their official software, scoring or qualification decisions."
         ]
       },
       {
         "h2": "Service availability and liability",
         "p": [
           "Typinger is provided as is, without warranty. We aim for high availability but we cannot guarantee uninterrupted service, preserved scores in the event of a failure, or that measurements match any particular exam's official scoring. To the extent permitted by law, our liability is limited to the amount you paid us, which for a free service is zero.",
-          "These terms are governed by the laws applicable at our principal place of business, and disputes will be handled in those courts."
+          "These terms are governed by the laws of India, and disputes will be subject to the jurisdiction of the competent courts in India."
         ]
       }
     ],
     "faqs": [
-      { "q": "Can I use Typinger results in a job application?", "a": "Yes, and we recommend quoting a three or five minute result. Typinger is not an accredited certification body, so some employers will still run their own assessment." },
-      { "q": "What counts as cheating?", "a": "Any result not produced by you typing on a keyboard in real time: scripts, macros, text expanders, autocomplete tools or modified clients. Moderators can flag or remove such results." },
-      { "q": "Can my account be deleted without warning?", "a": "Only for serious abuse, such as attacking the service or repeated leaderboard manipulation. In other cases we contact you first using the email on the account." },
-      { "q": "May I embed Typinger tests on my site?", "a": "Not without written permission, but you are very welcome to link to any page, and links to specific tests are encouraged." },
-      { "q": "Do these terms change?", "a": "Occasionally, as features change. The updated date at the top of this page always reflects the current version, and significant changes are announced on the blog." }
+      {
+        "q": "Can I use Typinger results in a job application?",
+        "a": "Yes, and we recommend quoting a three or five minute result. Typinger is not an accredited certification body, so some employers will still run their own assessment."
+      },
+      {
+        "q": "What counts as cheating?",
+        "a": "Any result not produced by you typing on a keyboard in real time: scripts, macros, text expanders, autocomplete tools or modified clients. Moderators can flag or remove such results."
+      },
+      {
+        "q": "Can my account be deleted without warning?",
+        "a": "Only for serious abuse, such as attacking the service or repeated leaderboard manipulation. In other cases we contact you first using the email on the account."
+      },
+      {
+        "q": "May I embed Typinger tests on my site?",
+        "a": "Not without written permission, but you are very welcome to link to any page, and links to specific tests are encouraged."
+      },
+      {
+        "q": "Do these terms change?",
+        "a": "Occasionally, as features change. The updated date at the top of this page always reflects the current version, and significant changes are announced on the blog."
+      },
+      {
+        "q": "Is Typinger an official exam website?",
+        "a": "No. Typinger is independent practice software. It is not affiliated with SSC, RRB, MP CPCT or any government body, and a practice score is not an official result."
+      }
     ],
     "related": [
-      { "to": "/privacy-policy", "label": "Privacy policy" },
-      { "to": "/contact", "label": "Contact Typinger" },
-      { "to": "/leaderboard", "label": "See the leaderboards" }
+      {
+        "to": "/privacy-policy",
+        "label": "Privacy policy"
+      },
+      {
+        "to": "/contact",
+        "label": "Contact Typinger"
+      },
+      {
+        "to": "/leaderboard",
+        "label": "See the leaderboards"
+      }
     ]
   }
 ]

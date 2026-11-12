@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRightLeft, Eye, Plus, Save, X } from "lucide-react";
 import { toast } from "sonner";
+import { POSTS, SITE } from "@/seo";
 import { adminApi, formatAdminError } from "@/lib/adminApi";
 import {
   CONTENT_FORMAT_LEGACY,
@@ -46,7 +47,7 @@ const formFromPost = (post) => {
       excerpt: "",
       meta_title: "",
       meta_description: "",
-      author: "Typinger Team",
+      author: SITE.author,
       published: false,
       content: "",
       content_format: CONTENT_FORMAT_RICH,
@@ -61,7 +62,7 @@ const formFromPost = (post) => {
     excerpt: post.excerpt || "",
     meta_title: post.meta_title || "",
     meta_description: post.meta_description || "",
-    author: post.author || "Typinger Team",
+    author: post.author || SITE.author,
     published: Boolean(post.published),
     content: post.content || "",
     content_format: rich ? CONTENT_FORMAT_RICH : CONTENT_FORMAT_LEGACY,
@@ -94,8 +95,23 @@ const Field = ({ label, htmlFor, hint, children }) => (
   </div>
 );
 
+const EDITORIAL_RESIDUE = [
+  /do not present/i,
+  /users should distinguish/i,
+  /this is where a site like/i,
+  /meta description/i,
+  /target keyword/i,
+  /editorial note/i,
+  /\bTODO:/,
+  /\bFIXME:/,
+  /SEO strategy/i,
+];
+
+const countWords = (text) => String(text || "").trim().split(/\s+/).filter(Boolean).length;
+
 export function PostEditor({
   post = null,
+  otherPosts = [],
   onSaved,
   onCancel,
   onDirtyChange,
@@ -123,6 +139,59 @@ export function PostEditor({
         : [],
     [form.content_format, form.content_json],
   );
+
+  const bodyText = useMemo(
+    () => (form.content_format === CONTENT_FORMAT_RICH ? docToText(form.content_json) : form.content),
+    [form.content_format, form.content_json, form.content],
+  );
+
+  /**
+   * Warnings do not block saving, but they surface the publishing mistakes
+   * that caused the AdSense review: duplicate slugs, missing metadata,
+   * editorial instructions left in public copy and very short stubs.
+   */
+  const warnings = useMemo(() => {
+    const slug = form.slug.trim();
+    const staticMatch = POSTS.some((entry) => entry.slug === slug);
+    const databaseMatch = otherPosts.some(
+      (entry) => entry.slug === slug && entry.id !== post?.id,
+    );
+    const duplicateSlug =
+      slug && (staticMatch || databaseMatch)
+        ? staticMatch
+          ? `The slug “${slug}” already belongs to a code-shipped article. A database post with the same slug will be shadowed.`
+          : `Another database post already uses the slug “${slug}”.`
+        : "";
+
+    const missing = [
+      ["excerpt", "excerpt"],
+      ["meta title", "meta title"],
+      ["meta description", "meta description"],
+      ["author", "author"],
+    ]
+      .filter(([key]) => !String(form[key] ?? "").trim())
+      .map(([, label]) => label);
+
+    const searchable = [form.title, form.excerpt, form.meta_title, form.meta_description, bodyText]
+      .join("\n");
+    const residues = EDITORIAL_RESIDUE.filter((pattern) => pattern.test(searchable)).map(
+      (pattern) => pattern.source.replace(/\\b|\\s\+|^\/|\/$/g, ""),
+    );
+
+    const words = countWords(bodyText);
+    return {
+      duplicateSlug,
+      missingMetadata: missing,
+      editorial: [...new Set(residues)],
+      stub: words > 0 && words < 300 ? words : 0,
+    };
+  }, [bodyText, form, otherPosts, post?.id]);
+
+  const hasWarnings =
+    Boolean(warnings.duplicateSlug) ||
+    warnings.missingMetadata.length > 0 ||
+    warnings.editorial.length > 0 ||
+    warnings.stub > 0;
 
   const { open: leaveOpen, proceed: proceedLeave, reset: resetLeave } =
     useUnsavedChanges(dirty);
@@ -398,6 +467,39 @@ export function PostEditor({
           />
           Published (visible on the public blog)
         </label>
+
+        {hasWarnings && (
+          <div
+            className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-900 dark:text-amber-200"
+            data-testid="post-warnings"
+            aria-live="polite"
+          >
+            <p className="font-medium">Check before publishing</p>
+            <ul className="mt-1 list-disc space-y-1 pl-4">
+              {warnings.duplicateSlug && (
+                <li data-testid="post-warning-duplicate-slug">{warnings.duplicateSlug}</li>
+              )}
+              {warnings.missingMetadata.length > 0 && (
+                <li data-testid="post-warning-metadata">
+                  Missing metadata: {warnings.missingMetadata.join(", ")}. These fields appear in
+                  search results and social previews.
+                </li>
+              )}
+              {warnings.editorial.length > 0 && (
+                <li data-testid="post-warning-editorial">
+                  Possible editorial or prompt text in public copy ({warnings.editorial.join(", ")}).
+                  Rewrite it as reader-facing content before publishing.
+                </li>
+              )}
+              {warnings.stub > 0 && (
+                <li data-testid="post-warning-stub">
+                  This draft is {warnings.stub} words. Pages under 300 words are often treated as
+                  thin content; expand it with a concrete explanation, example or table.
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
 
         {formError && (
           <p className="text-xs text-destructive" role="alert">

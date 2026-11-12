@@ -18,6 +18,12 @@ const LEGACY_REDIRECTS = Object.freeze({
   "/terms-of-service": "/terms/",
   "/hindi-typing": "/hindi-typing-test/",
   "/blog/index": "/blog/",
+  "/blog/touch-typing-guide-for-beginners": "/blog/touch-typing-for-beginners/",
+  "/blog/what-is-a-good-wpm-score": "/blog/what-is-a-good-typing-speed/",
+  "/blog/ssc-chsl-typing-test-2026-speed-duration-and-preparation-guide": "/blog/ssc-chsl-typing-test-2026/",
+  "/blog/ssc-chsl-typing-test-mistakes-full-errors-half-errors-and-corrections": "/blog/ssc-chsl-typing-test-2026/",
+  "/blog/how-to-increase-typing-speed-30-day-plan-to-reach-40-wpm-meta-description": "/blog/how-to-increase-typing-speed/",
+  "/blog/english-typing-test-for-10-minutes-a-government-exam-practice-guide": "/blog/english-typing-test-1-5-10-minute/",
 });
 
 // Keep these in sync with frontend/src/data/games.js. A test checks the list.

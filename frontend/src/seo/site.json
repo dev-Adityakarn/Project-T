@@ -8,5 +8,16 @@
   "contactPath": "/contact/",
   "ogImage": "/og/typinger-default.png",
   "logo": "/og/typinger-logo.png",
-  "founded": "2026"
+  "founded": "2026",
+  "author": "Typinger Team",
+  "supportEmail": "support@typinger.in",
+  "jurisdiction": "India",
+  "owner": {
+    "name": "Typinger",
+    "legalName": "Typinger",
+    "author": "Typinger Team",
+    "supportEmail": "support@typinger.in",
+    "jurisdiction": "India"
+  },
+  "affiliationDisclaimer": "Typinger is independent practice software. It is not affiliated with SSC, RRB, MP CPCT or any government recruitment body, and it does not reproduce their official scoring, error rules or qualification decisions."
 }

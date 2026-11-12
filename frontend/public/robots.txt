@@ -3,5 +3,24 @@ Allow: /
 
 Disallow: /admin
 Disallow: /api
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+
+User-agent: Mediapartners-Google
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
 
 Sitemap: https://typinger.in/sitemap.xml

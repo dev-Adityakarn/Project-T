@@ -4,42 +4,42 @@
     "title": "Home row anchor: a s d f j k l ;",
     "keys": "a s d f j k l ;",
     "goal": "Find the home row without looking",
-    "text": "as ask lad fall jak all sad fad lass salad flask dial glad hall jail task flask dad lads sail falls askk all sad"
+    "text": "a ad add all ask asks dad dads fad fads fall falls flask flasks lad lads lass salad salads alfalfa alaska flak j k a s d f j k l"
   },
   {
     "id": 2,
     "title": "Home row reaches: g and h",
     "keys": "g h",
     "goal": "Index finger reaches inward",
-    "text": "gas high gash flag hall half slash fish gaff hajj shall glad sigh ghost high hash flash galls hags laugh slight"
+    "text": "gas gag gags gala glad glass dash hash half hall jag jags lash slash flash flag flags flask salad shall shad"
   },
   {
     "id": 3,
     "title": "Home row words and spacing",
     "keys": "home row + space",
     "goal": "Even rhythm with the thumb on space",
-    "text": "a lad has a flask and a glass of gas a hall falls a flag shall sail all day sad lads ask dad for salad and hash"
+    "text": "a lad has a flask a glass a flag a hall all lads ask dad a salad a hash a flash a half a flag a glass a lad"
   },
   {
     "id": 4,
     "title": "Top row: e i r u",
     "keys": "e i r u",
     "goal": "Reach up and return to the anchor",
-    "text": "fire hire rule true dear idea rise user ride lure rare dire user fuel fire dues rule quiet eerie hurried easier"
+    "text": "fire hire rule dear idea rise user ride lure rare dire fuel dues ruse sure aired erred raise dried friar rider sued rued seer fire hire rule"
   },
   {
     "id": 5,
     "title": "Top row: t y o p",
     "keys": "t y o p",
     "goal": "Outer top row control",
-    "text": "type topic story opt pot toy your pity type poetry output typist trophy prototype portrait property typically"
+    "text": "type top story opt pot toy your pity type poetry output typist trophy prototype portrait property pottery topiary priority type top story"
   },
   {
     "id": 6,
     "title": "Top row: q w and full words",
     "keys": "q w",
     "goal": "Weak finger reaches",
-    "text": "quit wait quiz wow queue quote weary quirk wisdom quietly wrapper question keyword wallpaper quickly waterfall"
+    "text": "quit quite quote quota wait water weary wear worry quirk quality quarter quieter query quiet wrist write writer worthy weather sword toward reward shower power tower write quit quote"
   },
   {
     "id": 7,
@@ -72,7 +72,7 @@
   {
     "id": 11,
     "title": "Numbers and the number row",
-    "keys": "1 2 3 4 5 6 7 8 9 0",
+    "keys": "1 2 3 4 5 6 7 8 9 0 /",
     "goal": "Digits by finger, not by eye",
     "text": "1 2 3 4 5 6 7 8 9 0 invoice 1250 on 14/09/2026 for 3 units at 75.40 each, order 8821, phone 00000 00000, room 7"
   },

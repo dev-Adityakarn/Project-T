@@ -6,7 +6,17 @@
     "description": "Take a free typing test, see your WPM and accuracy instantly, then build real speed with ten typing games. Start your first test now, no signup needed.",
     "h1": "Free typing test and ten typing games in one place",
     "lead": "Run a 60 second typing test right here, then keep the momentum going with arcade games that train the exact keys slowing you down.",
-    "tool": { "kind": "words", "durations": [15, 30, 60], "duration": 60, "words": 180 },
+    "tool": {
+      "kind": "words",
+      "durations": [
+        15,
+        30,
+        60
+      ],
+      "duration": 60,
+      "words": 180,
+      "passage": "home"
+    },
     "blocks": [
       {
         "h2": "What this typing test measures",
@@ -25,11 +35,26 @@
       {
         "h2": "Five tips to type faster",
         "steps": [
-          { "h3": "Fix your home row anchor", "p": "Rest your left fingers on A, S, D, F and your right fingers on J, K, L and the semicolon. Every reach should return to that anchor so your hands stop hunting for position." },
-          { "h3": "Chase accuracy before speed", "p": "Type at the fastest pace where you stay above 97% accuracy. Errors cost you the keystroke, the backspace and the lost rhythm, so clean typing is almost always quicker overall." },
-          { "h3": "Stop looking at the keyboard", "p": "Keep your eyes two or three words ahead of the caret. Looking down breaks your flow and trains your brain to depend on sight instead of muscle memory." },
-          { "h3": "Practise in short daily blocks", "p": "Ten focused minutes a day beats a two hour session once a week. Speed comes from repetition spread across many days, which is why Typinger has a daily challenge." },
-          { "h3": "Train your weak keys on purpose", "p": "Most people lose seconds on numbers, punctuation and the Q, Z and P reaches. Use the number and punctuation tests to attack those keys instead of avoiding them." }
+          {
+            "h3": "Fix your home row anchor",
+            "p": "Rest your left fingers on A, S, D, F and your right fingers on J, K, L and the semicolon. Every reach should return to that anchor so your hands stop hunting for position."
+          },
+          {
+            "h3": "Chase accuracy before speed",
+            "p": "Type at the fastest pace where you stay above 97% accuracy. Errors cost you the keystroke, the backspace and the lost rhythm, so clean typing is almost always quicker overall."
+          },
+          {
+            "h3": "Stop looking at the keyboard",
+            "p": "Keep your eyes two or three words ahead of the caret. Looking down breaks your flow and trains your brain to depend on sight instead of muscle memory."
+          },
+          {
+            "h3": "Practise in short daily blocks",
+            "p": "Ten focused minutes a day beats a two hour session once a week. Speed comes from repetition spread across many days, which is why Typinger has a daily challenge."
+          },
+          {
+            "h3": "Train your weak keys on purpose",
+            "p": "Most people lose seconds on numbers, punctuation and the Q, Z and P reaches. Use the number and punctuation tests to attack those keys instead of avoiding them."
+          }
         ]
       },
       {
@@ -41,17 +66,44 @@
       }
     ],
     "faqs": [
-      { "q": "Is the typing test really free?", "a": "Yes. Every typing test, practice drill, lesson and game on Typinger is free and unlimited. A free account is optional and lets you save game scores, badges and leaderboard placement." },
-      { "q": "What is a good typing speed?", "a": "For everyday work, 40-50 WPM at high accuracy is a practical target. Around 60 WPM is comfortably fast for many office tasks, 80 to 100 WPM is advanced, and above 120 WPM is competitive territory. These are orientation bands, not a population average." },
-      { "q": "How often should I practise typing?", "a": "Ten to fifteen minutes a day is a practical routine. Short daily sessions are generally easier to sustain than one long weekly session. Improvement varies, so track your own trend over several weeks rather than expecting a fixed gain." },
-      { "q": "Do mistakes lower my WPM score?", "a": "Yes. Only correctly typed characters count toward WPM, and every wrong keystroke also lowers your accuracy. The speed-test game score multiplies WPM by accuracy, so clean runs score higher." },
-      { "q": "Can I use Typinger on a phone or tablet?", "a": "The tests and lessons work on a tablet with a keyboard, and the arcade games are playable on any device with a physical keyboard. For a fair WPM measurement we recommend a laptop or desktop keyboard." }
+      {
+        "q": "Is the typing test really free?",
+        "a": "Yes. Every typing test, practice drill, lesson and game on Typinger is free and unlimited. A free account is optional and lets you save game scores, badges and leaderboard placement."
+      },
+      {
+        "q": "What is a good typing speed?",
+        "a": "For everyday work, 40-50 WPM at high accuracy is a practical target. Around 60 WPM is comfortably fast for many office tasks, 80 to 100 WPM is advanced, and above 120 WPM is competitive territory. These are orientation bands, not a population average."
+      },
+      {
+        "q": "How often should I practise typing?",
+        "a": "Ten to fifteen minutes a day is a practical routine. Short daily sessions are generally easier to sustain than one long weekly session. Improvement varies, so track your own trend over several weeks rather than expecting a fixed gain."
+      },
+      {
+        "q": "Do mistakes lower my WPM score?",
+        "a": "Yes. Only correctly typed characters count toward WPM, and every wrong keystroke also lowers your accuracy. The speed-test game score multiplies WPM by accuracy, so clean runs score higher."
+      },
+      {
+        "q": "Can I use Typinger on a phone or tablet?",
+        "a": "The tests and lessons work on a tablet with a keyboard, and the arcade games are playable on any device with a physical keyboard. For a fair WPM measurement we recommend a laptop or desktop keyboard."
+      }
     ],
     "related": [
-      { "to": "/typing-test/1-minute", "label": "Try the 1 minute typing test" },
-      { "to": "/typing-lessons", "label": "Learn touch typing from scratch" },
-      { "to": "/games", "label": "Browse all ten typing games" },
-      { "to": "/blog/how-to-type-faster", "label": "Read: how to type faster" }
+      {
+        "to": "/typing-test/1-minute",
+        "label": "Try the 1 minute typing test"
+      },
+      {
+        "to": "/typing-lessons",
+        "label": "Learn touch typing from scratch"
+      },
+      {
+        "to": "/games",
+        "label": "Browse all ten typing games"
+      },
+      {
+        "to": "/blog/how-to-type-faster",
+        "label": "Read: how to type faster"
+      }
     ]
   },
   {
@@ -61,8 +113,22 @@
     "description": "Measure your typing speed in seconds with this free typing speed test. Get instant WPM, accuracy and error stats, then retry as often as you like.",
     "h1": "Typing speed test with instant WPM and accuracy",
     "lead": "Pick 15, 30 or 60 seconds, start typing, and get a full breakdown of speed, accuracy and errors the moment the clock stops.",
-    "tool": { "kind": "words", "durations": [15, 30, 60], "duration": 30, "words": 180 },
-    "breadcrumbs": [{ "name": "Typing speed test" }],
+    "tool": {
+      "kind": "words",
+      "durations": [
+        15,
+        30,
+        60
+      ],
+      "duration": 30,
+      "words": 180,
+      "passage": "typing-test"
+    },
+    "breadcrumbs": [
+      {
+        "name": "Typing speed test"
+      }
+    ],
     "blocks": [
       {
         "h2": "How to take the test",
@@ -86,13 +152,75 @@
         ]
       },
       {
+        "h2": "Which duration should you choose?",
+        "p": [
+          "The clock changes what the result means. A short run measures pace; a longer run measures whether you can hold that pace after the first mistakes and the first wave of fatigue.",
+          "Use the same duration when you compare attempts. Switching between fifteen seconds and five minutes makes a personal best meaningless."
+        ],
+        "table": {
+          "caption": "Choosing a test length",
+          "columns": [
+            "Duration",
+            "Best for",
+            "What it cannot tell you"
+          ],
+          "rows": [
+            [
+              "15 seconds",
+              "A quick warm-up or a single-key pace check.",
+              "Anything about stamina or sustained accuracy."
+            ],
+            [
+              "30 seconds",
+              "A fast pulse check before practice.",
+              "Whether the pace survives a full passage."
+            ],
+            [
+              "60 seconds",
+              "A daily benchmark and a quick comparison.",
+              "How you perform after several minutes of concentration."
+            ],
+            [
+              "3 minutes",
+              "A first look at sustained speed and recovery.",
+              "Full exam endurance."
+            ],
+            [
+              "5 minutes",
+              "A stable practice benchmark for office and study typing.",
+              "The exact format of a 10- or 15-minute exam."
+            ],
+            [
+              "10-15 minutes",
+              "Exam simulation and endurance work.",
+              "The official scoring or pass rule; those come from the notice."
+            ]
+          ]
+        }
+      },
+      {
         "h2": "Five tips to type faster",
         "steps": [
-          { "h3": "Warm up before you test", "p": "Thirty seconds of easy words wakes up your hands. Testing cold can make the first attempt feel slower and less steady." },
-          { "h3": "Type in word chunks", "p": "Read ahead and type whole short words as single movements instead of letter by letter. Your brain can queue two or three words while your fingers work." },
-          { "h3": "Keep your wrists off the desk", "p": "Floating wrists let your fingers reach the top row without twisting. Resting wrists force small, slow, cramped movements." },
-          { "h3": "Use the correct finger every time", "p": "Shortcuts feel faster today and cap your speed next month. Let the index finger take the long reaches and keep the pinkies responsible for A, semicolon, shift and enter." },
-          { "h3": "Retake the test, but not endlessly", "p": "Two or three attempts per session is plenty. Fatigue lowers accuracy, and a tired score is a misleading score." }
+          {
+            "h3": "Warm up before you test",
+            "p": "Thirty seconds of easy words wakes up your hands. Testing cold can make the first attempt feel slower and less steady."
+          },
+          {
+            "h3": "Type in word chunks",
+            "p": "Read ahead and type whole short words as single movements instead of letter by letter. Your brain can queue two or three words while your fingers work."
+          },
+          {
+            "h3": "Keep your wrists off the desk",
+            "p": "Floating wrists let your fingers reach the top row without twisting. Resting wrists force small, slow, cramped movements."
+          },
+          {
+            "h3": "Use the correct finger every time",
+            "p": "Shortcuts feel faster today and cap your speed next month. Let the index finger take the long reaches and keep the pinkies responsible for A, semicolon, shift and enter."
+          },
+          {
+            "h3": "Retake the test, but not endlessly",
+            "p": "Two or three attempts per session is plenty. Fatigue lowers accuracy, and a tired score is a misleading score."
+          }
         ]
       },
       {
@@ -104,17 +232,44 @@
       }
     ],
     "faqs": [
-      { "q": "How long should a typing test be?", "a": "One minute is enough for a quick check of raw speed. Three to five minutes gives a far more reliable number because it includes fatigue, recovery from mistakes and your real sustained rhythm." },
-      { "q": "Is 40 WPM a good typing speed?", "a": "Forty WPM is a practical target for everyday work, not a universal average. Sixty WPM is a comfortable target for many office tasks. How quickly you get there depends on your starting point and practice; there is no fixed timeline." },
-      { "q": "Why is my WPM lower here than on other sites?", "a": "Typinger counts only correctly typed characters and uses the five character word standard. Sites that count raw keystrokes, or that ignore errors, report flattering numbers that are not comparable." },
-      { "q": "Does the test work with any keyboard layout?", "a": "Yes. The test reads the characters your layout produces, so QWERTY, Dvorak, Colemak and international layouts all work. Only the Hindi test expects a Devanagari input method." },
-      { "q": "Do I need an account to see my result?", "a": "No. Results appear immediately for everyone. An account adds saved game scores, achievement badges and leaderboard placement." }
+      {
+        "q": "How long should a typing test be?",
+        "a": "One minute is enough for a quick check of raw speed. Three to five minutes gives a far more reliable number because it includes fatigue, recovery from mistakes and your real sustained rhythm."
+      },
+      {
+        "q": "Is 40 WPM a good typing speed?",
+        "a": "Forty WPM is a practical target for everyday work, not a universal average. Sixty WPM is a comfortable target for many office tasks. How quickly you get there depends on your starting point and practice; there is no fixed timeline."
+      },
+      {
+        "q": "Why is my WPM lower here than on other sites?",
+        "a": "Typinger counts only correctly typed characters and uses the five character word standard. Sites that count raw keystrokes, or that ignore errors, report flattering numbers that are not comparable."
+      },
+      {
+        "q": "Does the test work with any keyboard layout?",
+        "a": "Yes. The test reads the characters your layout produces, so QWERTY, Dvorak, Colemak and international layouts all work. Only the Hindi test expects a Devanagari input method."
+      },
+      {
+        "q": "Do I need an account to see my result?",
+        "a": "No. Results appear immediately for everyone. An account adds saved game scores, achievement badges and leaderboard placement."
+      }
     ],
     "related": [
-      { "to": "/typing-test/1-minute", "label": "1 minute typing test" },
-      { "to": "/typing-test/5-minute", "label": "5 minute typing test" },
-      { "to": "/typing-practice", "label": "Untimed typing practice drills" },
-      { "to": "/blog/what-is-a-good-wpm-score", "label": "Read: what is a good WPM score" }
+      {
+        "to": "/typing-test/1-minute",
+        "label": "1 minute typing test"
+      },
+      {
+        "to": "/typing-test/5-minute",
+        "label": "5 minute typing test"
+      },
+      {
+        "to": "/typing-practice",
+        "label": "Untimed typing practice drills"
+      },
+      {
+        "to": "/blog/what-is-a-good-typing-speed",
+        "label": "Read: what is a good WPM score"
+      }
     ]
   },
   {
@@ -124,8 +279,21 @@
     "description": "Take a 1 minute typing test and get your WPM and accuracy in 60 seconds. The fastest way to warm up, benchmark your speed and beat your own record.",
     "h1": "1 minute typing test",
     "lead": "Sixty seconds, real English words, instant results. The quickest honest snapshot of where your typing speed is today.",
-    "tool": { "kind": "words", "duration": 60, "words": 200 },
-    "breadcrumbs": [{ "name": "Typing speed test", "path": "/typing-test" }, { "name": "1 minute" }],
+    "tool": {
+      "kind": "words",
+      "duration": 60,
+      "words": 200,
+      "passage": "1-minute"
+    },
+    "breadcrumbs": [
+      {
+        "name": "Typing speed test",
+        "path": "/typing-test"
+      },
+      {
+        "name": "1 minute"
+      }
+    ],
     "blocks": [
       {
         "h2": "Why a one minute test is useful",
@@ -135,20 +303,80 @@
         ]
       },
       {
-        "h2": "How your one minute score is calculated",
+        "h2": "What 60 seconds can and cannot tell you",
         "p": [
-          "Because the duration is exactly sixty seconds, the maths is simple: WPM = correct characters / 5. Type 300 correct characters in the minute and you score 60 WPM. Spaces count as characters, which is why common short words move the number quickly.",
-          "Accuracy is reported separately as ((keystrokes - errors) / keystrokes) x 100, and the score shown at the end multiplies WPM by accuracy so that a careful run is rewarded. If you abandon the test early, only the elapsed time is used, so a ten second burst will not fake a high score."
-        ]
+          "A one-minute result is a pace check. It shows how many correct characters you can produce before fatigue, passage difficulty and error recovery have much chance to affect the average.",
+          "The table converts a one-minute WPM result into the number of correct characters you need, using the standard five-character word. It is arithmetic, not a pass mark."
+        ],
+        "table": {
+          "caption": "Correct characters needed for a one-minute result",
+          "columns": [
+            "WPM",
+            "Correct characters in 60 seconds",
+            "What it suggests"
+          ],
+          "rows": [
+            [
+              "20",
+              "100",
+              "Still locating keys; accuracy comes first."
+            ],
+            [
+              "30",
+              "150",
+              "A developing everyday pace."
+            ],
+            [
+              "40",
+              "200",
+              "A practical working target for many people."
+            ],
+            [
+              "50",
+              "250",
+              "Comfortable for many office tasks."
+            ],
+            [
+              "60",
+              "300",
+              "Fast for everyday typing."
+            ],
+            [
+              "80",
+              "400",
+              "Advanced; confirm it over five minutes."
+            ],
+            [
+              "100",
+              "500",
+              "Competitive pace; confirm stamina before quoting it."
+            ]
+          ]
+        }
       },
       {
         "h2": "Five tips to type faster in one minute",
         "steps": [
-          { "h3": "Start on the first word, not the first letter", "p": "Glance at the first three words before you begin so your hands have somewhere to go. Starting blind wastes the most valuable second of the test." },
-          { "h3": "Do not fix old mistakes", "p": "In a short test, hunting backwards for a typo three words back costs more than the error itself. Keep moving forward and let accuracy take the small hit." },
-          { "h3": "Breathe out and drop your shoulders", "p": "Tension travels straight into your fingers. A relaxed grip raises your top speed more than trying harder does." },
-          { "h3": "Keep a metronome rhythm", "p": "Aim for an even pace rather than bursts. Sprint-and-stall typing produces more errors and a lower net score than steady typing at 90% of your maximum." },
-          { "h3": "Repeat the same minute daily", "p": "Identical conditions make progress visible. Log the result, then come back tomorrow instead of chasing a personal best for an hour." }
+          {
+            "h3": "Start on the first word, not the first letter",
+            "p": "Glance at the first three words before you begin so your hands have somewhere to go. Starting blind wastes the most valuable second of the test."
+          },
+          {
+            "h3": "Do not fix old mistakes",
+            "p": "In a short test, hunting backwards for a typo three words back costs more than the error itself. Keep moving forward and let accuracy take the small hit."
+          },
+          {
+            "h3": "Breathe out and drop your shoulders",
+            "p": "Tension travels straight into your fingers. A relaxed grip raises your top speed more than trying harder does."
+          },
+          {
+            "h3": "Keep a metronome rhythm",
+            "p": "Aim for an even pace rather than bursts. Sprint-and-stall typing produces more errors and a lower net score than steady typing at 90% of your maximum."
+          },
+          {
+            "h3": "Repeat the same minute daily",
+            "p": "Identical conditions make progress visible. Log the result, then come back tomorrow instead of chasing a personal best for an hour."
+          }
         ]
       },
       {
@@ -160,17 +388,44 @@
       }
     ],
     "faqs": [
-      { "q": "How many words should I type in 1 minute?", "a": "These are rough bands, not a standard: 40 WPM is a practical everyday target, 60 is comfortable, and 80 or more is advanced. Beginners often start lower and improve with practice; measure your own baseline." },
-      { "q": "Is a 1 minute typing test accurate?", "a": "It is accurate for raw speed but not for stamina. Scores often fall over longer durations as fatigue and recovery from mistakes average into the result." },
-      { "q": "Should I use backspace during a short test?", "a": "Only for the word you are currently typing. Going back further burns time you cannot recover in sixty seconds, and the error is already counted in accuracy." },
-      { "q": "Can I pick a different word list?", "a": "Yes. The test draws from a common English word pool, and you can change difficulty or switch to the numbers, punctuation or code tests to practise specific keys." },
-      { "q": "What happens if I stop typing mid test?", "a": "The clock keeps running, so idle seconds lower your WPM. If you leave the page before the minute ends, the attempt is not saved." }
+      {
+        "q": "How many words should I type in 1 minute?",
+        "a": "These are rough bands, not a standard: 40 WPM is a practical everyday target, 60 is comfortable, and 80 or more is advanced. Beginners often start lower and improve with practice; measure your own baseline."
+      },
+      {
+        "q": "Is a 1 minute typing test accurate?",
+        "a": "It is accurate for raw speed but not for stamina. Scores often fall over longer durations as fatigue and recovery from mistakes average into the result."
+      },
+      {
+        "q": "Should I use backspace during a short test?",
+        "a": "Only for the word you are currently typing. Going back further burns time you cannot recover in sixty seconds, and the error is already counted in accuracy."
+      },
+      {
+        "q": "Can I pick a different word list?",
+        "a": "Yes. The test draws from a common English word pool, and you can change difficulty or switch to the numbers, punctuation or code tests to practise specific keys."
+      },
+      {
+        "q": "What happens if I stop typing mid test?",
+        "a": "The clock keeps running, so idle seconds lower your WPM. If you leave the page before the minute ends, the attempt is not saved."
+      }
     ],
     "related": [
-      { "to": "/typing-test/3-minute", "label": "Step up to the 3 minute test" },
-      { "to": "/typing-test", "label": "Full typing speed test options" },
-      { "to": "/typing-practice/beginners", "label": "Beginner typing practice" },
-      { "to": "/games/speed-test", "label": "Play the Speed Test game" }
+      {
+        "to": "/typing-test/3-minute",
+        "label": "Step up to the 3 minute test"
+      },
+      {
+        "to": "/typing-test",
+        "label": "Full typing speed test options"
+      },
+      {
+        "to": "/typing-practice/beginners",
+        "label": "Beginner typing practice"
+      },
+      {
+        "to": "/games/speed-test",
+        "label": "Play the Speed Test game"
+      }
     ]
   },
   {
@@ -180,8 +435,21 @@
     "description": "Take a 3 minute typing test to see how your speed holds up over time. Track WPM, accuracy and consistency, then compare it with your 1 minute score.",
     "h1": "3 minute typing test",
     "lead": "Three minutes is where technique shows. Long enough for fatigue and recovery, short enough to fit into any practice session.",
-    "tool": { "kind": "words", "duration": 180, "words": 450 },
-    "breadcrumbs": [{ "name": "Typing speed test", "path": "/typing-test" }, { "name": "3 minute" }],
+    "tool": {
+      "kind": "words",
+      "duration": 180,
+      "words": 450,
+      "passage": "3-minute"
+    },
+    "breadcrumbs": [
+      {
+        "name": "Typing speed test",
+        "path": "/typing-test"
+      },
+      {
+        "name": "3 minute"
+      }
+    ],
     "blocks": [
       {
         "h2": "What a three minute test reveals",
@@ -191,20 +459,75 @@
         ]
       },
       {
-        "h2": "How WPM and accuracy are scored here",
+        "h2": "What changes between minute one and minute three",
         "p": [
-          "The formula does not change with duration: WPM = (correct characters / 5) / (seconds / 60), and accuracy = ((keystrokes - errors) / keystrokes) x 100. Over 180 seconds those averages become much more stable, which is why a three minute result is a better figure to quote than a one minute burst.",
-          "The passage is long enough that you will not run out of words, and the live counters update as you type so you can feel your pace changing in real time."
-        ]
+          "A three-minute run exposes the gap between your opening pace and the pace you can hold. That gap is more useful than the opening number, because it shows whether tension, posture or error recovery is costing you time.",
+          "The table gives the character total for a steady pace across the full three minutes. It is a reference for checking your own output, not an exam threshold."
+        ],
+        "table": {
+          "caption": "Correct characters produced by a steady three-minute pace",
+          "columns": [
+            "WPM held for three minutes",
+            "Correct characters",
+            "What to check"
+          ],
+          "rows": [
+            [
+              "20",
+              "300",
+              "Accuracy and key location."
+            ],
+            [
+              "30",
+              "450",
+              "A controlled everyday pace."
+            ],
+            [
+              "40",
+              "600",
+              "A practical target for office work."
+            ],
+            [
+              "50",
+              "750",
+              "Compare minute one with minute three."
+            ],
+            [
+              "60",
+              "900",
+              "Watch for a late-run accuracy drop."
+            ],
+            [
+              "80",
+              "1,200",
+              "Confirm the pace on a five-minute run."
+            ]
+          ]
+        }
       },
       {
         "h2": "Five tips to type faster for longer",
         "steps": [
-          { "h3": "Set your posture before you start", "p": "Feet flat, elbows at roughly ninety degrees, screen at eye level. Three minutes is long enough for bad posture to turn into slow fingers." },
-          { "h3": "Pick a pace you can hold", "p": "Start at about 90% of your maximum. Opening at full sprint often leads to a crash in the second minute and a worse average." },
-          { "h3": "Reset on spaces", "p": "Use the space bar as a micro-reset: fingers return to the home row, eyes jump forward. It keeps your hands from drifting over three minutes." },
-          { "h3": "Blink and breathe normally", "p": "People hold their breath during tests without noticing. Steady breathing keeps your hands loose and your focus sharp through the final minute." },
-          { "h3": "Review your error pattern afterwards", "p": "If the same keys keep failing, drill those keys specifically with the punctuation or number test instead of repeating general practice." }
+          {
+            "h3": "Set your posture before you start",
+            "p": "Feet flat, elbows at roughly ninety degrees, screen at eye level. Three minutes is long enough for bad posture to turn into slow fingers."
+          },
+          {
+            "h3": "Pick a pace you can hold",
+            "p": "Start at about 90% of your maximum. Opening at full sprint often leads to a crash in the second minute and a worse average."
+          },
+          {
+            "h3": "Reset on spaces",
+            "p": "Use the space bar as a micro-reset: fingers return to the home row, eyes jump forward. It keeps your hands from drifting over three minutes."
+          },
+          {
+            "h3": "Blink and breathe normally",
+            "p": "People hold their breath during tests without noticing. Steady breathing keeps your hands loose and your focus sharp through the final minute."
+          },
+          {
+            "h3": "Review your error pattern afterwards",
+            "p": "If the same keys keep failing, drill those keys specifically with the punctuation or number test instead of repeating general practice."
+          }
         ]
       },
       {
@@ -216,17 +539,44 @@
       }
     ],
     "faqs": [
-      { "q": "Why is my 3 minute WPM lower than my 1 minute WPM?", "a": "That is common. Over three minutes fatigue, lost focus and recovery from mistakes all average into the result, so the sustained number is often lower than your short burst speed." },
-      { "q": "Which test should I put on my CV?", "a": "Use the three or five minute result. It is harder to inflate, and many employers who test candidates use a longer passage than one minute." },
-      { "q": "How do I stop making more errors as the test goes on?", "a": "Drop your pace slightly in the second minute, keep your wrists floating, and return to the home row after every space. Most late-test errors come from drifting hands, not from tired fingers." },
-      { "q": "Can I pause a 3 minute typing test?", "a": "No, the clock runs continuously once you type your first character, exactly as it would in an exam. Idle time counts against your average, so finish the run or restart it." },
-      { "q": "How often should I take a 3 minute test?", "a": "Once or twice a week is plenty. Use one minute tests for daily checks and spend the rest of your time on practice drills and games." }
+      {
+        "q": "Why is my 3 minute WPM lower than my 1 minute WPM?",
+        "a": "That is common. Over three minutes fatigue, lost focus and recovery from mistakes all average into the result, so the sustained number is often lower than your short burst speed."
+      },
+      {
+        "q": "Which test should I put on my CV?",
+        "a": "Use the three or five minute result. It is harder to inflate, and many employers who test candidates use a longer passage than one minute."
+      },
+      {
+        "q": "How do I stop making more errors as the test goes on?",
+        "a": "Drop your pace slightly in the second minute, keep your wrists floating, and return to the home row after every space. Most late-test errors come from drifting hands, not from tired fingers."
+      },
+      {
+        "q": "Can I pause a 3 minute typing test?",
+        "a": "No, the clock runs continuously once you type your first character, exactly as it would in an exam. Idle time counts against your average, so finish the run or restart it."
+      },
+      {
+        "q": "How often should I take a 3 minute test?",
+        "a": "Once or twice a week is plenty. Use one minute tests for daily checks and spend the rest of your time on practice drills and games."
+      }
     ],
     "related": [
-      { "to": "/typing-test/5-minute", "label": "5 minute typing test" },
-      { "to": "/government-exam-typing-test", "label": "Government exam typing practice" },
-      { "to": "/typing-practice", "label": "Typing practice drills" },
-      { "to": "/blog/how-to-improve-typing-accuracy", "label": "Read: how to improve typing accuracy" }
+      {
+        "to": "/typing-test/5-minute",
+        "label": "5 minute typing test"
+      },
+      {
+        "to": "/government-exam-typing-test",
+        "label": "Government exam typing practice"
+      },
+      {
+        "to": "/typing-practice",
+        "label": "Typing practice drills"
+      },
+      {
+        "to": "/blog/how-to-improve-typing-accuracy",
+        "label": "Read: how to improve typing accuracy"
+      }
     ]
   },
   {
@@ -236,8 +586,21 @@
     "description": "A 5 minute typing test built for exam practice. Hold your rhythm for five full minutes and get detailed WPM, accuracy and error counts at the end.",
     "h1": "5 minute typing test",
     "lead": "A five-minute sustained typing test for practice and employer-style assessment. Get your WPM, accuracy and error count at the end, then check your exam's official rules.",
-    "tool": { "kind": "words", "duration": 300, "words": 750 },
-    "breadcrumbs": [{ "name": "Typing speed test", "path": "/typing-test" }, { "name": "5 minute" }],
+    "tool": {
+      "kind": "words",
+      "duration": 300,
+      "words": 750,
+      "passage": "5-minute"
+    },
+    "breadcrumbs": [
+      {
+        "name": "Typing speed test",
+        "path": "/typing-test"
+      },
+      {
+        "name": "5 minute"
+      }
+    ],
     "blocks": [
       {
         "h2": "Who the five minute test is for",
@@ -247,20 +610,65 @@
         ]
       },
       {
-        "h2": "Scoring, errors and the formula",
+        "h2": "How to read a five-minute result",
         "p": [
-          "WPM is calculated as (correct characters / 5) / (seconds / 60), with one word defined as five characters including spaces. Accuracy is ((keystrokes - errors) / keystrokes) x 100 across the whole run.",
-          "Some exams also apply an error limit, and the allowed percentage and method differ by notification. Some compute net WPM by subtracting a word for each uncorrected mistake. Typinger shows correct-character WPM, accuracy and error count separately so you can check yourself against whatever rule your exam uses."
-        ]
+          "Compare the five-minute result with your one-minute and three-minute runs. The pattern tells you more than the single number: a small drop is normal, while a large drop points to stamina, tension or a passage that is exposing weak keys.",
+          "The table describes common patterns and the next practice step. It does not replace an exam's error rule or cut-off."
+        ],
+        "table": {
+          "caption": "Patterns in a five-minute result",
+          "columns": [
+            "Pattern",
+            "What it usually means",
+            "Next step"
+          ],
+          "rows": [
+            [
+              "Five-minute WPM is close to one-minute WPM",
+              "Your pace is sustainable and your technique is holding.",
+              "Add punctuation, numbers and unfamiliar passages."
+            ],
+            [
+              "Five-minute WPM is 5-10% lower",
+              "Normal fatigue and recovery are entering the average.",
+              "Keep one longer run each week and protect accuracy."
+            ],
+            [
+              "Five-minute WPM is more than 10% lower",
+              "Stamina, tension or repeated error recovery is limiting you.",
+              "Use three-minute runs, posture checks and shorter drills on weak keys."
+            ],
+            [
+              "Accuracy falls in the final two minutes",
+              "Fatigue or rushing is changing your movements.",
+              "Slow the middle minute and return to the home row after every space."
+            ]
+          ]
+        }
       },
       {
         "h2": "Five tips to type faster across five minutes",
         "steps": [
-          { "h3": "Treat minute one as a warm-up, not a sprint", "p": "Open at a controlled pace. Typists who start too fast almost always finish with a lower average than those who start steady." },
-          { "h3": "Fix your eyes, not your hands", "p": "Keep your gaze a few words ahead of the caret and never look down. Over five minutes, every glance at the keyboard costs you a full word." },
-          { "h3": "Let your shoulders drop every minute", "p": "A quick mental check on shoulders, wrists and jaw keeps tension from building into the slow, error-filled final minute." },
-          { "h3": "Accept small errors and keep rhythm", "p": "Stop to repair one letter and you lose the rhythm for the next ten words. Correct the current word, then move on." },
-          { "h3": "Simulate the exam", "p": "Same chair, same keyboard, same time of day, no music. Practising in exam conditions is worth more than extra minutes of casual typing." }
+          {
+            "h3": "Treat minute one as a warm-up, not a sprint",
+            "p": "Open at a controlled pace. Typists who start too fast almost always finish with a lower average than those who start steady."
+          },
+          {
+            "h3": "Fix your eyes, not your hands",
+            "p": "Keep your gaze a few words ahead of the caret and never look down. Over five minutes, every glance at the keyboard costs you a full word."
+          },
+          {
+            "h3": "Let your shoulders drop every minute",
+            "p": "A quick mental check on shoulders, wrists and jaw keeps tension from building into the slow, error-filled final minute."
+          },
+          {
+            "h3": "Accept small errors and keep rhythm",
+            "p": "Stop to repair one letter and you lose the rhythm for the next ten words. Correct the current word, then move on."
+          },
+          {
+            "h3": "Simulate the exam",
+            "p": "Same chair, same keyboard, same time of day, no music. Practising in exam conditions is worth more than extra minutes of casual typing."
+          }
         ]
       },
       {
@@ -272,17 +680,44 @@
       }
     ],
     "faqs": [
-      { "q": "What WPM do typing exams usually require?", "a": "Requirements vary by exam and post. For example, the SSC CHSL 2026 notice for LDC/JSA sets 35 WPM English or 30 WPM Hindi over 10 minutes, while the MP CPCT rulebook sets a 50% minimum with 30 NWPM English and 20 NWPM Hindi as the minimum passing bands. Always check your own notification for the exact speed and error rule." },
-      { "q": "How is net WPM different from gross WPM?", "a": "Gross WPM counts everything you typed; net WPM usually subtracts a penalty for uncorrected errors, often one word per mistake. Typinger reports correct-character WPM plus accuracy and error count. Use the exam's own formula rather than converting this practice score." },
-      { "q": "Should I correct every mistake in a five minute test?", "a": "Correct the word you are on, because uncorrected errors are penalised in many exams, but never go back more than one word. Momentum matters more over five minutes." },
-      { "q": "How can I build typing stamina?", "a": "Add one longer passage to each practice session, keep your accuracy above 97%, and take short breaks between runs. Stamina improves with consistent practice; the timeline varies by person." },
-      { "q": "Is the passage the same every time?", "a": "No. Words are drawn fresh from the pool on every run so you cannot memorise them, which keeps the measurement honest." }
+      {
+        "q": "What WPM do typing exams usually require?",
+        "a": "Requirements vary by exam and post. For example, the SSC CHSL 2026 notice for LDC/JSA sets 35 WPM English or 30 WPM Hindi over 10 minutes, while the MP CPCT rulebook sets a 50% minimum with 30 NWPM English and 20 NWPM Hindi as the minimum passing bands. Always check your own notification for the exact speed and error rule."
+      },
+      {
+        "q": "How is net WPM different from gross WPM?",
+        "a": "Gross WPM counts everything you typed; net WPM usually subtracts a penalty for uncorrected errors, often one word per mistake. Typinger reports correct-character WPM plus accuracy and error count. Use the exam's own formula rather than converting this practice score."
+      },
+      {
+        "q": "Should I correct every mistake in a five minute test?",
+        "a": "Correct the word you are on, because uncorrected errors are penalised in many exams, but never go back more than one word. Momentum matters more over five minutes."
+      },
+      {
+        "q": "How can I build typing stamina?",
+        "a": "Add one longer passage to each practice session, keep your accuracy above 97%, and take short breaks between runs. Stamina improves with consistent practice; the timeline varies by person."
+      },
+      {
+        "q": "Is the passage the same every time?",
+        "a": "No. Words are drawn fresh from the pool on every run so you cannot memorise them, which keeps the measurement honest."
+      }
     ],
     "related": [
-      { "to": "/government-exam-typing-test", "label": "Government exam typing test" },
-      { "to": "/typing-test/3-minute", "label": "3 minute typing test" },
-      { "to": "/typing-lessons", "label": "Touch typing lessons" },
-      { "to": "/blog/average-typing-speed-by-age", "label": "Typing speed and age: what the evidence shows" }
+      {
+        "to": "/government-exam-typing-test",
+        "label": "Government exam typing test"
+      },
+      {
+        "to": "/typing-test/3-minute",
+        "label": "3 minute typing test"
+      },
+      {
+        "to": "/typing-lessons",
+        "label": "Touch typing lessons"
+      },
+      {
+        "to": "/blog/average-typing-speed-by-age",
+        "label": "Typing speed and age: what the evidence shows"
+      }
     ]
   }
 ]

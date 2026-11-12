@@ -64,7 +64,7 @@ const richPostWithLead = {
   },
 };
 
-const renderEditor = (post = richPost) => {
+const renderEditor = (post = richPost, props = {}) => {
   const router = createMemoryRouter(
     [
       {
@@ -75,6 +75,7 @@ const renderEditor = (post = richPost) => {
             onSaved={jest.fn()}
             onCancel={jest.fn()}
             onDirtyChange={jest.fn()}
+            {...props}
           />
         ),
       },
@@ -185,5 +186,36 @@ describe("PostEditor", () => {
     const editor = await screen.findByTestId("rich-editor");
     expect(within(editor).getByText("Legacy heading")).toBeTruthy();
     expect(within(editor).getByText(/Legacy paragraph text/)).toBeTruthy();
+  });
+
+  test("warns about a slug that is already shipped in code", () => {
+    renderEditor({ ...richPost, slug: "how-to-type-faster", title: "Duplicate title" });
+
+    expect(screen.getByTestId("post-warning-duplicate-slug").textContent).toContain(
+      "already belongs to a code-shipped article",
+    );
+  });
+
+  test("warns about metadata, editorial residue and short drafts", () => {
+    renderEditor(
+      {
+        ...richPost,
+        excerpt: "Do not present the historical figure as current.",
+        meta_title: "",
+        meta_description: "",
+      },
+      {
+        otherPosts: [{ id: "other-post", slug: "original-title" }],
+      },
+    );
+
+    expect(screen.getByTestId("post-warning-metadata").textContent).toContain(
+      "meta title",
+    );
+    expect(screen.getByTestId("post-warning-editorial").textContent).toContain(
+      "do not present",
+    );
+    expect(screen.getByTestId("post-warning-stub").textContent).toContain("words");
+    expect(screen.getByTestId("post-warning-duplicate-slug")).toBeTruthy();
   });
 });
