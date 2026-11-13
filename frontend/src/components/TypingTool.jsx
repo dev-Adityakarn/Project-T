@@ -13,7 +13,14 @@ import { trackEvent } from "@/lib/analytics";
 
 const fmt = (s) => (s >= 60 ? `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}` : `${s}s`);
 
-export const TypingTool = ({ config, label = "Typing test", textOverride, testId = "typing-tool", resultAdSlot = "" }) => {
+export const TypingTool = ({
+  config,
+  label = "Typing test",
+  textOverride,
+  testId = "typing-tool",
+  resultAdSlot = "",
+  autoClaim = false,
+}) => {
   const options = config.durations || (config.duration ? [config.duration] : []);
   const [dur, setDur] = useState(config.duration ?? null);
   const [run, setRun] = useState(0);
@@ -42,7 +49,12 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
     trackEvent("typing_test_complete", { label, wpm: s.wpm, accuracy: s.accuracy, duration: s.duration });
   };
 
-  const t = useCharTyper(text, { active: !result, autoIndent: config.kind === "code", onDone: end });
+  const t = useCharTyper(text, {
+    active: !result,
+    autoIndent: config.kind === "code",
+    autoClaim,
+    onDone: end,
+  });
 
   useEffect(() => {
     if (!t.started || result || startTracked.current) return;
@@ -120,7 +132,12 @@ export const TypingTool = ({ config, label = "Typing test", textOverride, testId
   }
 
   return (
-    <div className="rounded-2xl border bg-card p-5 sm:p-7" data-testid={testId}>
+    <div
+      className="rounded-2xl border bg-card p-5 sm:p-7"
+      data-testid={testId}
+      onMouseDown={t.claim}
+      onTouchStart={t.claim}
+    >
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <GameHUD items={[
           ...(dur ? [{ label: "Time", value: fmt(t.started ? left : dur), testId: "hud-time" }] : [{ label: "Time", value: `${Math.round(live.duration)}s`, testId: "hud-time" }]),

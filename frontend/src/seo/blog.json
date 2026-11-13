@@ -29,8 +29,8 @@
       {
         "h2": "2. Stop looking at the keyboard, even when it hurts",
         "p": [
-          "Looking down feels faster because you find the key immediately, but it caps your ceiling permanently. Every glance costs roughly the time of a whole word, and more importantly it prevents your brain from building a spatial map of the keyboard.",
-          "For two or three days, cover your hands with a cloth or type in a dim room so the keys are hard to see. Your speed will drop. By the end of the first week it will be back, and within a fortnight it will be higher than before."
+          "Looking down feels faster because you find the key immediately, but it caps your ceiling permanently. Every glance breaks your place and costs time that no speed score records, and it prevents your brain from building a spatial map of the keyboard.",
+          "For two or three days, cover your hands with a cloth or type in a dim room so the keys are hard to see. Your speed will drop. Many learners find it recovers within a week and improves beyond the old baseline after a few weeks of regular practice; track your own results rather than assuming a fixed timeline."
         ]
       },
       {
@@ -695,8 +695,8 @@
             [
               "RRB NTPC typist posts (historical)",
               "30 WPM English / 25 WPM Hindi",
-              "10 minutes",
-              "CEN 06/2025 standard; the 2026 CENs dispensed CBTST for the notified posts."
+              "Not stated in CEN",
+              "CEN 06/2025 standard; check the CBTST instructions for duration. The 2026 CENs dispensed CBTST for the notified posts."
             ]
           ]
         }
@@ -775,7 +775,7 @@
         "p": [
           "Government recruitment is where a good speed becomes a formal number. The requirement depends on the recruiting body, post, language, test duration and error rule. The 2026 SSC CHSL LDC/JSA notice lists 35 WPM in English or 30 WPM in Hindi over 10 minutes, with Hindi typing in Mangal font.",
           "The MP CPCT rulebook sets a 50% minimum passing score. Its typing modules use 30 NWPM English and 20 NWPM Hindi as the minimum passing band, over 15-minute modules. The Hindi 50% band runs from 20 to 25 NWPM, so 25 NWPM is the top of that band, not the pass mark.",
-          "RRB rules are cycle-specific. CEN 06/2025 used 30 WPM English or 25 WPM Hindi over a 10-minute evaluated test for designated typist posts. The 2026 RRB NTPC CENs (06/2026 and 07/2026) dispensed with CBTST for the notified typist posts, so do not prepare from the historical figure as if it were the current requirement.",
+          "RRB rules are cycle-specific. CEN 06/2025 set 30 WPM English or 25 WPM Hindi as the qualifying CBTST standard for designated typist posts; check the CBTST instructions for your cycle for the duration and evaluation rules. The 2026 RRB NTPC CENs (06/2026 and 07/2026) dispensed with CBTST for the notified typist posts, so do not prepare from the historical figure as if it were the current requirement.",
           "The table above is a starting point; the official notice is the source of truth. If your exam has a typing stage, practise the exact duration and correction rules."
         ],
         "links": [
@@ -861,8 +861,8 @@
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
           },
           {
-            "label": "MP CPCT rulebook V1.3 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
-            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf"
+            "label": "MP CPCT rulebook V1.5 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
+            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_7_Years_Validity.pdf"
           },
           {
             "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist",
@@ -870,15 +870,15 @@
           },
           {
             "label": "CEN 06/2026 (graduate NTPC) official notification",
-            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_06_2026_NTPC_G.pdf"
           },
           {
-            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
-            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
+            "label": "CEN 07/2026 official notification, para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_07_2026_NTPC_UG.pdf"
           },
           {
-            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
-            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+            "label": "CEN 06/2025 official notification, para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST",
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_06_2025_GRADUATE_POSTS.pdf"
           },
           {
             "label": "Railway Recruitment Board official CEN and notification portal",
@@ -993,7 +993,7 @@
       {
         "h2": "When to use a 10-minute typing test",
         "p": [
-          "Ten minutes is important for sustained performance. It matches the SSC CHSL LDC/JSA typing test. CEN 06/2025 also used a 10-minute qualifying CBTST for designated RRB NTPC typist posts, but CEN 06/2026 and CEN 07/2026 dispensed with that test for the notified posts, so check your own cycle.",
+          "Ten minutes is important for sustained performance. It matches the SSC CHSL LDC/JSA typing test. CEN 06/2025 also used a qualifying CBTST for designated RRB NTPC typist posts, but CEN 06/2026 and CEN 07/2026 dispensed with that test for the notified posts, so check your own cycle and the CBTST instructions for its duration.",
           "The challenge is not simply staying fast. You must keep your concentration and accuracy stable for the entire passage. Many learners start too aggressively, make mistakes in the first two minutes and spend the rest of the test recovering.",
           "Practise pacing. The first minute should feel controlled, not like a sprint."
         ]
@@ -1062,8 +1062,8 @@
             "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
           },
           {
-            "label": "CEN 06/2025 (published copy), para 13.4: 10-minute qualifying CBTST at 30 WPM English / 25 WPM Hindi",
-            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+            "label": "CEN 06/2025 official notification, para 13.4: qualifying CBTST at 30 WPM English / 25 WPM Hindi",
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_06_2025_GRADUATE_POSTS.pdf"
           },
           {
             "label": "Railway Recruitment Board - official CEN and notification portal",
@@ -1404,8 +1404,8 @@
             [
               "CEN 06/2025 (previous cycle)",
               "Designated typist posts",
-              "30 WPM English / 25 WPM Hindi, 10-minute qualifying CBTST",
-              "CEN 06/2025, para 13.4"
+              "30 WPM English / 25 WPM Hindi qualifying CBTST",
+              "CEN 06/2025, para 13.4; duration in CBTST instructions"
             ]
           ]
         }
@@ -1539,15 +1539,15 @@
           },
           {
             "label": "CEN 06/2026 (graduate NTPC) official notification",
-            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_06_2026_NTPC_G.pdf"
           },
           {
-            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
-            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
+            "label": "CEN 07/2026 official notification, para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_07_2026_NTPC_UG.pdf"
           },
           {
-            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
-            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+            "label": "CEN 06/2025 official notification, para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST",
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_06_2025_GRADUATE_POSTS.pdf"
           },
           {
             "label": "Railway Recruitment Board official CEN and notification portal",
@@ -1574,7 +1574,7 @@
       },
       {
         "q": "What was the RRB NTPC typing speed in previous cycles?",
-        "a": "CEN 06/2025 set 30 WPM English or 25 WPM Hindi over a 10-minute qualifying CBTST for designated typist posts. Treat that as historical unless your current CEN confirms it."
+        "a": "CEN 06/2025 set 30 WPM English or 25 WPM Hindi as the qualifying CBTST standard for designated typist posts. Treat that as historical unless your current CEN confirms it, and check the CBTST instructions for the duration."
       },
       {
         "q": "Which posts had typing tests in previous RRB NTPC cycles?",
@@ -1814,8 +1814,8 @@
             "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2321873"
           },
           {
-            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
-            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+            "label": "CEN 06/2025 official notification, para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST",
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_06_2025_GRADUATE_POSTS.pdf"
           },
           {
             "label": "Railway Recruitment Board - official CEN and notification portal",
@@ -1823,7 +1823,7 @@
           },
           {
             "label": "MP CPCT rulebook (30 NWPM English, 20 NWPM Hindi, 15-minute typing modules)",
-            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf"
+            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_7_Years_Validity.pdf"
           }
         ]
       }
@@ -1878,7 +1878,7 @@
     "title": "Typing Speed for Government Jobs in India (2026 Guide)",
     "description": "Verified typing-speed requirements for SSC CHSL 2026, MP CPCT and RRB NTPC, plus a safe preparation strategy for Indian government jobs.",
     "h1": "Typing speed required for government jobs in India",
-    "excerpt": "A verified reference table for SSC CHSL, SSC CGL DEST, MP CPCT and RRB NTPC, with the duration and status of each rule and a reminder to check your own notice.",
+    "excerpt": "A verified reference table for SSC CHSL, MP CPCT and RRB NTPC, with the duration and status of each rule and a reminder to check your own notice.",
     "datePublished": "2026-10-27",
     "dateModified": "2026-11-12",
     "author": "Typinger Team",
@@ -1925,7 +1925,7 @@
               "MP CPCT typing module",
               "30 NWPM English / 20 NWPM Hindi minimum passing band",
               "15 minutes",
-              "Rulebook V1.3; 50% overall minimum"
+              "Rulebook V1.5; 50% overall minimum"
             ],
             [
               "RRB NTPC typist posts (2026)",
@@ -1936,8 +1936,8 @@
             [
               "RRB NTPC typist posts (historical)",
               "30 WPM English / 25 WPM Hindi",
-              "10 minutes",
-              "CEN 06/2025, para 13.4"
+              "Not stated in CEN",
+              "CEN 06/2025, para 13.4; check the CBTST instructions for duration."
             ]
           ]
         }
@@ -1972,7 +1972,7 @@
       {
         "h2": "RRB NTPC and railway typist posts",
         "p": [
-          "Railway typing requirements are cycle-specific. CEN 06/2025, para 13.4, used 30 WPM English or 25 WPM Hindi over a 10-minute qualifying CBTST for designated typist posts.",
+          "Railway typing requirements are cycle-specific. CEN 06/2025, para 13.4, set 30 WPM English or 25 WPM Hindi as the qualifying CBTST standard for designated typist posts; check the CBTST instructions for the exact duration.",
           "The 2026 cycle changed the requirement for the notified posts: CEN 06/2026 dispensed CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist (PIB, 11 October 2026), and CEN 07/2026 dispensed the typing skill test for Junior Clerk cum Typist and Accounts Clerk cum Typist (para 13(c)). Check your exact CEN notification table before practising so you do not train for the historical 30/25 WPM requirement on posts where CBTST was dispensed.",
           "If you are preparing for a different railway CEN that still lists CBTST, train the exact duration, font and correction rules."
         ],
@@ -2091,8 +2091,8 @@
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
           },
           {
-            "label": "MP CPCT rulebook V1.3 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
-            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf"
+            "label": "MP CPCT rulebook V1.5 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
+            "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_7_Years_Validity.pdf"
           },
           {
             "label": "PIB release, 11 October 2026: CEN 06/2026 dispenses CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist",
@@ -2100,15 +2100,15 @@
           },
           {
             "label": "CEN 06/2026 (graduate NTPC) official notification",
-            "url": "https://rrb.indianrailways.gov.in/-/image/1791375679144CEN_06_2026_NTPC_G.pdf/examsDocuments"
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_06_2026_NTPC_G.pdf"
           },
           {
-            "label": "CEN 07/2026 detailed notification (published copy), para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
-            "url": "https://rank.qmaths.in/pdfs/rrb-ntpc-ug-cen-07-2026/RRB-NTPC-Undergraduate-CEN-07-2026-Detailed-Notification.pdf"
+            "label": "CEN 07/2026 official notification, para 13(c): typing skill test dispensed for Junior Clerk cum Typist and Accounts Clerk cum Typist",
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_07_2026_NTPC_UG.pdf"
           },
           {
-            "label": "CEN 06/2025 (published copy), para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST, 10 minutes",
-            "url": "https://www.sarkarinaukariofficial.com/wp-content/uploads/2025/10/Final-CEN-06-2025-21-10-2025-Publish-18-20.pdf"
+            "label": "CEN 06/2025 official notification, para 13.4: 30 WPM English / 25 WPM Hindi qualifying CBTST",
+            "url": "https://www.rrbapply.gov.in/assets/forms/CEN_06_2025_GRADUATE_POSTS.pdf"
           },
           {
             "label": "Railway Recruitment Board official CEN and notification portal",
@@ -2892,6 +2892,10 @@
         ],
         "linksHeading": "Put the routine into practice",
         "sources": [
+          {
+            "label": "SSC CGL 2026 notice, para 13.9.10: DEST is about 2,000 key depressions in 15 minutes, mandatory and qualifying, with higher standards and a PwBD exemption",
+            "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_cgl_2026.pdf"
+          },
           {
             "label": "SSC official notice board (check the current CGL notification and DEST instructions)",
             "url": "https://ssc.gov.in/"

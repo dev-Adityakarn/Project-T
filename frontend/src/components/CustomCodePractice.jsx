@@ -91,6 +91,7 @@ export const CustomCodePractice = ({ testId = "custom-code-practice" }) => {
               textOverride={snippet}
               label="Custom code practice"
               testId={`${testId}-typing`}
+              autoClaim
             />
           </div>
         </>

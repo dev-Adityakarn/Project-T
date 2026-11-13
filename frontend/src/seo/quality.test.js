@@ -227,7 +227,7 @@ describe("site quality regressions", () => {
     });
     const urls = sources.map((source) => source.url);
     expect(urls).toContain("https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf");
-    expect(urls).toContain("https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_V1.3.pdf");
+    expect(urls).toContain("https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_7_Years_Validity.pdf");
   });
 
   it("does not repeat outdated exam-cycle or unsupported average claims", () => {

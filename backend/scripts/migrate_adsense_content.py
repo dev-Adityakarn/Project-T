@@ -21,8 +21,22 @@ Preview the changes against the configured database:
 Write the changes (backup first):
     python scripts/migrate_adsense_content.py --apply
 
+Rollback a completed run from the JSON backup written before it changed
+anything. This restores every backed-up post by ``_id`` and does not delete
+posts created after the backup:
+
+    mongoimport --uri "$MONGO_URL" --db "$DB_NAME" --collection posts \
+      --mode upsert --jsonArray \
+      --file backend/backups/adsense_content_backup_<stamp>.json
+
+Keep the backup directory private. It contains full post documents and may
+include unpublished editorial copy. The script creates it with mode 0700 and
+each backup with mode 0600; ``backend/backups/`` is git-ignored.
+
 The MongoDB connection is read from MONGO_URL and DB_NAME in backend/.env, the
-same variables used by the application and scripts/create_admin.py.
+same variables used by the application and scripts/create_admin.py. The script
+prints the selected database before writing and never falls back to a default
+database name.
 """
 from __future__ import annotations
 
@@ -136,6 +150,23 @@ def scan(doc: dict) -> list[str]:
     return sorted(set(hits))
 
 
+def write_backup(posts: list[dict], backup_dir: Path) -> Path:
+    """Write a private Extended JSON backup and return its path."""
+    if backup_dir.exists():
+        backup_dir.mkdir(parents=True, exist_ok=True)
+    else:
+        # Only tighten permissions on a directory this script creates. Do not
+        # change the mode of a directory the owner supplied.
+        backup_dir.mkdir(parents=True, mode=0o700)
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    backup = backup_dir / f"adsense_content_backup_{stamp}.json"
+    fd = os.open(backup, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    with os.fdopen(fd, "w", encoding="utf-8") as handle:
+        handle.write(bson_dumps(posts, indent=2, ensure_ascii=False))
+    backup.chmod(0o600)
+    return backup
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -164,12 +195,8 @@ def main() -> int:
         print(f"connected: database={db_name} posts={len(posts)} mode={'APPLY' if args.apply else 'DRY RUN'}")
 
         if args.apply and posts:
-            args.backup_dir.mkdir(parents=True, exist_ok=True)
-            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-            backup = args.backup_dir / f"adsense_content_backup_{stamp}.json"
-            backup.write_text(bson_dumps(posts, indent=2, ensure_ascii=False), encoding="utf-8")
-            backup.chmod(0o600)
-            print(f"backup: {backup} ({len(posts)} posts)")
+            backup = write_backup(posts, args.backup_dir)
+            print(f"backup: {backup} ({len(posts)} posts, mode 0600)")
 
         retired = 0
         repaired = 0
@@ -206,8 +233,13 @@ def main() -> int:
                 if fixed != doc["content_json"]:
                     updates["content_json"] = fixed
 
-            hits = scan(doc)
-            if hits:
+            # Scan the document as it will look after the planned repairs, not
+            # the pre-repair version. Otherwise a repaired artefact is still
+            # reported as remaining and the warning cannot be trusted.
+            preview = dict(doc)
+            preview.update(updates)
+            hits = scan(preview)
+            if hits and updates.get("published") is not False:
                 warnings.append((slug or "<no slug>", hits))
 
             if not updates:

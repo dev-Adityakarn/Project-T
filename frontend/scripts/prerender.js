@@ -251,6 +251,8 @@ if (!fs.existsSync(path.join(BUILD, "index.html"))) {
 // Read pristine SPA template once before any writes overwrite build/index.html
 const SPA_TEMPLATE = fs.readFileSync(path.join(BUILD, "index.html"), "utf8");
 
+const written = new Set();
+
 const write = (route, headHtml, bodyHtml, lang = "en") => {
   let html = SPA_TEMPLATE
     .replace(/<noscript>[\s\S]*?<\/noscript>/gi, "")
@@ -268,9 +270,8 @@ const write = (route, headHtml, bodyHtml, lang = "en") => {
   const target = route === "/404" ? path.join(BUILD, "404.html") : path.join(BUILD, clean === "" ? "index.html" : `${clean}/index.html`);
   fs.mkdirSync(path.dirname(target), { recursive: true });
   fs.writeFileSync(target, html);
+  written.add(target);
 };
-
-let count = 0;
 
 // Marketing content pages
 PAGES.forEach((page) => {
@@ -288,7 +289,6 @@ PAGES.forEach((page) => {
     path: page.path, title: page.title, description: page.description, lang: page.lang || "en",
     schemas, alternates: ALTERNATES[page.path] || [],
   }), body, page.lang || "en");
-  count += 1;
 });
 
 // Typing lessons page
@@ -303,7 +303,6 @@ if (!lessonsPage) {
       description: lp.description,
       schemas: buildSchemas({ kind: "lesson", path: lp.path, page: lp, faqs: lp.faqs || [], crumbs: lp.breadcrumbs || [] }),
     }), body);
-    count += 1;
   }
 }
 
@@ -324,7 +323,6 @@ POSTS.forEach((post) => {
   const postBlocks = withoutDuplicateLead(post.blocks, post.excerpt);
   const body = `<article>${crumbHtml(crumbs)}<h1>${esc(post.h1 || post.title)}</h1><p>${esc(post.excerpt)}</p>${updated}${blocksHtml(postBlocks)}${sourcesHtml(postBlocks)}${faqHtml(post.faqs)}${linksHtml(post.related)}</article>${FOOTER}`;
   write(postPath, head({ path: postPath, title: post.title, description: post.description, type: "article", schemas }), body);
-  count += 1;
 });
 
 // Blog index
@@ -339,7 +337,6 @@ if (blogIndex) {
     description: blogIndex.description,
     schemas: buildSchemas({ kind: "blog-index", path: "/blog/", crumbs: blogIndex.breadcrumbs || [] }),
   }), body);
-  count += 1;
 }
 
 // Games index
@@ -351,7 +348,6 @@ write("/games/", head({
   description: "Play ten free typing games, from a classic speed test to zombie defence and space shooting. Three difficulty levels and global leaderboards.",
   schemas: buildSchemas({ kind: "games-index", path: "/games/", crumbs: gamesIndexCrumbs }),
 }), gamesIndexBody);
-count += 1;
 
 // Individual game pages
 GAMES.forEach((game) => {
@@ -370,7 +366,6 @@ GAMES.forEach((game) => {
     noindex: "noindex,follow",
     schemas: buildSchemas({ kind: "game", path: gamePath, page: gamePage, crumbs: gameCrumbs }),
   }), gameBody);
-  count += 1;
 });
 
 // Daily challenge page
@@ -383,7 +378,6 @@ write("/daily/", head({
   noindex: "noindex,follow",
   schemas: buildSchemas({ kind: "utility", path: "/daily/", crumbs: dailyCrumbs }),
 }), dailyBody);
-count += 1;
 
 // Leaderboard page
 const leaderboardCrumbs = [{ name: "Leaderboard" }];
@@ -395,7 +389,6 @@ write("/leaderboard/", head({
   noindex: "noindex,follow",
   schemas: buildSchemas({ kind: "utility", path: "/leaderboard/", crumbs: leaderboardCrumbs }),
 }), leaderboardBody);
-count += 1;
 
 // Private app routes (unindexed app shells so direct refresh works cleanly in static hosting)
 const appRoutes = [
@@ -433,4 +426,4 @@ write("/404", head({
   { to: "/games/", label: "Typing games" },
 ], "Popular pages")}</main>${FOOTER}`);
 
-console.log(`prerender: wrote ${count + 1} static HTML files (plus 404.html) into build/`);
+console.log(`prerender: wrote ${written.size} static HTML files (including 404.html) into build/`);

@@ -8,11 +8,52 @@ export const calcStats = (correct, keys, errors, seconds) => {
   return { wpm, accuracy, duration: Math.round(seconds), errors, keystrokes: keys };
 };
 
-export function useCharTyper(text, { active = true, strict = false, autoIndent = false, onDone, onMistake } = {}) {
+/**
+ * Several typing surfaces can be mounted at once. The main test on
+ * /typing-test/code/ sits above the custom-snippet widget, and both used to
+ * read the same window keydown event. Keep one owner so a keystroke is only
+ * applied to the surface the visitor is using.
+ */
+let nextTyperId = 0;
+let activeTyperId = null;
+const mountedTypers = [];
+
+const registerTyper = (id, autoClaim) => {
+  mountedTypers.push(id);
+  if (activeTyperId === null || autoClaim) activeTyperId = id;
+};
+
+const unregisterTyper = (id) => {
+  const index = mountedTypers.indexOf(id);
+  if (index !== -1) mountedTypers.splice(index, 1);
+  if (activeTyperId === id) {
+    activeTyperId = mountedTypers.length ? mountedTypers[mountedTypers.length - 1] : null;
+  }
+};
+
+export function useCharTyper(
+  text,
+  { active = true, strict = false, autoIndent = false, autoClaim = false, onDone, onMistake } = {},
+) {
   const [typed, setTyped] = useState("");
   const ref = useRef({ typed: "", keys: 0, errors: 0, start: null });
+  const idRef = useRef(null);
+  if (idRef.current === null) {
+    nextTyperId += 1;
+    idRef.current = nextTyperId;
+  }
   const cb = useRef({ onDone, onMistake });
   cb.current = { onDone, onMistake };
+
+  useEffect(() => {
+    const id = idRef.current;
+    registerTyper(id, autoClaim);
+    return () => unregisterTyper(id);
+  }, [autoClaim]);
+
+  const claim = useCallback(() => {
+    activeTyperId = idRef.current;
+  }, []);
 
   useEffect(() => {
     ref.current = { typed: "", keys: 0, errors: 0, start: null };
@@ -21,8 +62,17 @@ export function useCharTyper(text, { active = true, strict = false, autoIndent =
 
   useEffect(() => {
     if (!active) return undefined;
+    const id = idRef.current;
     const handler = (e) => {
+      if (activeTyperId !== id) return;
       if (e.ctrlKey || e.metaKey || e.altKey) return;
+      // A page can contain a typing tool and a real form control (for example
+      // the custom-code editor on /typing-test/code/). Never swallow keys that
+      // belong to an input, textarea, select or contenteditable element.
+      const target = e.target;
+      if (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName || ""))) {
+        return;
+      }
       const st = ref.current;
       let cur = st.typed;
       if (e.key === "Backspace") {
@@ -63,5 +113,5 @@ export function useCharTyper(text, { active = true, strict = false, autoIndent =
     setTyped("");
   }, []);
 
-  return { typed, correct, started: !!ref.current.start, errors: ref.current.errors, elapsed, getStats, reset };
+  return { typed, correct, started: !!ref.current.start, errors: ref.current.errors, elapsed, getStats, reset, claim };
 }

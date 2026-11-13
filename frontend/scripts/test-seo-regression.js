@@ -176,6 +176,41 @@ assert(robots.includes("User-agent: Mediapartners-Google"), "robots.txt has a Me
 assert(!robots.includes("Disallow: /typing-test"), "robots.txt does not block /typing-test");
 assert(!robots.includes("Disallow: /blog"), "robots.txt does not block /blog");
 
+console.log("\n--- Internal link graph ---");
+const htmlFiles = [];
+const walkHtml = (dir) => {
+  fs.readdirSync(dir, { withFileTypes: true }).forEach((entry) => {
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) walkHtml(file);
+    else if (entry.name === "index.html" || entry.name === "404.html") htmlFiles.push(file);
+  });
+};
+walkHtml(BUILD);
+
+const knownRoutes = new Set(routes.map((route) => canonicalPath(route.path)));
+const assetPattern = /\.(?:png|jpe?g|gif|svg|ico|webp|css|js|xml|txt|pdf|json|webmanifest)$/i;
+const brokenLinks = [];
+let internalLinkCount = 0;
+htmlFiles.forEach((file) => {
+  const source = path.relative(BUILD, file);
+  const html = read(file);
+  for (const match of html.matchAll(/<a\s[^>]*href="([^"]+)"/g)) {
+    const href = match[1];
+    if (!href.startsWith("/") || href.startsWith("//")) continue;
+    if (assetPattern.test(href.split("?")[0].split("#")[0])) continue;
+    const target = canonicalPath(href);
+    if (target === "/404/") continue;
+    internalLinkCount += 1;
+    if (!knownRoutes.has(target)) brokenLinks.push(`${source} -> ${href}`);
+  }
+});
+assert(internalLinkCount > 0, "built HTML contains internal links");
+assert(
+  brokenLinks.length === 0,
+  `internal links resolve to a known route (${internalLinkCount} checked)` +
+    (brokenLinks.length ? `: ${brokenLinks.slice(0, 8).join(", ")}` : ""),
+);
+
 console.log("\n--- Cloudflare headers and redirects ---");
 const headers = read(path.join(BUILD, "_headers"));
 assert(headers.includes("Content-Type: application/xml; charset=utf-8"), "_headers sets XML content-type for sitemap");

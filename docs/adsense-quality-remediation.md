@@ -166,8 +166,8 @@ npm run verify:seo
 
 Results:
 
-- Jest: **18 suites, 127 tests passed**.
-- Production build: compiled successfully, **47 prerendered HTML files plus 404**.
+- Jest: **18 suites, 129 tests passed**.
+- Production build: compiled successfully, **56 prerendered HTML files**: 33 indexable sitemap pages, 22 intentionally `noindex` app/utility pages, and `404.html`.
 - SEO regression: **33 sitemap URLs**, all checks passed.
 - Python migration script compiles (`python3 -m py_compile`); it requires the backend virtualenv for `pymongo`/`bson` at runtime.
 
