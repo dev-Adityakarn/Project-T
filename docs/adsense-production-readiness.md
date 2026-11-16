@@ -2,13 +2,25 @@
 
 **Verdict: NOT READY to submit for AdSense review.**
 
-The remediation is sound in the repository and passes a production-like build, but the live site is still serving the previous deployment. Live redirects, `robots.txt`, `sitemap.xml`, the blog index and the public article set do not yet contain the remediation. The production database migration has not been run, and authenticated admin/backend workflows and the AdSense consent setup could not be verified without owner credentials and account access.
+At the time of the audit, the live site was still serving the previous deployment. The frontend was deployed on 16 November 2026; the current production verification is recorded in the addendum below. The production database migration has not been run, and authenticated admin/backend workflows and the AdSense consent setup could not be verified without owner credentials and account access.
+
+> **Post-deployment addendum — 16 November 2026**
+>
+> The audit commit was fast-forwarded to `main` and Cloudflare production build `be9f679c-1562-4af3-b1d2-5c2d797c124e` completed successfully. Post-deployment checks:
+>
+> - `robots.txt` now returns the `*`, `Googlebot` and `Mediapartners-Google` groups with `/admin`, `/api`, `/dashboard`, `/login` and `/register` disallowed.
+> - `sitemap.xml` now contains 33 canonical URLs and no retired slugs.
+> - All six retired URLs return `301` to their canonical destinations, and every destination returns `200`.
+> - The live blog index contains 14 article links and no longer links either retired slug.
+> - The AdSense verification meta tag, `ads.txt`, canonical home URL and HTTP 404 behavior remain correct.
+>
+> Still outstanding: the production database migration, authenticated admin/backend workflows, and the AdSense CMP/slot configuration. The deployment rows in sections 2, 3 and 9 below describe the current post-deployment state; the audit-time failure is noted only where it explains the remediation history.
 
 - **Audit date:** 13 November 2026
 - **Repository:** `Project-T-blog-editor`
-- **Branch:** `adsense-quality-remediation`
+- **Branch:** `adsense-quality-remediation`, merged to `main` on 16 November 2026
 - **Audited base commit:** `273e25c` (`fix(content): remediate AdSense low-value content`)
-- **Audit fixes:** included in the commit that adds this report; not pushed or deployed
+- **Audit fixes:** commit `aa1c268`; deployed to production on 16 November 2026
 - **Live origin:** `https://typinger.in`
 - **API origin:** `https://typinger.onrender.com`
 - **Production data:** no production writes were made
@@ -33,9 +45,9 @@ The audit checked the claims in `docs/adsense-quality-remediation.md` against th
 | Frontend production build | `npm run build` completed; **56 static HTML files** written | PASS |
 | Build breakdown | 33 indexable sitemap pages + 22 intentionally `noindex` app/utility pages + `404.html` = 56 | PASS |
 | Documentation file-count claim | `docs/adsense-quality-remediation.md` said 47; corrected to the verified 56-file breakdown | PASS |
-| Production deployment contains the remediation | Live `robots.txt`, sitemap and six retired URLs still show the old behavior | **FAIL** |
-| Cloudflare Worker source | `frontend/worker.js` and `_redirects` contain the new redirects and 404 handling; not yet deployed | PASS (source only) |
-| Production cache/deployment verification | No deployment was performed; live HTML is still the old release | **FAIL** |
+| Production deployment contains the remediation | Deployed 16 Nov 2026; live `robots.txt`, 33-URL sitemap and six 301 redirects verified | PASS (post-deploy) |
+| Cloudflare Worker source | `frontend/worker.js` and `_redirects` contain the new redirects and 404 handling; production build succeeded | PASS |
+| Production cache/deployment verification | Cloudflare build `be9f679c-1562-4af3-b1d2-5c2d797c124e` succeeded; live HTML reflects the new release | PASS |
 
 ### 2.1 The 33-versus-47-versus-56 discrepancy
 
@@ -54,23 +66,23 @@ The old note counted “47 prerendered HTML files plus 404,” which matched nei
 
 | Check | Local build | Live `https://typinger.in/robots.txt` | Status |
 |---|---|---|---|
-| Crawler groups | `*`, `Googlebot`, `Mediapartners-Google` | Only `*` | **FAIL (production)** |
-| Private-route disallows | `/admin`, `/api`, `/dashboard`, `/login`, `/register` in every group | Only `/admin`, `/api` | **FAIL (production)** |
+| Crawler groups | `*`, `Googlebot`, `Mediapartners-Google` | Same three groups | PASS |
+| Private-route disallows | `/admin`, `/api`, `/dashboard`, `/login`, `/register` in every group | Same set in every group | PASS |
 | Sitemap declaration | `Sitemap: https://typinger.in/sitemap.xml` | Same line | PASS |
 | Public routes blocked by mistake | None of `/typing-test`, `/blog`, `/typing-practice` blocked | None | PASS |
 
-The generated local `robots.txt` is correct. The live file is still the old one.
+The generated and live `robots.txt` files now match and are correct.
 
 ### 3.2 Sitemap and canonicals
 
 | Check | Local build | Live site | Status |
 |---|---|---|---|
-| Sitemap URL count | 33 | 34 | **FAIL (production)** |
-| Retired slugs in sitemap | 0 | 2: `/blog/touch-typing-guide-for-beginners/` and `/blog/what-is-a-good-wpm-score/` | **FAIL (production)** |
+| Sitemap URL count | 33 | 33 | PASS |
+| Retired slugs in sitemap | 0 | 0 | PASS |
 | Sitemap uses production origin and trailing slashes | Yes | Yes | PASS |
-| Canonical tags on indexable pages | Self-referential, 33 canonical URLs | Old deployment | **FAIL (production parity)** |
-| No canonical points at a retired URL | Verified by `verify:seo` and link graph | Old deployment | **FAIL (production parity)** |
-| `noindex` on app/utility pages | 22 pages, plus `404.html` | Login/admin/dashboard already had `noindex` in the old deployment | PASS (local; partially live) |
+| Canonical tags on indexable pages | Self-referential, 33 canonical URLs | New deployment uses the same prerendered tags | PASS |
+| No canonical points at a retired URL | Verified by `verify:seo` and link graph | Post-deployment spot checks pass | PASS |
+| `noindex` on app/utility pages | 22 pages, plus `404.html` | Login/admin/dashboard return `noindex`; admin also sends `x-robots-tag: noindex, nofollow` | PASS |
 | `noindex` on 404 | Yes, `noindex,nofollow` | Live `/definitely-not-a-page` returns 404 | PASS |
 
 ### 3.3 Redirects for the six retired URLs
@@ -88,7 +100,7 @@ Local production-like server results:
 
 All six local redirects are permanent 301s, all destinations are canonical 200 pages, and no loop or extra hop was found. The Worker route resolver handles both trailing-slash and non-trailing-slash forms, and `_redirects` lists both explicitly.
 
-**Live result: all six retired URLs return HTTP 200.** They do not redirect. This is a deployment blocker, not a code blocker.
+**Live result after the 16 November deployment: all six retired URLs return 301 to the canonical locations in the table, and every destination returns 200.** At audit time (13 November) all six returned 200; that was the deployment blocker described in the addendum.
 
 ### 3.4 SPA fallback, 404 and internal links
 
@@ -102,7 +114,7 @@ All six local redirects are permanent 301s, all destinations are canonical 200 p
 
 ## 4. Content audit: all 14 articles
 
-All 14 articles were read in full. The blog index renders 14 article cards locally. The live blog index still contains 15 article links, including the two retired slugs.
+All 14 articles were read in full. The blog index renders 14 article cards locally. At audit time the live blog index still contained 15 article links, including the two retired slugs; after the 16 November deployment it contains 14 article links and no retired slug.
 
 | Check | Evidence | Status |
 |---|---|---|
@@ -227,7 +239,7 @@ The API does not expose `content` or `published` in that list response, so the l
 | Privacy disclosures | Privacy policy explains AdSense cookies, Google’s role, opt-out links, consent timing and the no-ads-during-active-test rule; live page contains the same disclosure | PASS |
 | AdSense review submission | Deliberately not submitted; owner approval required | **NOT TESTED / REQUIRES OWNER ACTION** |
 
-The site is technically ready to be verified by AdSense, but it is not ready to be submitted for review while production still serves the old content and the consent path is unconfigured.
+The site is technically ready to be verified by AdSense, but it is not ready to be submitted for review while the production database still contains the duplicate records and the consent path is unconfigured.
 
 ## 8. Production database migration
 
@@ -289,7 +301,7 @@ This restores every backed-up post by `_id` and does not delete posts created af
 | Python migration syntax | `python3 -m py_compile` passed | PASS |
 | Browser audit | 26 scenarios, 79/79 checks passed | PASS |
 | Redirects locally | Six 301s, all destinations 200 | PASS |
-| Redirects live | Six 200s, no redirects | **FAIL** |
+| Redirects live | Six 301s, all destinations 200 (verified 16 Nov) | PASS |
 
 ## 10. Defects found and fixed during the audit
 
@@ -305,7 +317,7 @@ This restores every backed-up post by `_id` and does not delete posts created af
 
 | Item | Impact | Status |
 |---|---|---|
-| Production still serves the old deployment | Retired URLs return 200, sitemap has 34 URLs, robots has one group, old article set is live | **FAIL — blocker** |
+| Production frontend deployment | Deployed 16 Nov; 301 redirects, 33-URL sitemap, three robots groups and 14-article blog verified live | PASS |
 | Production migration not run | Five duplicate records remain published in the production database | **REQUIRES OWNER ACTION — blocker** |
 | Authenticated admin/backend flows untested | Login, registration, post creation/editing, moderation and contact delivery are unverified in production | **NOT TESTED — blocker for a production-readiness claim** |
 | CMP and ad slots unconfigured | Ads are intentionally disabled; cannot validate live ad rendering or consent flow | **REQUIRES OWNER ACTION** |
@@ -315,10 +327,10 @@ This restores every backed-up post by `_id` and does not delete posts created af
 
 ## 12. Owner actions before AdSense submission
 
-Complete these in order. Do not submit for review before step 9, and not before steps 4–7 are complete.
+Steps 1–3 were completed on 16 November 2026 and verified live. Complete steps 4–9 in order. Do not submit for review before step 9, and not before steps 4–7 are complete.
 
-1. **Review and deploy the audit commit.** Build with the production environment (`REACT_APP_BACKEND_URL=https://typinger.onrender.com` without a trailing slash or `/api`, plus the publisher ID), run `npm run build` and `npm run verify:seo` from `frontend/`, then deploy `frontend/build` and `frontend/worker.js` through the Cloudflare Workers pipeline configured in `frontend/wrangler.jsonc`. Purge the Cloudflare cache afterward.
-2. **Verify the deployment before touching the database:**
+1. **Review and deploy the audit commit. ✅ Completed 16 Nov 2026.** Build with the production environment (`REACT_APP_BACKEND_URL=https://typinger.onrender.com` without a trailing slash or `/api`, plus the publisher ID), run `npm run build` and `npm run verify:seo` from `frontend/`, then deploy `frontend/build` and `frontend/worker.js` through the Cloudflare Workers pipeline configured in `frontend/wrangler.jsonc`. Purge the Cloudflare cache afterward.
+2. **Verify the deployment before touching the database. ✅ Completed 16 Nov 2026:**
    ```bash
    for u in \
      /blog/touch-typing-guide-for-beginners/ \
@@ -331,7 +343,7 @@ Complete these in order. Do not submit for review before step 9, and not before 
    done
    ```
    Expect six `301` responses with the canonical locations listed in section 3.3.
-3. **Verify crawlability live:** `https://typinger.in/robots.txt` must show all three crawler groups and the sitemap line; `https://typinger.in/sitemap.xml` must contain exactly 33 canonical URLs and no retired slug.
+3. **Verify crawlability live. ✅ Completed 16 Nov 2026:** `https://typinger.in/robots.txt` shows all three crawler groups and the sitemap line; `https://typinger.in/sitemap.xml` contains exactly 33 canonical URLs and no retired slug.
 4. **Run the production migration dry run** using `backend/.env`; review the five retirements and any repairs; confirm the backup directory is private.
 5. **Apply the migration with explicit approval**, then rerun the dry run and expect `retired=0 repaired=0`. Keep the backup until the site has been observed for at least one indexing cycle.
 6. **Exercise authenticated and backend workflows** with owner-approved test accounts: login, registration, admin post create/edit/publish, moderation, audit log, contact form delivery, password/account flows and API error handling.
@@ -345,4 +357,4 @@ Complete these in order. Do not submit for review before step 9, and not before 
 
 The repository remediation is internally coherent and locally verified: content, redirects, sitemap, robots, canonicals, internal links, interactive tools and the migration script all pass. The audit also found and fixed two genuine defects that would otherwise have shipped (the code-practice key capture and the broken rollback command).
 
-The live site, however, is still the old deployment, the production database still has the five duplicate records, and the authenticated/consent paths are unverified. Those are deployment and owner actions, not reasons to rewrite the content again. Once sections 12.1–12.9 are complete and the live checks in section 12.2–12.3 pass, the site can be re-audited with a realistic expectation of readiness.
+The frontend is now deployed, and the live redirect, sitemap, robots and article checks pass. The production database still has the five duplicate records, and the authenticated/consent paths are unverified. Those are remaining owner actions, not reasons to rewrite the content again. Once sections 12.4–12.9 are complete, the site can be re-audited with a realistic expectation of readiness.
