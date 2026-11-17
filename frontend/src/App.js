@@ -74,7 +74,26 @@ const REDIRECTS = {
   "/blog/index/": "/blog/",
 };
 
-const Fallback = () => <div className="p-24 text-center text-sm text-muted-foreground" data-testid="route-loading">Loading…</div>;
+const Fallback = () => {
+  const { pathname } = useLocation();
+  // Game detail pages render a tall intro card and leaderboard. Reserve their
+  // rendered height (about 47rem on desktop) while the route chunk loads so the
+  // footer does not jump when the real content replaces this placeholder.
+  const gameDetail = /^\/games\/[^/]+\/?$/.test(pathname);
+
+  return (
+    <div
+      className={
+        gameDetail
+          ? "flex min-h-[47rem] items-center justify-center px-4 text-center text-sm text-muted-foreground"
+          : "p-24 text-center text-sm text-muted-foreground"
+      }
+      data-testid="route-loading"
+    >
+      Loading…
+    </div>
+  );
+};
 
 const TrailingSlashHandler = () => {
   const { pathname, search, hash } = useLocation();
