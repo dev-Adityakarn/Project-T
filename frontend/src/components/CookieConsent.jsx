@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import { Cookie } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ADSENSE_CONFIG } from "@/config/adsense";
-import { getConsent, setConsent, loadAnalytics } from "@/lib/analytics";
+import { applyConsent, getConsent, isAnalyticsConfigured } from "@/lib/analytics";
 import { PRIVACY_CHOICES_EVENT } from "@/lib/consent";
-
-const hasAnalytics = () => !!process.env.REACT_APP_GA_ID;
 
 const hasAdConsentPlatform = () =>
   ADSENSE_CONFIG.enabled &&
@@ -25,7 +23,7 @@ const adConsentCopy = () => {
 };
 
 export const CookieConsent = () => {
-  const [open, setOpen] = useState(() => hasAnalytics() && !getConsent());
+  const [open, setOpen] = useState(() => isAnalyticsConfigured() && !getConsent());
 
   useEffect(() => {
     const onOpen = () => setOpen(true);
@@ -35,21 +33,23 @@ export const CookieConsent = () => {
 
   if (!open) return null;
 
-  const decide = (v) => {
-    setConsent(v);
-    if (v === "accepted") loadAnalytics();
+  const decide = (value) => {
+    applyConsent(value);
     setOpen(false);
   };
 
-  const analyticsAvailable = hasAnalytics();
+  const analyticsAvailable = isAnalyticsConfigured();
+  const currentConsent = getConsent();
   const adConsentManaged = hasAdConsentPlatform();
   const onlyEssential = !analyticsAvailable && !adConsentManaged;
 
   const cookieCopy = analyticsAvailable
-    ? "We use anonymous analytics cookies, only if you accept, to understand which typing tests people use. Sign-in cookies are always required."
+    ? currentConsent === "accepted"
+      ? "Analytics is currently on in this browser. You can turn it off below. Sign-in cookies are always required."
+      : "We use anonymous analytics cookies, only if you accept, to understand which typing tests people use. Sign-in cookies are always required."
     : adConsentManaged
       ? "Typinger uses essential cookies for sign-in and security. Analytics cookies are not active in this build."
-      : "Typinger uses only essential cookies needed for sign-in and security. No analytics or advertising cookies are active in this build.";
+      : "Typinger uses only essential cookies needed for sign-in and security. No analytics or advertising cookies are active in this build, so there is nothing to accept or reject right now. If analytics is enabled later, this dialog will offer a real choice and you can reopen it from Privacy choices in the footer.";
 
   return (
     <div className="fixed inset-x-3 bottom-3 z-50 sm:inset-x-auto sm:right-6 sm:max-w-md" data-testid="cookie-banner">
@@ -68,13 +68,22 @@ export const CookieConsent = () => {
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
           {analyticsAvailable ? (
-            <>
-              <Button size="sm" className="rounded-full px-5 font-semibold" onClick={() => decide("accepted")} data-testid="cookie-accept-btn">Accept analytics</Button>
-              <Button size="sm" variant="outline" className="rounded-full px-5" onClick={() => decide("rejected")} data-testid="cookie-reject-btn">Reject analytics</Button>
-              <Button size="sm" variant="ghost" className="rounded-full px-4" onClick={() => setOpen(false)} data-testid="cookie-dismiss-btn">
-                Not now
-              </Button>
-            </>
+            currentConsent === "accepted" ? (
+              <>
+                <Button size="sm" variant="outline" className="rounded-full px-5" onClick={() => decide("rejected")} data-testid="cookie-reject-btn">Turn off analytics</Button>
+                <Button size="sm" variant="ghost" className="rounded-full px-4" onClick={() => setOpen(false)} data-testid="cookie-dismiss-btn">
+                  Keep analytics on
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button size="sm" className="rounded-full px-5 font-semibold" onClick={() => decide("accepted")} data-testid="cookie-accept-btn">Accept analytics</Button>
+                <Button size="sm" variant="outline" className="rounded-full px-5" onClick={() => decide("rejected")} data-testid="cookie-reject-btn">Reject analytics</Button>
+                <Button size="sm" variant="ghost" className="rounded-full px-4" onClick={() => setOpen(false)} data-testid="cookie-dismiss-btn">
+                  Not now
+                </Button>
+              </>
+            )
           ) : (
             <Button size="sm" className={onlyEssential ? "rounded-full px-5 font-semibold" : "rounded-full px-5"} onClick={() => setOpen(false)} data-testid="cookie-close-btn">
               Close

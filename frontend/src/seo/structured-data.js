@@ -64,6 +64,15 @@ const organizationSchema = ({ site, origin = PRODUCTION_ORIGIN }) => ({
   logo: `${origin}${site.logo}`,
   ...(site.email ? { email: site.email } : {}),
   ...(site.founded ? { foundingDate: site.founded } : {}),
+  ...(site.founder
+    ? {
+        founder: {
+          "@type": "Person",
+          name: site.founder,
+          url: absUrl("/about", origin),
+        },
+      }
+    : {}),
   ...(site.sameAs?.length ? { sameAs: site.sameAs } : {}),
 });
 
@@ -128,6 +137,14 @@ const breadcrumbSchema = ({ crumbs = [], currentPath, origin = PRODUCTION_ORIGIN
   };
 };
 
+const articleAuthorSchema = ({ post, site, origin }) => {
+  const name = post.author || site.author || site.name;
+  const organizational = name === site.name || /team$/i.test(name);
+  return organizational
+    ? { "@type": "Organization", name, url: `${origin}/` }
+    : { "@type": "Person", name, url: absUrl("/about", origin) };
+};
+
 const articleSchema = ({ post, site, origin = PRODUCTION_ORIGIN }) => ({
   "@context": "https://schema.org",
   "@type": "Article",
@@ -135,7 +152,7 @@ const articleSchema = ({ post, site, origin = PRODUCTION_ORIGIN }) => ({
   description: post.description,
   datePublished: post.datePublished,
   dateModified: post.dateModified || post.datePublished,
-  author: { "@type": "Organization", name: post.author || site.name },
+  author: articleAuthorSchema({ post, site, origin }),
   publisher: {
     "@type": "Organization",
     name: site.name,

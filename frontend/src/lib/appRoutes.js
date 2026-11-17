@@ -26,6 +26,19 @@ const LEGACY_REDIRECTS = Object.freeze({
   "/blog/english-typing-test-for-10-minutes-a-government-exam-practice-guide": "/blog/english-typing-test-1-5-10-minute/",
 });
 
+/**
+ * Blog slugs that have an approved redirect to a canonical article. The API
+ * can still return older records for these slugs, so the blog index filters
+ * them before rendering instead of showing duplicate cards.
+ */
+export const LEGACY_BLOG_SLUGS = Object.freeze(
+  Object.keys(LEGACY_REDIRECTS)
+    .filter((path) => path.startsWith("/blog/") && path !== "/blog/index")
+    .map((path) => path.slice("/blog/".length)),
+);
+
+export const isLegacyBlogSlug = (slug) => LEGACY_BLOG_SLUGS.includes(slug);
+
 // Keep these in sync with frontend/src/data/games.js. A test checks the list.
 export const GAME_IDS = Object.freeze([
   "speed-test",

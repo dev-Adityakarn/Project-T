@@ -1,7 +1,9 @@
 import { GAMES } from "@/data/games";
 import {
   GAME_IDS,
+  LEGACY_BLOG_SLUGS,
   isAppRoute,
+  isLegacyBlogSlug,
   normalizePath,
   redirectForPath,
   resolveRoute,
@@ -93,6 +95,20 @@ describe("appRoutes", () => {
         status: 301,
       });
     });
+  });
+
+  it("identifies legacy blog slugs that must not be duplicated on the index", () => {
+    expect([...LEGACY_BLOG_SLUGS].sort()).toEqual([
+      "english-typing-test-for-10-minutes-a-government-exam-practice-guide",
+      "how-to-increase-typing-speed-30-day-plan-to-reach-40-wpm-meta-description",
+      "ssc-chsl-typing-test-2026-speed-duration-and-preparation-guide",
+      "ssc-chsl-typing-test-mistakes-full-errors-half-errors-and-corrections",
+      "touch-typing-guide-for-beginners",
+      "what-is-a-good-wpm-score",
+    ]);
+    expect(isLegacyBlogSlug("touch-typing-guide-for-beginners")).toBe(true);
+    expect(isLegacyBlogSlug("touch-typing-for-beginners")).toBe(false);
+    expect(isLegacyBlogSlug("ssc-chsl-typing-test-2026")).toBe(false);
   });
 
   it("returns a real not-found decision for unknown paths and API paths", () => {

@@ -22,6 +22,7 @@ export const TypingTool = ({
   autoClaim = false,
 }) => {
   const options = config.durations || (config.duration ? [config.duration] : []);
+  const isHindi = config.kind === "hindi";
   const [dur, setDur] = useState(config.duration ?? null);
   const [run, setRun] = useState(0);
   const [result, setResult] = useState(null);
@@ -160,7 +161,15 @@ export const TypingTool = ({
         {t.started ? "Keep going — the clock stops on its own." : dur ? "Start typing to begin the timer." : "Start typing; this drill ends when you finish the passage."}
       </p>
       <div className="mt-6 hidden md:block">
-        <Keyboard3D flat hint={next ? normalizeKey(next) : null} className="mx-auto max-w-3xl" />
+        {isHindi ? (
+          <p className="rounded-xl border bg-muted/30 p-4 text-sm text-muted-foreground" data-testid="hindi-keyboard-note">
+            The on-screen keyboard is hidden for Hindi because InScript, Remington GAIL and
+            Kruti Dev place Devanagari characters on different physical keys. Use the layout
+            chart for your exam rather than a QWERTY label.
+          </p>
+        ) : (
+          <Keyboard3D flat hint={next ? normalizeKey(next) : null} className="mx-auto max-w-3xl" />
+        )}
       </div>
     </div>
   );

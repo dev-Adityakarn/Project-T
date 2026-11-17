@@ -338,6 +338,22 @@ describe("site quality regressions", () => {
     expect(new Set(passages).size).toBe(passages.length);
   });
 
+  it("never repeats a whole practice passage to reach a word target", () => {
+    const keys = Object.keys(ROUTE_PASSAGES);
+    keys.forEach((key) => {
+      const text = makeTestText("words", { passage: key, words: 5000 });
+      ROUTE_PASSAGES[key].forEach((paragraph) => {
+        const opening = paragraph.slice(0, 60);
+        expect(text.split(opening)).toHaveLength(2);
+      });
+    });
+
+    const exam = makeTestText("paragraph", { words: 5000 });
+    ROUTE_PASSAGES.exam.forEach((paragraph) => {
+      expect(exam.split(paragraph.slice(0, 60))).toHaveLength(2);
+    });
+  });
+
   it("exposes the primary navigation once and includes the content hubs", () => {
     const navbar = read("components/Navbar.jsx");
     expect(navbar).toContain('label: "Typing Tests"');

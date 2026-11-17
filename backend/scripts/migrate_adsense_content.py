@@ -194,6 +194,18 @@ def main() -> int:
         posts = list(db.posts.find({}))
         print(f"connected: database={db_name} posts={len(posts)} mode={'APPLY' if args.apply else 'DRY RUN'}")
 
+        # Show the target inventory before any change. This makes a dry run
+        # auditable even when a slug is missing or duplicated.
+        print(f"targets: expected={len(RETIRE)}")
+        for target_slug in sorted(RETIRE):
+            matches = [doc for doc in posts if doc.get("slug") == target_slug]
+            print(f"  target {target_slug}: matches={len(matches)}")
+            for doc in matches:
+                print(
+                    f"    _id={doc.get('_id')} published={doc.get('published')!r} "
+                    f"target={RETIRE[target_slug]}"
+                )
+
         if args.apply and posts:
             backup = write_backup(posts, args.backup_dir)
             print(f"backup: {backup} ({len(posts)} posts, mode 0600)")
@@ -254,9 +266,16 @@ def main() -> int:
             if args.apply:
                 updates["updated_at"] = now
                 db.posts.update_one({"_id": doc["_id"]}, {"$set": updates})
-                print(f"{'retired' if 'published' in updates else 'repaired'}: {slug}")
+                print(
+                    f"{'retired' if 'published' in updates else 'repaired'}: {slug} "
+                    f"_id={doc['_id']} fields={sorted(updates)}"
+                )
             else:
-                print(f"would {'retire' if 'published' in updates else 'repair'}: {slug} -> {sorted(updates)}")
+                print(
+                    f"would {'retire' if 'published' in updates else 'repair'}: {slug} "
+                    f"_id={doc['_id']} published={doc.get('published')!r} "
+                    f"fields={sorted(updates)}"
+                )
 
         print(
             f"summary: retired={retired} repaired={repaired} unchanged={skipped} "

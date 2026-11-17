@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CalendarDays, Clock } from "lucide-react";
 import { getPage, POSTS } from "@/seo";
 import { api } from "@/lib/api";
+import { isLegacyBlogSlug } from "@/lib/appRoutes";
 import { Seo } from "@/components/Seo";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SeoArticle } from "@/components/SeoArticle";
@@ -11,9 +12,9 @@ import { AdRailLayout } from "@/components/ads/AdSideRail";
 import { AD_SLOTS } from "@/config/adsense";
 import { buildSchemas } from "@/seo/schema";
 
-const Card = ({ p, i }) => (
-  <Link to={`/blog/${p.slug}/`} data-testid={`blog-card-${p.slug}`} style={{ animationDelay: `${i * 60}ms` }}
-    className="rise-in group flex flex-col rounded-2xl border bg-card p-6 transition-transform duration-300 hover:-translate-y-1">
+const Card = ({ p }) => (
+  <Link to={`/blog/${p.slug}/`} data-testid={`blog-card-${p.slug}`}
+    className="group flex flex-col rounded-2xl border bg-card p-6 transition-transform duration-300 hover:-translate-y-1">
     <div className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-muted-foreground">
       <span className="flex items-center gap-1"><CalendarDays size={12} /> {p.datePublished}</span>
       {p.readingTime && <span className="flex items-center gap-1"><Clock size={12} /> {p.readingTime}</span>}
@@ -29,7 +30,9 @@ export default function Blog() {
   const [extra, setExtra] = useState([]);
 
   useEffect(() => {
-    api.get("/posts").then((r) => setExtra(r.data.filter((p) => !POSTS.some((s) => s.slug === p.slug)))).catch(() => setExtra([]));
+    api.get("/posts").then((r) => setExtra(r.data.filter((p) =>
+      !POSTS.some((s) => s.slug === p.slug) && !isLegacyBlogSlug(p.slug),
+    ))).catch(() => setExtra([]));
   }, []);
 
   const posts = [...POSTS, ...extra].sort((a, b) => (a.datePublished < b.datePublished ? 1 : -1));

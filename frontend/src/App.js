@@ -14,6 +14,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { CookieConsent } from "@/components/CookieConsent";
+import { RouteErrorPage } from "@/components/RouteErrorPage";
 import { AppSeo } from "@/components/AppSeo";
 import { AdSenseBootstrap } from "@/components/ads/AdSenseBootstrap";
 import { loadAnalytics, trackPageview } from "@/lib/analytics";
@@ -199,7 +200,9 @@ function AppShell() {
   );
 }
 
-const router = createBrowserRouter([{ path: "*", element: <AppShell /> }]);
+const router = createBrowserRouter([
+  { path: "*", element: <AppShell />, errorElement: <RouteErrorPage /> },
+]);
 
 function App() {
   useEffect(() => { loadAnalytics(); }, []);

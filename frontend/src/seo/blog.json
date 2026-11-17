@@ -6,8 +6,8 @@
     "h1": "How to type faster: nine changes that actually work",
     "excerpt": "Most typing speed comes from removing small inefficiencies: looking down, wrong finger reaches, letter-by-letter typing and repairing the same mistakes. These nine changes target those habits.",
     "datePublished": "2026-02-10",
-    "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "7 min read",
     "tags": [
       "speed",
@@ -23,34 +23,34 @@
         "h2": "1. Anchor on the home row and always return to it",
         "p": [
           "Place your left fingers on A, S, D, F and your right fingers on J, K, L and semicolon, with the index fingers on the bumps of F and J. This is not a beginner formality. It is a reference point: it is how your hands know where every other key is without looking.",
-          "The habit to build is the return. After every reach to the top or bottom row, the finger comes home. Typists who drift gradually lose their reference and start guessing, which is why errors cluster in the second half of a long passage."
+          "The habit to build is the return. After every reach to the top or bottom row, the finger comes home. When the hands drift, every reach starts from the wrong reference, so errors become more likely."
         ]
       },
       {
         "h2": "2. Stop looking at the keyboard, even when it hurts",
         "p": [
-          "Looking down feels faster because you find the key immediately, but it caps your ceiling permanently. Every glance breaks your place and costs time that no speed score records, and it prevents your brain from building a spatial map of the keyboard.",
-          "For two or three days, cover your hands with a cloth or type in a dim room so the keys are hard to see. Your speed will drop. Many learners find it recovers within a week and improves beyond the old baseline after a few weeks of regular practice; track your own results rather than assuming a fixed timeline."
+          "Looking down can feel faster because you find the key immediately, but it keeps your eyes on the keyboard instead of the text. Every glance breaks your place, and it slows the development of a spatial map of the keyboard.",
+          "For two or three days, cover your hands with a cloth or type in a dim room so the keys are hard to see. Your speed will drop. It usually recovers as the new habit settles, and it can improve beyond the old baseline after a few weeks of regular practice. Track your own results rather than assuming a fixed timeline."
         ]
       },
       {
         "h2": "3. Type words, not letters",
         "p": [
-          "Beginners process one character at a time. Fast typists process chunks: common words such as the, and, that, there and people are typed as a single pattern, not a sequence of decisions. This is why practising real words beats practising random letters.",
-          "To train it, read the next two or three words before your fingers reach them. Your eyes should always be ahead of the caret. If your eyes are sitting on the character you are typing, you are reading at typing speed instead of typing at reading speed."
+          "Beginners process one character at a time. Fast typists process chunks: common words such as the, and, that, there and people are typed as a single pattern, not a sequence of decisions. Research on skilled typewriting describes this as chunking at perceptual, memory and motor-planning levels, which is why practising real words beats practising random letters.",
+          "To train it, read the next two or three words before your fingers reach them. Try to keep your eyes a word or two ahead of the caret. If your eyes are sitting on the character you are typing, you are reading at typing speed instead of typing at reading speed."
         ]
       },
       {
         "h2": "4. Chase accuracy first, speed second",
         "p": [
           "Errors are expensive in a way that is easy to underestimate. A single typo costs the wrong keystroke, a backspace, the retype and, worst of all, the broken rhythm that usually produces a second mistake within the next few words.",
-          "The rule that works: type at the fastest pace where you stay above 97% accuracy. If accuracy falls, slow down by ten percent until it recovers. Many typists find that a few weeks of accuracy-first practice raises their usable speed even without direct speed drills; your result will vary."
+          "The rule that works: type at the fastest pace where you stay above 97% accuracy. If accuracy falls, slow down by ten percent until it recovers. Accuracy-first practice can make your usable speed more stable even before your peak WPM moves; your result will vary."
         ]
       },
       {
         "h2": "5. Practise for ten minutes a day, not two hours a week",
         "p": [
-          "Typing is motor learning, and motor learning responds to frequency far more than to volume. Ten focused minutes a day will take you past someone doing a single long weekly session every time.",
+          "Typing is a motor skill, and short, regular sessions are easier to sustain than occasional long ones. Ten focused minutes a day is a practical habit; the comparison to a single weekly session depends on how that session is run.",
           "Keep the routine simple: a one minute test as a warm-up and benchmark, five minutes of untimed drills focused on clean technique, and a few minutes of something competitive so you finish wanting to come back tomorrow."
         ]
       },
@@ -58,20 +58,20 @@
         "h2": "6. Attack the keys you secretly avoid",
         "p": [
           "Nearly every typist has a short list of keys that cost them: numbers, the apostrophe, brackets, the hyphen, Q, Z, P and the shift combinations on the opposite side of the keyboard. Ordinary test passages rarely contain them, so the weakness never gets trained.",
-          "Use a dedicated number drill and a punctuation drill once or twice a week. Fifteen minutes spent on symbols does more for real-world speed than an hour of lowercase prose."
+          "Use a dedicated number drill and a punctuation drill once or twice a week. If symbols are your weak point, a short symbol drill is a better use of practice time than another lowercase passage."
         ]
       },
       {
         "h2": "7. Fix your posture and your shoulders",
         "p": [
-          "Tension is a speed tax. Shoulders up near your ears, wrists pressed into the desk, elbows pinned to your sides and a tight jaw all translate into stiff, slow fingers and more errors in the final minute of a long test.",
-          "Sit with feet flat, elbows at roughly ninety degrees, wrists floating rather than resting, fingers curved and the screen at eye level. Check your shoulders once a minute during long passages; dropping them is often worth a few words per minute on its own."
+          "Tension is a speed tax. Shoulders up near your ears, wrists pressed into the desk, elbows pinned to your sides and a tight jaw can all translate into stiff, slow fingers and more errors in the final minute of a long test.",
+          "A practical workstation setup based on UK Health and Safety Executive display-screen guidance: feet supported, shoulders relaxed, keyboard just below elbow height, wrists neutral rather than pressed into the desk, and the top of the screen around eye level. Check your shoulders once a minute during long passages; dropping them can free a little tension."
         ]
       },
       {
         "h2": "8. Make practice slightly uncomfortable",
         "p": [
-          "Comfortable repetition maintains your current speed; mild discomfort raises it. That is what games are for. A falling word that must be cleared before it lands, or a sudden death run where one typo ends everything, forces you to type without looking and without hesitating.",
+          "Comfortable repetition tends to maintain your current speed; a little pressure can expose habits that need work. That is what games are for. A falling word that must be cleared before it lands, or a sudden death run where one typo ends everything, forces you to type without looking and without hesitating.",
           "Alternate pressure and calm: a timed, competitive run, then an untimed drill where the only goal is a perfect passage. The combination trains both ends of the skill."
         ]
       },
@@ -79,7 +79,7 @@
         "h2": "9. Measure properly and ignore vanity scores",
         "p": [
           "Use the same test, the same length and the same time of day when you benchmark. A one minute test is best for daily checks; a five minute test is the honest number to quote on a CV, because it includes fatigue and recovery.",
-          "Remember the formula so you know what you are measuring: WPM = (correct characters / 5) / (seconds / 60), and accuracy = ((keystrokes - errors) / keystrokes) x 100. Any site that counts incorrect characters toward speed is selling you a nicer number, not a better one."
+          "Remember the formula so you know what you are measuring: WPM = (correct characters / 5) / (seconds / 60), and accuracy = ((keystrokes - errors) / keystrokes) x 100. A score that counts incorrect characters toward speed is a nicer number, not a better measurement."
         ]
       },
       {
@@ -87,6 +87,32 @@
         "p": [
           "Week one: no looking down, accuracy above 97%, ten minutes a day of home row and top row drills. Week two: add chunking practice with real sentences and one daily timed minute. Week three: add numbers and punctuation drills twice, and one three minute test. Week four: one five minute test as a benchmark and games for the rest.",
           "Progress varies. The gain that holds is the one built on accuracy and technique rather than a single fast run; use the four-week plan as a structure, not a promise of a specific WPM."
+        ]
+      },
+      {
+        "h2": "How this guide was prepared",
+        "p": [
+          "This guide is practical instruction, not a controlled study. We checked the drills against Typinger's measurement rules (correct-character WPM, per-keystroke accuracy and the same five-character word convention used in the tests) and against the published research and workstation guidance linked below.",
+          "Targets such as 97% accuracy, ten focused minutes a day and a five-minute benchmark are editorial practice benchmarks, not universal standards. We did not run a training experiment, survey typists or measure a user sample for this article, and we do not promise a specific WPM gain. Progress depends on your starting point and how consistently you practise.",
+          "The page is reviewed when the practice engine, cited guidance or recommended routine changes. If something is unclear or wrong, email support@typinger.in with the section and the correction."
+        ],
+        "sources": [
+          {
+            "label": "Dhakal, Feit, Kristensson & Oulasvirta (2018), Observations on Typing from 136 Million Keystrokes, CHI 2018",
+            "url": "https://doi.org/10.1145/3173574.3174220"
+          },
+          {
+            "label": "Yamaguchi & Logan (2014), Pushing typists back on the learning curve: Revealing chunking in skilled typewriting",
+            "url": "https://doi.org/10.1037/a0033809"
+          },
+          {
+            "label": "Fitts (1954), The information capacity of the human motor system in controlling the amplitude of movement",
+            "url": "https://doi.org/10.1037/h0055392"
+          },
+          {
+            "label": "UK Health and Safety Executive, Working safely with display screen equipment",
+            "url": "https://www.hse.gov.uk/msd/dse/"
+          }
         ]
       }
     ],
@@ -97,7 +123,7 @@
       },
       {
         "q": "Does typing with two fingers ever work?",
-        "a": "A few hunt-and-peck typists reach 60 WPM, but the method has a hard ceiling and it demands constant visual attention. Touch typing frees your eyes for the screen, which matters more than the raw number."
+        "a": "Some self-taught typists reach useful speeds with two or four fingers, so it is not impossible. But the CHI 2018 keystroke study found that the self-reported number of fingers used predicts typing speed, and two-finger typing keeps your eyes involved in finding keys. Touch typing is the more scalable habit for most learners."
       },
       {
         "q": "Should I practise with a timer?",
@@ -105,7 +131,7 @@
       },
       {
         "q": "Is a mechanical keyboard faster?",
-        "a": "Marginally, and mostly because the feedback helps you type with less force. Technique is worth ten times more than hardware."
+        "a": "A mechanical keyboard is not automatically faster. Switch feel and feedback are personal preferences; technique and deliberate practice matter more."
       }
     ],
     "related": [
@@ -135,7 +161,7 @@
     "excerpt": "Age-band typing charts look precise, but the public evidence does not support them. Here is what the largest public study measured, what it cannot tell you, and how to set a practical target.",
     "datePublished": "2026-03-04",
     "dateModified": "2026-11-09",
-    "author": "Typinger Team",
+    "author": "Aditya Karn",
     "readingTime": "8 min read",
     "tags": [
       "benchmarks",
@@ -363,8 +389,8 @@
     "h1": "How to improve typing accuracy without losing speed",
     "excerpt": "Every error costs three events: the wrong key, the correction and the lost rhythm. Fixing accuracy is often the fastest way to type faster.",
     "datePublished": "2026-04-15",
-    "dateModified": "2026-11-09",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "7 min read",
     "tags": [
       "accuracy",
@@ -379,8 +405,8 @@
       {
         "h2": "How accuracy is measured",
         "p": [
-          "Accuracy on Typinger, and on any serious test, is counted per keystroke: accuracy = ((total keystrokes - incorrect keystrokes) / total keystrokes) x 100. Fixing a mistake with backspace does not remove the error, because the mistake still happened and still cost you time.",
-          "That is why 70 WPM at 90% accuracy can involve far more correction work than 62 WPM at 99%. The careful typist needs less proofreading, and the gap in usable output is smaller than the raw WPM suggests. The speed-test game score multiplies WPM by accuracy for exactly that reason."
+          "Accuracy on Typinger is counted per keystroke: accuracy = ((total keystrokes - incorrect keystrokes) / total keystrokes) x 100. Fixing a mistake with backspace does not remove the error, because the mistake still happened and still cost you time. Many tests use a similar formula, but check how your exam counts errors.",
+          "That is why 70 WPM at 90% accuracy can involve far more correction work than 62 WPM at 99%. The careful typist needs less proofreading, and the gap in usable output is smaller than the raw WPM suggests. The speed-test game score multiplies WPM by accuracy for exactly that reason. In the CHI 2018 keystroke study, faster typists also made fewer uncorrected errors and corrections; speed and clean output tended to travel together."
         ]
       },
       {
@@ -390,7 +416,7 @@
           "Same-hand shifting: using the shift key on the same side as the letter, which twists the hand and misses the target.",
           "Reading at typing speed: your eyes sit on the current character instead of running two words ahead, leaving no time to prepare.",
           "Finger substitution: letting a stronger finger take a key that belongs to a weaker one, which works until the surrounding letters change.",
-          "Tension and fatigue: stiff shoulders and pressed wrists reduce control, which is why error rates climb late in long passages.",
+          "Tension and fatigue: stiff shoulders and pressed wrists reduce control, and error rates often climb late in long passages.",
           "Rushing familiar words: the brain autocompletes and the fingers transpose letters, producing classic swaps such as teh and adn."
         ]
       },
@@ -430,7 +456,8 @@
       {
         "h2": "The 97% rule",
         "p": [
-          "Use accuracy as the throttle for speed. Type at the fastest pace where you remain above 97%. If you fall below it, reduce your pace until you climb back. Over time this single rule tends to raise both numbers, because it stops you practising mistakes.",
+          "Use accuracy as the throttle for speed. At Typinger we use 97% as a practice threshold: type at the fastest pace where you remain above it. If you fall below it, reduce your pace until you climb back. Over time this single rule tends to raise both numbers, because it stops you practising mistakes.",
+          "The trade-off between moving faster and landing accurately is a general feature of aimed movement; typing is not exempt. The threshold is a practice heuristic, not an official standard.",
           "It also fixes the most common bad habit in typing practice: grinding attempt after attempt at a speed you cannot control, which simply trains error patterns into your hands."
         ]
       },
@@ -438,7 +465,7 @@
         "h2": "Should you correct every mistake?",
         "p": [
           "In real work, yes, eventually. While practising, correct only the word you are currently typing and then keep going. Hunting backwards for an earlier error destroys rhythm and usually produces a second mistake within a few words.",
-          "In exams the rule is different: uncorrected errors are often penalised, sometimes a full word each, so practise the habit of catching mistakes immediately rather than at the end of the paragraph."
+          "In exams, uncorrected errors may be penalised, so practise catching mistakes immediately rather than leaving them all to the end of the paragraph. Follow the correction rule in your own instructions."
         ]
       },
       {
@@ -447,12 +474,34 @@
           "Accuracy often responds quickly because it is mostly a decision rather than a physical limit. Typists who commit to the 97% rule for a few weeks may notice less time spent fixing text in real documents, even before their measured WPM moves.",
           "Then the second phase starts. With clean technique and no hesitation, raw speed can grow on its own, because nothing is interrupting the flow any more."
         ]
+      },
+      {
+        "h2": "How this guide was prepared",
+        "p": [
+          "This guide is practical instruction, not a controlled study. We checked the drills against Typinger's per-keystroke accuracy rule and reviewed the general claims against the published research linked below. The article does not report a Typinger experiment, a survey or a measured training group.",
+          "The 97% threshold is an editorial practice benchmark used at Typinger, not an official standard. The speed-accuracy trade-off is a general principle of aimed movement; it does not guarantee a particular result. Accuracy definitions vary between tests, so compare like with like.",
+          "The page is reviewed when the measurement rules or cited guidance change. If a definition or drill is unclear, email support@typinger.in with the section and the correction."
+        ],
+        "sources": [
+          {
+            "label": "Dhakal, Feit, Kristensson & Oulasvirta (2018), Observations on Typing from 136 Million Keystrokes, CHI 2018",
+            "url": "https://doi.org/10.1145/3173574.3174220"
+          },
+          {
+            "label": "Fitts (1954), The information capacity of the human motor system in controlling the amplitude of movement",
+            "url": "https://doi.org/10.1037/h0055392"
+          },
+          {
+            "label": "UK Health and Safety Executive, Working safely with display screen equipment",
+            "url": "https://www.hse.gov.uk/msd/dse/"
+          }
+        ]
       }
     ],
     "faqs": [
       {
         "q": "What is a good typing accuracy?",
-        "a": "Above 97% is a good practice target and above 99% is excellent. Accuracy depends on how a test counts errors, so compare like with like and focus on your own trend rather than a headline average."
+        "a": "At Typinger we use 97% as a practical training target and 99% as excellent. There is no universal standard: tests count errors differently, so compare like with like and focus on your own trend rather than a headline average."
       },
       {
         "q": "Will slowing down make me permanently slower?",
@@ -489,8 +538,8 @@
     "h1": "How to increase typing speed: a 30-day practice plan",
     "excerpt": "A 30-day plan for building accuracy, finger control and rhythm under a timer. It focuses on repeatable practice rather than chasing one fast test.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "8 min read",
     "tags": [
       "speed",
@@ -501,7 +550,7 @@
       {
         "p": [
           "Typing faster is not mainly about moving your fingers faster. It is about reducing the number of decisions your brain makes for every key. When you stop searching for letters, use the correct fingers and make fewer corrections, speed usually follows.",
-          "For most learners, the fastest route is a simple cycle: measure your current WPM, fix accuracy, build touch-typing muscle memory, then increase speed under a timer. The 30-day plan below is for students, job seekers and competitive-exam candidates who want measurable progress instead of random practice."
+          "For most learners, a reliable route is a simple cycle: measure your current WPM, fix accuracy, build touch-typing muscle memory, then increase speed under a timer. The 30-day plan below is for students, job seekers and competitive-exam candidates who want measurable progress instead of random practice."
         ]
       },
       {
@@ -563,15 +612,15 @@
         "h2": "How fast should you expect to improve?",
         "p": [
           "Progress is not linear. A beginner may gain several WPM quickly by learning finger placement, then stay at the same speed for days while accuracy catches up. Experienced typists often improve more slowly because they are refining smaller weaknesses.",
-          "Instead of promising yourself 50 WPM in seven days, use process targets: practise at least five days per week, maintain 95%+ accuracy, complete two longer tests each week and reduce repeated errors on your weakest keys."
+          "Published keystroke data shows wide variation in speed and accuracy, so a single target cannot describe every learner. Instead of promising yourself 50 WPM in seven days, use process targets: practise at least five days per week, maintain 95%+ accuracy, complete two longer tests each week and reduce repeated errors on your weakest keys."
         ]
       },
       {
         "h2": "Common mistakes that keep your WPM low",
         "ul": [
-          "Looking at the keyboard is the biggest long-term limiter because every glance interrupts visual focus and forces your eyes to find the text again.",
+          "Looking at the keyboard is one of the biggest long-term limiters because every glance interrupts visual focus and forces your eyes to find the text again.",
           "Using only the index fingers forces your hands to travel too far and makes every reach a separate decision.",
-          "Poor posture matters. Keep your wrists neutral, shoulders relaxed and keyboard at a comfortable height.",
+          "Poor posture matters. Keep your shoulders relaxed, keyboard just below elbow height and the top of the screen around eye level.",
           "Restarting every test after one mistake trains you to avoid recovery instead of handling it.",
           "Testing every day without targeted practice repeats the same errors and calls it progress.",
           "Memorising one short passage measures memory, not typing skill. Rotate your practice text."
@@ -582,6 +631,28 @@
         "p": [
           "If you want to increase typing speed, do not make fast your only target. Build clean movements, use the correct fingers and practise under the same time conditions you will actually face. Then measure the trend across weeks, not one lucky test.",
           "Take a fresh typing test today, write down your baseline WPM and accuracy, and repeat the same test format after 30 days. That before-and-after comparison will show whether your practice is working."
+        ]
+      },
+      {
+        "h2": "How this guide was prepared",
+        "p": [
+          "This guide is practical instruction, not a controlled study. The 30-day plan was assembled from established touch-typing practice, the site's own measurement rules and the published research linked below. We did not run a training experiment, track a group of learners or measure a user sample for this article.",
+          "The 40 WPM target in the title is a common learning goal, not a promise. The 95% accuracy threshold, the daily durations and the expected pace of improvement are editorial practice benchmarks, not official standards. Published keystroke data shows wide variation between typists, so your timeline may differ.",
+          "The page is reviewed when the practice engine, cited guidance or plan changes. If a step is unclear, email support@typinger.in with the section and the correction."
+        ],
+        "sources": [
+          {
+            "label": "Dhakal, Feit, Kristensson & Oulasvirta (2018), Observations on Typing from 136 Million Keystrokes, CHI 2018",
+            "url": "https://doi.org/10.1145/3173574.3174220"
+          },
+          {
+            "label": "Fitts (1954), The information capacity of the human motor system in controlling the amplitude of movement",
+            "url": "https://doi.org/10.1037/h0055392"
+          },
+          {
+            "label": "UK Health and Safety Executive, Working safely with display screen equipment",
+            "url": "https://www.hse.gov.uk/msd/dse/"
+          }
         ]
       }
     ],
@@ -633,8 +704,8 @@
     "h1": "What is a good typing speed? WPM benchmarks for India",
     "excerpt": "There is no single good WPM. A useful target depends on the task, the test length and your accuracy. Use the practical bands, reference table and interpreter below to read your own result.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "8 min read",
     "tags": [
       "wpm",
@@ -685,6 +756,12 @@
               "35 WPM English / 30 WPM Hindi",
               "10 minutes",
               "Official skill-test requirement; Hindi typing in Mangal font."
+            ],
+            [
+              "SSC CGL DEST (2026)",
+              "2,000 key depressions",
+              "15 minutes",
+              "Qualifying data-entry task; about 400 five-character words."
             ],
             [
               "MP CPCT typing module",
@@ -773,10 +850,9 @@
       {
         "h2": "Government exam benchmarks in India",
         "p": [
-          "Government recruitment is where a good speed becomes a formal number. The requirement depends on the recruiting body, post, language, test duration and error rule. The 2026 SSC CHSL LDC/JSA notice lists 35 WPM in English or 30 WPM in Hindi over 10 minutes, with Hindi typing in Mangal font.",
-          "The MP CPCT rulebook sets a 50% minimum passing score. Its typing modules use 30 NWPM English and 20 NWPM Hindi as the minimum passing band, over 15-minute modules. The Hindi 50% band runs from 20 to 25 NWPM, so 25 NWPM is the top of that band, not the pass mark.",
-          "RRB rules are cycle-specific. CEN 06/2025 set 30 WPM English or 25 WPM Hindi as the qualifying CBTST standard for designated typist posts; check the CBTST instructions for your cycle for the duration and evaluation rules. The 2026 RRB NTPC CENs (06/2026 and 07/2026) dispensed with CBTST for the notified typist posts, so do not prepare from the historical figure as if it were the current requirement.",
-          "The table above is a starting point; the official notice is the source of truth. If your exam has a typing stage, practise the exact duration and correction rules."
+          "Government exams are the clearest example of why a single WPM target is misleading. SSC CHSL LDC/JSA is a 10-minute prose test at 35 WPM English or 30 WPM Hindi. SSC CGL DEST is a completion task of about 2,000 key depressions in 15 minutes. MP CPCT scores net WPM in 15-minute modules. RRB rules depend on the CEN.",
+          "Compare only results with the same unit and duration. A 35 WPM prose result, a 2,000-key-depression DEST run and a CPCT NWPM score are not interchangeable, even when the numbers look similar. The table above gives the official reference points; the exam-specific guides explain each task.",
+          "If you are using these rows to set a personal target, treat the official minimum as a floor rather than a definition of good. Build a buffer above it and practise the exact duration, language and correction rule for your post."
         ],
         "links": [
           {
@@ -788,9 +864,19 @@
             "to": "/blog/typing-speed-required-government-jobs-india",
             "label": "Compare government job requirements",
             "description": "A notice-by-notice table for SSC, CPCT, RRB and state recruitment."
+          },
+          {
+            "to": "/blog/ssc-cgl-dest-2026-typing-test-format-and-15-minute-practice-plan",
+            "label": "Read the SSC CGL DEST guide",
+            "description": "The 2,000 key-depression task and a 15-minute practice routine."
+          },
+          {
+            "to": "/blog/rrb-ntpc-typing-test",
+            "label": "Check the RRB NTPC typing status",
+            "description": "Which 2026 posts still have a typing stage, and what changed."
           }
         ],
-        "linksHeading": "Go deeper"
+        "linksHeading": "Read the exam-specific rules"
       },
       {
         "h2": "Is 30 WPM good?",
@@ -861,7 +947,7 @@
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
           },
           {
-            "label": "MP CPCT rulebook V1.5 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
+            "label": "MP CPCT rulebook V1.5 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band; browser-accessible, but the portal may refuse automated crawlers)",
             "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_7_Years_Validity.pdf"
           },
           {
@@ -883,6 +969,10 @@
           {
             "label": "Railway Recruitment Board official CEN and notification portal",
             "url": "https://rrb.indianrailways.gov.in/"
+          },
+          {
+            "label": "MP CPCT official portal (current notices, downloads and rulebook access)",
+            "url": "https://cpct.mp.gov.in/"
           }
         ]
       }
@@ -894,7 +984,7 @@
       },
       {
         "q": "Is 30 WPM good for government jobs?",
-        "a": "It can meet some Hindi or lower-threshold typing tests, including the CPCT English minimum band and historical RRB standards. SSC CHSL English requires 35 WPM. Always check the exact notification for your post, language and test duration."
+        "a": "It can meet some lower-threshold tests, but it is not a universal pass mark. SSC CHSL English requires 35 WPM, CPCT uses net WPM with a 50% overall threshold, and RRB rules vary by CEN. Check the notice for your post rather than treating 30 as a general cutoff."
       },
       {
         "q": "Is 40 WPM enough for SSC CHSL?",
@@ -952,7 +1042,7 @@
     "excerpt": "A one-minute test measures a sprint. A ten-minute test measures exam readiness. Use each duration for the question it can actually answer.",
     "datePublished": "2026-10-27",
     "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "author": "Aditya Karn",
     "readingTime": "7 min read",
     "tags": [
       "english",
@@ -1124,8 +1214,8 @@
     "h1": "SSC CHSL typing test 2026: speed, duration and practice plan",
     "excerpt": "A practical guide to the SSC CHSL LDC/JSA typing test: the published speed, the 10-minute format, error classification and a preparation routine you can start today.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "8 min read",
     "tags": [
       "ssc chsl",
@@ -1156,10 +1246,18 @@
       {
         "h2": "Do not confuse LDC/JSA with the DEO skill test",
         "p": [
-          "The Data Entry Operator skill test is different from the LDC/JSA typing test. SSC uses key-depression standards and a 15-minute test for DEO categories, with different requirements depending on the post or department.",
-          "The 2026 notice lists 15,000 key depressions per hour for DEO posts in certain departments and 8,000 key depressions per hour for others. That is a different task from typing a prose passage at 35 WPM.",
-          "This is a good example of why the phrase SSC typing speed is too broad. You need the requirement for the exact post."
-        ]
+          "The DEO skill test is a separate SSC assessment, not a second name for the LDC/JSA typing test. It uses key-depression standards and a 15-minute test, with requirements that vary by post or department.",
+          "For CHSL 2026, the notice lists 15,000 key depressions per hour for DEO posts in departments named at Para 8.1 and 8,000 key depressions per hour for others. That is a data-entry target, not a 35 WPM prose passage.",
+          "If your preference list includes both LDC/JSA and DEO, prepare two separate profiles: prose typing in the required language and font for LDC/JSA, and sustained key-depression accuracy for DEO."
+        ],
+        "links": [
+          {
+            "to": "/blog/ssc-cgl-dest-2026-typing-test-format-and-15-minute-practice-plan",
+            "label": "Understand the SSC CGL DEST",
+            "description": "A different SSC key-depression task: about 2,000 depressions in 15 minutes."
+          }
+        ],
+        "linksHeading": "Compare the data-entry tasks"
       },
       {
         "h2": "Full mistakes and half mistakes",
@@ -1291,8 +1389,8 @@
       {
         "h2": "Independent practice, not an official exam client",
         "p": [
-          "Typinger is independent practice software. We are not affiliated with SSC, RRB, MP CPCT or any government recruitment body, and we do not reproduce their official scoring, error rules or qualification decisions.",
-          "Use the official notice and the instructions issued for your examination as the final authority. A practice score is feedback for training."
+          "Typinger is independent practice software, not an SSC testing interface. We are not affiliated with SSC or any government recruitment body, and we do not reproduce SSC's official scoring, error rules or qualification decisions.",
+          "The CHSL notice and your admit-card instructions remain the final authority. A Typinger result is training feedback, not a qualification outcome."
         ]
       }
     ],
@@ -1360,8 +1458,8 @@
     "h1": "RRB NTPC typing test: current status, previous rules and practice",
     "excerpt": "The 2026 RRB NTPC CENs dispensed with the Computer Based Typing Skill Test for the notified typist posts. Check your post in the evidence table, then use previous-cycle rules only as historical practice guidance.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-11-09",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "8 min read",
     "tags": [
       "rrb ntpc",
@@ -1378,7 +1476,7 @@
       {
         "h2": "Current status: which posts still have a typing stage?",
         "p": [
-          "The two 2026 NTPC notices cover different posts. The table separates what each notice says from the historical rules that candidates still find online."
+          "The two 2026 NTPC notices cover different posts. The table separates what each notice says from the historical rules that candidates still find online. CBTST means the Computer Based Typing Skill Test."
         ],
         "table": {
           "caption": "RRB NTPC typing status by CEN. Always confirm your post in the official notification.",
@@ -1562,8 +1660,8 @@
       {
         "h2": "Independent practice, not an official exam client",
         "p": [
-          "Typinger is independent practice software. We are not affiliated with SSC, RRB, MP CPCT or any government recruitment body, and we do not reproduce their official scoring, error rules or qualification decisions.",
-          "Use the official notice and the instructions issued for your examination as the final authority. A practice score is feedback for training."
+          "Typinger is independent practice software, not an RRB testing interface. We are not affiliated with the Railway Recruitment Boards or any government recruitment body, and we do not reproduce their official scoring, error rules or qualification decisions.",
+          "The CEN for your post remains the final authority. A Typinger result is training feedback, not a qualification outcome."
         ]
       }
     ],
@@ -1619,8 +1717,8 @@
     "h1": "Hindi typing test: Mangal, Kruti Dev, InScript and Remington explained",
     "excerpt": "Hindi typing gets confusing because font, keyboard layout and encoding are three different things. Get those right before you chase WPM.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "7 min read",
     "tags": [
       "hindi",
@@ -1747,7 +1845,7 @@
         "h2": "Hindi typing speed targets in Indian exams",
         "p": [
           "Different exams use different standards. The SSC CHSL 2026 notice lists 30 WPM for Hindi for LDC/JSA, with a 10-minute test and Mangal font only. Earlier RRB NTPC typist-post cycles used 25 WPM Hindi, but the active CEN must be checked before treating that as a current requirement; the 2026 RRB NTPC cycle dispensed with CBTST for the notified typist posts.",
-          "The MP CPCT rulebook sets a 50% minimum passing score and lists 20 NWPM Hindi and 30 NWPM English as the minimum passing bands for its 15-minute typing modules. In Hindi, 20 to 25 NWPM is the 50% band, so 25 NWPM is the top of that band, not the pass mark. Its Hindi module allows Remington GAIL or InScript on Unicode.",
+          "The MP CPCT rulebook sets a 50% minimum passing score and lists 20 NWPM Hindi and 30 NWPM English as the minimum passing bands for its 15-minute typing modules. In Hindi, 20 to 25 NWPM is the 50% band, so 25 NWPM is the top of that band, not the pass mark. Its Hindi module allows Remington GAIL or InScript on Unicode. The rulebook is published on the official CPCT portal; during our last check it opened in a browser but returned an automated-crawler error, so some link checkers may report it as blocked.",
           "These are examples, not one universal rule. State courts, police recruitment, clerical posts and other bodies can set their own speed, duration, layout and accuracy requirements."
         ]
       },
@@ -1824,6 +1922,10 @@
           {
             "label": "MP CPCT rulebook (30 NWPM English, 20 NWPM Hindi, 15-minute typing modules)",
             "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_7_Years_Validity.pdf"
+          },
+          {
+            "label": "MP CPCT official portal (current notices, downloads and rulebook access)",
+            "url": "https://cpct.mp.gov.in/"
           }
         ]
       }
@@ -1880,8 +1982,8 @@
     "h1": "Typing speed required for government jobs in India",
     "excerpt": "A verified reference table for SSC CHSL, MP CPCT and RRB NTPC, with the duration and status of each rule and a reminder to check your own notice.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "9 min read",
     "tags": [
       "government jobs",
@@ -1945,8 +2047,8 @@
       {
         "h2": "SSC CHSL LDC/JSA",
         "p": [
-          "The SSC CHSL 2026 notice lists 35 WPM for English and 30 WPM for Hindi for the LDC/JSA typing test. The normal duration is 10 minutes, and Hindi typing must be done in Mangal font. The speed is judged on the accuracy of typing a given passage.",
-          "For preparation, do not aim for the cutoff only. Build a buffer above the minimum and practise the full ten minutes."
+          "SSC CHSL is the clearest prose-typing benchmark in this table. The 2026 notice sets 35 WPM English or 30 WPM Hindi for LDC/JSA over 10 minutes, with Hindi typing in Mangal font. The score is judged on passage accuracy, so it is not a raw key-depression target.",
+          "Treat 35/30 as the floor for that post. If you are comparing SSC options, note that the DEO skill test below uses a different unit and duration."
         ],
         "links": [
           {
@@ -1965,16 +2067,30 @@
       {
         "h2": "SSC CHSL Data Entry Operator",
         "p": [
-          "The DEO skill test is different from the LDC/JSA typing test. SSC uses key-depression standards and a 15-minute test for DEO categories, with different requirements depending on the post or department.",
-          "The 2026 notice lists 15,000 key depressions per hour for DEO posts in departments named at Para 8.1, and 8,000 key depressions per hour for others. That is why 'SSC typing speed' is too broad a phrase: you need the requirement for the exact post."
-        ]
+          "SSC's Data Entry Operator skill test is a separate assessment. It uses key-depression standards and a 15-minute duration, with different requirements by department.",
+          "The CHSL 2026 notice lists 15,000 key depressions per hour for DEO posts in departments named at Para 8.1 and 8,000 key depressions per hour for others. For a related SSC data-entry task, the CGL DEST asks for about 2,000 key depressions in 15 minutes. Neither is the same as the LDC/JSA prose test.",
+          "Do not carry a WPM figure across these posts. Match the unit, duration and evaluation rule in your notice."
+        ],
+        "links": [
+          {
+            "to": "/blog/ssc-cgl-dest-2026-typing-test-format-and-15-minute-practice-plan",
+            "label": "Read the SSC CGL DEST guide",
+            "description": "The 2,000 key-depression task and a 15-minute practice routine."
+          },
+          {
+            "to": "/blog/ssc-chsl-typing-test-2026",
+            "label": "Read the SSC CHSL typing guide",
+            "description": "LDC/JSA speed, font and error rules in one place."
+          }
+        ],
+        "linksHeading": "Compare the SSC tasks"
       },
       {
         "h2": "RRB NTPC and railway typist posts",
         "p": [
-          "Railway typing requirements are cycle-specific. CEN 06/2025, para 13.4, set 30 WPM English or 25 WPM Hindi as the qualifying CBTST standard for designated typist posts; check the CBTST instructions for the exact duration.",
-          "The 2026 cycle changed the requirement for the notified posts: CEN 06/2026 dispensed CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist (PIB, 11 October 2026), and CEN 07/2026 dispensed the typing skill test for Junior Clerk cum Typist and Accounts Clerk cum Typist (para 13(c)). Check your exact CEN notification table before practising so you do not train for the historical 30/25 WPM requirement on posts where CBTST was dispensed.",
-          "If you are preparing for a different railway CEN that still lists CBTST, train the exact duration, font and correction rules."
+          "Railway requirements change by CEN, so the year and post matter more than the headline number. CEN 06/2025, para 13.4, set 30 WPM English or 25 WPM Hindi as the qualifying CBTST standard for designated typist posts; the CBTST instructions carry the duration.",
+          "The 2026 cycle is different. CEN 06/2026 dispensed CBTST for Junior Accounts Assistant cum Typist and Senior Clerk cum Typist (PIB, 11 October 2026). CEN 07/2026 dispensed the typing skill test for Junior Clerk cum Typist and Accounts Clerk cum Typist (para 13(c)). Check the post table in your CEN before training for 30/25.",
+          "If a different railway CEN still lists CBTST, train its exact duration, font and correction rules. The RRB guide tracks the current status by CEN."
         ],
         "links": [
           {
@@ -1995,7 +2111,8 @@
         "p": [
           "The Computer Proficiency Certification Test in Madhya Pradesh uses net words per minute. Its rulebook sets a minimum passing score of 50% and lists 30 NWPM English and 20 NWPM Hindi as the minimum passing speeds for the typing modules.",
           "The score bands matter: in Hindi, 20-25 NWPM is the 50% band, so 25 NWPM is the top of that band, not the pass mark. In English, 30-40 NWPM is the 50% band. Both typing modules run for 15 minutes, and the Hindi module allows Remington GAIL or InScript on Unicode.",
-          "CPCT also certifies English and Hindi separately. Employers may still ask for higher performance depending on the role."
+          "CPCT also certifies English and Hindi separately. Employers may still ask for higher performance depending on the role.",
+          "The rulebook is published on the official CPCT portal. In our last check the portal and PDF opened in a browser but returned an automated-crawler error, so search engines and link checkers may report the document as blocked even though it is available to candidates. If the PDF does not open, use the portal's current downloads or notification section."
         ],
         "links": [
           {
@@ -2091,7 +2208,7 @@
             "url": "https://ssc.gov.in/api/attachment/uploads/masterData/NoticeBoards/Notice_of_adv_chsl_2026.pdf"
           },
           {
-            "label": "MP CPCT rulebook V1.5 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band)",
+            "label": "MP CPCT rulebook V1.5 (50% minimum; 30 NWPM English / 20 NWPM Hindi; 15-minute modules; 20-25 NWPM Hindi 50% band; browser-accessible, but the portal may refuse automated crawlers)",
             "url": "https://www.cpct.mp.gov.in/per/g01/pub/1172/ASM/WebPortal/1/Hindi/PDF/CPCT_Rule_book_7_Years_Validity.pdf"
           },
           {
@@ -2113,14 +2230,18 @@
           {
             "label": "Railway Recruitment Board official CEN and notification portal",
             "url": "https://rrb.indianrailways.gov.in/"
+          },
+          {
+            "label": "MP CPCT official portal (current notices, downloads and rulebook access)",
+            "url": "https://cpct.mp.gov.in/"
           }
         ]
       },
       {
         "h2": "Independent practice, not an official exam client",
         "p": [
-          "Typinger is independent practice software. We are not affiliated with SSC, RRB, MP CPCT or any government recruitment body, and we do not reproduce their official scoring, error rules or qualification decisions.",
-          "Use the official notice and the instructions issued for your examination as the final authority. A practice score is feedback for training."
+          "Typinger is independent practice software, not an official exam client for SSC, RRB, MP CPCT or any state recruitment body. We are not affiliated with those bodies and do not reproduce their official scoring, error rules or qualification decisions.",
+          "The notice for your post and the instructions issued at the test centre remain the final authority. A practice score is training feedback."
         ]
       }
     ],
@@ -2184,8 +2305,8 @@
     "h1": "Touch typing for beginners: finger placement and a 15-minute routine",
     "excerpt": "Learn the home-row anchor, a repeatable desk setup and a two-week practice sequence. This guide shows how to move from checking every key to typing whole words by feel.",
     "datePublished": "2026-10-27",
-    "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "9 min read",
     "tags": [
       "touch typing",
@@ -2225,7 +2346,7 @@
         "h2": "Why looking at the keyboard slows long-term progress",
         "p": [
           "When you look down, your eyes leave the text. Then you must find your place again, which interrupts rhythm. The brain also keeps solving where is this letter instead of building automatic finger movement.",
-          "Covering your hands with a cloth is not necessary. A better method is to keep the screen as your main focus and slow down enough that you can recall the key position."
+          "Covering your hands with a cloth is not necessary. A better method is to keep the screen as your main focus and slow down enough that you can recall the key position. The CHI 2018 keystroke study found that the number of fingers used predicts typing speed, but it also found wide variation and noted that some self-taught typists reach speeds comparable to touch typists. The habit is still worth learning because it frees your eyes for the text."
         ]
       },
       {
@@ -2275,9 +2396,9 @@
       {
         "h2": "What progress actually feels like",
         "p": [
-          "The first three or four sessions often feel clumsy. Around the fifth session the home row may start to feel automatic, and the top row begins to follow. By the end of a fortnight many learners can type basic text without looking, but the exact WPM depends on their starting point and how consistently they practise.",
+          "The first few sessions often feel clumsy. With regular practice, the home row starts to feel automatic and the top row begins to follow. Many learners can type basic text without looking within a few weeks, but the exact timeline depends on their starting point and how consistently they practise.",
           "Expect your old hunt-and-peck speed to feel faster for a few days. You are replacing a familiar shortcut with a technique that has more headroom. Judge progress by accuracy and by how often you need to look down, not by one early score.",
-          "With regular practice, 50 WPM is a reasonable medium-term target for many learners, but it is not guaranteed. The longer-term gains come from cleaner technique, punctuation and numbers rather than from pushing the same speed test every day."
+          "With regular practice, 50 WPM is a reasonable medium-term target for many learners, but it is not guaranteed. At Typinger we treat it as an editorial goal, not a standard. The longer-term gains come from cleaner technique, punctuation and numbers rather than from pushing the same speed test every day."
         ]
       },
       {
@@ -2316,6 +2437,11 @@
           "Do not press the keys harder than necessary. Quiet typing is a sign that your hands are relaxed.",
           "Keep the keyboard at a height that lets you reach the home row without lifting your shoulders.",
           "Take short breaks if your hands or wrists feel tense. Tension makes fine finger movement slower."
+        ],
+        "p": [
+          "UK Health and Safety Executive display-screen guidance recommends a workstation where the top of the screen is around eye level, your shoulders are relaxed and the keyboard sits just below elbow height. Sit with your feet and lower back supported, and keep the screen and keyboard centred in front of you.",
+          "Keep your wrists neutral rather than resting on the desk, and let your fingers curve so the fingertip lands on the key. Do not press the keys harder than necessary; quiet typing is a sign that your hands are relaxed.",
+          "Take short breaks if your hands or wrists feel tense. The NHS lists typing and poor posture among the repetitive activities and setups that can contribute to repetitive strain injury, and advises keeping active rather than resting an affected area for more than a few days."
         ]
       },
       {
@@ -2397,6 +2523,36 @@
           }
         ],
         "linksHeading": "Your next step"
+      },
+      {
+        "h2": "How this guide was prepared",
+        "p": [
+          "This guide is practical instruction, not a controlled study. It follows the standard home-row convention and Typinger's lesson sequence. General claims about finger use, chunking and practice were checked against the published research linked below; posture and break advice follows UK Health and Safety Executive and NHS guidance.",
+          "Statements such as 'many learners' or 'a few weeks' describe common learning patterns, not results from a Typinger experiment. We did not survey beginners or measure a training group for this article. The 50 WPM medium-term figure is an editorial target, not a guarantee.",
+          "The page is reviewed when the lesson sequence or cited guidance changes. If a step is unclear, email support@typinger.in with the section and the correction."
+        ],
+        "sources": [
+          {
+            "label": "Dhakal, Feit, Kristensson & Oulasvirta (2018), Observations on Typing from 136 Million Keystrokes, CHI 2018",
+            "url": "https://doi.org/10.1145/3173574.3174220"
+          },
+          {
+            "label": "Yamaguchi & Logan (2014), Pushing typists back on the learning curve: Revealing chunking in skilled typewriting",
+            "url": "https://doi.org/10.1037/a0033809"
+          },
+          {
+            "label": "UK Health and Safety Executive, Good posture when using display screen equipment",
+            "url": "https://www.hse.gov.uk/msd/dse/good-posture.htm"
+          },
+          {
+            "label": "UK Health and Safety Executive, Work routine and breaks",
+            "url": "https://www.hse.gov.uk/msd/dse/work-routine.htm"
+          },
+          {
+            "label": "NHS, Repetitive strain injury (RSI)",
+            "url": "https://www.nhs.uk/conditions/repetitive-strain-injury-rsi/"
+          }
+        ]
       }
     ],
     "faqs": [
@@ -2456,7 +2612,7 @@
     "excerpt": "A desktop tutor and a browser-based test solve different problems. The better choice depends on whether you need a course, quick practice or exam simulation.",
     "datePublished": "2026-10-27",
     "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "author": "Aditya Karn",
     "readingTime": "7 min read",
     "tags": [
       "typing master",
@@ -2610,7 +2766,7 @@
     "excerpt": "Games can increase repetition and motivation, but a high game score is not the same as clean paragraph typing. Use them as one part of a structured routine.",
     "datePublished": "2026-10-27",
     "dateModified": "2026-10-27",
-    "author": "Typinger Team",
+    "author": "Aditya Karn",
     "readingTime": "6 min read",
     "tags": [
       "typing games",
@@ -2759,8 +2915,8 @@
     "h1": "SSC CGL DEST 2026: format, key-depression maths and a 15-minute practice plan",
     "excerpt": "A practice guide to the SSC CGL Data Entry Speed Test: what a key depression is, how the 15-minute task is structured and how to train without guessing at a universal pass mark.",
     "datePublished": "2026-10-25",
-    "dateModified": "2026-11-12",
-    "author": "Typinger Team",
+    "dateModified": "2026-11-18",
+    "author": "Aditya Karn",
     "readingTime": "8 min read",
     "tags": [
       "ssc cgl",
@@ -2905,8 +3061,8 @@
       {
         "h2": "Independent practice, not an official exam client",
         "p": [
-          "Typinger is independent practice software. We are not affiliated with SSC, RRB, MP CPCT or any government recruitment body, and we do not reproduce their official scoring, error rules or qualification decisions.",
-          "Use the official notice and the instructions issued for your examination as the final authority. A practice score is feedback for training."
+          "Typinger is independent practice software, not SSC's DEST client. We are not affiliated with SSC or any government recruitment body, and we do not reproduce DEST's official scoring, error rules or qualification decisions.",
+          "The CGL notice and your post-specific DEST instructions remain the final authority. A Typinger character count is training feedback, not a qualification outcome."
         ]
       }
     ],

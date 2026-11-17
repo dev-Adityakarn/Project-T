@@ -73,14 +73,22 @@ const numberChunk = () => {
   return digits(rnd(4) + 2);
 };
 
-const passageFor = (key, words) => {
+const passageFor = (key) => {
   const paragraphs = ROUTE_PASSAGES[key];
   if (!paragraphs) return null;
-  let text = paragraphs.join(" ");
-  while (text.split(/\s+/).filter(Boolean).length < words) {
-    text += ` ${paragraphs.join(" ")}`;
+  return paragraphs.join(" ");
+};
+
+const uniqueParagraphs = (key, words = 200) => {
+  const paragraphs = ROUTE_PASSAGES[key] || [];
+  const out = [];
+  let count = 0;
+  for (const paragraph of paragraphs) {
+    out.push(paragraph);
+    count += paragraph.split(/\s+/).filter(Boolean).length;
+    if (count >= words) break;
   }
-  return text;
+  return out.join(" ");
 };
 
 export const makeTestText = (kind, { words = 150, texts, passage } = {}) => {
@@ -90,13 +98,9 @@ export const makeTestText = (kind, { words = 150, texts, passage } = {}) => {
   if (kind === "hindi") return shuffle(texts || []).slice(0, 6).join(" ");
   if (kind === "homerow") return randomWords(words, HOME_ROW).join(" ");
   if (passage) {
-    const text = passageFor(passage, words || 200);
+    const text = passageFor(passage);
     if (text) return text;
   }
-  if (kind === "paragraph") {
-    const out = [];
-    while (out.join(" ").split(/\s+/).length < (words || 200)) out.push(pick(ROUTE_PASSAGES.exam));
-    return out.join(" ");
-  }
+  if (kind === "paragraph") return uniqueParagraphs("exam", words || 200);
   return randomWords(words, [...COMMON, ...COMMON, ...MEDIUM, ...LONG]).join(" ");
 };

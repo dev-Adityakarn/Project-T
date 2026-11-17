@@ -79,7 +79,13 @@ describe("shared structured-data model", () => {
       SCHEMA_KEYS.faq,
     ]);
     expect(new Set(keys(schemas)).size).toBe(schemas.length);
-    expect(schemas.find((s) => s.key === SCHEMA_KEYS.organization).scope).toBe(SCHEMA_SCOPES.site);
+    const organization = schemas.find((s) => s.key === SCHEMA_KEYS.organization);
+    expect(organization.scope).toBe(SCHEMA_SCOPES.site);
+    expect(organization.data.founder).toEqual({
+      "@type": "Person",
+      name: "Aditya Karn",
+      url: "https://typinger.in/about/",
+    });
     expect(schemas.find((s) => s.key === SCHEMA_KEYS.faq).scope).toBe(SCHEMA_SCOPES.route);
     expect(schemas.find((s) => s.key === SCHEMA_KEYS.faq).path).toBe("/");
   });
@@ -104,6 +110,11 @@ describe("shared structured-data model", () => {
     expect(keys(schemas)).not.toContain(SCHEMA_KEYS.faq);
 
     const article = schemas.find((s) => s.key === SCHEMA_KEYS.article);
+    expect(article.data.author).toEqual({
+      "@type": "Person",
+      name: "Aditya Karn",
+      url: "https://typinger.in/about/",
+    });
     expect(article.data.mainEntityOfPage["@id"]).toBe(`https://typinger.in/blog/${post.slug}/`);
 
     const breadcrumb = schemas.find((s) => s.key === SCHEMA_KEYS.breadcrumb);

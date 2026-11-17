@@ -5,7 +5,7 @@
     "title": "Typing Blog: Speed, Accuracy and Keyboard Guides",
     "description": "Practical guides on typing speed, accuracy, average WPM by age and touch typing technique, written for anyone who wants faster and calmer hands.",
     "h1": "The Typinger typing blog",
-    "lead": "Practical guides on speed, accuracy, technique and what the numbers actually mean. Every guide states what it is based on and when it was last updated.",
+    "lead": "Practical guides on speed, accuracy, technique and what the numbers actually mean. Exam-specific claims cite the official notice, and every guide shows when it was last updated.",
     "breadcrumbs": [
       {
         "name": "Blog"
@@ -52,7 +52,7 @@
       {
         "h2": "Why we built Typinger",
         "p": [
-          "Typing is the one computer skill almost everybody uses every day and almost nobody trains. Most people learn by accident, settle somewhere around 40 words per minute and stay there for twenty years. The tools that could fix that are usually either clinical drill software that nobody opens twice, or games with no real measurement behind them.",
+          "Typing is the one computer skill almost everybody uses every day and almost nobody trains. Many people learn by accident and settle into a routine without ever practising the skill deliberately. The tools that could fix that are usually either clinical drill software that nobody opens twice, or games with no real measurement behind them.",
           "Typinger is the middle path. Underneath it is a strict measurement engine: standard five character words, keystroke level accuracy, honest timing that starts on your first key. On top of it sits an arcade — ten games, three difficulty levels, a daily challenge and achievement badges — so that the practice is something you actually want to do."
         ]
       },
@@ -74,7 +74,7 @@
       {
         "h2": "Who we are",
         "p": [
-          "Typinger is an independent project maintained by its owner and a small group of contributors. The site owner is responsible for the code, the practice passages and the editorial pages. You can reach us at support@typinger.in or through the contact form.",
+          "Typinger is built and operated by Aditya Karn, the Founder & Operator, based in Noida, Uttar Pradesh, India. He is responsible for the code, the practice passages and the editorial pages. You can reach him at support@typinger.in or through the contact form.",
           "Typinger is not affiliated with the Staff Selection Commission, the Railway Recruitment Boards, the MP CPCT programme or any government recruitment body. A practice score is feedback for training, not an official result or certification."
         ]
       },
@@ -82,14 +82,18 @@
         "h2": "How we research and update guides",
         "p": [
           "We use primary documents where a claim depends on a rule: official notifications, rulebooks, government releases and the exam body's own notice board. When a figure belongs to a specific cycle, the article names that cycle and links the source.",
+          "Practical guides are different. They are written from established touch-typing instruction, the site's own measurement rules and the published research or workplace guidance listed on each page. We do not present them as the results of a controlled experiment, a user survey or a personal training study. Targets such as 95-97% accuracy, ten to fifteen minutes a day and 40-50 WPM are editorial practice benchmarks, not universal standards.",
           "Every article shows a published date and, where it has been revised, an updated date. If a rule changes, we correct the article rather than leaving an old figure presented as current. If you spot an error, email support@typinger.in with the page and the correction.",
           "Our practice passages are original text written for Typinger. They are not copies of official exam passages, and a practice score does not reproduce an exam's scoring software."
         ]
       },
       {
-        "h2": "Editorial independence",
+        "h2": "Editorial policy and independence",
         "p": [
-          "Advertising, when enabled, does not determine which tools or articles we publish. We do not accept payment for a favourable review, a claimed pass mark or a testimonial. Where a page discusses an external product or exam, we say what we can verify and link the primary source."
+          "Advertising, when enabled, does not determine which tools or articles we publish. We do not accept payment for a favourable review, a claimed pass mark or a testimonial. Where a page discusses an external product or exam, we say what we can verify and link the primary source.",
+          "Advertising is currently disabled. Before any ad is served, we will configure a Google-certified consent management platform where required, keep ads out of active tests and lessons, and update the privacy policy to describe the real data flow. Enabling an ad unit is not the same as configuring consent.",
+          "Corrections are published on the page itself. We do not silently change a figure that affects an exam decision; we update the date and, where the change is material, explain what changed.",
+          "We do not invent qualifications, study results, testimonials or user numbers. The author bio lists only the role and location we can verify."
         ]
       }
     ],
@@ -116,7 +120,7 @@
       },
       {
         "q": "Who owns Typinger?",
-        "a": "Typinger is an independent project. The site owner is responsible for the service and can be contacted at support@typinger.in."
+        "a": "Typinger is built and operated by Aditya Karn, Founder & Operator. He is responsible for the service and can be contacted at support@typinger.in."
       }
     ],
     "related": [
@@ -140,7 +144,7 @@
     "title": "Contact Typinger: Support, Feedback and Bug Reports",
     "description": "Send the Typinger team a message about bugs, leaderboard issues, feature ideas, account problems or partnership enquiries using the contact form.",
     "h1": "Contact Typinger",
-    "lead": "Questions, corrections, bugs, leaderboard disputes or a feature idea — email us or use the form below.",
+    "lead": "Questions, corrections, bugs, leaderboard disputes or a feature idea — email us or use the form below. Typinger is built and operated by Aditya Karn in Noida, Uttar Pradesh, India.",
     "breadcrumbs": [
       {
         "name": "Contact"
@@ -214,9 +218,9 @@
     "path": "/privacy-policy",
     "key": "privacy",
     "title": "Privacy Policy: How Typinger Handles Your Data",
-    "description": "Read how Typinger collects, stores and protects your data, which cookies we set, how analytics consent works and how to delete your account for good.",
+    "description": "Read what Typinger stores, which cookies are active now, how analytics and advertising consent will work, and how to delete your account.",
     "h1": "Privacy policy",
-    "lead": "Last updated November 2026. The short version: we store what is needed to show your typing history, and nothing is sold.",
+    "lead": "Last updated November 2026. We store what is needed to show your typing history, nothing is sold, and the current build runs no analytics or advertising scripts.",
     "breadcrumbs": [
       {
         "name": "Privacy policy"
@@ -229,29 +233,29 @@
           "Account data: your display name, email address, a securely hashed password and the date you registered. Passwords are hashed with bcrypt and are never stored or transmitted in readable form.",
           "Result data: for each completed run, the game, difficulty, score, WPM, accuracy, duration and timestamp, plus whether it was a daily challenge.",
           "Technical data: standard server logs, which include an IP address for abuse prevention and rate limiting on sign-in.",
-          "Analytics data: only if you accept analytics cookies. Analytics is loaded through Google Analytics 4 with anonymised page and event data.",
-          "Advertising data: Google AdSense may collect cookie and device data to serve and measure ads, as explained in the advertising section below."
+          "Analytics data: none at present. The current production build does not load Google Analytics or any third-party analytics. If a Google Analytics 4 measurement ID is configured in a future build, analytics will load only after you accept the analytics control, and the data will be limited to anonymised page and event measurements.",
+          "Advertising data: none at present. Google AdSense is not active and the site serves no ads. If advertising is enabled after approval and the required consent platform is configured, Google AdSense may collect cookie and device data to serve and measure ads, as explained below."
         ]
       },
       {
         "h2": "Cookies and local storage",
         "p": [
           "Typinger sets an httpOnly authentication cookie and a refresh cookie when you sign in. These are strictly necessary for the site to keep you logged in and cannot be disabled while you are signed in.",
-          "Your browser's local storage holds non-identifying preferences: your theme choice, the sound mute toggle, your preferred difficulty and your cookie consent decision. Analytics cookies are only set after you choose Accept in the consent banner, and you can withdraw consent at any time by clearing site data. Advertising cookies are set by Google AdSense and are subject to Google's consent message where required."
+          "Your browser's local storage holds non-identifying preferences: your theme choice, the sound mute toggle, your preferred difficulty and your analytics choice. The current build does not set analytics or advertising cookies. If analytics is enabled, cookies are set only after you choose Accept; you can withdraw by reopening Privacy choices in the footer, which stops further analytics collection. Advertising cookies, if ads are enabled, are controlled by Google's certified consent message where required."
         ]
       },
       {
         "h2": "How we use your data",
         "p": [
           "Account and result data exists to run the features you asked for: your dashboard, your WPM chart, your achievement badges, the daily challenge board and the public leaderboards. Your display name is visible on leaderboards; your email address never is.",
-          "We do not sell personal data and we do not profile you for marketing. When advertising is enabled, we use Google AdSense to display advertising; Google and its partners may then use cookies to serve ads based on your visits to this and other websites. Aggregate, anonymised statistics may be used to write articles, for example average speeds across difficulty levels."
+          "We do not sell personal data and we do not profile you for marketing. The current build does not send analytics or advertising data to third parties. If analytics is enabled, aggregate, anonymised statistics may be used to understand which tests are useful and to write articles, for example average speeds across difficulty levels."
         ]
       },
       {
         "h2": "Advertising and Google AdSense",
         "p": [
-          "When advertising is enabled, Typinger is supported by advertising delivered by Google AdSense. Google, as a third-party vendor, then uses cookies to serve ads on this site. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to Typinger and/or other sites on the Internet.",
-          "You can opt out of personalised advertising by visiting Google Ads Settings at adssettings.google.com or aboutads.info. Where required by law, Google shows a consent message before using advertising cookies, and you can change your choice at any time. Advertising is never placed inside an active typing test, lesson, game, exam or Daily Challenge; ads appear only after a result or inside editorial content."
+          "Advertising is currently disabled. Typinger has no active AdSense units, and the AdSense runtime is not loaded. If advertising is enabled after approval, Google AdSense may use cookies to serve ads; Google's use of advertising cookies would enable it and its partners to serve ads based on your visit to Typinger and/or other sites on the Internet.",
+          "Before serving ads in the EEA, UK or Switzerland, we will configure Google's certified consent management platform through AdSense Privacy & messaging (or a Google-certified external CMP) and verify the consent signal. The site's own analytics control is separate and does not replace that CMP. You can opt out of personalised advertising at adssettings.google.com or aboutads.info. Ads will not be placed inside an active typing test, lesson, game, exam or Daily Challenge; they will appear only after a result or inside editorial content."
         ]
       },
       {
@@ -266,14 +270,15 @@
         "h2": "Security and changes to this policy",
         "p": [
           "Traffic is served over HTTPS, passwords are hashed with bcrypt, sign-in is rate limited after repeated failures and administrative pages require an admin role. No system is perfect, so please report any security concern to us directly.",
-          "If this policy changes we will update the date at the top of this page. Material changes will also be announced on the blog."
+          "If this policy changes we will update the date at the top of this page. Material changes will also be announced on the blog.",
+          "This policy describes the build at the date above. If analytics or advertising is enabled, we will update this policy before those scripts go live."
         ]
       }
     ],
     "faqs": [
       {
         "q": "Do you use tracking cookies?",
-        "a": "We use analytics cookies only after you accept them in the consent banner. When ads are enabled, Google AdSense may set advertising cookies to serve ads; where required, Google shows a separate consent message. Authentication cookies are strictly necessary and are set only when you sign in."
+        "a": "The current build does not set analytics or advertising cookies. It uses essential authentication cookies when you sign in. If analytics is enabled, it will load only after you accept the analytics control, and you can withdraw in Privacy choices. If ads are enabled, Google's certified consent message will control advertising cookies where required."
       },
       {
         "q": "Can I use Typinger without an account?",

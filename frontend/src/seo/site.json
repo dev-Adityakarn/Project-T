@@ -9,13 +9,15 @@
   "ogImage": "/og/typinger-default.png",
   "logo": "/og/typinger-logo.png",
   "founded": "2026",
-  "author": "Typinger Team",
+  "author": "Aditya Karn",
+  "founder": "Aditya Karn",
   "supportEmail": "support@typinger.in",
   "jurisdiction": "India",
   "owner": {
     "name": "Typinger",
     "legalName": "Typinger",
-    "author": "Typinger Team",
+    "author": "Aditya Karn",
+    "role": "Founder & Operator",
     "supportEmail": "support@typinger.in",
     "jurisdiction": "India"
   },
